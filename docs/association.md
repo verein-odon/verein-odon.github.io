@@ -1,7 +1,7 @@
 ---
 layout: page
-title: Mitglieder
-permalink: /members/
+title: Verein
+permalink: /verein/
 ---
 
 # Die About Seite!

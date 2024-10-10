@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Offene Daten
-permalink: /opendata/
+permalink: /offenedaten/
 ---
 
 # Die Open Data Seite!

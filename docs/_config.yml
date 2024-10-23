@@ -24,7 +24,7 @@ description: >- # this means to ignore newlines until "baseurl:"
   Als Verein setzten wir uns für Offene Daten und deren Offene Nutzung ein.
 baseurl: "" # the subpath of your site, e.g. /blog
 url: "" # the base hostname & protocol for your site, e.g. http://example.com
-twitter_username: odon-at
+#twitter_username: odon-at
 github_username:  odon-at
 
 # Build settings

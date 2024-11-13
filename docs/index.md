@@ -18,7 +18,7 @@ Wir sind ein Verein, der sich auf die technische Verarbeitung und Nutzung von [O
 
 - <b>Für Mitglieder und die Data-Community</b> bieten wir im [Verein](/verein/) eine Platform, wo sich Datenenthusiasten, Entwickler, Forscher und Entscheidungsträger vernetzen, um gemeinsam an Projekten zu arbeiten, die das volle Potenzial von Offenen Daten ausschöpfen. 
 
-- <b>Für den Datenhunger</b> stellen wir [APIs](/api/) zu verschiedene offene Daten zur Verfügung.
+- <b>Für den Datenhunger</b> stellen wir [APIs](/apis/) zu verschiedene Offene Daten zur Verfügung.
 
 
 

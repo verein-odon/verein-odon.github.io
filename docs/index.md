@@ -12,13 +12,13 @@ Wir sind ein Verein, der sich auf die technische Verarbeitung und Nutzung von [O
 
 ## Was wir tun
 
-- <b>Für Organisationen und Unternehmen</b>: Wir entwickeln [technische Lösungen](/technische-loesungen//) um Offene Daten für sie nutzbar zu machen und helfen bei allen Schritten von der Grundidee bis hin zur Veröffentlichung. 
+- <b>Für Organisationen und Unternehmen</b> entwickeln wir [technische Lösungen](/technische-loesungen//) um Offene Daten nutzbar zu machen und helfen bei allen Schritten von der Grundidee bis hin zur Veröffentlichung. 
 
 <!-- ![Alt text](assets/images/index_for_organisations.webp) -->
 
-- <b>Für Mitglieder und die Data-Community</b>: Im [Verein](/verein/) vernetzen wir Datenenthusiasten, Entwickler, Forscher und Entscheidungsträger, um gemeinsam an Projekten zu arbeiten, die das volle Potenzial von Offenen Daten ausschöpfen. 
+- <b>Für Mitglieder und die Data-Community</b> bieten wir im [Verein](/verein/) eine Platform, wo sich Datenenthusiasten, Entwickler, Forscher und Entscheidungsträger vernetzen, um gemeinsam an Projekten zu arbeiten, die das volle Potenzial von Offenen Daten ausschöpfen. 
 
-- <b>Für den Datenhunger</b>: Wir stellen APIs für verschiedene offene Daten zur Verfügung. Mehr dazu auf unsere [API Seite](/api/).
+- <b>Für den Datenhunger</b> stellen wir [APIs](/api/) zu verschiedene offene Daten zur Verfügung.
 
 
 

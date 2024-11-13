@@ -1,11 +1,11 @@
 ---
 layout: page
-title: Technische Lösungen
+title: Technische Lösungen von Odon
 permalink: /technische-loesungen/
 ---
 
-# Technische Lösungen von ODON
 
-## Standardlösungen
 
-## Speziallösungen
+# Standardlösungen
+
+# Speziallösungen

@@ -10,7 +10,7 @@ Unser Verein widmet sich der technischen Verarbeitung und Nutzung von offenen Da
 
 ## Unsere Mission
 
-Unsere Mission ist es, eine Plattform zu schaffen, die es allen ermöglicht, auf offene Daten zuzugreifen und diese für eigene Projekte, Forschungen oder geschäftliche Zwecke zu nutzen. Durch die Bereitstellung technischer Infrastruktur und benutzerfreundlicher Schnittstellen möchten wir die Hemmschwellen bei der Nutzung offener Daten senken und die Zusammenarbeit zwischen Bürger*innen, Entwickler*innen und Organisationen fördern.
+Unsere Mission ist es, eine Plattform zu schaffen, die es allen ermöglicht, auf offene Daten zuzugreifen und diese für eigene Projekte, Forschungen oder geschäftliche Zwecke zu nutzen. Durch die **Bereitstellung technischer Infrastruktur** und **benutzerfreundlicher Schnittstellen** möchten wir die Hemmschwellen bei der Nutzung offener Daten senken und die Zusammenarbeit zwischen User*innen, Entwickler*innen und Organisationen fördern.
 
 ## Der Vorstand
 

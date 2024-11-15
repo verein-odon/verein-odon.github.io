@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Einladung zur ersten Generalversammlung am 13. November"
+title:  "Einladung zur Generalversammlung 2024"
 date:   2024-09-13 00:00:01 +0100
 categories: odon verein
 ---
@@ -10,7 +10,7 @@ categories: odon verein
 
 Liebe Mitglieder,
 
-wir laden euch herzlich zur ersten Generalversammlung unseres Vereins ein. Alle ordentlichen Mitglieder sind eingeladen, an der Versammlung teilzunehmen, mitzudiskutieren und ihre Stimme abzugeben.
+wir laden euch herzlich zur Generalversammlung 2024 unseres Vereins ein. Alle ordentlichen Mitglieder sind eingeladen, an der Versammlung teilzunehmen, mitzudiskutieren und ihre Stimme abzugeben.
 
 **Tagesordnungspunkte:**
 - **Wahl der Vorstandsposten**

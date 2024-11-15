@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Technische Lösungen von Odon
+title: Technische Lösungen
 permalink: /technische-loesungen/
 ---
 

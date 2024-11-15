@@ -12,6 +12,17 @@ Unser Verein widmet sich der technischen Verarbeitung und Nutzung von offenen Da
 
 Unsere Mission ist es, eine Plattform zu schaffen, die es allen ermöglicht, auf offene Daten zuzugreifen und diese für eigene Projekte, Forschungen oder geschäftliche Zwecke zu nutzen. Durch die **Bereitstellung technischer Infrastruktur** und **benutzerfreundlicher Schnittstellen** möchten wir die Hemmschwellen bei der Nutzung offener Daten senken und die Zusammenarbeit zwischen User*innen, Entwickler*innen und Organisationen fördern.
 
+## Mitgliedschaften
+
+Als Verein sind wir bestrebt den Vereinszweck so gut wie möglich umzusetzten und wir wissen, dass das erst durch unsere Mitglieder ermöglicht wird. Daher ist für einen diverse Mitgliederbasis sehr wichtig und um das zu fördern, bieten wir verschieden Mitgliedschaften an.
+
+- Ordentliche Mitgliedschaft:
+Als ordentliche Mitglied nimmst du aktiv Teil am Geschehen des Vereins und bestimmst auch die Richtung, in die sich der Verein entwickelt. Du bringst deine Fähigkeiten ein um den Vereinszweck zu erfühlen und den Verein weiterzubringen. 
+Wenn du im Bereich Offene Daten aktiv werden willst und uns helfen willst die Welt zu verbessern, schicke uns eine Email an info@odon.at und beschreibe dich kurz und warum du ODON als ordentliches Mitglied beitreten willst.
+
+- Ausserordentliche Mitgliedschaft:
+Willst du nur das Angebot von ODON benutzen, so zum Beispiel die APIs, Trainings oder anderes Material, aber du hast sonst kein Interesse dich im Verein aktive einzubringen, dann bietet sich die Mitgliedschaft als ausserordentliches Mitglied an.
+
 ## Der Vorstand
 
 Unser Vorstand besteht aus vier engagierten Mitgliedern, die ihre vielfältigen Kompetenzen und Erfahrungen in den Bereichen Datenverarbeitung, Technologie und Verwaltung einbringen, um die Ziele unseres Vereins voranzutreiben.

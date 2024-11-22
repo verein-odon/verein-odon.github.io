@@ -42,7 +42,9 @@ Clemens Mock ist unser Experte für technische Infrastruktur und API-Entwicklung
 
 [c.teuschel@odon.at](mailto:c.teuschel@odon.at)
 
-Christian Teuschel ist verantwortlich für Kommunikation und Öffentlichkeitsarbeit. Mit ihrer Erfahrung im Bereich PR und Öffentlichkeitsarbeit sorgt sie dafür, dass die Arbeit des Vereins sichtbar und zugänglich ist. Sie arbeitet eng mit der Gemeinschaft und anderen Organisationen zusammen, um den Nutzen offener Daten aufzuzeigen.
+Christian Teuschel hat in seiner Karriere umfassende Erfahrungen in den vielfältigen Bereichen der Datenverarbeitung gesammelt. Sein Weg führte ihn von Universitäts-Spin-offs über Forschungs- und Entwicklungsabteilungen bis hin zu innovativen Start-ups. Dabei arbeitete er an Projekten, die von Buchungsplattformen für Millionen von Urlaubern bis zu Informationssystemen reichten, die eine zentrale Rolle für die Funktionsweise des Internets spielen.
+
+Bei ODON ist Christian Teuschel die treibende Kraft hinter der Produktentwicklung und verantwortet die technische Umsetzung. Der Verein selbst ist aus einer seiner Ideen hervorgegangen.
 
 ### 4. Wolfgang Hauer
 **Schriftführer** & **Stellvertreter des Kassiers**

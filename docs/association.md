@@ -44,7 +44,7 @@ Clemens Mock ist unser Experte für technische Infrastruktur und API-Entwicklung
 
 Christian Teuschel hat in seiner Karriere umfassende Erfahrungen in den vielfältigen Bereichen der Datenverarbeitung gesammelt. Sein Weg führte ihn von Universitäts-Spin-offs über Forschungs- und Entwicklungsabteilungen bis hin zu innovativen Start-ups. Dabei arbeitete er an Projekten, die von Buchungsplattformen für Millionen von Urlaubern bis zu Informationssystemen reichten, die eine zentrale Rolle für die Funktionsweise des Internets spielen.
 
-Bei ODON ist Christian Teuschel die treibende Kraft hinter der Produktentwicklung und verantwortet die technische Umsetzung. Der Verein selbst ist aus einer seiner Ideen hervorgegangen.
+Bei ODON ist Christian die treibende Kraft hinter der Produktentwicklung und verantwortet die technische Umsetzung. Der Verein selbst ist aus einer seiner Ideen hervorgegangen.
 
 ### 4. Wolfgang Hauer
 **Schriftführer** & **Stellvertreter des Kassiers**

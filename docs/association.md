@@ -22,16 +22,20 @@ Unser Vorstand besteht aus vier engagierten Mitgliedern, die ihre vielfältigen 
 ### 1. Bennedikt Schöffmann
 **Kassier**
 
-<!-- ![Wolfgang Hauer](/assets/images/people/wolfgang_hauer.jpg) -->
+![Wolfgang Hauer](/assets/images/people/benedikt_schoeffmann.jpeg)
 
 [b.schoeffmann@odon.at](mailto:b.schoeffmann@odon.at)
 
-Bennedikt Schöffmann ist die Vorsitzende des Vereins und bringt langjährige Erfahrung in der Datenwissenschaft und -analyse mit. Mit einem Doktortitel in Informatik und ihrer Leidenschaft für offene Daten leitet sie das Team bei der Umsetzung unserer Projekte und strategischen Initiativen.
+Benedikt Schöffmann bringt mehr als 20 Jahre Erfahrung in der Softwareentwicklung in den Vorstand von ODON ein. Als Head of Software Development bei oe24 und Creare-X hat er Teams geleitet und Projekte im Bereich IoT und Embedded Systems umgesetzt, wodurch er die technische Strategie des Vereins entscheidend mitgestaltet.
+
+Neben seiner beruflichen Expertise bereichert er ODON mit seiner Leidenschaft für Musik und seiner Tätigkeit als DJ. Sein kreatives Gespür und technisches Feingefühl liefern innovative Perspektiven auf die Nutzung und Visualisierung offener Daten, um Transparenz und Kollaboration zu fördern.
 
 ### 2. Clemens Mock
 **Stellvertreter des Obmanns** & **Stellvertreter des Schriftführers**
 
-<!-- ![Wolfgang Hauer](/assets/images/people/wolfgang_hauer.jpg) -->
+![Clemens Mock (Foto von Martin Musič)](/assets/images/people/clemens_mock.jpeg)
+
+*Foto: Martin Musič
 
 [c.mock@odon.at](mailto:c.mock@odon.at)
 
@@ -42,6 +46,8 @@ Als Vorstandsmitglied von ODON bringt Clemens sein interdisziplinäres Kunstvers
 ### 3. Christian Teuschel
 **Obmann**
 
+![Christian Teuschel](/assets/images/people/christian_teuschel.jpeg)
+
 [c.teuschel@odon.at](mailto:c.teuschel@odon.at)
 
 Christian Teuschel hat in seiner Karriere umfassende Erfahrungen in den vielfältigen Bereichen der Datenverarbeitung gesammelt. Sein Weg führte ihn von Universitäts-Spin-offs über Forschungs- und Entwicklungsabteilungen bis hin zu innovativen Start-ups. Dabei arbeitete er an Projekten, die von Buchungsplattformen für Millionen von Urlaubern bis zu Informationssystemen reichten, die eine zentrale Rolle für die Funktionsweise des Internets spielen.
@@ -51,7 +57,7 @@ Bei ODON ist Christian die treibende Kraft hinter der Produktentwicklung und ver
 ### 4. Wolfgang Hauer
 **Schriftführer** & **Stellvertreter des Kassiers**
 
-![Wolfgang Hauer](/assets/images/people/wolfgang_hauer.jpg)
+![Wolfgang Hauer](/assets/images/people/wolfgang_hauer.jpeg)
 
 [w.hauer@odon.at](mailto:w.hauer@odon.at)
 

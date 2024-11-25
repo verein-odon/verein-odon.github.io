@@ -35,7 +35,9 @@ Bennedikt Schöffmann ist die Vorsitzende des Vereins und bringt langjährige Er
 
 [c.mock@odon.at](mailto:c.mock@odon.at)
 
-Clemens Mock ist unser Experte für technische Infrastruktur und API-Entwicklung. Mit seinem Hintergrund in Softwareentwicklung und Systemadministration stellt er sicher, dass unsere Plattform robust und zugänglich ist. Er spielt eine Schlüsselrolle in der Bereitstellung der technischen Basis für die Datenzugriffe.
+Clemens Mock arbeitet seit mehreren Jahren im Ars Electronica Center Linz, wo er umfassende Erfahrungen in der Vermittlung künstlerischer und technischer Inhalte gesammelt hat. Seine Tätigkeit reicht von der Leitung des Fablabs und der Entwicklung von Workshops für Jugendliche bis hin zur Erstellung von Schulungsvideos und der Post-Production für Online-Webinare. Mit seinem breiten Spektrum an gestalterischen und technischen Fähigkeiten, darunter Bildbearbeitung und Videoproduktion, hat er zahlreiche interdisziplinäre Projekte erfolgreich umgesetzt.
+
+Als Vorstandsmitglied von ODON bringt Clemens sein interdisziplinäres Kunstverständnis, technologische Expertise und kreatives Gespür in die Visualisierung offener Daten ein. Er sieht die öffentliche Nutzung und ansprechende Darstellung von Daten als wichtigen gesellschaftlichen Beitrag zur Förderung von Transparenz und Verständnis komplexer Inhalte. Mit innovativen Ideen und einem Gespür für ästhetische Vermittlungsformen stärkt er die Mission von ODON, Kollaboration und kreative Lösungen zu fördern.
 
 ### 3. Christian Teuschel
 **Obmann**

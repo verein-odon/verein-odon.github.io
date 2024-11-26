@@ -28,7 +28,7 @@ Unser Vorstand besteht aus vier engagierten Mitgliedern, die ihre vielfältigen 
 
 Benedikt Schöffmann bringt mehr als 20 Jahre Erfahrung in der Softwareentwicklung in den Vorstand von ODON ein. Als Head of Software Development bei oe24 und Creare-X hat er Teams geleitet und Projekte im Bereich IoT und Embedded Systems umgesetzt, wodurch er die technische Strategie des Vereins entscheidend mitgestaltet.
 
-Neben seiner beruflichen Expertise bereichert er ODON mit seiner Leidenschaft für Musik und seiner Tätigkeit als DJ. Sein kreatives Gespür und technisches Feingefühl liefern innovative Perspektiven auf die Nutzung und Visualisierung offener Daten, um Transparenz und Kollaboration zu fördern.
+Neben seiner beruflichen Expertise bereichert er ODON mit seiner Leidenschaft für Musik. Sein kreatives Gespür und technisches Feingefühl liefern innovative Perspektiven auf die Nutzung und Visualisierung offener Daten, um Transparenz und Kollaboration zu fördern.
 
 ### 2. Clemens Mock
 **Stellvertreter des Obmanns** & **Stellvertreter des Schriftführers**

@@ -10,7 +10,7 @@ Da wir diese APIs im Rahmen unserer finanziellen Möglichkeiten betreiben und Mi
 
 Solltet ihr mehr Anfragen benötigen, könnt ihr euch als außerordentliches Mitglied registrieren, um eine höhere Anfragerate zu erhalten. Für einen sehr hohen Bedarf an Anfragen sendet bitte eine E-Mail an [info@odon.at](mailto:info@odon.at).
 
-Für Wünsche und Anregungen zu neuen APIs sind wir immmer offen, bitte schickt uns eine Email an [info@odon.at](mailto:info@odon.at) oder kontaktiert einen von unseren Mitgliedern.
+Für Wünsche und Anregungen zu neuen APIs sind wir immer offen, bitte schickt uns eine Email an [info@odon.at](mailto:info@odon.at) oder kontaktiert einen von unseren Mitgliedern.
 
 ## Liste der APIs
 

@@ -8,7 +8,7 @@ permalink: /verein/
 
 ODON ist in Österreich als Verein registriert (ZVR: **1593372349**) und hat seinen **Sitz in Wien**.
 
-Unser Verein widmet sich der technischen Verarbeitung und Nutzung von offenen Daten (Open Data). Unser Ziel ist es, Daten für die Öffentlichkeit zugänglich und nutzbar zu machen, um Innovation, Transparenz und Wissensverbreitung in unserer Gemeinschaft zu fördern. Wir glauben daran, dass offene Daten eine wertvolle Ressource sind, die – wenn sie sinnvoll genutzt wird – neue Ideen anregen, das Vertrauen in öffentliche Prozesse stärken und das Wissen innerhalb der Gesellschaft erweitern kann.
+Unser Verein widmet sich der technischen Verarbeitung und Nutzung von offenen Daten (Open Data). Unser Ziel ist es, Daten für die Öffentlichkeit zugänglich und nutzbar zu machen, um Innovation, Transparenz und Wissensverbreitung in unserer Gemeinschaft zu fördern. Wir glauben daran, dass offene Daten eine wertvolle Ressource sind. Diese Ressource kann - wenn sie sinnvoll genutzt wird - neue Ideen anregen, das Vertrauen in öffentliche Prozesse stärken und das Wissen innerhalb der Gesellschaft erweitern.
 
 ## Unsere Mission
 
@@ -41,7 +41,7 @@ Neben seiner beruflichen Expertise bereichert er ODON mit seiner Leidenschaft f�
 
 Clemens Mock arbeitet seit mehreren Jahren im Ars Electronica Center Linz, wo er Erfahrungen in der Vermittlung künstlerischer und technischer Inhalte gesammelt hat. Seine Tätigkeit reicht von der Verantwortung für das Fablab und der Entwicklung von Workshops für Jugendliche bis hin zur Erstellung von Schulungsvideos und der Post-Production für Online-Webinare. Mit seinem breiten Spektrum an gestalterischen und technischen Fähigkeiten, darunter Bildbearbeitung und Videoproduktion, hat er zahlreiche interdisziplinäre Projekte erfolgreich umgesetzt.
 
-Als Vorstandsmitglied von ODON bringt Clemens sein interdisziplinäres Kunstverständnis, technologische Expertise und kreatives Gespür bei der Visualisierung offener Daten ein. Er sieht die öffentliche Nutzung und ansprechende Darstellung von Daten als wichtigen gesellschaftlichen Beitrag zur Förderung von Transparenz und Verständnis komplexer Inhalte.
+Als Vorstandsmitglied von ODON bringt Clemens sein interdisziplinäres Kunstverständnis, technologische Expertise und kreatives Gespür bei der Visualisierung offener Daten ein. Er sieht die offene Nutzung und ansprechende Darstellung von Daten als wichtigen gesellschaftlichen Beitrag zur Förderung von Transparenz und Verständnis komplexer Inhalte.
 
 ### 3. Christian Teuschel
 **Obmann**

@@ -16,8 +16,11 @@ Für Wünsche und Anregungen zu neuen APIs sind wir immer offen, bitte schickt u
 
 | Description                                | URL                                             | Request Limitations             |
 |--------------------------------------------|-------------------------------------------------|---------------------------------|
-| Global Weather Data API                    | `https://api.opendataweather.com/global`        | 500 requests per day            |
-| Open Street Map Data API                   | `https://api.openstreetmap.org`                 | 1000 requests per hour          |
+| Sample API 1                               | `https://api.odon.at/XXX`                       | 500 requests per day            |
+| Sample API 2                               | `https://api.odon.at/XXX`                       | 300 requests per day            |
+
+
+<!-- 
 | Public Transport API                       | `https://api.transitdata.com/public`            | 200 requests per minute         |
 | Air Quality Index API                      | `https://api.openaq.org/v1`                     | No specific limitations         |
 | Open Census Data API                       | `https://api.census.gov/data`                   | 100 requests per hour           |
@@ -45,4 +48,4 @@ Für Wünsche und Anregungen zu neuen APIs sind wir immer offen, bitte schickt u
 | Marine Traffic Data API                    | `https://api.marinetraffic.com`                 | 200 requests per minute         |
 | Open Access Scientific Papers API          | `https://api.core.ac.uk`                        | 50 requests per minute          |
 | Renewable Energy Production Data API       | `https://api.renewabledata.com`                 | 500 requests per hour           |
-| Global Ocean Temperature Data API          | `https://api.oceandata.com`                     | 1000 requests per day           |
+| Global Ocean Temperature Data API          | `https://api.oceandata.com`                     | 1000 requests per day           | -->

@@ -6,7 +6,7 @@ layout: home
 list_title: Neuigkeiten
 ---
 
- <img src="assets/images/logo.svg" alt="Description of image" width="300">
+ <img src="assets/images/logo.png" alt="Description of image" width="300">
 
 Wir sind ein Verein, der sich auf die technische Verarbeitung und Nutzung von [Offenen Daten (Open Data)](/offene-daten) spezialisiert hat. Unser Ziel ist es, diese Daten **zugänglich** und **nutzbar** zu machen, um **Innovation**, **Transparenz** und **Wissen** in unserer Gemeinschaft zu fördern. 
 

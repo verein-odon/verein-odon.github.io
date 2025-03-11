@@ -41,7 +41,6 @@ Für Wünsche und Anregungen zu neuen APIs sind wir immer offen, bitte schickt u
 | Wildlife Observation Data API              | `https://api.inaturalist.org/v1`                | 60 requests per minute          |
 | USGS Water Data API                        | `https://waterservices.usgs.gov`                | No specific limitations         |
 | Open Transport Data API                    | `https://developer.transportapi.com`            | 500 requests per hour           |
-| COVID-19 Global Data API                   | `https://covid19api.com`                        | 100 requests per minute         |
 | Open Waste Management Data API             | `https://api.wastemgmtdata.org`                 | 1000 requests per day           |
 | UNESCO Heritage Sites Data API             | `https://whc.unesco.org/api`                    | No specific limitations         |
 | Global Land Cover Data API                 | `https://api.landcover.org`                     | 300 requests per hour           |

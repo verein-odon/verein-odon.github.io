@@ -28,7 +28,13 @@ url: "" # the base hostname & protocol for your site, e.g. http://example.com
 github_username:  odon-at
 
 # Build settings
-theme: minima
+#theme: minima
+# Tell Jekyll where to find theme components
+include:
+  - _layouts
+  - _includes
+  - _sass
+
 plugins:
   - jekyll-feed
 

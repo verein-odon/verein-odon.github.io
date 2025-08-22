@@ -11,5 +11,15 @@
 
   {%- if jekyll.environment == 'production' -%}
     <!-- <script defer data-domain="odon.at" src="https://plausible.io/js/script.outbound-links.js"></script> -->
+    <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="ad01c45c-0313-4d9c-a1da-144bf156af80" type="text/javascript" async></script>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-EM1PTP7BWD"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-EM1PTP7BWD');
+    </script>
   {%- endif -%}
 </head>

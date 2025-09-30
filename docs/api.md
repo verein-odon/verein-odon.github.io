@@ -16,7 +16,7 @@ Für Wünsche und Anregungen zu neuen APIs sind wir immer offen, bitte schickt u
 
 | Name                                | URL                                             | Information             |
 |--------------------------------------------|-------------------------------------------------|---------------------------------|
-| Worldbank Total Population                               | `https://api-eu-1.odon.at/worldbank-totalpopulation/`                       |        Dieses Datenset enthält die Gesamtbevölkerung von Ländern und Regionen, gemessen zur Jahresmitte und basierend auf der de-facto-Definition der Bevölkerung. Das bedeutet, es umfasst alle Einwohner, unabhängig vom rechtlichen Status oder der Staatsangehörigkeit – also werden auch ausländische Arbeitskräfte, Geflüchtete und andere Personen erfasst, sofern sie im Land wohnhaft sind. Quelle: Weltbank   |
+| Worldbank Total Population                               | `https://api-eu-2.odon.at/worldbank-totalpopulation/`                       |        Dieses Datenset enthält die Gesamtbevölkerung von Ländern und Regionen, gemessen zur Jahresmitte und basierend auf der de-facto-Definition der Bevölkerung. Das bedeutet, es umfasst alle Einwohner, unabhängig vom rechtlichen Status oder der Staatsangehörigkeit – also werden auch ausländische Arbeitskräfte, Geflüchtete und andere Personen erfasst, sofern sie im Land wohnhaft sind. Quelle: Weltbank   |
 | -                               | `-`                       | -           |
 
 

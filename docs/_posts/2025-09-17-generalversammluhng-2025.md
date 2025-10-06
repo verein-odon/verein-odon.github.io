@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Einladung zur Generalversammlung 2025"
-date:   2024-09-17 00:00:01 +0100
+date:   2025-09-17 00:00:01 +0100
 categories: odon verein
 ---
 

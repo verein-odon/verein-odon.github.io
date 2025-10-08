@@ -13,9 +13,12 @@ Liebe Mitglieder,
 wir laden euch herzlich zur Generalversammlung 2025 unseres Vereins ein. Alle ordentlichen Mitglieder sind eingeladen, an der Versammlung teilzunehmen, mitzudiskutieren und ihre Stimme abzugeben.
 
 **Tagesordnungspunkte:**
-- **Einleitung durch den Obmann**
-- **Präsentation des Tätigkeitsberichts und des Rechnungsabschlusses 2025**
-- **Vorstellung der Strategie für 2026**
+- **Eröffnung und Begrüßung**
+- **Bericht vom Obmann**
+- **Bericht vom Kassier**
+- **Bericht vom Rechnungsprüfer**
+- **Genehmigung des Rechenschaftsberichts**
+- **Wahlen und Beschlussfassung**
 - **Festlegung der Mitgliedsbeiträge für das Jahr 2026**
 - **Sonstiges**
 

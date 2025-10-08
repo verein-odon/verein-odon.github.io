@@ -10,7 +10,7 @@ list_title: Neuigkeiten
 
 Wir sind ein Verein, der sich auf die technische Verarbeitung und Nutzung von [Offenen Daten (Open Data)](/offene-daten) spezialisiert hat. Unser Ziel ist es, diese Daten **zugänglich** und **nutzbar** zu machen, um **Innovation**, **Transparenz** und **Wissen** in unserer Gemeinschaft zu fördern. 
 
-## Was wir tun
+## Was wir tun tun wir gerne
 
 - <b>Für Organisationen und Unternehmen</b> entwickeln wir [technische Lösungen](/technische-loesungen//) um Offene Daten nutzbar zu machen und helfen bei allen Schritten von der Grundidee bis hin zur Veröffentlichung. 
 

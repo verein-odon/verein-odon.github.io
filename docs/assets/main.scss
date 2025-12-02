@@ -3,3 +3,132 @@
 ---
 
 @import "minima";
+
+:root {
+  /* Modern Font Stack */
+  --font-stack-heading: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  --font-stack-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  /* Modern Color Palette (A sleek dark blue/grey vibe) */
+  --brand-color: #2563eb;     /* A vibrant blue for links */
+  --text-color: #1f2937;      /* Soft near-black, less harsh than #000 */
+  --bg-color: #ffffff;
+  --code-bg: #f3f4f6;         /* Light grey for code blocks */
+  --header-bg: #ffffff;
+  --border-color: #e5e7eb;
+}
+
+/* --- Overriding Minima Defaults --- */
+
+body {
+  font-family: var(--font-stack-body);
+  color: var(--text-color);
+  background-color: var(--bg-color);
+  line-height: 1.7; /* More whitespace between lines */
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-stack-heading);
+  font-weight: 700;
+  letter-spacing: -0.025em; /* Tighter tracking for headings looks modern */
+  color: #111827; /* Slightly darker headings */
+}
+
+a, .site-title, .page-link {
+  color: var(--brand-color);
+  text-decoration: none; /* Remove underlines by default */
+  transition: color 0.2s ease-in-out;
+}
+
+a:hover {
+  text-decoration: underline;
+  color: darken(#2563eb, 15%);
+}
+
+/* --- Layout & Spacing Tweaks --- */
+
+/* Make the main container wider */
+.wrapper {
+  max-width: 900px; /* Increased from Minima default */
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+/* Modernize the header */
+.site-header {
+  border-top: none; /* Remove Minima's top green bar */
+  border-bottom: 1px solid var(--border-color);
+  min-height: 80px; /* Taller header */
+  background: var(--header-bg);
+  /* Center items vertically */
+  display: flex;
+  align-items: center;
+
+  .wrapper {
+     display: flex;
+     align-items: center;
+     justify-content: space-between;
+     width: 100%;
+  }
+}
+
+.site-title {
+  font-weight: 800;
+  font-size: 24px;
+  letter-spacing: -1px;
+}
+
+/* Modernize post lists on the homepage */
+.post-list > li {
+  margin-bottom: 40px; /* More space between posts */
+}
+
+.post-meta {
+  font-size: 14px;
+  color: #6b7280; /* Lighter grey for metadata */
+  font-weight: 500;
+}
+
+.post-link {
+  font-size: 28px;
+  font-weight: 700;
+  display: block;
+  margin-bottom: 8px;
+}
+
+/* Modernize code blocks */
+pre, code {
+    font-family: 'Fira Code', 'Roboto Mono', monospace; /* Use a nice monospaced font if you have it loaded */
+    background-color: var(--code-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 8px; /* Rounded corners! Very modern. */
+}
+
+.highlighter-rouge .highlight {
+    background-color: var(--code-bg);
+    border-radius: 8px;
+}
+
+/* --- DARK MODE --- */
+/* This media query detects if the user's OS is set to Dark Mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Redefine the variables for dark settings */
+    --text-color: #e5e7eb;  /* Light grey text */
+    --bg-color: #111827;    /* Deep dark blue-grey background */
+    --code-bg: #1f2937;     /* Slightly lighter for code blocks */
+    --header-bg: #111827;
+    --border-color: #374151;
+    --brand-color: #60a5fa; /* Lighter blue for contrast against dark bg */
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+      color: #ffffff;
+  }
+
+  /* Adjust syntax highlighting for dark mode if necessary */
+  .highlighter-rouge .highlight {
+      background-color: var(--code-bg);
+      border-color: var(--border-color);
+  }
+}

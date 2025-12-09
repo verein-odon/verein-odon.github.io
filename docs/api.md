@@ -4,6 +4,8 @@ title: APIs
 permalink: /apis/
 ---
 
+<img src="/assets/images/headers/linked_tables.svg" class="header-image" alt="Relational tables are linked">
+
 Der Zweck von ODON ist es, die Nutzung, Bereitstellung und Veröffentlichung offener Daten zu fördern. Ein Weg, dies zu erreichen, besteht darin, APIs für offene Daten bereitzustellen. Im Folgenden findet ihr eine Übersicht über alle von uns zur Verfügung gestellten APIs.
 
 Da wir diese APIs im Rahmen unserer finanziellen Möglichkeiten betreiben und Missbrauch verhindern möchten, ist eine einfache Registrierung erforderlich. Nach der Anmeldung erhaltet ihr ein URL-Token, mit dem ihr jede unserer APIs für eine festgelegte Anzahl von Anfragen ohne weitere Einschränkungen nutzen könnt.  Dazu schreibt ihr bitte eine Email an [info@odon.at](mailto:info@odon.at).
@@ -39,7 +41,7 @@ Für Wünsche und Anregungen zu neuen APIs sind wir immer offen, bitte schickt u
       <th>Endpoint</th>
       <th>Description</th>
     </tr>
-  </thead>
+  </thead> 
   <tbody>
     {% for api in site.data.apis %}
     <tr>

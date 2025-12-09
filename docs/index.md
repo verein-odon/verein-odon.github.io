@@ -12,7 +12,7 @@ Wir sind ein Verein, der sich auf die technische Verarbeitung und Nutzung von [O
 
 ## Was wir tun
 
-- <b>Für Organisationen und Unternehmen</b> entwickeln wir [technische Lösungen](/technische-loesungen//) um Offene Daten nutzbar zu machen und helfen bei allen Schritten von der Grundidee bis hin zur Veröffentlichung. 
+- <b>Für Organisationen und Unternehmen</b> entwickeln wir [technische Lösungen](/technische-loesungen//) um Offene Daten nutzbar zu machen und helfen bei allen Schritten von der Grundidee über die Softwareentwicklung bis zum Storytelling! 
 
 <!-- ![Alt text](assets/images/index_for_organisations.webp) -->
 

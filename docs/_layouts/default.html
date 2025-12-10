@@ -2,10 +2,12 @@
 <html lang="{{ page.lang | default: site.lang | default: "en" }}">
 
   {%- include head.html -%}
-
+  
+  {% include language_switcher.html %}
   <body>
 
     {%- include header.html -%}
+
 
     <main class="page-content" aria-label="Content">
       <div class="wrapper">

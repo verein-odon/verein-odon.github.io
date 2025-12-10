@@ -1,7 +1,9 @@
 ---
 layout: page
 title: Mitgliedschaft
-permalink: /mitgliedschaft/
+lang: de
+ref: membership
+permalink: /de/mitgliedschaft/
 ---
 
 # Werde Mitglied bei ODON – Gemeinsam gestalten wir die Zukunft!

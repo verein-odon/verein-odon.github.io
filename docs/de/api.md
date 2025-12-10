@@ -1,7 +1,9 @@
 ---
 layout: page
 title: APIs
-permalink: /apis/
+lang: de
+ref: api
+permalink: /de/apis/
 ---
 
 <img src="/assets/images/headers/linked_tables.svg" class="header-image" alt="Relational tables are linked">

@@ -1,7 +1,9 @@
 ---
 layout: page
 title: Verein
-permalink: /verein/
+lang: de
+ref: association
+permalink: /de/verein/
 ---
 
 # Über den Verein

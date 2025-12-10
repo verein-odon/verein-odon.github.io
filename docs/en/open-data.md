@@ -1,7 +1,9 @@
 ---
 layout: page
-title: Offene Daten
-permalink: /offene-daten/
+title: Open Data
+lang: en
+ref: opendata
+permalink: /en/open-data/
 ---
 
 "Offene Daten sind Daten, die von jedem frei genutzt, verarbeitet, modifiziert und geteilt werden können."

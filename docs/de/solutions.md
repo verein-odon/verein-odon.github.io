@@ -1,7 +1,9 @@
 ---
 layout: page
 title: Technische Lösungen
-permalink: /technische-loesungen/
+lang: de
+ref: solutions
+permalink: /de/technische-loesungen/
 ---
 
  <img src="/assets/images/headers/table_and_insights.svg" class="header-image"  alt="Data driving applications">

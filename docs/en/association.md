@@ -6,18 +6,18 @@ ref: association
 permalink: /en/association/
 ---
 
-# Über den Verein
+# About
 
-ODON ist in Österreich als Verein registriert (ZVR: **1593372349**) und hat seinen **Sitz in Wien**.
+ODON is registered in Austria as an association (ZVR: 1593372349) and is based in Vienna.
 
-Unser Verein widmet sich der technischen Verarbeitung und Nutzung von offenen Daten (Open Data). Unser Ziel ist es, Daten für die Öffentlichkeit zugänglich und nutzbar zu machen, um Innovation, Transparenz und Wissensverbreitung in unserer Gemeinschaft zu fördern. Wir glauben daran, dass offene Daten eine wertvolle Ressource sind. Diese Ressource kann - wenn sie sinnvoll genutzt wird - neue Ideen anregen, das Vertrauen in öffentliche Prozesse stärken und das Wissen innerhalb der Gesellschaft erweitern.
+Our association is dedicated to the technical processing and use of Open Data. Our goal is to make data accessible and usable for the public to foster innovation, transparency, and knowledge dissemination in our community. We believe that Open Data is a valuable resource. This resource, when utilized effectively, can stimulate new ideas, strengthen trust in public processes, and expand knowledge within society.
 
-## Unsere Mission
+## Our Mission
 
 
-Unsere Mission ist es, eine Plattform zu schaffen, die es allen ermöglicht, auf offene Daten zuzugreifen und diese für eigene Projekte, Forschungen oder geschäftliche Zwecke zu nutzen. Durch die **Bereitstellung technischer Infrastruktur** und **benutzerfreundlicher Schnittstellen** möchten wir die Hemmschwellen bei der Nutzung offener Daten senken und die Zusammenarbeit zwischen User*innen, Entwickler*innen und Organisationen fördern.
+Our mission is to create a platform that enables everyone to access open data and use it for their own projects, research, or business purposes. By **providing technical infrastructure** and **user-friendly interfaces**, we aim to lower the barriers to using open data and promote collaboration among users, developers, and organizations.
 
-Unser Team vereint technisches Know-how mit einem tiefen Verständnis für die gesellschaftliche Bedeutung offener Daten. Gemeinsam arbeiten wir daran, dass offene Daten zur Grundlage für neue Ideen und Projekte werden können. Für Fragen oder die Zusammenarbeit mit unserem Verein könnt ihr uns jederzeit kontaktieren.
+Our team combines technical know-how with a deep understanding of the societal significance of open data. Together, we work to ensure that open data can become the foundation for new ideas and projects. For questions or collaboration with our association, you can contact us at any time.
 
 
 

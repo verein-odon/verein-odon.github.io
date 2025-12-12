@@ -6,32 +6,32 @@ ref: opendata
 permalink: /en/open-data/
 ---
 
-"Offene Daten sind Daten, die von jedem frei genutzt, verarbeitet, modifiziert und geteilt werden können."
+“Open Data is data that can be freely used, processed, modified, and shared by anyone.”
 
-So lautet die kurze Definition von Offenen Daten. Hinter dem Begriff steckt jedoch mehr. Einige weitere wichtige Eigenschaften von Offenen Daten sind:
+This is the concise definition of Open Data. However, there is more behind the term. Some other important characteristics of Open Data include:
 
-- **Maschinenlesbarkeit**
+- **Machine-Readability**
 
-  Offene Daten sollten in Formaten bereitgestellt werden, die leicht von Computern gelesen und verarbeitet werden können. Dies erleichtert die Analyse und Integration der Daten in verschiedenste Anwendungen.
+Open Data should be provided in formats that can be easily read and processed by computers. This facilitates the analysis and integration of the data into a wide variety of applications.
 
-- **Transparenz**
+- **Transparency**
 
-  Die Veröffentlichung Offener Daten fördert Transparenz, insbesondere wenn es sich um Daten der öffentlichen Verwaltung handelt. Dies stärkt das Vertrauen der Öffentlichkeit und ermöglicht eine bessere Nachvollziehbarkeit von Entscheidungen.
+The publication of Open Data promotes transparency, especially when it concerns public administration data. This strengthens public trust and allows for better traceability of decisions.
 
-- **Lizenzierung**
+- **Licensing**
 
-  Offene Daten werden unter einer offenen Lizenz veröffentlicht, die ihre Nutzung, Weiterverbreitung und Veränderung erlaubt. Bekannte Open-Data-Lizenzen sind beispielsweise die Creative Commons Lizenzen (z. B. CC BY, CC0), die eine uneingeschränkte Nutzung und Weiterverarbeitung ermöglichen.
+Open Data is published under an open license that allows its use, redistribution, and modification. Well-known open data licenses include, for example, Creative Commons licenses (e.g., CC BY, CC0), which enable unrestricted use and further processing.
 
-- **Wertschöpfung**
+- **Value Creation**
 
-  Offene Daten bieten Potenzial für Innovation und die Entwicklung neuer Anwendungen, Dienstleistungen oder Geschäftsmodelle. Unternehmen können sie nutzen, um Dienstleistungen zu verbessern, Prozesse effizienter zu gestalten oder neue Märkte zu erschließen.
+Open Data offers potential for innovation and the development of new applications, services, or business models. Companies can use it to improve services, make processes more efficient, or tap into new markets.
 
-## Beispiele für Offene Daten
+## Examples of Open Data
 
-- Daten der öffentlichen Verwaltung
-- (Anonymisierte) Gesundheitsdaten
-- Verkehrsdaten
-- Umweltdaten
+- Public administration data
+- (Anonymized) health data
+- Traffic and transport data
+- Environmental data
 
 
 

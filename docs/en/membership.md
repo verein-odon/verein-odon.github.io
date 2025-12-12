@@ -6,21 +6,21 @@ ref: membership
 permalink: /en/membership/
 ---
 
-# Werde Mitglied bei ODON – Gemeinsam gestalten wir die Zukunft!
+# Become a Member of ODON – Together, We Shape the Future!
 
-Unser Verein setzt alles daran, den Vereinszweck bestmöglich zu verwirklichen. Dabei wissen wir: Ohne unsere Mitglieder wäre das nicht möglich. Eine diverse Mitgliederbasis ist für uns essenziell, um unterschiedliche Perspektiven und Kompetenzen zu vereinen. Deshalb bieten wir verschiedene Mitgliedschaften an, die auf unterschiedliche Bedürfnisse und Interessen zugeschnitten sind.
+Our association does everything in its power to fulfill its purpose in the best possible way. We know that this would not be possible without our members. A diverse membership base is essential to us for bringing together different perspectives and expertise. Therefore, we offer various membership types tailored to different needs and interests.
 
-## Ordentliche Mitgliedschaft
+## Full Membership (Ordentliche Mitgliedschaft)
 
-Als ordentliches Mitglied bist du aktiv am Vereinsgeschehen beteiligt und bestimmst mit, in welche Richtung sich ODON entwickelt. Du bringst deine Fähigkeiten ein, um den Vereinszweck zu erfüllen und den Verein voranzubringen.
+As a full member, you are actively involved in the association's activities and help decide the direction in which ODON develops. You contribute your skills to fulfill the association's purpose and move the organization forward.
 
-Wenn du dich für offene Daten engagieren möchtest und uns dabei helfen willst, die Welt zu verbessern, dann werde ordentliches Mitglied! Sende uns eine E-Mail an [info@odon.at](mailto:info@odon.at) mit einer kurzen Beschreibung von dir und deinen Beweggründen, ODON als ordentliches Mitglied beizutreten.
-
-
-## Außerordentliche Mitgliedschaft
-
-Möchtest du lediglich die Angebote von ODON nutzen, wie unsere APIs, Trainings oder anderes Material, ohne dich aktiv im Vereinsgeschehen einzubringen? Dann ist die außerordentliche Mitgliedschaft genau das Richtige für dich.
+If you want to get involved with Open Data and help us make the world a better place, then become a full member! Send us an email at [info@odon.at](mailto:info@odon.at) with a brief description of yourself and your reasons for joining ODON as a full member.
 
 
+## Associate Membership (Außerordentliche Mitgliedschaft)
 
-Egal, für welche Mitgliedschaft du dich entscheidest – deine Unterstützung ist ein wichtiger Beitrag zur Förderung unseres gemeinsamen Ziels!
+Would you simply like to use ODON's services—such as our APIs, training sessions, or other materials—without being actively involved in the association's internal operations? Then an associate membership is exactly right for you.
+
+
+
+Whichever membership you choose — your support is a vital contribution to promoting our common goal!

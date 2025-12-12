@@ -9,17 +9,15 @@ list_title: News
 
  <img src="/assets/images/headers/serve_data.svg" class="header-image" alt="Human is serving data on a plate" width="50%">
 
-Wir sind ein Verein, der sich auf die technische Verarbeitung und Nutzung von [Offenen Daten (Open Data)](/offene-daten) spezialisiert hat. Unser Ziel ist es, diese Daten **zugänglich** und **nutzbar** zu machen, um **Innovation**, **Transparenz** und **Wissen** in unserer Gemeinschaft zu fördern. 
+We are an association that specializes in the processing and use of [Open Data](/en/open-data). Our goal is to make this data **accessible** and **usable** to foster **innovation**, **transparency**, and **knowledge** in our community.
 
-## Was wir tun
+## What We Do
 
-- <b>Für Organisationen und Unternehmen</b> entwickeln wir [technische Lösungen](/technische-loesungen//) um Offene Daten nutzbar zu machen und helfen bei allen Schritten von der Grundidee über die Softwareentwicklung bis zum Storytelling! 
+- **For Organizations and Companies**: We develop [technical solutions](/en/solutions/) to make Open Data usable and assist with every step, from the initial idea and software development to storytelling!
 
-<!-- ![Alt text](assets/images/index_for_organisations.webp) -->
+- **For Members and the Data Community**: We offer a platform within the [association](/en/association/) where data enthusiasts, developers, researchers, and decision-makers can network and collaborate on projects that leverage the full potential of Open Data.
 
-- <b>Für Mitglieder und die Data-Community</b> bieten wir im [Verein](/verein/) eine Platform, wo sich Datenenthusiasten, Entwickler, Forscher und Entscheidungsträger vernetzen, um gemeinsam an Projekten zu arbeiten, die das volle Potenzial von Offenen Daten ausschöpfen. 
-
-- <b>Für den Datenhunger</b> stellen wir [APIs](/apis/) zu verschiedene Offene Daten zur Verfügung.
+- **For the Data Hungry**: We provide [APIs](/en/apis/) for various Open Data.
 
 
 

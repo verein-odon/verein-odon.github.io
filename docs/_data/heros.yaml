@@ -45,3 +45,8 @@ membership:
     hero-title: "Membership"
   de:
     hero-title: "Mitgliedschaft"
+opendata:
+  de:
+    hero-title: "Offene Daten"
+  en:
+    hero-title: "Open Data"

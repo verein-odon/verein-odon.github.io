@@ -1,12 +1,9 @@
 # _data/heros.yaml
-
-# --- HOME PAGE HERO (ref: index) ---
 index:
-  # English version
   en:
     hero-title: "We turn Open Data into real-world impact."
     hero-subtitle: "ODON makes public datasets easy to access, easy to use, and ready to power innovation, transparency, and shared knowledge."
-    image_src: "/assets/images/headers/index-hero.svg" # Using image_src instead of image to match alt below
+    image_src: "/assets/images/heros/index.svg" # Using image_src instead of image to match alt below
     alt_text: "Open Data visualization"
     buttons:
       - text: "Explore APIs"
@@ -16,12 +13,10 @@ index:
       - text: "Become a Member"
         url: "/en/membership/"
         style: "secondary"
-
-  # German (Austrian) version
   de:
     hero-title: "Wir verwandeln offene Daten in reale Wirkung."
     hero-subtitle: "ODON macht öffentliche Datensätze einfach zugänglich, benutzerfreundlich und bereit, Innovation, Transparenz und geteiltes Wissen zu fördern."
-    image_src: "/assets/images/headers/index-hero.svg"
+    image_src: "/assets/images/heros/index.svg"
     alt_text: "Visualisierung offener Daten"
     buttons:
       - text: "APIs entdecken"
@@ -31,3 +26,17 @@ index:
       - text: "Mitglied werden"
         url: "/de/membership/"
         style: "secondary"
+api:
+  en:
+    hero-title: "Open Data APIs for Real-World Impact"
+    image_src: "/assets/images/heros/apis.svg" # Using image_src instead of image to match alt below
+    alt_text: "Open Data APIs"
+  de:
+    hero-title: "Open Data APIs für echte Wirkung"
+    image_src: "/assets/images/heros/apis.svg" # Using image_src instead of image to match alt below
+    alt_text: "Open Data APIs"
+association:
+  en:
+    hero-title: "Association"
+  de: 
+    hero-title: "Verein"

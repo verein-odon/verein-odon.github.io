@@ -50,3 +50,15 @@ opendata:
     hero-title: "Open Data"
   de:
     hero-title: "Offene Daten"
+solutions:
+  en:
+    hero-title: "Solutions"
+    hero-subtitle: "Our association offers technical solutions that help companies, organizations, and institutes manage Open Data efficiently. We distinguish between standard solutions and individual solutions to meet a wide range of requirements."
+    image_src: "/assets/images/heros/solutions.svg" # Using image_src instead of image to match alt below
+    alt_text: "Solutions"
+  de:
+    hero-title: "Lösungen"
+    hero-subtitle: "Unser Verein bietet technische Lösungen, die Unternehmen, Organisationen und Instituten helfen, Open Data effizient zu verwalten. Wir unterscheiden zwischen Standardlösungen und individuellen Lösungen, um eine breite Palette von Anforderungen zu erfüllen."
+    image_src: "/assets/images/heros/solutions.svg" # Using image_src instead of image to match alt below
+    alt_text: "Lösungen"
+

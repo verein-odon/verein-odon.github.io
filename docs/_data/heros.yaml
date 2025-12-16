@@ -40,3 +40,8 @@ association:
     hero-title: "Association"
   de: 
     hero-title: "Verein"
+membership:
+  en:
+    hero-title: "Membership"
+  de:
+    hero-title: "Mitgliedschaft"

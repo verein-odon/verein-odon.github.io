@@ -1,86 +1,69 @@
 {% comment %}
-  LOGIK: Bestimme die aktuelle Sprache (page.lang) und die Zielsprache.
-  LOGIC: Determine the current language (page.lang) and the target language.
+  CONFIGURATION: Define the two languages and their labels
 {% endcomment %}
 
-<style>
-    /* --- Language Switcher Styling --- */
-
-    .language-switcher {
-    display: flex;
-    gap: 10px; /* Abstand zwischen den Buttons (Space between buttons) */
-    font-size: 0.9em;
-    font-weight: 600;
-    }
-
-    .lang-button {
-    padding: 8px 12px;
-    border-radius: 6px;
-    text-decoration: none;
-    transition: all 0.2s ease;
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    white-space: nowrap; /* Verhindert Zeilenumbruch (Prevents wrapping) */
-    }
-
-    /* Style for the clickable link (Stil für den anklickbaren Link) */
-    .language-switcher a.lang-button {
-    color: var(--brand-color);
-    background-color: var(--code-bg); /* Heller Hintergrund (Light background) */
-    border: 1px solid var(--border-color);
-    }
-
-    .language-switcher a.lang-button:hover {
-    background-color: #e0e7ff; /* Leichter Blauton beim Hover (Lighter blue tint on hover) */
-    border-color: var(--brand-color);
-    color: var(--brand-color);
-    }
-
-    /* Style for the current language (Stil für die aktuelle Sprache) */
-    .lang-button.current-lang {
-    color: #fff;
-    background-color: var(--brand-color); /* Hervorhebungsfarbe (Highlight color) */
-    border: 1px solid var(--brand-color);
-    cursor: default; /* Nicht anklickbar (Not clickable) */
-    }
-</style>
-
-{% assign current_lang = page.lang %}
+{% assign current_lang = page.lang | default: site.default_lang %}
 {% assign current_ref = page.ref %}
-{% assign target_lang = '' %}
 
-{% if current_lang == 'en' %}
-  {% assign target_lang = 'de' %}
-  {% assign target_label = '🇩🇪 Deutsch' %}
-{% else %}
-  {% assign target_lang = 'en' %}
-  {% assign target_label = '🇺🇸 English' %}
-{% endif %}
+{% comment %}
+  Helper: Create an array containing both language codes for easy iteration.
+{% endcomment %}
+{% assign all_lang_codes = "en,de" | split: "," %}
 
-{% comment %} Finde die entsprechende Seite mit der gleichen 'ref' in der Zielsprache. {% endcomment %}
-{% assign target_page_url = nil %}
-{% for p in site.pages %}
-  {% if p.lang == target_lang and p.ref == current_ref %}
-    {% assign target_page_url = p.url %}
-    {% break %}
-  {% endif %}
-{% endfor %}
 
-<div class="language-switcher">
-  {% comment %} Zeige den anklickbaren Link zur anderen Sprache, falls vorhanden. {% endcomment %}
-  {% if target_page_url %}
-    <a href="{{ target_page_url | relative_url }}" class="lang-button">
-      {{ target_label }}
-    </a>
-  {% endif %}
+<div class="header-right">
+  <div class="language-switcher">
 
-  {% comment %} Zeige die aktuelle Sprache als nicht anklickbaren, hervorgehobenen Button. {% endcomment %}
-  <span class="lang-button current-lang">
-    {% if current_lang == 'en' %}
-      🇺🇸 English
-    {% else %}
-      🇩🇪 Deutsch
-    {% endif %}
-  </span>
+    {% for lang_code in all_lang_codes %}
+      {% comment %} 1. Determine the status and label for the current button {% endcomment %}
+      {% assign is_active = false %}
+      {% assign label_text = "" %}
+      {% assign flag_emoji = "" %}
+
+      {% if lang_code == 'en' %}
+        {% assign label_text = "English" %}
+        {% assign flag_emoji = "🇬🇧" %}  {% comment %} Changed from 🇺🇸 to 🇬🇧 {% endcomment %}
+      {% elsif lang_code == 'de' %}
+        {% assign label_text = "Deutsch" %}
+        {% assign flag_emoji = "🇩🇪" %}
+      {% endif %}
+
+      {% if lang_code == current_lang %}
+        {% assign is_active = true %}
+      {% endif %}
+
+      {% comment %} 2. Find the URL for the corresponding page (same 'ref') {% endcomment %}
+      {% assign target_url = nil %}
+      {% for p in site.pages %}
+        {% if p.lang == lang_code and p.ref == current_ref %}
+          {% assign target_url = p.url %}
+          {% break %}
+        {% endif %}
+      {% endfor %}
+
+      {% comment %} 3. RENDER THE BUTTON/LINK {% endcomment %}
+
+      {% if is_active %}
+        <span class="lang-btn active" data-lang="{{ lang_code }}">
+          <span>{{ flag_emoji }}</span>
+          <span>{{ label_text }}</span>
+        </span>
+      {% else %}
+        <a href="{{ target_url | relative_url }}" class="lang-btn" data-lang="{{ lang_code }}">
+          <span>{{ flag_emoji }}</span>
+          <span>{{ label_text }}</span>
+        </a>
+      {% endif %}
+
+      {% comment %} Add the divider between the buttons, but not after the last one {% endcomment %}
+      {% unless forloop.last %}
+        <span class="lang-divider">|</span>
+      {% endunless %}
+
+    {% endfor %}
+
+  </div>
+  <button class="mobile-menu-btn" aria-label="Menu">
+    <span class="hamburger"></span>
+  </button>
 </div>

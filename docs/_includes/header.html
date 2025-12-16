@@ -1,4 +1,4 @@
-<header class="site-header" role="banner">
+<!-- <header class="site-header" role="banner">
 
   <div class="wrapper">
     {%- assign default_paths = site.pages | map: "path" -%}
@@ -30,7 +30,68 @@
       </nav>
     {%- endif -%}
   </div>
-</header>
+</header> -->
+
+
+{%- assign default_paths = site.pages | map: "path" -%}
+{%- assign page_paths = site.header_pages | default: default_paths -%}
+
+{% comment %} Filter pages to only show current language and flag 'in_nav: true' {% endcomment %}
+{% assign nav_pages = site.pages | where_exp: "item", "item.lang == page.lang" %}
+
+{% comment %} Sort pages for consistent menu order {% endcomment %}
+{% assign sorted_nav_pages = nav_pages | sort: 'title' %}
+
+ 
+ <header class="header">
+    <div class="container">
+      <div class="header-content">
+        <a class="logo" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+        <!-- <a href="index.html" class="logo">ODONN</a> -->
+        
+        <nav class="nav desktop-nav">
+        {% for nav_page in sorted_nav_pages %}
+          <a class="nav-link" href="{{ nav_page.url | relative_url }}">{{ nav_page.title | escape }}</a>
+        {% endfor %}
+          <!-- <a href="apis.html" class="nav-link">APIs</a>
+          <a href="association.html" class="nav-link" data-translate="nav.association">Association</a>
+          <a href="membership.html" class="nav-link" data-translate="nav.membership">Membership</a>
+          <a href="opendata.html" class="nav-link" data-translate="nav.opendata">Open Data</a>
+          <a href="solutions.html" class="nav-link" data-translate="nav.solutions">Solutions</a> -->
+        </nav>
+
+        {% include language_switcher.html %}
+        <!-- <div class="header-right">
+          <div class="language-switcher">
+            <button class="lang-btn" data-lang="de">
+              <span>🇩🇪</span>
+              <span>Deutsch</span>
+            </button>
+            <span class="lang-divider">|</span>
+            <button class="lang-btn active" data-lang="en">
+              <span>🇺🇸</span>
+              <span>English</span>
+            </button>
+          </div>
+          <button class="mobile-menu-btn" aria-label="Menu">
+            <span class="hamburger"></span>
+          </button>
+        </div> -->
+      </div>
+
+      <!-- Mobile Navigation -->
+      <nav class="mobile-nav">
+      {% for nav_page in sorted_nav_pages %}
+          <a class="nav-link" href="{{ nav_page.url | relative_url }}">{{ nav_page.title | escape }}</a>
+        {% endfor %}
+        <!-- <a href="apis.html" class="nav-link">APIs</a>
+        <a href="association.html" class="nav-link" data-translate="nav.association">Association</a>
+        <a href="membership.html" class="nav-link" data-translate="nav.membership">Membership</a>
+        <a href="opendata.html" class="nav-link" data-translate="nav.opendata">Open Data</a>
+        <a href="solutions.html" class="nav-link" data-translate="nav.solutions">Solutions</a> -->
+      </nav>
+    </div>
+  </header>
 
 
 

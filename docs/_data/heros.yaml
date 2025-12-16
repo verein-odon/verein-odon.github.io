@@ -1,0 +1,33 @@
+# _data/heros.yaml
+
+# --- HOME PAGE HERO (ref: index) ---
+index:
+  # English version
+  en:
+    hero-title: "We turn Open Data into real-world impact."
+    hero-subtitle: "ODON makes public datasets easy to access, easy to use, and ready to power innovation, transparency, and shared knowledge."
+    image_src: "/assets/images/headers/index-hero.svg" # Using image_src instead of image to match alt below
+    alt_text: "Open Data visualization"
+    buttons:
+      - text: "Explore APIs"
+        url: "/en/apis/"
+        style: "primary"
+        arrow: true
+      - text: "Become a Member"
+        url: "/en/membership/"
+        style: "secondary"
+
+  # German (Austrian) version
+  de:
+    hero-title: "Wir verwandeln offene Daten in reale Wirkung."
+    hero-subtitle: "ODON macht öffentliche Datensätze einfach zugänglich, benutzerfreundlich und bereit, Innovation, Transparenz und geteiltes Wissen zu fördern."
+    image_src: "/assets/images/headers/index-hero.svg"
+    alt_text: "Visualisierung offener Daten"
+    buttons:
+      - text: "APIs entdecken"
+        url: "/de/apis/"
+        style: "primary"
+        arrow: true
+      - text: "Mitglied werden"
+        url: "/de/membership/"
+        style: "secondary"

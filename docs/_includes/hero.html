@@ -1,0 +1,57 @@
+{% comment %}
+  Dynamic Hero Component
+  Fetches data from _data/heros.yaml based on page.ref and page.lang.
+  Uses the detailed HTML structure provided by the user.
+{% endcomment %}
+
+{% assign current_ref = page.ref %}
+{% assign current_lang = page.lang %}
+
+{% comment %} 1. Lookup the data in heros.yaml {% endcomment %}
+{% assign hero_data = site.data.heros[current_ref][current_lang] %}
+
+{% comment %} 2. Render only if data exists for this page/language {% endcomment %}
+{% if hero_data %}
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-grid">
+
+      <div class="hero-content">
+        <h1 class="hero-title">
+          {{ hero_data.hero-title | escape }}
+        </h1>
+        <p class="hero-subtitle">
+          {{ hero_data.hero-subtitle | escape }}
+        </p>
+
+        <div class="hero-buttons">
+          {% for button in hero_data.buttons %}
+            {% comment %} 
+              The classes map to your desired HTML: class="btn btn-primary" or class="btn btn-secondary"
+            {% endcomment %}
+            <a href="{{ button.url | relative_url }}" class="btn btn-{{ button.style }}">
+              {{ button.text | escape }}
+              {% if button.arrow %}
+                <span class="arrow">→</span>
+              {% endif %}
+            </a>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-image-wrapper">
+          <img
+            src="{{ hero_data.image_src | relative_url }}"
+            alt="{{ hero_data.alt_text | escape }}"
+            class="hero-image"
+            loading="lazy"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endif %}

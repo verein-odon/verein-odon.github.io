@@ -4,6 +4,7 @@
 
 layout: home
 lang: en
+ref: index
 list_title: News
 ---
 

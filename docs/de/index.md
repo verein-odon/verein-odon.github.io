@@ -4,6 +4,7 @@
 
 layout: home
 lang: de
+ref: index
 list_title: Neuigkeiten
 ---
 

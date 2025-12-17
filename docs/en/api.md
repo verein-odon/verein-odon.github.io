@@ -6,8 +6,6 @@ ref: api
 permalink: /en/apis/
 ---
 
-<img src="/assets/images/headers/linked_tables.svg" class="header-image" alt="Relational tables are linked">
-
 The purpose of ODON is to promote the use, provision, and publication of open data. One way to achieve this is by providing APIs for open data. Below you will find an overview of all the APIs we make available.
 
 Since we operate these APIs within our financial means and want to prevent misuse, a simple registration is required. After registration, you will receive a URL token that allows you to use each of our APIs for a set number of requests without further restrictions. Please send an email to [info@odon.at](mailto:info@odon.at) to do this.

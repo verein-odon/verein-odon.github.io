@@ -8,8 +8,6 @@ ref: index
 list_title: News
 ---
 
- <img src="/assets/images/headers/serve_data.svg" class="header-image" alt="Human is serving data on a plate" width="50%">
-
 We are an association that specializes in the processing and use of [Open Data](/en/open-data). Our goal is to make this data **accessible** and **usable** to foster **innovation**, **transparency**, and **knowledge** in our community.
 
 ## What We Do

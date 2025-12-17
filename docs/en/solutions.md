@@ -6,8 +6,6 @@ ref: solutions
 permalink: /en/solutions/
 ---
 
- <img src="/assets/images/headers/table_and_insights.svg" class="header-image"  alt="Data driving applications">
-
 Our association offers technical solutions that help companies, organizations, and institutes manage Open Data efficiently. We distinguish between standard solutions and individual solutions to meet a wide range of requirements.
 
 # Standard Solutions

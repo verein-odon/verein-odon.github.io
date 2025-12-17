@@ -8,8 +8,6 @@ ref: index
 list_title: Neuigkeiten
 ---
 
- <img src="/assets/images/headers/serve_data.svg" class="header-image" alt="Human is serving data on a plate" width="50%">
-
 Wir sind ein Verein, der sich auf die technische Verarbeitung und Nutzung von [Offenen Daten (Open Data)](/offene-daten) spezialisiert hat. Unser Ziel ist es, diese Daten **zugänglich** und **nutzbar** zu machen, um **Innovation**, **Transparenz** und **Wissen** in unserer Gemeinschaft zu fördern. 
 
 ## Was wir tun

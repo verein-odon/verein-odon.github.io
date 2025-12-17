@@ -6,8 +6,6 @@ ref: solutions
 permalink: /de/technische-loesungen/
 ---
 
- <img src="/assets/images/headers/table_and_insights.svg" class="header-image"  alt="Data driving applications">
-
 Unser Verein bietet technische Lösungen an, die Firmen, Organisationen und Instituten dabei helfen, den Umgang mit Offenen Daten effizient zu gestalten. Wir unterscheiden dabei zwischen Standardlösungen und individuellen Lösungen, um den unterschiedlichen Anforderungen gerecht zu werden.
 
 # Standardlösungen

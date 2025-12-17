@@ -6,6 +6,7 @@ layout: home
 lang: en
 ref: index
 list_title: News
+show_excerpts: true
 ---
 
 We are an association that specializes in the processing and use of [Open Data](/en/open-data). Our goal is to make this data **accessible** and **usable** to foster **innovation**, **transparency**, and **knowledge** in our community.

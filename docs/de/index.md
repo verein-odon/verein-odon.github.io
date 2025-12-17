@@ -6,6 +6,7 @@ layout: home
 lang: de
 ref: index
 list_title: Neuigkeiten
+show_excerpts: true
 ---
 
 Wir sind ein Verein, der sich auf die technische Verarbeitung und Nutzung von [Offenen Daten (Open Data)](/offene-daten) spezialisiert hat. Unser Ziel ist es, diese Daten **zugänglich** und **nutzbar** zu machen, um **Innovation**, **Transparenz** und **Wissen** in unserer Gemeinschaft zu fördern. 

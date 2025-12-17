@@ -3,6 +3,7 @@ layout: post
 title:  "Einladung zur Generalversammlung 2025"
 date:   2025-09-17 00:00:01 +0100
 categories: odon verein
+lang: de
 ---
 
 **Datum**: Mittwoch, 01. Oktober 2025

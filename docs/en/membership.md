@@ -9,7 +9,7 @@ permalink: /en/membership/
 <!-- Intro Section -->
 <section class="section bg-white">
 <div class="container">
-    <div class="content-section text-center">
+    <div class="content-section">
     <h2>
         Become a Member of ODON – Together, We Shape the Future!
     </h2>

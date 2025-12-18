@@ -14,8 +14,8 @@ index:
         url: "/en/membership/"
         style: "secondary"
   de:
-    hero-title: "Wir verwandeln offene Daten in reale Wirkung."
-    hero-subtitle: "ODON macht öffentliche Datensätze einfach zugänglich, benutzerfreundlich und bereit, Innovation, Transparenz und geteiltes Wissen zu fördern."
+    hero-title: "Wir verwandeln Open Data in reale Wirkung."
+    hero-subtitle: "ODON macht öffentliche Datensätze einfach zugänglich, benutzerfreundlich und bereit um Innovation, Transparenz und geteiltes Wissen zu fördern."
     image_src: "/assets/images/heros/index.svg"
     alt_text: "Visualisierung offener Daten"
     buttons:

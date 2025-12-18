@@ -6,58 +6,85 @@ ref: api
 permalink: /en/apis/
 ---
 
-The purpose of ODON is to promote the use, provision, and publication of open data. One way to achieve this is by providing APIs for open data. Below you will find an overview of all the APIs we make available.
+<section class="section bg-white">
+    <div class="container">
+      <div class="content-section">
+        <p>
+          The purpose of ODON is to promote the use, provision, and publication of open data. One way to achieve this is by providing APIs for open data. Below you will find an overview of all the APIs we make available. Before you start using it, please consider the following:
+        </p>
+        <ul>
+          <li>
+            <span class="bullet">•</span>
+            <span><b>Registration</b>: 
+            Since we operate these APIs within our financial means and want to prevent misuse, a simple registration is required. After registration, you will receive a URL token that allows you to use each of our APIs for a set number of requests without further restrictions. Please send an email to info@odon.at to do this.</span>
+          </li>
+          <li>
+            <span class="bullet">•</span>
+            <span><b>More Requests</b>:
+            Should you require more requests, you can register as an associate member to receive a higher request quota.</span>
+          </li>
+          <li>
+            <span class="bullet">•</span>
+            <span><b>Missing data sets</b>:
+            We are always open to suggestions and requests for new APIs; please send us an email to info@odon.at.</span>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-Since we operate these APIs within our financial means and want to prevent misuse, a simple registration is required. After registration, you will receive a URL token that allows you to use each of our APIs for a set number of requests without further restrictions. Please send an email to [info@odon.at](mailto:info@odon.at) to do this.
 
-Should you require more requests, you can register as an extraordinary member to receive a higher request rate.
+<!-- API Table Section -->
+<section class="section bg-gray">
+  <div class="container">
+    <div style="max-width: 96rem; margin: 0 auto;">
+      <div class="api-search-wrapper">
+        <label for="api-search" class="api-search-label">Filter APIs</label>
+        <div class="api-search-input-container">
+          <span class="api-search-icon">🔍</span>
+          <input
+            type="text"
+            id="api-search"
+            class="api-search-input"
+            placeholder="Type to filter by name, URL, or description..."
+            autocomplete="off"
+          />
+          <button type="button" id="api-search-clear" class="api-search-clear" aria-label="Clear search">
+            ✕
+          </button>
+        </div>
+        <p class="api-search-hint">
+          Showing <span id="api-count-visible"></span> of <span id="api-count-total"></span> APIs
+        </p>
+      </div>
 
-We are always open to suggestions and requests for new APIs; please send us an email to [info@odon.at](mailto:info@odon.at) or contact one of our members.
+      <table class="api-table" id="api-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Endpoint</th>
+            <th>Description</th>
+          </tr>
+        </thead> 
+        <tbody>
+          {% for api in site.data.apis %}
+          <tr>
+            <td class="api-name">{{ api.name }}</td>
+            <td class="api-url">
+              <a href="{{ api.url }}" target="_blank" rel="noopener">api-eu-2</a>
+            </td>
+            <td class="api-description">{{ api.description }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
 
-<div class="api-search-wrapper">
-  <label for="api-search" class="api-search-label">Filter APIs</label>
-  <div class="api-search-input-container">
-    <span class="api-search-icon">🔍</span>
-    <input
-      type="text"
-      id="api-search"
-      class="api-search-input"
-      placeholder="Type to filter by name, URL, or description..."
-      autocomplete="off"
-    />
-    <button type="button" id="api-search-clear" class="api-search-clear" aria-label="Clear search">
-      ✕
-    </button>
+      <p class="api-no-results" id="api-no-results" hidden>
+        No APIs match your search. Try a different keyword.
+      </p>
+    </div>
   </div>
-  <p class="api-search-hint">
-    Showing <span id="api-count-visible"></span> of <span id="api-count-total"></span> APIs
-  </p>
-</div>
-
-<table class="api-table" id="api-table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Endpoint</th>
-      <th>Description</th>
-    </tr>
-  </thead> 
-  <tbody>
-    {% for api in site.data.apis %}
-    <tr>
-      <td class="api-name">{{ api.name }}</td>
-      <td class="api-url">
-        <a href="{{ api.url }}" target="_blank" rel="noopener">api-eu-2</a>
-      </td>
-      <td class="api-description">{{ api.description }}</td>
-    </tr>
-    {% endfor %}
-  </tbody>
-</table>
-
-<p class="api-no-results" id="api-no-results" hidden>
-  No APIs match your search. Try a different keyword.
-</p>
+</section>
 
 <script>
   document.addEventListener('DOMContentLoaded', function () {

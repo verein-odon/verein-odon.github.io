@@ -2,4 +2,4 @@
 layout: null
 permalink: /
 ---
-<meta http-equiv="refresh" content="0; url=/de/">
+<meta http-equiv="refresh" content="0; url=/en/">

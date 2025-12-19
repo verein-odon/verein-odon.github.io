@@ -29,36 +29,48 @@ index:
 api:
   en:
     hero-title: "Open Data APIs for Real-World Impact"
-    image_src: "/assets/images/heros/apis.svg" # Using image_src instead of image to match alt below
+    image_src: "/assets/images/heros/apis.svg" 
     alt_text: "Open Data APIs"
   de:
     hero-title: "Open Data APIs für echte Wirkung"
-    image_src: "/assets/images/heros/apis.svg" # Using image_src instead of image to match alt below
+    image_src: "/assets/images/heros/apis.svg" 
     alt_text: "Open Data APIs"
 association:
   en:
     hero-title: "Association"
+    image_src: "/assets/images/heros/association.svg"
+    alt_text: "Value flows in the association"
   de: 
     hero-title: "Verein"
+    image_src: "/assets/images/heros/association.svg"
+    alt_text: "Value flows in the association"
 membership:
   en:
     hero-title: "Membership"
+    image_src: "/assets/images/heros/membership.svg"
+    alt_text: "People at a table"
   de:
     hero-title: "Mitgliedschaft"
+    image_src: "/assets/images/heros/membership.svg"
+    alt_text: "People at a table"
 opendata:
   en:
     hero-title: "Open Data"
+    image_src: "/assets/images/heros/open-data.svg"
+    alt_text: "Open data from table to application"
   de:
     hero-title: "Offene Daten"
+    image_src: "/assets/images/heros/open-data.svg"
+    alt_text: "Open data from table to application"
 solutions:
   en:
     hero-title: "Solutions"
     hero-subtitle: "Our association offers technical solutions that help companies, organizations, and institutes manage Open Data efficiently. We distinguish between standard solutions and individual solutions to meet a wide range of requirements."
-    image_src: "/assets/images/heros/solutions.svg" # Using image_src instead of image to match alt below
+    image_src: "/assets/images/heros/solutions.svg"
     alt_text: "Solutions"
   de:
     hero-title: "Lösungen"
     hero-subtitle: "Unser Verein bietet technische Lösungen, die Unternehmen, Organisationen und Instituten helfen, Open Data effizient zu verwalten. Wir unterscheiden zwischen Standardlösungen und individuellen Lösungen, um eine breite Palette von Anforderungen zu erfüllen."
-    image_src: "/assets/images/heros/solutions.svg" # Using image_src instead of image to match alt below
+    image_src: "/assets/images/heros/solutions.svg"
     alt_text: "Lösungen"
 

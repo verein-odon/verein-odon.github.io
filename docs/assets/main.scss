@@ -41,7 +41,7 @@ a, .site-title, .page-link {
 }
 
 a:hover {
-  text-decoration: underline;
+  text-decoration: none;
   color: darken(#2563eb, 15%);
 }
 
@@ -465,8 +465,15 @@ body {
   color: var(--color-white);
 }
 
+/* Temporary solution and to overwrite the minima styling */
+a.btn-primary, a.btn-primary:hover {
+  color: var(--color-white);
+  text-decoration: none;
+}
+
 .btn-primary:hover {
   background-color: var(--color-blue-700);
+  color: var(--color-white);
 }
 
 .btn-secondary {

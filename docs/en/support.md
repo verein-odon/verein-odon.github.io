@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Support
+title: Contribute
 lang: en
 ref: support
 permalink: /en/support/

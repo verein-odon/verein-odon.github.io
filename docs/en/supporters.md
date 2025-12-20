@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Contribute
+title: Supporters
 lang: en
-ref: support
-permalink: /en/support/
+ref: supporters
+permalink: /en/supporters/
 ---
 
 <!-- Intro Section -->

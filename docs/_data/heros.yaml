@@ -73,9 +73,11 @@ solutions:
     hero-subtitle: "Unser Verein bietet technische Lösungen, die Unternehmen, Organisationen und Instituten helfen, Open Data effizient zu verwalten. Wir unterscheiden zwischen Standardlösungen und individuellen Lösungen, um eine breite Palette von Anforderungen zu erfüllen."
     image_src: "/assets/images/heros/solutions.svg"
     alt_text: "Lösungen"
-support:
+supporters:
   en:
     hero-title: "Fuel the Future of Open Data"
     hero-subtitle: "Join ODON in building the technical foundation for a more transparent, innovative, and informed society."
+    image_src: "/assets/images/heros/supporters.svg"
+    alt_text: "Support the transparency, innovation and knowledge sharing"
     
 

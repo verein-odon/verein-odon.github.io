@@ -9,7 +9,7 @@ index:
       - text: "Explore APIs"
         url: "/en/apis/"
         style: "primary"
-        arrow: true
+        arrow: false
       - text: "Become a Member"
         url: "/en/membership/"
         style: "secondary"

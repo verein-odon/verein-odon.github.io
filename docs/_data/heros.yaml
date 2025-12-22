@@ -1,8 +1,8 @@
 # _data/heros.yaml
 index:
   en:
-    hero-title: "We turn Open Data into real-world impact."
-    hero-subtitle: "ODON makes public datasets easy to access, easy to use, and ready to power innovation, transparency, and shared knowledge."
+    hero-title: "We turn Open Data into Real-World Impact."
+    hero-subtitle: "ODON makes public datasets easy to access, easy to use, and ready to power innovation, transparency, and knowledge sharing."
     image_src: "/assets/images/heros/index.svg" # Using image_src instead of image to match alt below
     alt_text: "Open Data visualization"
     buttons:

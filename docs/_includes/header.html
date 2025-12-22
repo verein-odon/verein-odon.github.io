@@ -36,22 +36,29 @@
 {%- assign default_paths = site.pages | map: "path" -%}
 {%- assign page_paths = site.header_pages | default: default_paths -%}
 
-{% comment %} Filter pages to only show current language and flag 'in_nav: true' {% endcomment %}
-{% assign nav_pages = site.pages | where_exp: "item", "item.lang == page.lang" %}
+{% comment %} 1. First, get only the pages that match the current language {% endcomment %}
+{% assign nav_pages = site.pages | where: "lang", page.lang %}
 
-{% comment %} Sort pages for consistent menu order {% endcomment %}
-{% assign sorted_nav_pages = nav_pages | sort: 'title' %}
+{% comment %} 2. Sort them by 'order' (if it exists) or by 'title' {% endcomment %}
+{% assign sorted_nav_pages = nav_pages | sort: "title" %}
 
  
  <header class="header">
     <div class="container">
       <div class="header-content">
-        <a class="logo" rel="author" href="{{ "/" | relative_url }}">{{ site.title | escape }}</a>
+        <a class="logo" rel="author" href="/{{ page.lang }}/">{{ site.title | escape }}</a>
         <!-- <a href="index.html" class="logo">ODONN</a> -->
         
         <nav class="nav desktop-nav">
         {% for nav_page in sorted_nav_pages %}
-          <a class="nav-link" href="{{ nav_page.url | relative_url }}">{{ nav_page.title | escape }}</a>
+          {% comment %} 
+            3. Logic Check: 
+            - Must have a title 
+            - Must NOT be explicitly hidden (in_nav: false)
+          {% endcomment %}
+          {% if nav_page.title and nav_page.in_nav != false %}
+            <a class="nav-link" href="{{ nav_page.url | relative_url }}">{{ nav_page.title | escape }}</a>
+          {% endif %}
         {% endfor %}
           <!-- <a href="apis.html" class="nav-link">APIs</a>
           <a href="association.html" class="nav-link" data-translate="nav.association">Association</a>

@@ -1,4 +1,6 @@
 # _data/heros.yaml
+# 1st key = "ref" attribute (of page)
+#   2nd key = "lang" attribute
 index:
   en:
     hero-title: "We turn Open Data into Real-World Impact."
@@ -34,6 +36,11 @@ api:
     hero-title: "Open Data APIs for Real-World Impact"
     image_src: "/assets/images/heros/apis.svg" 
     alt_text: "Open Data APIs"
+    buttons:
+      - text: "Get Your API Token"
+        url: "/en/api-registration/"
+        style: "primary"
+        arrow: true
   de:
     hero-title: "Open Data APIs für echte Wirkung"
     image_src: "/assets/images/heros/apis.svg" 

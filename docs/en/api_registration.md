@@ -2,7 +2,7 @@
 layout: page
 title: API Registration
 lang: en
-ref: api
+ref: api-registration
 permalink: /en/api-registration/
 in_nav: false
 ---

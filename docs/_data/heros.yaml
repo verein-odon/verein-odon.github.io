@@ -34,6 +34,7 @@ index:
 api:
   en:
     hero-title: "Open Data APIs for Real-World Impact"
+    hero-subtitle: "From raw datasets to real-world applications. Use our APIs to build tools that foster transparency, drive research, and tell the stories that matter."
     image_src: "/assets/images/heros/apis.svg" 
     alt_text: "Open Data APIs"
     buttons:

@@ -42,6 +42,10 @@ api:
         url: "/en/api-registration/"
         style: "primary"
         arrow: true
+      - text: "API & Data Documentation"
+        url: "/en/api-documentation/"
+        style: "secondary"
+        arrow: false
   de:
     hero-title: "Open Data APIs für echte Wirkung"
     image_src: "/assets/images/heros/apis.svg" 

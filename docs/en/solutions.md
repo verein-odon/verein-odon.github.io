@@ -1,9 +1,9 @@
 ---
 layout: page
-title: Solutions
+title: Services
 lang: en
 ref: solutions
-permalink: /en/solutions/
+permalink: /en/services/
 ---
 
 Our association offers technical solutions that help companies, organizations, and institutes manage Open Data efficiently. We distinguish between standard solutions and individual solutions to meet a wide range of requirements.

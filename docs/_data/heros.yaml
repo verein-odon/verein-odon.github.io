@@ -61,7 +61,8 @@ association:
     alt_text: "Value flows in the association"
 membership:
   en:
-    hero-title: "Membership"
+    hero-title: "Shape the Future of Open Data Together"
+    hero-subtitle: "Join ODON to support the technical foundation of a more transparent society. Whether you contribute your skills or use our resources to fuel your projects, your membership drives digital innovation and literacy."
     image_src: "/assets/images/heros/membership.svg"
     alt_text: "People at a table"
   de:

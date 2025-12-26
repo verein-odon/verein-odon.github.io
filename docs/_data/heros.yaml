@@ -52,7 +52,8 @@ api:
     alt_text: "Open Data APIs"
 association:
   en:
-    hero-title: "Association"
+    hero-title: "Dedicated to Data for the Common Good"
+    hero-subtitle: "ODON is a Vienna-based non-profit association of developers, researchers, and data enthusiasts. We bridge the gap between complex datasets and real-world impact through technical expertise and community collaboration."
     image_src: "/assets/images/heros/association.svg"
     alt_text: "Value flows in the association"
   de: 
@@ -71,7 +72,8 @@ membership:
     alt_text: "People at a table"
 opendata:
   en:
-    hero-title: "Open Data"
+    hero-title: "Open Data: A Resource for Everyone"
+    hero-subtitle: "Information is the fuel of modern democracy. Discover how machine-readable, transparent, and freely accessible data drives innovation, empowers education, and tells the stories that shape our world."
     image_src: "/assets/images/heros/open-data.svg"
     alt_text: "Open data from table to application"
   de:
@@ -80,8 +82,8 @@ opendata:
     alt_text: "Open data from table to application"
 solutions:
   en:
-    hero-title: "Solutions"
-    hero-subtitle: "Our association offers technical solutions that help companies, organizations, and institutes manage Open Data efficiently. We distinguish between standard solutions and individual solutions to meet a wide range of requirements."
+    hero-title: "Technical Solutions for Impactful Data"
+    hero-subtitle: "We help organizations and institutions unlock the potential of Open Data. From cost-effective standard API infrastructure to custom data storytelling and integration, we provide the tools to make your data work for you."
     image_src: "/assets/images/heros/solutions.svg"
     alt_text: "Solutions"
   de:

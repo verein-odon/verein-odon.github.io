@@ -33,13 +33,15 @@
 </header> -->
 
 
-{%- assign default_paths = site.pages | map: "path" -%}
-{%- assign page_paths = site.header_pages | default: default_paths -%}
+{% comment %} Step 1: Get only pages matching the current language {% endcomment %}
+{% assign stage1 = site.pages | where: "lang", page.lang %}
 
-{% comment %} 1. First, get only the pages that match the current language {% endcomment %}
-{% assign nav_pages = site.pages | where: "lang", page.lang %}
+{% comment %} Step 2: Remove anything that doesn't have a title (e.g., CSS, XML, internal files) {% endcomment %}
+{% assign stage2 = stage1 | where_exp: "item", "item.title" %}
 
-{% comment %} 2. Sort them by 'order' (if it exists) or by 'title' {% endcomment %}
+{% comment %} Step 3: Remove anything explicitly marked as hidden {% endcomment %}
+{% assign nav_pages = stage2 | where_exp: "item", "item.in_nav != false" %}
+
 {% assign sorted_nav_pages = nav_pages | sort: "title" %}
 
  
@@ -47,7 +49,6 @@
     <div class="container">
       <div class="header-content">
         <a class="logo" rel="author" href="/{{ page.lang }}/">{{ site.title | escape }}</a>
-        <!-- <a href="index.html" class="logo">ODONN</a> -->
         
         <nav class="nav desktop-nav">
         {% for nav_page in sorted_nav_pages %}
@@ -56,34 +57,13 @@
             - Must have a title 
             - Must NOT be explicitly hidden (in_nav: false)
           {% endcomment %}
-          {% if nav_page.title and nav_page.in_nav != false %}
+
             <a class="nav-link" href="{{ nav_page.url | relative_url }}">{{ nav_page.title | escape }}</a>
-          {% endif %}
+          
         {% endfor %}
-          <!-- <a href="apis.html" class="nav-link">APIs</a>
-          <a href="association.html" class="nav-link" data-translate="nav.association">Association</a>
-          <a href="membership.html" class="nav-link" data-translate="nav.membership">Membership</a>
-          <a href="opendata.html" class="nav-link" data-translate="nav.opendata">Open Data</a>
-          <a href="solutions.html" class="nav-link" data-translate="nav.solutions">Solutions</a> -->
         </nav>
 
         {% include language_switcher.html %}
-        <!-- <div class="header-right">
-          <div class="language-switcher">
-            <button class="lang-btn" data-lang="de">
-              <span>🇩🇪</span>
-              <span>Deutsch</span>
-            </button>
-            <span class="lang-divider">|</span>
-            <button class="lang-btn active" data-lang="en">
-              <span>🇺🇸</span>
-              <span>English</span>
-            </button>
-          </div>
-          <button class="mobile-menu-btn" aria-label="Menu">
-            <span class="hamburger"></span>
-          </button>
-        </div> -->
       </div>
 
       <!-- Mobile Navigation -->
@@ -91,11 +71,6 @@
       {% for nav_page in sorted_nav_pages %}
           <a class="nav-link" href="{{ nav_page.url | relative_url }}">{{ nav_page.title | escape }}</a>
         {% endfor %}
-        <!-- <a href="apis.html" class="nav-link">APIs</a>
-        <a href="association.html" class="nav-link" data-translate="nav.association">Association</a>
-        <a href="membership.html" class="nav-link" data-translate="nav.membership">Membership</a>
-        <a href="opendata.html" class="nav-link" data-translate="nav.opendata">Open Data</a>
-        <a href="solutions.html" class="nav-link" data-translate="nav.solutions">Solutions</a> -->
       </nav>
     </div>
   </header>

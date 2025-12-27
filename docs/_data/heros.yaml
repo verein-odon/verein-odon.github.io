@@ -97,5 +97,9 @@ supporters:
     hero-subtitle: "Join ODON in building the technical foundation for a more transparent, innovative, and informed society."
     image_src: "/assets/images/heros/supporters.svg"
     alt_text: "Support the transparency, innovation and knowledge sharing"
+internships:
+  en:
+    hero-title: "Code for Impact: ODON Internships"
+    hero-subtitle: "Spend your internship building the digital infrastructure for transparency, education, and storytelling. Join our Vienna-based team to turn raw data into public value."
     
 

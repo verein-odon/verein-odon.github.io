@@ -66,6 +66,11 @@ membership:
     hero-subtitle: "Join ODON to support the technical foundation of a more transparent society. Whether you contribute your skills or use our resources to fuel your projects, your membership drives digital innovation and literacy."
     image_src: "/assets/images/heros/membership.svg"
     alt_text: "People at a table"
+    buttons:
+      - text: "Choose Your Membership"
+        url: "/en/membership/"
+        style: "primary"
+        arrow: true
   de:
     hero-title: "Mitgliedschaft"
     image_src: "/assets/images/heros/membership.svg"

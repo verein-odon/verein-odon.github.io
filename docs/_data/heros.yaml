@@ -60,6 +60,9 @@ association:
     hero-title: "Verein"
     image_src: "/assets/images/heros/association.svg"
     alt_text: "Value flows in the association"
+education:
+  en:
+    hero-title: Education
 membership:
   en:
     hero-title: "Shape the Future of Open Data Together"

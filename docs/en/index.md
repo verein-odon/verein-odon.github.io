@@ -22,10 +22,11 @@ show_excerpts: true
                     <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
                 </svg>
                 </div>
-                <h3 class="card-title">For organisations and Institutions</h3>
+                <h3>Data Services</h3>
+                <p class="membership-subtitle">For Organisations and Institutions</p>
                 <p class="card-text">We develop technical solutions to make Open Data usable and assist with every step, from the initial idea and software development to storytelling!
                 </p>
-                <a href="/en/solutions.md" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Solutions</a>
+                <a href="/en/services" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Find the Right Service</a>
             </div>
             <div class="card">
                 <div class="card-icon">
@@ -36,10 +37,11 @@ show_excerpts: true
                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                 </svg>
                 </div>
-                <h3 class="card-title">For Members and the Data Community</h3>
-                <p class="card-text">We offer a platform within the association where data enthusiasts, developers, researchers, and decision-makers can network and collaborate on projects that leverage the full potential of Open Data.
+                <h3>Open Data API</h3>
+                <p class="membership-subtitle">For Developers and Researchers </p>
+                <p class="card-text">We provide APIs for various Open Data.
                 </p>
-                <a href="/en/membership.md" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Membership</a>
+                <a href="/en/apis" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Explore our APIs</a>
             </div>
             <div class="card">
                 <div class="card-icon">
@@ -48,9 +50,10 @@ show_excerpts: true
                     <polyline points="8 6 2 12 8 18"></polyline>
                 </svg>
                 </div>
-                <h3 class="card-title">For the Data Hungry</h3>
-                <p class="card-text">We provide APIs for various Open Data.</p>
-                <a href="/en/api.md" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">APIs</a>
+                <h3>Education</h3>
+                <p class="membership-subtitle">For Students</p>
+                <p class="card-text">We provide internships and education on Open Data.</p>
+                <a href="/en/education" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Discover new Knowledge</a>
             </div>
         </div>
     </div>

@@ -92,7 +92,7 @@ opendata:
     hero-title: "Offene Daten"
     image_src: "/assets/images/heros/open-data.svg"
     alt_text: "Open data from table to application"
-solutions:
+services:
   en:
     hero-title: "Technical Solutions for Impactful Data"
     hero-subtitle: "We help organizations and institutions unlock the potential of Open Data. From cost-effective standard API infrastructure to custom data storytelling and integration, we provide the tools to make your data work for you."

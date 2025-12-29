@@ -63,6 +63,10 @@ association:
 education:
   en:
     hero-title: Education
+    buttons:
+      - text: "Explore our internships"
+        url: "/en/internships/"
+        style: "primary"
 membership:
   en:
     hero-title: "Shape the Future of Open Data Together"

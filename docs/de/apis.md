@@ -2,7 +2,7 @@
 layout: page
 title: APIs
 lang: de
-ref: api
+ref: apis
 permalink: /de/apis/
 ---
 

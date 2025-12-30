@@ -31,7 +31,7 @@ index:
       - text: "Mitglied werden"
         url: "/de/membership/"
         style: "secondary"
-api:
+apis:
   en:
     hero-title: "Open Data APIs for Real-World Impact"
     hero-subtitle: "From raw datasets to real-world applications. Use our APIs to build tools that foster transparency, drive research, and tell the stories that matter."

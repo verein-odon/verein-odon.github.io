@@ -7,10 +7,12 @@ permalink: /en/api-documentation/
 in_nav: false
 ---
 
-This is our API documentation:
-- How to use the API
-- Data Catalog
-
+# API Documentation
+Using the API is very easy and includes the following steps:
+1. Make sure you have an API token
+2. Choose the data set you want to use (see below)
+3. Attach the API token to your request with the URL parameter 'api-token'
+Example: https://api-eu-2.odon.at/agricultural-land-sq-km/data?api-token=<API_TOKEN>
 
 <!-- API Table Section -->
 <section class="section bg-gray">

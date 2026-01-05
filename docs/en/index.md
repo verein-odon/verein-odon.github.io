@@ -9,10 +9,25 @@ list_title: News
 show_excerpts: true
 ---
 
+<!-- START --- Intro section ----------------------->
+<section class="section bg-white">
+    <div class="container">
+        <div class="content-section">
+        <h2>
+            Welcome to ODON.
+        </h2>
+        <p>
+            We believe that access to information is a human right. As a non-profit association based in Vienna, we bridge the gap between raw public datasets and real-world impact by providing the tools and knowledge needed to turn data into progress.
+        </p>
+        </div>
+    </div>
+</section>
+<!-- END --- Intro section ----------------------->
+
 <!-- What We Do Section -->
 <section class="section bg-white">
     <div class="container">
-        <h2 class="section-title">Our Three Pillars of Impact</h2>
+        <!-- <h2 class="section-title">Our Three Pillars of Impact</h2> -->
         <div class="cards-grid">
             <div class="card">
                 <div class="card-icon">
@@ -24,9 +39,9 @@ show_excerpts: true
                 </div>
                 <h3>Data Services</h3>
                 <p class="membership-subtitle">For Organisations and Institutions</p>
-                <p class="card-text">We develop technical solutions to make Open Data usable and assist with every step, from the initial idea and software development to storytelling!
+                <p class="card-text">From engineering to storytelling, we help organisations turn raw data into insights.
                 </p>
-                <a href="/en/services" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Find the Right Service</a>
+                <!-- <a href="/en/services" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Find the Right Service</a> -->
             </div>
             <div class="card">
                 <div class="card-icon">
@@ -39,9 +54,9 @@ show_excerpts: true
                 </div>
                 <h3>Open Data API</h3>
                 <p class="membership-subtitle">For Developers and Researchers </p>
-                <p class="card-text">We provide APIs for various Open Data.
+                <p class="card-text">We provide a wealth of access to various public datasets via modern APIs.
                 </p>
-                <a href="/en/apis" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Explore our APIs</a>
+                <!-- <a href="/en/apis" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Explore our APIs</a> -->
             </div>
             <div class="card">
                 <div class="card-icon">
@@ -52,12 +67,38 @@ show_excerpts: true
                 </div>
                 <h3>Education</h3>
                 <p class="membership-subtitle">For Students</p>
-                <p class="card-text">We provide internships and education on Open Data.</p>
-                <a href="/en/education" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Discover new Knowledge</a>
+                <p class="card-text">We build the next generation of data specialists through internships and webinars.</p>
+                <!-- <a href="/en/education" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Discover new Knowledge</a> -->
             </div>
         </div>
     </div>
 </section>
+
+
+
+<!-- START --- About section --------------------- -->
+<section class="section bg-white">
+    <div class="container">
+        <div class="content-section">
+            <div class="icon-header">
+                <div class="icon-box">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <rect x="3" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="3" width="7" height="7"></rect>
+                    <rect x="14" y="14" width="7" height="7"></rect>
+                    <rect x="3" y="14" width="7" height="7"></rect>
+                </svg>
+                </div>
+                <div>
+                <h2>Our Purpose.</h2>
+                </div>
+            </div>
+            <p>Through the use and support of Open Data, we foster an ecosystem of innovation. We provide the technical infrastructure and community support necessary to ensure data serves the public good.
+            </p>
+        </div>
+    </div>
+</section>
+<!-- END --- About section ----------------------->
 
 
 

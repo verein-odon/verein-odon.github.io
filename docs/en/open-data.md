@@ -6,33 +6,64 @@ ref: opendata
 permalink: /en/open-data/
 ---
 
-<!-- About Section -->
+<!-- START --- Intro section ----------------------->
 <section class="section bg-white">
     <div class="container">
         <div class="content-section">
-            <div class="icon-header">
-                <!-- <div class="icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="14" width="7" height="7"></rect>
-                    <rect x="3" y="14" width="7" height="7"></rect>
-                </svg>
-                </div> -->
-                <div>
-                <h2>“Open Data is data that can be freely used, processed, modified, and shared by anyone.”</h2>
-                </div>
+            <h2>
+                What is Open Data?
+            </h2>
+            <div>
+                <quote>“Open Data is data that can be freely used, processed, modified, and shared by anyone.”</quote>
             </div>
-            <p>This is the concise definition of Open Data. However, there is more behind the term. Some other important characteristics of Open Data include:
+            <p>
+                This is a concise definition of Open Data. However, there is more behind the term. For example Open Data enables:
             </p>
+            <ul>
+                <li>
+                    <span class="bullet">•</span>
+                    <span><b>Transparent governance</b><br> 
+                        Open Data strengthens transparent governance by making public information openly accessible to everyone. When data about budgets, infrastructure, demographics, or environmental indicators is published openly, citizens, journalists, and organisations can better understand how decisions are made and how public resources are used.<br>
+                        Transparency builds trust. It allows people to verify information independently, identify inefficiencies, and engage more actively in public discourse.<br>
+                        <i>Example</i>: A city publishes its budget data as Open Data. Citizens and NGOs can analyse how funds are allocated across education, transport, and social services, identify trends over time, and raise informed questions or suggestions in public discussions.</span>
+                </li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span><b>Evidence-based decisions</b><br>
+                        Open Data enables decisions that are grounded in facts rather than assumptions. By combining openly available datasets with domain knowledge, organisations and policymakers can evaluate options, measure outcomes, and adjust strategies based on real-world evidence.<br>
+                        This approach leads to more effective policies, better resource allocation, and improved long-term results.<br>
+                        <i>Example</i>: A regional authority uses Open Data on traffic flows, population density, and air quality to decide where to introduce traffic-calming measures. The decision is supported by data showing both congestion patterns and environmental impact, leading to targeted and measurable improvements.
+                        </span>
+                </li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span><b>Innovation across sectors</b><br>
+                        Open Data acts as a catalyst for innovation by lowering barriers to access information. Startups, researchers, non-profits, and established organisations can build new services, products, and insights on top of shared datasets.<br>
+                        Because the same data can be reused in many different contexts, Open Data enables innovation not only in technology, but also in healthcare, education, mobility, and the public sector.<br>
+                        <i>Example</i>: A startup combines Open Data on public transport schedules with weather data to build an application that helps commuters plan more reliable routes. At the same time, researchers use the same datasets to study mobility patterns and improve urban planning.
+                        </span>
+                </li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span><b>Collaboration and learning</b><br>
+                        Open Data encourages collaboration by creating a shared foundation of information. When data is openly available, people from different disciplines and backgrounds can work together, learn from each other, and build upon existing knowledge instead of starting from scratch.<br>
+                        This openness supports education, cross-sector collaboration, and continuous learning.<br>
+                        <i>Example</i>: Students, researchers, and developers use the same Open Data APIs in university courses, hackathons, and research projects. Insights and tools developed in one context can be reused and improved in another, creating a cycle of shared learning and progress.</span>
+                </li>
+            </ul>
         </div>
     </div>
 </section>
+<!-- END --- Intro section ----------------------->
 
-<!-- Characteristics Section -->
+<!-- START - Characteristics Section -->
 <section class="section bg-gray">
     <div class="container">
-        <h2 class="section-title">Key Characteristics</h2>
+        <div class="content-section">
+            <h2>
+                Key Characteristics of Open Data
+            </h2>
+        </div>
         <div class="characteristics-grid">
         <div class="characteristic-card">
             <div class="characteristic-header">
@@ -95,14 +126,38 @@ permalink: /en/open-data/
         </div>
     </div>
 </section>
-  
-<!-- 
-## Examples of Open Data
+<!-- END - Characteristics Section -->
 
-- Public administration data
-- (Anonymized) health data
-- Traffic and transport data
-- Environmental data -->
+<!-- START --- Intro section ----------------------->
+<section class="section bg-white">
+    <div class="container">
+        <div class="content-section">
+            <h2>
+                ODON’s Role in Open Data
+            </h2>
+            <p>Open Data is more than data! It is an enabler of transparency, better decisions, innovation, and shared learning — values that lie at the heart of ODON’s work.</p>
+            <p>ODON supports Open Data by:</p>
+            <ul>
+                <li>
+                    <span class="bullet">•</span>
+                    <span>Supporting organisations in using Open Data - see <a href="/{{ page.lang }}/services/">Data Services</a></span>
+                </li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span>Making data accessible via APIs - see <a href="/{{ page.lang }}/apis/">APIs</a></span>
+                </li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span>Educating people about data literacy - see <a href="/{{ page.lang }}/education/">Education</a></span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- END --- Intro section ----------------------->
+
+
+  
 
 
 

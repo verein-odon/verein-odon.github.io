@@ -93,7 +93,7 @@ show_excerpts: true
                 <h2>Our Purpose.</h2>
                 </div>
             </div>
-            <p>Through the use and support of Open Data, we foster an ecosystem of innovation. We provide the technical infrastructure and community support necessary to ensure data serves the public good.
+            <p>By supporting and advancing open data, we foster an ecosystem of innovation. We provide the technical infrastructure and community support needed to ensure data serves the public good.
             </p>
         </div>
     </div>

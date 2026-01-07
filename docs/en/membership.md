@@ -6,19 +6,21 @@ ref: membership
 permalink: /en/membership/
 ---
 
-<!-- Intro Section -->
+
+<!-- START --- Intro section ----------------------->
 <section class="section bg-white">
-<div class="container">
-    <div class="content-section">
-    <h2>
-        Become a Member of ODON – Together, We Shape the Future!
-    </h2>
-    <p>
-        Our association does everything in its power to fulfill its purpose in the best possible way. We know that this would not be possible without our members. A diverse membership base is essential to us for bringing together different perspectives and expertise. Therefore, we offer various membership types tailored to different needs and interests. Whichever membership you choose — your support is a vital contribution to promoting our common goal!
-    </p>
+    <div class="container">
+        <div class="content-section">
+            <h2>
+                Why Become a Member?
+            </h2>
+            <p>
+                As a member, you help sustain Open Data infrastructure, education, and services — while supporting a non-profit mission.
+            </p>
+        </div>
     </div>
-</div>
 </section>
+<!-- END --- Intro section ----------------------->
 
 <!-- Membership Types -->
 <section class="section bg-gray">
@@ -48,7 +50,7 @@ permalink: /en/membership/
             <span>Contact us for full membership</span>
             </a>
         </div>
-        <!-- Associate Membership Card -->
+        <!-- Supporting Membership Card -->
         <div class="membership-card">
             <div class="membership-icon" style="background: linear-gradient(135deg, var(--color-indigo), var(--color-purple));">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -61,7 +63,7 @@ permalink: /en/membership/
             <h3>Associate Membership</h3>
             <p class="membership-subtitle">"Außerordentliche Mitgliedschaft"</p>
             <p data-translate="membership.associate.text">
-            Would you simply like to use ODON's services—such as our APIs, training sessions, or other materials—without being actively involved in the association's internal operations? Then an associate membership is exactly right for you.
+            Would you simply like to use ODON's services—such as our APIs with higher request quotas, training sessions, or other materials—without being actively involved in the association's internal operations? Then an associate membership is exactly right for you.
             <br><br>
             <b>Associate membership</b> is EUR 24 for 2026!
             </p>

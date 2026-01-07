@@ -21,10 +21,10 @@ permalink: /en/association/
                 </svg>
                 </div>
                 <div>
-                <h2>About Us</h2>
+                <h2>Who We Are</h2>
                 </div>
             </div>
-            <p>ODON is registered in Austria as an association (ZVR: 1593372349) and is based in Vienna. Our association is dedicated to the technical processing and use of Open Data. Our goal is to make data accessible and usable for the public to foster innovation, transparency, and knowledge dissemination in our community. We believe that Open Data is a valuable resource. This resource, when utilized effectively, can stimulate new ideas, strengthen trust in public processes, and expand knowledge within society.
+            <p>ODON is a Vienna-based association registered in Austria (ZVR: 1593372349). The association is dedicated to the technical processing and effective use of Open Data. Our mission is to make data accessible and usable for the public in order to foster innovation, transparency, and knowledge sharing across society. We believe that Open Data is a valuable public resource which, when used effectively, can inspire new ideas, strengthen trust in public institutions and processes, and contribute to the collective expansion of knowledge.
             </p>
         </div>
     </div>
@@ -46,9 +46,11 @@ permalink: /en/association/
                 <h2>Our Mission</h2>
                 </div>
             </div>
-            <p>Our mission is to create a platform that enables everyone to access open data and use it for their own projects, research, or business purposes. By providing technical infrastructure and user-friendly interfaces, we aim to lower the barriers to using open data and promote collaboration among users, developers, and organizations.
-
-Our team combines technical know-how with a deep understanding of the societal significance of open data. Together, we work to ensure that open data can become the foundation for new ideas and projects. For questions or collaboration with our association, you can contact us at any time.
+            <p>Our mission is to build a platform that enables everyone to access Open Data and use it for their own projects, research, or business initiatives. By providing robust technical infrastructure and user-friendly interfaces, we aim to lower the barriers to working with Open Data and to encourage collaboration among users, developers, and organizations.</p>
+            
+            <p>Our team combines strong technical expertise with a deep understanding of the societal value of Open Data. Together, we work to ensure that Open Data can serve as a foundation for innovative ideas, impactful projects, and sustainable solutions.</p>
+            
+            <p>For questions or collaboration opportunities, please contact our association via email at <a href="mailto:info@odon.at">info@odon.at</a>.
             </p>
         </div>
     </div>

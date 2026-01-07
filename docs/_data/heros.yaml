@@ -52,10 +52,17 @@ apis:
     alt_text: "Open Data APIs"
 association:
   en:
-    hero-title: "Dedicated to Data for the Common Good"
-    hero-subtitle: "ODON is a Vienna-based non-profit association of developers, researchers, and data enthusiasts. We bridge the gap between complex datasets and real-world impact through technical expertise and community collaboration."
+    hero-title: "Dedicated to Open Data for the Common Good"
+    hero-subtitle: "ODON is a Vienna-based non-profit association of developers, researchers, and data enthusiasts. We bridge the gap between open datasets and real-world impact through technical expertise and community collaboration."
     image_src: "/assets/images/heros/association.svg"
     alt_text: "Value flows in the association"
+    buttons:
+      - text: "Support Us"
+        url: "/en/supporters/"
+        style: "primary"
+      - text: "Become a Member"
+        url: "/en/membership/"
+        style: "secondary"
   de: 
     hero-title: "Verein"
     image_src: "/assets/images/heros/association.svg"

@@ -1157,10 +1157,15 @@ td {
 }
 
 .odon-page-content {
-  
+  padding-top: 3em;
+
 }
 
-.odon-post-content {
+.odon-post-content > h1, h2, h3, h4, h5, blockquote, pre, hr, dl, dd, figure, p, ol, ul {
+   padding-left: 40px;
+}
 
+.svg-icon {
+  box-sizing: unset;
 }
 

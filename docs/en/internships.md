@@ -7,50 +7,59 @@ permalink: /en/internships/
 in_nav: false
 ---
 
-<section id="projects" class="project-container">
-  <div class="section-header">
-    <h2>Current Internship Projects</h2>
-    <p>All our internships are paid, remote-friendly, and supervised by experienced developers.</p>
-  </div>
+<!-- START --- Intro section ----------------------->
+<section class="section bg-white">
+    <div class="container">
+        <div class="content-section">
+            <h2>
+                Current Internship Projects
+            </h2>
+            <p>
+                All our internships are paid, remote-friendly, and supervised by experienced developers.
+            </p>
+        </div>
+    
+      <div class="project-grid">
+        <article class="project-card">
+          <div class="pillar-tag tag-edu">Education</div>
+          <h3>Open Data Documentation Engine</h3>
+          <p>Help us build an automated documentation system that translates complex API schemas into easy-to-read guides for students and teachers.</p>
+          <ul class="project-meta">
+            <li><strong>Duration:</strong> 3-6 Months</li>
+            <li><strong>Tech:</strong> Python, Markdown, Static Site Gens</li>
+            <li><strong>Payment:</strong> Competitive monthly stipend</li>
+          </ul>
+          <a href="#" class="btn-text">Apply for this project &rarr;</a>
+        </article>
 
-  <div class="project-grid">
-    <article class="project-card">
-      <div class="pillar-tag tag-edu">Education</div>
-      <h3>Open Data Documentation Engine</h3>
-      <p>Help us build an automated documentation system that translates complex API schemas into easy-to-read guides for students and teachers.</p>
-      <ul class="project-meta">
-        <li><strong>Duration:</strong> 3-6 Months</li>
-        <li><strong>Tech:</strong> Python, Markdown, Static Site Gens</li>
-        <li><strong>Payment:</strong> Competitive monthly stipend</li>
-      </ul>
-      <a href="#" class="btn-text">Apply for this project &rarr;</a>
-    </article>
+        <article class="project-card">
+          <div class="pillar-tag tag-story">Storytelling</div>
+          <h3>NGO Impact Visualizer</h3>
+          <p>Collaborate with a partner NGO to build a React-based dashboard that tells the story of their social impact using public datasets.</p>
+          <ul class="project-meta">
+            <li><strong>Duration:</strong> 3 Months</li>
+            <li><strong>Tech:</strong> React, D3.js or Chart.js</li>
+            <li><strong>Payment:</strong> Competitive monthly stipend</li>
+          </ul>
+          <a href="#" class="btn-text">Apply for this project &rarr;</a>
+        </article>
 
-    <article class="project-card">
-      <div class="pillar-tag tag-story">Storytelling</div>
-      <h3>NGO Impact Visualizer</h3>
-      <p>Collaborate with a partner NGO to build a React-based dashboard that tells the story of their social impact using public datasets.</p>
-      <ul class="project-meta">
-        <li><strong>Duration:</strong> 3 Months</li>
-        <li><strong>Tech:</strong> React, D3.js or Chart.js</li>
-        <li><strong>Payment:</strong> Competitive monthly stipend</li>
-      </ul>
-      <a href="#" class="btn-text">Apply for this project &rarr;</a>
-    </article>
-
-    <article class="project-card">
-      <div class="pillar-tag tag-trans">Transparency</div>
-      <h3>Public API Infrastructure</h3>
-      <p>Work on the core of ODON. Optimize our data ingestion pipelines and improve API performance for high-traffic public datasets.</p>
-      <ul class="project-meta">
-        <li><strong>Duration:</strong> 6 Months</li>
-        <li><strong>Tech:</strong> Go, Docker, PostgreSQL</li>
-        <li><strong>Payment:</strong> Competitive monthly stipend</li>
-      </ul>
-      <a href="#" class="btn-text">Apply for this project &rarr;</a>
-    </article>
+        <article class="project-card">
+          <div class="pillar-tag tag-trans">Transparency</div>
+          <h3>Public API Infrastructure</h3>
+          <p>Work on the core of ODON. Optimize our data ingestion pipelines and improve API performance for high-traffic public datasets.</p>
+          <ul class="project-meta">
+            <li><strong>Duration:</strong> 6 Months</li>
+            <li><strong>Tech:</strong> Go, Docker, PostgreSQL</li>
+            <li><strong>Payment:</strong> Competitive monthly stipend</li>
+          </ul>
+          <a href="#" class="btn-text">Apply for this project &rarr;</a>
+        </article>
+    </div>
   </div>
 </section>
+<!-- END --- Intro section ----------------------->
+
 
 <style>
     /* Hero Styles */

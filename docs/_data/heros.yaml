@@ -69,11 +69,8 @@ association:
     alt_text: "Value flows in the association"
 education:
   en:
-    hero-title: Education
-    buttons:
-      - text: "Explore our internships"
-        url: "/en/internships/"
-        style: "primary"
+    hero-title: Learning & Education at ODON
+    hero-subtitle: We share knowledge about Open Data through hands-on learning and real-world projects.
 membership:
   en:
     hero-title: "Shape the Future of Open Data Together"
@@ -119,6 +116,6 @@ supporters:
 internships:
   en:
     hero-title: "Code for Impact: ODON Internships"
-    hero-subtitle: "Spend your internship building the digital infrastructure for transparency, education, and storytelling. Join our Vienna-based team to turn raw data into public value."
+    hero-subtitle: "Spend your internship building the digital infrastructure for transparency, education, and storytelling. Join our team to turn raw data into public value."
     
 

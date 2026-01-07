@@ -17,7 +17,13 @@ show_excerpts: true
             Welcome to ODON.
         </h2>
         <p>
-            We believe that access to information is a human right. As a non-profit association based in Vienna, we bridge the gap between raw public datasets and real-world impact by providing the tools and knowledge needed to turn data into progress.
+            We build a platform that makes Open Data accessible, understandable, and usable for everyone. Whether you are a developer, researcher, journalist, student, or entrepreneur, our tools help you turn open datasets into meaningful insights and real-world applications.
+        </p>
+        <p> 
+            By providing robust technical infrastructure and intuitive user interfaces, we lower the barriers to using Open Data and actively promote collaboration across communities and organizations. Our team brings together technical excellence and a strong commitment to the societal value of Open Data—working to ensure that data can spark innovation, strengthen transparency, and support impactful projects.<br>
+        </p>
+        <p>  
+            Interested in working with us or learning more?
         </p>
         </div>
     </div>
@@ -27,7 +33,11 @@ show_excerpts: true
 <!-- What We Do Section -->
 <section class="section bg-white">
     <div class="container">
-        <!-- <h2 class="section-title">Our Three Pillars of Impact</h2> -->
+        <div class="content-section">
+            <h2>
+                What we Provide
+            </h2>
+        </div>
         <div class="cards-grid">
             <div class="card">
                 <div class="card-icon">

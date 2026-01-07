@@ -7,16 +7,45 @@ permalink: /en/api-documentation/
 in_nav: false
 ---
 
-# API Documentation
-Using the API is very easy and includes the following steps:
-1. Make sure you have an API token
-2. Choose the data set you want to use (see below)
-3. Attach the API token to your request with the URL parameter 'api-token'
-Example: https://api-eu-2.odon.at/agricultural-land-sq-km/data?api-token=<API_TOKEN>
+<!-- START --- Intro section ----------------------->
+<section class="section bg-white">
+    <div class="container">
+        <div class="content-section">
+            <h2>
+                API Documentation
+            </h2>
+            <p>
+                Using the API is easy and includes the following steps:
+            </p>
+            <ul>
+                <li>
+                    <span class="bullet">•</span>
+                    <span>Make sure you have an API token. If you don't have one, request one here: <a href="/en/api-registration">API Registration</a></span>
+                </li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span>Choose the data set you want to use from the list below and note the URL endpoint.</span>
+                </li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span>Append the API token to your request with the URL parameter 'api-token' and you can start using it!<br>
+                    Example: https://api-eu-2.odon.at/agricultural-land-sq-km/data?api-token=&lt;API_TOKEN&gt;</span>
+                    
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- END --- Intro section ----------------------->
 
 <!-- API Table Section -->
 <section class="section bg-gray">
   <div class="container">
+    <div class="content-section">
+        <h2>
+            Data Documentation
+        </h2>
+    </div>
     <div style="max-width: 96rem; margin: 0 auto;">
       <div class="api-search-wrapper">
         <label for="api-search" class="api-search-label">Filter APIs</label>

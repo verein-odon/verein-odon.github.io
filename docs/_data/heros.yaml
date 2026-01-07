@@ -98,10 +98,14 @@ opendata:
     alt_text: "Open data from table to application"
 services:
   en:
-    hero-title: "Technical Solutions for Impactful Data"
-    hero-subtitle: "We help organizations and institutions unlock the potential of Open Data. From cost-effective standard API infrastructure to custom data storytelling and integration, we provide the tools to make your data work for you."
+    hero-title: "Open Data Services"
+    hero-subtitle: "From Data Engineering to Data Storytelling — we help organisations work with Open Data effectively."
     image_src: "/assets/images/heros/solutions.svg"
     alt_text: "Solutions"
+    # buttons:
+    #   - text: "Request Our Services"
+    #     url: "mailto:info@odon.at"
+    #     style: "primary"
   de:
     hero-title: "Lösungen"
     hero-subtitle: "Unser Verein bietet technische Lösungen, die Unternehmen, Organisationen und Instituten helfen, Open Data effizient zu verwalten. Wir unterscheiden zwischen Standardlösungen und individuellen Lösungen, um eine breite Palette von Anforderungen zu erfüllen."

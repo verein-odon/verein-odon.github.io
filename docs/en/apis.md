@@ -15,17 +15,17 @@ permalink: /en/apis/
       <ul>
         <li>
           <span class="bullet">•</span>
-          <span><b>Registration</b>: 
+          <span><b>Registration</b><br> 
           Since we operate these APIs within our financial means and want to prevent misuse, a simple registration is required. After registration, you will receive a URL token that allows you to use each of our APIs for a set number of requests without further restrictions. Use the button "Get Your API Token", fill in the form and we will send get back to you asap.</span>
         </li>
         <li>
           <span class="bullet">•</span>
-          <span><b>More Requests</b>:
+          <span><b>More Requests</b><br>
           Should you require more requests, you can register as a supporting member and receive a higher request quota.</span>
         </li>
         <li>
           <span class="bullet">•</span>
-          <span><b>Missing data sets</b>:
+          <span><b>Missing data sets</b><br>
           We are always open to suggestions and requests for new APIs; please send us an email to info@odon.at.</span>
         </li>
       </ul>

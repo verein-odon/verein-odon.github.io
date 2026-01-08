@@ -14,7 +14,7 @@ show_excerpts: true
     <div class="container">
         <div class="content-section">
         <h2>
-            Welcome to ODON.
+            Welcome to ODON
         </h2>
         <p>
             We build a platform that makes Open Data accessible, understandable, and usable for everyone. Whether you are a developer, researcher, journalist, student, or entrepreneur, our tools help you turn open datasets into meaningful insights and real-world applications.
@@ -91,16 +91,16 @@ show_excerpts: true
     <div class="container">
         <div class="content-section">
             <div class="icon-header">
-                <div class="icon-box">
+                <!-- <div class="icon-box">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <rect x="3" y="3" width="7" height="7"></rect>
                     <rect x="14" y="3" width="7" height="7"></rect>
                     <rect x="14" y="14" width="7" height="7"></rect>
                     <rect x="3" y="14" width="7" height="7"></rect>
                 </svg>
-                </div>
+                </div> -->
                 <div>
-                <h2>Our Purpose.</h2>
+                <h2>Our Purpose</h2>
                 </div>
             </div>
             <p>By supporting and advancing Open Data, we foster an ecosystem of innovation. We provide the technical infrastructure and community support needed to ensure data serves the public good.

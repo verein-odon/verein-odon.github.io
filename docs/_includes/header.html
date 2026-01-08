@@ -52,14 +52,12 @@
         
         <nav class="nav desktop-nav">
         {% for nav_page in sorted_nav_pages %}
-          {% comment %} 
-            3. Logic Check: 
-            - Must have a title 
-            - Must NOT be explicitly hidden (in_nav: false)
-          {% endcomment %}
-
-            <a class="nav-link" href="{{ nav_page.url | relative_url }}">{{ nav_page.title | escape }}</a>
-          
+          {% comment %} Highlight the active page! {% endcomment %}
+          {% assign active_page_class = "" %}
+          {% if page.url == nav_page.url %}
+            {% assign active_page_class = "active" %}
+          {% endif %}
+          <a class="nav-link {{ active_page_class }}" href="{{ nav_page.url | relative_url }}">{{ nav_page.title | escape }}</a>
         {% endfor %}
         </nav>
 
@@ -69,7 +67,12 @@
       <!-- Mobile Navigation -->
       <nav class="mobile-nav">
       {% for nav_page in sorted_nav_pages %}
-          <a class="nav-link" href="{{ nav_page.url | relative_url }}">{{ nav_page.title | escape }}</a>
+          {% comment %} Highlight the active page! {% endcomment %}
+          {% assign active_page_class = "" %}
+          {% if page.url == nav_page.url %}
+            {% assign active_page_class = "active" %}
+          {% endif %}
+          <a class="nav-link {{ active_page_class }}" href="{{ nav_page.url | relative_url }}">{{ nav_page.title | escape }}</a>
         {% endfor %}
       </nav>
     </div>

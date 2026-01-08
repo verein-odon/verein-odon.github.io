@@ -5,7 +5,7 @@ index:
   en:
     hero-title: "We turn Open Data into Real-World Impact"
     hero-subtitle: "ODON makes public datasets easy to access, easy to use, and ready to power innovation, transparency, and knowledge sharing."
-    image_src: "/assets/images/heros/index.svg" # Using image_src instead of image to match alt below
+    image_src: "/assets/images/heros/index.svg"
     alt_text: "Open Data visualization"
     buttons:
       - text: "Explore APIs"
@@ -71,6 +71,7 @@ education:
   en:
     hero-title: Learning & Education at ODON
     hero-subtitle: We share knowledge about Open Data through hands-on learning and real-world projects.
+    image_src: "/assets/images/heros/solutions.svg"
 membership:
   en:
     hero-title: "Shape the Future of Open Data Together"
@@ -100,7 +101,7 @@ services:
   en:
     hero-title: "Open Data Services"
     hero-subtitle: "From Data Engineering to Data Storytelling — we help organisations work with Open Data effectively."
-    image_src: "/assets/images/heros/solutions.svg"
+    image_src: "/assets/images/heros/index.svg"
     alt_text: "Solutions"
     # buttons:
     #   - text: "Request Our Services"

@@ -18,10 +18,22 @@ permalink: /en/membership/
                 As a member of ODON you:
             </p>
             <ul>
-                <li>Support the development and maintenance of Open Data tools APIs and learning resources</li>
-                <li>Contribute to a sustainable ecosystem for open and reusable data</li>
-                <li>Connect with developers researchers students and organisations working with Open Data</li>
-                <li>Gain access to extended services such as higher API request limits and learning opportunities</li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span>Support the development and maintenance of Open Data tools APIs and learning resources</span>
+                </li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span>Contribute to a sustainable ecosystem for open and reusable data</span>
+                </li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span>Connect with developers researchers students and organisations working with Open Data</span>
+                </li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span>Gain access to extended services such as higher API request limits and learning opportunities</span>
+                </li>
             </ul>
             <p>Membership is a way to actively support Open Data while benefiting from ODON’s growing ecosystem.</p>
         </div>

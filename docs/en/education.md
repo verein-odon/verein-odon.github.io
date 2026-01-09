@@ -19,15 +19,15 @@ permalink: /en/education/
             <ul>
                 <li>
                     <span class="bullet">•</span>
-                    <span><b>Open Data</b></span>
+                    <span>Open Data</span>
                 </li>
                 <li>
                     <span class="bullet">•</span>
-                    <span><b>APIs and data engineering</b></span>
+                    <span>APIs and data engineering</span>
                 </li>
                 <li>
                     <span class="bullet">•</span>
-                    <span><b>Data analysis and storytelling</b></span>
+                    <span>Data analysis and storytelling</span>
                 </li>
             </ul>
             <p>
@@ -54,15 +54,15 @@ permalink: /en/education/
             <ul>
                 <li>
                     <span class="bullet">•</span>
-                    <span><b>Online trainings</b></span>
+                    <span>Online trainings</span>
                 </li>
                 <li>
                     <span class="bullet">•</span>
-                    <span><b>Webinars</b></span>
+                    <span>Webinars</span>
                 </li>
                 <li>
                     <span class="bullet">•</span>
-                    <span><b>Workshops on Open Data topics</b></span>
+                    <span>Workshops on Open Data topics</span>
                 </li>
             </ul>
             <p>

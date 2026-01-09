@@ -48,9 +48,18 @@ permalink: /en/association/
             </div>
             <p>We lower barriers to Open Data by offering user-friendly infrastructure and fostering collaboration between developers, organisations, and data users. Our goal is to:</p>
             <ul>
-                <li>Enable anyone to find, use, and share Open Data</li>
-                <li>Support innovation that drives transparency and insight</li>
-                <li>Strengthen community engagement around open data solutions</li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span>Enable anyone to find, use, and share Open Data</span>
+                </li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span>Support innovation that drives transparency and insight</span>
+                </li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span>Strengthen community engagement around open data solutions</span>
+                </li>
             </ul>
             <p>Our team combines technical expertise with a focus on societal impact, ensuring open data can power meaningful research, community tools, and better decision-making.</p>
         </div>

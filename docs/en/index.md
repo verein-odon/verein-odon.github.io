@@ -41,11 +41,7 @@ show_excerpts: true
         <div class="cards-grid">
             <div class="card">
                 <div class="card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <ellipse cx="12" cy="5" rx="9" ry="3"></ellipse>
-                    <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"></path>
-                    <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
-                </svg>
+                    <img src="/assets/images/icons/data-services.svg" alt="Data services" loading="lazy">
                 </div>
                 <h3>Data Services</h3>
                 <p class="membership-subtitle">For Organisations and Institutions</p>
@@ -55,12 +51,7 @@ show_excerpts: true
             </div>
             <div class="card">
                 <div class="card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                    <circle cx="9" cy="7" r="4"></circle>
-                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-                </svg>
+                    <img src="/assets/images/icons/apis.svg" alt="API visualization" loading="lazy">
                 </div>
                 <h3>Open Data API</h3>
                 <p class="membership-subtitle">For Developers and Researchers </p>
@@ -70,10 +61,7 @@ show_excerpts: true
             </div>
             <div class="card">
                 <div class="card-icon">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <polyline points="16 18 22 12 16 6"></polyline>
-                    <polyline points="8 6 2 12 8 18"></polyline>
-                </svg>
+                    <img src="/assets/images/icons/education.svg" alt="Data services" loading="lazy">
                 </div>
                 <h3>Education</h3>
                 <p class="membership-subtitle">For Students</p>

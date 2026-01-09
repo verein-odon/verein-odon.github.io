@@ -12,6 +12,9 @@ permalink: /en/supporters/
             <h2>
                 How Your Donation Helps
             </h2>
+            <p>
+                If you want to make a donation, please send us an email to info@odon.at and we will get back to you with more details.
+            </p>
         </div>
         <div class="cards-grid">
             <div class="card">

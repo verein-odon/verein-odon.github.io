@@ -15,7 +15,7 @@ in_nav: false
                 Current Internship Projects
             </h2>
             <p>
-                All our internships are paid, remote-friendly, and supervised by experienced developers.
+                All our internships are remote-friendly and supervised by experienced developers.
             </p>
         </div>
     
@@ -27,9 +27,8 @@ in_nav: false
           <ul class="project-meta">
             <li><strong>Duration:</strong> 3-6 Months</li>
             <li><strong>Tech:</strong> Python, Markdown, Static Site Gens</li>
-            <li><strong>Payment:</strong> Competitive monthly stipend</li>
           </ul>
-          <a href="#" class="btn-text">Apply for this project &rarr;</a>
+          <!-- <a href="#" class="btn-text">Apply for this project &rarr;</a> -->
         </article>
 
         <article class="project-card">
@@ -39,9 +38,8 @@ in_nav: false
           <ul class="project-meta">
             <li><strong>Duration:</strong> 3 Months</li>
             <li><strong>Tech:</strong> React, D3.js or Chart.js</li>
-            <li><strong>Payment:</strong> Competitive monthly stipend</li>
           </ul>
-          <a href="#" class="btn-text">Apply for this project &rarr;</a>
+          <!-- <a href="#" class="btn-text">Apply for this project &rarr;</a> -->
         </article>
 
         <article class="project-card">
@@ -51,11 +49,15 @@ in_nav: false
           <ul class="project-meta">
             <li><strong>Duration:</strong> 6 Months</li>
             <li><strong>Tech:</strong> Go, Docker, PostgreSQL</li>
-            <li><strong>Payment:</strong> Competitive monthly stipend</li>
           </ul>
-          <a href="#" class="btn-text">Apply for this project &rarr;</a>
+          <!-- <a href="#" class="btn-text">Apply for this project &rarr;</a> -->
         </article>
     </div>
+        <div class="content-section">
+            <p>
+                If you are interested in any of these internships, please send us an email to info@odon.at.
+            </p>
+        </div>
   </div>
 </section>
 <!-- END --- Intro section ----------------------->

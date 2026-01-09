@@ -15,8 +15,15 @@ permalink: /en/membership/
                 Why Become a Member?
             </h2>
             <p>
-                As a member, you help sustain Open Data infrastructure, education, and services — while supporting a non-profit mission.
+                As a member of ODON you:
             </p>
+            <ul>
+                <li>Support the development and maintenance of Open Data tools APIs and learning resources</li>
+                <li>Contribute to a sustainable ecosystem for open and reusable data</li>
+                <li>Connect with developers researchers students and organisations working with Open Data</li>
+                <li>Gain access to extended services such as higher API request limits and learning opportunities</li>
+            </ul>
+            <p>Membership is a way to actively support Open Data while benefiting from ODON’s growing ecosystem.</p>
         </div>
     </div>
 </section>
@@ -25,6 +32,11 @@ permalink: /en/membership/
 <!-- Membership Types -->
 <section class="section bg-gray">
     <div class="container">
+        <div class="content-section">
+            <h2>
+                Membership Options
+            </h2>
+        </div>
         <div class="membership-grid">
         <!-- Full Membership Card -->
         <div class="membership-card">
@@ -38,17 +50,17 @@ permalink: /en/membership/
             </div>
             <h3>Full Membership</h3>
             <p class="membership-subtitle">"Ordentliche Mitgliedschaft"</p>
-            <p>As a full member, you are actively involved in the association's activities and help decide the direction in which ODON develops. You contribute your skills to fulfill the association's purpose and move the organization forward. If you want to get involved with Open Data and help us make the world a better place, apply for the full membership!
+            <p>Full members actively participate in the association and help shape its direction. This option is ideal if you want to be involved in decision making and contribute to ODON’s long term development.
             <br><br>
-            <b>Full membership</b> is EUR 48 for 2026!
+            Annual fee 48 EUR for 2026
             </p>
-            <a href="mailto:info@odon.at" class="btn btn-primary btn-full">
-            <svg style="width: 1rem; height: 1rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-                <path d="m3 7 9 6 9-6"></path>
-            </svg>
-            <span>Contact us for full membership</span>
-            </a>
+            <p>Full members can</p>
+            <ul>
+                <li>Participate in association activities</li>
+                <li>Contribute ideas and expertise</li>
+                <li>Take part in internal decisions</li>
+            </ul>
+            <p>Please contact us if you are interested in becoming a full member.</p>
         </div>
         <!-- Supporting Membership Card -->
         <div class="membership-card">
@@ -62,19 +74,32 @@ permalink: /en/membership/
             </div>
             <h3>Associate Membership</h3>
             <p class="membership-subtitle">"Außerordentliche Mitgliedschaft"</p>
-            <p data-translate="membership.associate.text">
-            Would you simply like to use ODON's services—such as our APIs with higher request quotas, training sessions, or other materials—without being actively involved in the association's internal operations? Then an associate membership is exactly right for you.
+            <p>Associate membership is designed for people who want to use ODON’s services and support its mission without being involved in governance or organisational decisions.
             <br><br>
-            <b>Associate membership</b> is EUR 24 for 2026!
+            Annual fee 24 EUR for 2026
             </p>
-            <a href="mailto:info@odon.at" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">
-            <svg style="width: 1rem; height: 1rem;" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="5" width="18" height="14" rx="2"></rect>
-                <path d="m3 7 9 6 9-6"></path>
-            </svg>
-            <span>Contact us for associate membership</span>
-            </a>
+            <p>Associate members can</p>
+            <ul>
+                <li>Use ODON services with extended limits</li>
+                <li>Access learning materials and resources</li>
+                <li>Support the association’s mission through their membership</li>
+            </ul>
+            <p>Please contact us to join as an associate member.</p>
         </div>
+        </div>
+    </div>
+</section>
+
+<section class="section bg-white">
+    <div class="container">
+        <div class="content-section">
+            <h2>
+                Get in Touch
+            </h2>
+            <p>
+                If you have questions about membership or would like to join the association we are happy to hear from you.
+                Email info@odon.at
+            </p>
         </div>
     </div>
 </section>

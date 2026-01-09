@@ -69,13 +69,13 @@ association:
     alt_text: "Value flows in the association"
 education:
   en:
-    hero-title: Learning & Education at ODON
-    hero-subtitle: We share knowledge about Open Data through hands-on learning and real-world projects.
+    hero-title: "Learning & Education at ODON"
+    hero-subtitle: "We share knowledge about Open Data through hands-on learning and real-world projects."
     image_src: "/assets/images/heros/education.svg"
 membership:
   en:
     hero-title: "Shape the Future of Open Data Together"
-    hero-subtitle: "Support Open Data and be part of a community that believes in transparency and innovation."
+    hero-subtitle: "Join a community that strengthens transparency innovation and knowledge sharing through Open Data. Your membership supports ODON’s non profit work in building infrastructure education and services that make public data easier to use and reuse."
     image_src: "/assets/images/heros/membership.svg"
     alt_text: "People at a table"
     # buttons:

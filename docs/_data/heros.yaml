@@ -12,8 +12,8 @@ index:
         url: "/en/apis/"
         style: "primary"
         arrow: false
-      - text: "Become a Member"
-        url: "/en/membership/"
+      - text: "Find An Internship"
+        url: "/en/internships/"
         style: "secondary"
       - text: "Become a Supporter"
         url: "/en/supporters/"

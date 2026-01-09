@@ -31,7 +31,7 @@ show_excerpts: true
 <!-- END --- Intro section ----------------------->
 
 <!-- What We Do Section -->
-<section class="section bg-white">
+<section class="section bg-gray">
     <div class="container">
         <div class="content-section">
             <h2>

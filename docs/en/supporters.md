@@ -22,7 +22,7 @@ permalink: /en/supporters/
                     <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"></path>
                 </svg> -->
                 </div>
-                <h3>Tier 1 – EUR 25–50</h3>
+                <h3>Tier 1: EUR 25–50</h3>
                 <p class="membership-subtitle">Sponsor an API Node</p>
                 <p class="card-text">Supports one API node for one month, helping keep Open Data accessible..
                 </p>
@@ -37,7 +37,7 @@ permalink: /en/supporters/
                     <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
                 </svg> -->
                 </div>
-                <h3>Tier 2 – EUR 100–250</h3>
+                <h3>Tier 2: EUR 100–250</h3>
                 <p class="membership-subtitle">Enable Open Data Education</p>
                 <p class="card-text">Funds an online training, webinar or internship for students.</p>
                 <!-- <a href="/en/donation" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Donate For Tier 2</a> -->
@@ -49,7 +49,7 @@ permalink: /en/supporters/
                     <polyline points="8 6 2 12 8 18"></polyline>
                 </svg> -->
                 </div>
-                <h3>Tier 3 – EUR 500+</h3>
+                <h3>Tier 3: EUR 500+</h3>
                 <p class="membership-subtitle">Fund a Data Service for Good</p>
                 <p class="card-text">Supports a full data service (e.g. data storytelling) for organisations that cannot afford it.</p>
                 <!-- <a href="/en/donation" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Donate For Tier 3</a> -->

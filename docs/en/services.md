@@ -13,8 +13,8 @@ permalink: /en/services/
             <h2>
                 Our Services
             </h2>
-            <p>
-                If you are interested in working with us on these offerings, please send us an email to info@odon.at.
+            <p> 
+                We support organisations that want to use Open Data but lack resources or expertise.<br>
             </p>
         </div>
         <div class="membership-grid">
@@ -67,136 +67,231 @@ permalink: /en/services/
             </a> -->
         </div>
         </div>
+
+        <div class="content-section">
+            <p> 
+                <br>
+                If you are interested in our services, please send us an email to info@odon.at.
+            </p>
+        </div>
     </div>
 </section>
 <!-- END --- Membership Types -->
 
+<style>
+    /* Examples Showcase Section */
+.examples-showcase {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+.example-showcase-card {
+  display: grid;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .example-showcase-card {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .example-showcase-card:nth-child(even) .example-showcase-image {
+    order: 2;
+  }
+  
+  .example-showcase-card:nth-child(even) .example-showcase-content {
+    order: 1;
+  }
+}
+
+.example-showcase-image {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.3s;
+}
+
+.example-showcase-image:hover {
+  transform: scale(1.02);
+}
+
+.example-showcase-image svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.example-showcase-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.example-showcase-title {
+  font-size: 1.5rem;
+  color: var(--color-gray-900);
+  line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+  .example-showcase-title {
+    font-size: 1.75rem;
+  }
+}
+</style>
+
 
 <!-- START --- Intro section ----------------------->
-<!-- <section class="section bg-gray">
+<section class="section bg-gray">
     <div class="container">
         <div class="content-section">
             <h2>
-                Selected Examples
+                Open Data Storytelling Examples
             </h2>
-            <p>
-                We support organisations that want to use Open Data but lack resources or expertise.
+            
+            <div class="examples-showcase">
+        
+        <!-- Example 1: Bike Share -->
+        <div class="example-showcase-card">
+          <div class="example-showcase-image">
+            <img src="/assets/images/examples/bike/bike_3.png" alt="Project Screenshot 1">
+          </div>
+          <div class="example-showcase-content">
+            <h3 class="example-showcase-title">Bike Share &amp; Sustainable Mobility</h3>
+            <p class="example-showcase-subtitle">Visualizing open mobility data to support smarter, greener cities</p>
+            <p class="example-showcase-description">
+              This project transforms open transportation and environmental data into a clear visual narrative about bike sharing. By combining maps, timelines, and comparative charts, the visualization highlights how bike share systems can reduce emissions and reshape urban mobility.
             </p>
+            <!-- <p class="example-showcase-methods">
+              <strong>Tools &amp; methods:</strong><br>
+              Data analysis and visualization using open datasets, translated into an accessible information design format.
+            </p> -->
+          </div>
+        </div>
+
+        <!-- Example 1: Bike Share -->
+        <div class="example-showcase-card">
+          <div class="example-showcase-image">
+            <img src="/assets/images/examples/sf-tenderloin/map_2.png" alt="Project Screenshot 1">
+          </div>
+          <div class="example-showcase-content">
+            <h3 class="example-showcase-title">Street Safety & Public Space Impact</h3>
+            <p class="example-showcase-subtitle">Visualizing open mobility data to support smarter, greener cities</p>
+            <p class="example-showcase-description">
+              This infographic uses open mobility and safety data to show the real-world impact of street design decisions. By visualizing collisions, trends, and outcomes over time, the project supports transparent communication between policymakers, stakeholders, and the public.
+            </p>
+            <!-- <p class="example-showcase-methods">
+              <strong>Tools &amp; methods:</strong><br>
+              Data analysis and visualization using open datasets, translated into an accessible information design format.
+            </p> -->
+          </div>
+        </div>
+
+      </div>
+
         </div>
 
 
-        <div class="project-grid">
-        <article class="project-card">
-          <div class="pillar-tag tag-edu">Education</div>
-          <h3>Open Data Documentation Engine</h3>
-          <p>Help us build an automated documentation system that translates complex API schemas into easy-to-read guides for students and teachers.</p>
-          <ul class="project-meta">
-            <li><strong>Duration:</strong> 3-6 Months</li>
-            <li><strong>Tech:</strong> Python, Markdown, Static Site Gens</li>
-          </ul>
-          <a href="#" class="btn-text">Apply for this project &rarr;</a>
-        </article>
-
-        <article class="project-card">
-          <div class="pillar-tag tag-story">Storytelling</div>
-          <h3>NGO Impact Visualizer</h3>
-          <p>Collaborate with a partner NGO to build a React-based dashboard that tells the story of their social impact using public datasets.</p>
-          <ul class="project-meta">
-            <li><strong>Duration:</strong> 3 Months</li>
-            <li><strong>Tech:</strong> React, D3.js or Chart.js</li>
-          </ul>
-          <a href="#" class="btn-text">Apply for this project &rarr;</a>
-        </article>
-
-        <article class="project-card">
-          <div class="pillar-tag tag-trans">Transparency</div>
-          <h3>Public API Infrastructure</h3>
-          <p>Work on the core of ODON. Optimize our data ingestion pipelines and improve API performance for high-traffic public datasets.</p>
-          <ul class="project-meta">
-            <li><strong>Duration:</strong> 6 Months</li>
-            <li><strong>Tech:</strong> Go, Docker, PostgreSQL</li>
-          </ul>
-          <a href="#" class="btn-text">Apply for this project &rarr;</a>
-        </article>
-     </div>
-
     </div>
-</section> -->
+</section>
 <!-- END --- Intro section ----------------------->
 
 
+
+
 <style>
-    /* Hero Styles */
-.internship-hero {
+/* Examples Showcase Section */
+.examples-showcase {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 80px 5%;
-  background: #f8f9fa; /* Light grey/white base */
-  gap: 40px;
+  flex-direction: column;
+  gap: 4rem;
+  max-width: 80rem;
+  margin: 0 auto;
 }
 
-.hero-content h1 {
-  font-size: 3rem;
-  color: #1a1a1a;
-  margin-bottom: 20px;
-}
-
-.hero-content p {
-  font-size: 1.25rem;
-  max-width: 600px;
-  line-height: 1.6;
-}
-
-/* Project Cards */
-.project-grid {
+.example-showcase-card {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 30px;
-  padding: 40px 0;
+  gap: 2rem;
+  align-items: center;
 }
 
-.project-card {
-  border: 1px solid #eee;
-  padding: 30px;
-  border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  background: white;
+@media (min-width: 768px) {
+  .example-showcase-card {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .example-showcase-card:nth-child(even) .example-showcase-image {
+    order: 2;
+  }
+  
+  .example-showcase-card:nth-child(even) .example-showcase-content {
+    order: 1;
+  }
 }
 
-.project-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+.example-showcase-image {
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: transform 0.3s;
 }
 
-.pillar-tag {
-  display: inline-block;
-  padding: 4px 12px;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  font-weight: bold;
-  margin-bottom: 15px;
-  text-transform: uppercase;
+.example-showcase-image:hover {
+  transform: scale(1.02);
 }
 
-.tag-edu { background: #e3f2fd; color: #1976d2; } /* Blue for Education */
-.tag-story { background: #f3e5f5; color: #7b1fa2; } /* Purple for Storytelling */
-.tag-trans { background: #e8f5e9; color: #2e7d32; } /* Green for Transparency */
-
-.project-meta {
-  list-style: none;
-  padding: 20px 0;
-  border-top: 1px solid #eee;
-  margin-top: 20px;
-  font-size: 0.95rem;
+.example-showcase-image svg {
+  width: 100%;
+  height: auto;
+  display: block;
 }
 
-.btn-primary {
-  background: #1a1a1a;
-  color: white;
-  padding: 12px 24px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-weight: bold;
+.example-showcase-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.example-showcase-title {
+  font-size: 1.5rem;
+  color: var(--color-gray-900);
+  line-height: 1.3;
+}
+
+@media (min-width: 768px) {
+  .example-showcase-title {
+    font-size: 1.75rem;
+  }
+}
+
+.example-showcase-subtitle {
+  font-size: 1.125rem;
+  color: var(--color-blue-600);
+  font-weight: 500;
+  line-height: 1.5;
+}
+
+.example-showcase-description {
+  color: var(--color-gray-700);
+  line-height: 1.75;
+  font-size: 1rem;
+}
+
+.example-showcase-methods {
+  color: var(--color-gray-600);
+  line-height: 1.75;
+  font-size: 0.9375rem;
+  background-color: var(--color-gray-50);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  border-left: 3px solid var(--color-blue-600);
+}
+
+.example-showcase-methods strong {
+  color: var(--color-gray-900);
 }
 </style>

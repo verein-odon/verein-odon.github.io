@@ -5,24 +5,44 @@ lang: en
 ref: templates
 permalink: /templates/
 in_nav: false
+sitemap: false
 ---
 
 
 
 
 START --- Intro section ---------------------
+<!-- START --- Intro section ----------------------->
 <section class="section bg-white">
     <div class="container">
         <div class="content-section">
-        <h2>
-            Become a Member of ODON – Together, We Shape the Future!
-        </h2>
-        <p>
-            Our association does everything in its power to fulfill its purpose in the best possible way. We know that this would not be possible without our members. A diverse membership base is essential to us for bringing together different perspectives and expertise. Therefore, we offer various membership types tailored to different needs and interests. Whichever membership you choose — your support is a vital contribution to promoting our common goal!
-        </p>
+            <h2>
+                Become a Member of ODON – Together, We Shape the Future!
+            </h2>
+            <p>
+                Our association does everything in its power to fulfill its purpose in the best possible way. We know that this would not be possible without our members. A diverse membership base is essential to us for bringing together different perspectives and expertise. Therefore, we offer various membership types tailored to different needs and interests. Whichever membership you choose — your support is a vital contribution to promoting our common goal!
+            </p>
+            <ul>
+                <li>
+                    <span class="bullet">•</span>
+                    <span><b>Registration</b><br> 
+                        Since we operate these APIs within our financial means and want to prevent misuse, a simple registration is required. After registration, you will receive a URL token that allows you to use each of our APIs for a set number of requests without further restrictions. Use the button "Get Your API Token", fill in the form and we will send get back to you asap.</span>
+                </li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span><b>More Requests</b><br>
+                        Should you require more requests, you can register as a supporting member and receive a higher request quota.</span>
+                </li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span><b>Missing data sets</b><br>
+                        We are always open to suggestions and requests for new APIs; please send us an email to info@odon.at.</span>
+                </li>
+            </ul>
         </div>
     </div>
 </section>
+<!-- END --- Intro section ----------------------->
 END --- Intro section ---------------------
 
 START --- What We Do section ---------------------
@@ -78,6 +98,7 @@ END --- What We Do section ---------------------
 
 
 START --- About section ---------------------
+<!-- START --- About section --------------------- -->
 <section class="section bg-white">
     <div class="container">
         <div class="content-section">
@@ -99,6 +120,7 @@ START --- About section ---------------------
         </div>
     </div>
 </section>
+<!-- END --- About section ----------------------->
 END --- About section ---------------------
 
 

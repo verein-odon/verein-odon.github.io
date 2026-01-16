@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>D3 + Scrollama Example</title>
+    <style>
+        /* --- LAYOUT STYLES --- */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            margin: 0;
+            padding-bottom: 50vh; /* Space to scroll out */
+        }
+        
+        #scrolly {
+            position: relative;
+            display: flex;
+            flex-direction: row-reverse; /* Chart on Right, Text on Left */
+            background-color: #fff;
+            padding: 1rem;
+        }
+
+        /* The Sticky Chart Area */
+        figure {
+            position: sticky;
+            top: 25vh;
+            width: 50%;
+            height: 50vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: #f9f9f9;
+            border-left: 1px solid #ddd;
+        }
+
+        /* The Scrolling Text Area */
+        article {
+            width: 50%;
+            padding: 0 1rem;
+        }
+
+        .step {
+            margin: 0 auto 80vh auto;
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 2rem;
+            text-align: center;
+            opacity: 0.3;
+            transition: opacity 0.5s;
+        }
+
+        .step.is-active {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <section id="scrolly">
+        <figure id="chart"></figure>
+
+        <article>
+            <div class="step" data-index="0" style="margin-top: 750px;">
+                <h2>Phase 1: The Start</h2>
+                <p>We start with low values. The data is [30, 30, 30].</p>
+            </div>
+            <div class="step" data-index="1">
+                <h2>Phase 2: The Spike</h2>
+                <p>Suddenly, the middle value shoots up! Data: [30, 90, 30].</p>
+                <h1>The "Running Machine"</h1>
+                                <p style="text-align: center; font-style: italic;">How a global crisis sparked the invention of the bicycle.</p>
+                                <hr>
+
+                                <h2>The Year Without a Summer</h2>
+
+                                <p><span class="intro-letter">I</span>t began with a catastrophe. In 1815, Mount Tambora in Indonesia erupted in one of the most powerful volcanic events in recorded history. The resulting ash cloud blanketed the Earth's stratosphere, dimming the sun globally for months.</p>
+
+                                <p>The following year, 1816, became known as the "Year Without a Summer." Crops failed across Europe and North America. Snow fell in June. Crucially, oats became scarce and incredibly expensive. This was a disaster for transportation, as horses—the primary engines of the era—relied on oats for fuel. People needed a new way to move that didn't require feeding an animal.</p>
+
+                                <figure>
+                                    <img src="https://cdn.mos.cms.futurecdn.net/iR4WthbKP8UEtZMCdbhZK9.jpg" alt="A portrait of Baron Karl von Drais">
+                                    <figcaption>Baron Karl von Drais, the German inventor who sought an alternative to the horse.</figcaption>
+                                </figure>
+
+                                <h2>Enter the Baron</h2>
+
+                                <p>In Mannheim, Germany, a prolific inventor named Baron Karl von Drais stepped up to the challenge. Drais was a forester looking for a way to inspect his tree nurseries faster without relying on horses.</p>
+
+                                <p>In 1817, he debuted his solution. He called it the <strong>Laufmaschine</strong> (German for "running machine"). The press later dubbed it the "Draisine" after its creator, while English speakers often called it a "velocipede" (swift foot).</p>
+
+                                <h2>The Missing Piece: Pedals</h2>
+
+                                <p>Looking at it today, the Draisine is instantly recognizable as the ancestor of the bicycle. It had two wheels placed in-line, a saddle, and handlebars that actually steered the front wheel—a crucial innovation. </p>
+
+                                <p>But it was missing the most important part of a modern bike: pedals.</p>
+
+                                <figure>
+                                    <img src="https://images.ctfassets.net/26961o1141cc/4Ir31LmXAMZGq2IUjeadLg/ddf38c2e0b64fc400a199fdb528bd1bd/The_first_bicycles-_Ladies_safety_bicycles1889.gif?fm=webp" alt="Illustration of a man riding a Draisine">
+                                    <figcaption>A circa 1820 illustration of a man riding a Draisine. Note how his feet are on the ground; riders pushed off like they were running.</figcaption>
+                                </figure>
+            </div>
+            <div class="step" data-index="2">
+                <h2>Phase 3: The Inversion</h2>
+                <p>The trends reverse completely. Data: [90, 20, 90].</p>
+            </div>
+        </article>
+    </section>
+
+    <script src="https://unpkg.com/d3@7"></script>
+    <script src="https://unpkg.com/scrollama"></script>
+    
+    <script>
+        // --- 1. CONFIGURATION ---
+        const width = 400;
+        const height = 300;
+        const margin = {top: 20, right: 20, bottom: 20, left: 40};
+        
+        // The Data for each step (Index 0, 1, 2)
+        const dataset = [
+            [0, 0, 0],  // Step 0
+            [50, 50, 50],  // Step 1
+            [100, 100, 100]   // Step 2
+        ];
+
+        // --- 2. D3 SETUP (Run once) ---
+        const svg = d3.select("#chart")
+            .append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+        // X Axis Scale (Band scale for bars)
+        const x = d3.scaleBand()
+            .domain([0, 1, 2]) // 3 bars
+            .range([margin.left, width - margin.right])
+            .padding(0.2);
+
+        // Y Axis Scale (Linear scale for height)
+        const y = d3.scaleLinear()
+            .domain([0, 100]) // Max value is 100
+            .range([height - margin.bottom, margin.top]);
+
+        // Draw Axes
+        svg.append("g")
+            .attr("transform", `translate(0,${height - margin.bottom})`)
+            .call(d3.axisBottom(x).tickFormat(i => "Bar " + (i+1)));
+
+        svg.append("g")
+            .attr("transform", `translate(${margin.left},0)`)
+            .call(d3.axisLeft(y));
+
+        // Create initial empty bars
+        const bars = svg.selectAll(".bar")
+            .data([0, 0, 0]) // Start with zeros
+            .join("rect")
+            .attr("class", "bar")
+            .attr("fill", "steelblue")
+            .attr("x", (d, i) => x(i))
+            .attr("width", x.bandwidth())
+            .attr("y", d => y(0))     // Start at bottom
+            .attr("height", 0);       // Height 0
+
+
+        // --- 3. THE UPDATE FUNCTION ---
+        // This is called by Scrollama when we hit a step
+        function updateChart(index) {
+            const data = dataset[index];
+
+            // Select bars and apply transition
+            svg.selectAll(".bar")
+                .data(data)
+                .transition() // <--- THE MAGIC KEYWORD
+                .duration(750) // Animation speed in ms
+                .attr("y", d => y(d))
+                .attr("height", d => y(0) - y(d));
+        }
+
+
+        // --- 4. SCROLLAMA SETUP ---
+        const scroller = scrollama();
+
+        function handleStepEnter(response) {
+            console.log(response.index);
+            // response = { element, direction, index }
+            
+            // Highlight text
+            d3.selectAll(".step").classed("is-active", false);
+            d3.select(response.element).classed("is-active", true);
+
+            if (response.index == 1){
+                document.getElementById("chart").style.display = "none";
+            }
+            
+            // Trigger D3 Update
+            updateChart(response.index);
+        }
+
+        scroller
+            .setup({
+                step: "#scrolly article .step",
+                offset: 0.5,
+                debug: true // Turn off in production
+            })
+            .onStepEnter(handleStepEnter);
+            
+    </script>
+</body>
+</html>

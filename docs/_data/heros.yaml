@@ -118,10 +118,10 @@ supporters:
     hero-subtitle: "Your support helps make Open Data accessible, useful, and impactful."
     image_src: "/assets/images/heros/supporters.svg"
     alt_text: "Support the transparency, innovation and knowledge sharing"
-    buttons:
-      - text: "Donate Now"
-        url: "/en/donate/"
-        style: "primary"
+    # buttons:
+    #   - text: "Donate Now"
+    #     url: "/en/donate/"
+    #     style: "primary"
 internships:
   en:
     hero-title: "Code for Impact: ODON Internships"

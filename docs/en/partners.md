@@ -13,54 +13,41 @@ in_nav: false
     <p>
       At ODON, we believe that transparency and innovation are best achieved through collaboration. We are proud to work alongside organizations that share our commitment to the Open Data.
     </p>
+    <div class="partner-table-wrapper">
+        <table class="partner-table">
+            {% comment %} 
+            <thead>
+                <tr>
+                    <th>Partner Name</th>
+                    <th>Information</th>
+                </tr>
+            </thead>
+            {% endcomment %}
+            <tbody>
+
+                <tr>
+                    <td><strong><a href="https://www.wifi-ooe.at/" target="_blank">WIFI Oberösterreich</a></strong></td>
+                    <td>
+                        WIFI (Wirtschaftsförderungsinstitut) is Austria's leading partner for vocational training and professional development. Our collaboration focuses on integrating Open Data competencies into professional education and facilitating specialized internships for the <a href="https://www.wifi-ooe.at/karriere/coding-academy" target="_blank">coding_academy</a>.
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><strong><a href="https://schauergym.at/" target="_blank">BG/BRG Wels</a></strong></td>
+                    <td>
+                        As an "e-Education Expert" school, BG/BRG Wels partners with ODON to bridge the gap between education and modern data literacy. We collaborate on specialized internships and educational projects that introduce students to the technical and societal value of Open Data.
+                    </td>
+                </tr>
+
+            </tbody>
+        </table>
+        </div>
   </div>
 </section>
 
 <section class="section bg-gray">
   <div class="container">
-    <div class="partner-table-wrapper">
-      <table class="partner-table">
-        <thead>
-          <tr>
-            <th>Partner Name</th>
-            <th>Information</th>
-            <th>Website</th>
-          </tr>
-        </thead>
-        <tbody>
-
-            <tr>
-                <td class="partner-name"><strong>WIFI Oberösterreich</strong></td>
-                <td class="partner-desc">
-                    WIFI (Wirtschaftsförderungsinstitut) is Austria's leading partner for vocational training and professional development. Our collaboration focuses on integrating Open Data competencies into professional education and facilitating specialized internships for the <a href="https://www.wifi-ooe.at/karriere/coding-academy" target="_blank">coding_academy</a>.
-                </td>
-                <td class="partner-url">
-                    <a href="https://www.wifi.at/" target="_blank" class="partner-link">Visit Site</a>
-                </td>
-            </tr>
-
-            <tr>
-                <td class="partner-name"><strong>BG/BRG Wels Dr.-Schauer-Straße</strong></td>
-                <td class="partner-desc">
-                    As an "e-Education Expert" school, Schauergym partners with ODON to bridge the gap between secondary education and modern data literacy. We collaborate on specialized internships and educational projects that introduce students to the technical and societal value of Open Data.
-                </td>
-                <td class="partner-url">
-                    <a href="https://schauergym.at/" target="_blank" class="partner-link">Visit Site</a>
-                </td>
-            </tr>
-
-
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-
-
-<section class="section bg-white">
-  <div class="container">
-    <h2>Become a partner</h2>
+    <h2>Become a Partner</h2>
     <p>
         We are always looking for collaborators who share our passion for Open Data. If you would like to partner with ODON, please send an inquiry to <a href="mailto:info@odon.at">info@odon.at</a>
     </p>
@@ -68,13 +55,6 @@ in_nav: false
 </section>
 
 <style>
-    /* --- Partner Section Styling --- */
-
-.partner-section {
-    padding: 40px 0 80px 0;
-    background-color: #ffffff;
-}
-
 /* Scrollable wrapper for mobile responsiveness */
 .partner-table-wrapper {
     width: 100%;
@@ -87,6 +67,7 @@ in_nav: false
     border-collapse: collapse;
     margin-top: 20px;
     font-family: inherit; /* Uses your site's font */
+    background-color: #ffffff;
 }
 
 .partner-table thead th {
@@ -134,16 +115,6 @@ in_nav: false
     line-height: 1.5;
 }
 
-.partner-link {
-    color: #0055AA;
-    text-decoration: none;
-    font-weight: bold;
-    white-space: nowrap;
-}
-
-.partner-link:hover {
-    text-decoration: underline;
-}
 
 /* Mobile Tweaks */
 @media (max-width: 768px) {

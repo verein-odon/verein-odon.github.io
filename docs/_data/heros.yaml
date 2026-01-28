@@ -127,4 +127,9 @@ internships:
     hero-title: "Code for Impact: ODON Internships"
     hero-subtitle: "Spend your internship building the digital infrastructure for transparency, education, and storytelling. Join our team to turn raw data into public value."
     image_src: "/assets/images/heros/education.svg"
+partners:
+  en:
+    hero-title: "Our Network of Innovation"
+    hero-subtitle: "Innovation doesn't happen in isolation. ODON works alongside leading educational and institutional partners to turn Open Data into a foundation for knowledge, literacy, and societal progress."
+    image_src: "/assets/images/heros/membership.svg"
 

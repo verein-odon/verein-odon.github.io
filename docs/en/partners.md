@@ -7,12 +7,13 @@ permalink: /en/partners/
 in_nav: false
 ---
 
-<section class="section bg-white">
+<section class="section bg-gray">
   <div class="container">
     <h2>Our Partners & Collaborators</h2>
-    <p>
-      At ODON, we believe that transparency and innovation are best achieved through collaboration. We are proud to work alongside organizations that share our commitment to the Open Data.
-    </p>
+    {% comment %}
+        <p>
+        </p>
+    {% endcomment %}
     <div class="partner-table-wrapper">
         <table class="partner-table">
             {% comment %} 
@@ -45,7 +46,7 @@ in_nav: false
   </div>
 </section>
 
-<section class="section bg-gray">
+<section class="section bg-white">
   <div class="container">
     <h2>Become a Partner</h2>
     <p>
@@ -88,31 +89,8 @@ in_nav: false
     color: #555;
 }
 
-/* Logo specific styling */
-.partner-logo-cell {
-    width: 120px;
-}
-
-.partner-logo {
-    max-width: 100px;
-    max-height: 50px;
-    height: auto;
-    filter: grayscale(100%); /* Optional: makes logos professional/uniform */
-    transition: filter 0.3s ease;
-}
-
 .partner-table tr:hover .partner-logo {
     filter: grayscale(0%); /* Color returns on hover */
-}
-
-.partner-name {
-    white-space: nowrap;
-    color: #333;
-}
-
-.partner-desc {
-    min-width: 300px;
-    line-height: 1.5;
 }
 
 

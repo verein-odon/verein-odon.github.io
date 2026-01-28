@@ -2,11 +2,14 @@
   <footer class="footer">
     <div class="container">
       <div class="footer-content">
-        <h3 class="footer-title">{{ site.title | escape }}</h3>
+        {% comment %}
+          <h3 class="footer-title">{{ site.title | escape }}</h3>
+        {% endcomment %}
+        
         <div class="footer-info">
-          <p>ODON</p>
-          <p><a href="mailto:info@odon.at">info@odon.at</a></p>
+          <p>Email: <a href="mailto:info@odon.at">info@odon.at</a></p>
           {%- include social.html -%}
+          <p><a href="/{{page.lang}}/partners">Partners</a></p>
           <p class="footer-tagline" data-translate="footer.tagline">{{- site.description | escape -}}</p>
         </div>
       </div>
@@ -17,7 +20,9 @@
   </footer>
 
 
-<!-- <footer class="site-footer h-card">
+{% comment %}
+ 
+<footer class="site-footer h-card">
   <data class="u-url" href="{{ "/" | relative_url }}"></data>
 
   <div class="wrapper">
@@ -51,7 +56,9 @@
 
   </div>
 
-</footer> -->
+</footer>
+
+{% endcomment %}
 
 <script>
   // Initialize

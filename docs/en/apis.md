@@ -16,7 +16,7 @@ permalink: /en/apis/
         <li>
           <span class="bullet">•</span>
           <span><b>Registration</b><br> 
-          Since we operate these APIs within our financial means and want to prevent misuse, a simple registration is required. After registration, you will receive a URL token that allows you to use each of our APIs for a set number of requests without further restrictions. Use the button "Get Your API Token", fill in the form and we will send get back to you asap.</span>
+          Since we operate these APIs within our financial means and want to prevent misuse, a simple registration is required. After registration, you will receive a URL token that allows you to use each of our APIs for a set number of requests without further restrictions. Use the button "Get Your API Token", fill in the form and we will get back to you asap.</span>
         </li>
         <li>
           <span class="bullet">•</span>

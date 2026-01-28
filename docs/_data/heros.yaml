@@ -41,7 +41,7 @@ apis:
       - text: "Get Your API Token"
         url: "/en/api-registration/"
         style: "primary"
-        arrow: true
+        arrow: false
       - text: "API & Data Documentation"
         url: "/en/api-documentation/"
         style: "secondary"

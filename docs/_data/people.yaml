@@ -1,0 +1,33 @@
+# People at the association (used on Association page)
+# Add or edit entries; image path is under assets/images/people/
+# The carousel will show at most the first three entries.
+
+# - name: Benedikt
+#   role: "Board Member"
+#   image: benedikt_01.jpeg
+#   statement: "I see Open Data as both structure and rhythm—technical at its core, yet full of creative potential."
+#   #link: "https://example.com/benedikt-schoeffmann"
+
+# - name: Christian
+#   role: "Product and Data Lead"
+#   image: christian_01.jpeg
+#   statement: "Open Data is not just a resource—it’s a foundation for smarter decisions and meaningful innovation."
+  #link: "https://example.com/christian-teuschel"
+
+- name: Clemens
+  role: "Board Member"
+  image: clemens_01.jpeg
+  statement: "I believe that Open Data is only as powerful as our ability to understand it. Visualizing data isn't just about aesthetics—it’s about making transparency accessible and meaningful for everyone in our society."
+#  link: "https://example.com/clemens-mock"
+
+- name: Nooshin
+  role: "Creative Lead"
+  image: nooshin_01.jpeg
+  statement: "I use data and design to create visuals that tell clear, engaging stories."
+  #link: "https://example.com/wolfgang-hauer"
+
+- name: Wolfgang
+  role: "Board Member"
+  image: wolfgang_01.jpeg
+  statement: "Open Data gives us the chance to turn knowledge into something accessible, tangible, and inspiring for everyone."
+  #link: "https://example.com/wolfgang-hauer"

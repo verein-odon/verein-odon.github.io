@@ -600,6 +600,204 @@ a.btn-primary, a.btn-primary:hover {
   line-height: 1.75;
 }
 
+/* People section (Association page) */
+.people-grid {
+  display: grid;
+  gap: 2rem;
+  margin-top: 2rem;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+}
+
+@media (min-width: 640px) {
+  .people-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .people-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+.person-card {
+  text-align: center;
+  padding: 1rem;
+  border-radius: 0.75rem;
+  border: 1px solid var(--color-gray-200);
+  background: var(--color-white);
+  transition: box-shadow 0.3s, border-color 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .person-card {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.person-card:hover {
+  border-color: #93c5fd;
+  box-shadow: var(--shadow-md);
+}
+
+.person-main {
+  max-width: 24rem;
+}
+
+.person-image-wrapper {
+  width: 100%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  overflow: hidden;
+  margin: 0 auto 1rem;
+  max-width: 200px;
+  background: var(--color-gray-100);
+}
+
+.person-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.person-side-avatar {
+  display: none;
+  border: none;
+  background: none;
+  padding: 0;
+  cursor: pointer;
+}
+
+.person-side-avatar-inner {
+  width: 5rem;
+  height: 5rem;
+  border-radius: 999px;
+  background-color: var(--color-gray-200);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.85;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  /* Fallback when no image is set (e.g. single slide) */
+  background-image: radial-gradient(circle at 30% 30%, var(--color-gray-200), var(--color-gray-400));
+}
+
+.person-side-avatar-inner--blur {
+  /* background-image set inline by JS from adjacent slide's person image */
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  border: 2px solid var(--color-gray-300);
+}
+
+.person-side-avatar:hover .person-side-avatar-inner {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  .person-side-avatar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.person-name {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-gray-900);
+  margin-bottom: 0.25rem;
+}
+
+.person-role {
+  font-size: 0.875rem;
+  color: var(--color-gray-600);
+  margin-bottom: 0.5rem;
+}
+
+.person-link {
+  font-size: 0.875rem;
+  color: var(--color-blue-600);
+  text-decoration: none;
+}
+
+.person-link:hover {
+  text-decoration: underline;
+}
+
+/* Carousel layout for people section */
+.people-carousel {
+  margin-top: 2rem;
+}
+
+.people-carousel-inner {
+  position: relative;
+  min-height: 260px;
+}
+
+.person-slide {
+  display: none;
+}
+
+.person-slide.is-active {
+  display: block;
+}
+
+.people-carousel-controls {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.carousel-btn {
+  border: 1px solid var(--color-gray-300);
+  background-color: var(--color-white);
+  border-radius: 999px;
+  padding: 0.75rem 1.25rem;
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  color: var(--color-gray-700);
+  box-shadow: var(--shadow-sm);
+}
+
+.carousel-btn:hover {
+  background-color: var(--color-gray-100);
+}
+
+.people-carousel-dots {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.carousel-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 999px;
+  border: none;
+  background-color: var(--color-gray-300);
+  cursor: pointer;
+}
+
+.carousel-dot.is-active {
+  width: 1.5rem;
+  background-color: var(--color-blue-600);
+}
+
+.person-statement {
+  margin-top: 0.75rem;
+  font-size: 0.95rem;
+  color: var(--color-gray-700);
+}
+
 /* News Section */
 .news-container {
   max-width: 48rem;

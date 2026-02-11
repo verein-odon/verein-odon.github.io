@@ -72,8 +72,6 @@ show_excerpts: true
     </div>
 </section>
 
-
-
 <!-- START --- About section --------------------- -->
 <section class="section bg-white">
     <div class="container">
@@ -97,6 +95,18 @@ show_excerpts: true
     </div>
 </section>
 <!-- END --- About section ----------------------->
+
+{% include people_carousel.html
+   title="People at ODON"
+   intro="Meet three people behind ODON - this week Nooshin, Clemens and Wolfgang!"
+   profile_label="Profile" %}
+
+
+
+
+
+
+
 
 
 

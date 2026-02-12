@@ -5,7 +5,7 @@
 - title: "Bike Share & Sustainable Mobility"
   description: "This project transforms open transportation and environmental data into a clear visual narrative about bike sharing. By combining maps, timelines, and comparative charts, the visualization highlights how bike share systems can reduce emissions and reshape urban mobility."
   image: "/assets/images/examples/bike/bike_3.png"
-  url: "https://example.com/bike-share"
+  #url: "https://example.com/bike-share"
   images:
     - "/assets/images/examples/bike/bike_1.png"
     - "/assets/images/examples/bike/bike_2.png"

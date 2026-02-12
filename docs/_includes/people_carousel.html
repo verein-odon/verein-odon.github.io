@@ -31,7 +31,7 @@
               <p class="person-role">{{ person.role }}</p>
               {% endif %}
               {% if person.statement and person.statement != "" %}
-              <p class="person-statement">{{ person.statement }}</p>
+              <blockquote class="person-statement">{{ person.statement }}</blockquote>
               {% endif %}
               {% if person.link and person.link != "" %}
               <a href="{{ person.link }}" class="person-link" target="_blank" rel="noopener noreferrer" aria-label="{{ include.profile_label | default: 'Profile' }} (opens in new tab)">

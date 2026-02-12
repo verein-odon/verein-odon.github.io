@@ -17,7 +17,7 @@
 - name: Clemens
   role: "Board Member"
   image: clemens_01.jpeg
-  statement: “Open Data matters only when people can understand it.”
+  statement: "Open Data matters only when people can understand it."
 #  link: "https://example.com/clemens-mock"
 
 - name: Nooshin
@@ -29,5 +29,5 @@
 - name: Wolfgang
   role: "Board Member"
   image: wolfgang_01.jpeg
-  statement: “Data becomes powerful when it’s accessible and inspiring.”
+  statement: "Data becomes powerful when it’s accessible and inspiring."
   #link: "https://example.com/wolfgang-hauer"

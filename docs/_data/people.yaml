@@ -17,7 +17,7 @@
 - name: Clemens
   role: "Board Member"
   image: clemens_01.jpeg
-  statement: "I believe that Open Data is only as powerful as our ability to understand it. Visualizing data isn't just about aesthetics—it’s about making transparency accessible and meaningful for everyone in our society."
+  statement: “Open Data matters only when people can understand it.”
 #  link: "https://example.com/clemens-mock"
 
 - name: Nooshin
@@ -29,5 +29,5 @@
 - name: Wolfgang
   role: "Board Member"
   image: wolfgang_01.jpeg
-  statement: "Open Data gives us the chance to turn knowledge into something accessible, tangible, and inspiring for everyone."
+  statement: “Data becomes powerful when it’s accessible and inspiring.”
   #link: "https://example.com/wolfgang-hauer"

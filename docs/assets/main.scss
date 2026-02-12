@@ -737,7 +737,7 @@ a.btn-primary, a.btn-primary:hover {
 
 .people-carousel-inner {
   position: relative;
-  min-height: 260px;
+  height: 400px; /* Fixed height so controls below never jump */
 }
 
 .person-slide {
@@ -746,6 +746,27 @@ a.btn-primary, a.btn-primary:hover {
 
 .person-slide.is-active {
   display: block;
+  height: 100%;
+}
+
+/* Fixed-height card in carousel only: prevents jump when statement length varies */
+.people-carousel .person-card {
+  height: 100%;
+  min-height: 400px;
+  overflow: hidden;
+}
+
+.people-carousel .person-main {
+  flex: 1;
+  min-height: 0; /* Allow flex child to shrink */
+  display: flex;
+  flex-direction: column;
+}
+
+.people-carousel .person-statement {
+  flex: 1;
+  min-height: 3.5em;
+  overflow: hidden; /* Long text clipped; ~2 sentences visible */
 }
 
 .people-carousel-controls {
@@ -796,6 +817,8 @@ a.btn-primary, a.btn-primary:hover {
   margin-top: 0.75rem;
   font-size: 0.95rem;
   color: var(--color-gray-700);
+  min-height: 3.5em; /* Reserve space for ~2 sentences so card height stays stable */
+  line-height: 1.5;
 }
 
 /* News Section */

@@ -3,7 +3,7 @@
     <div class="content-section">
       <div class="icon-header">
         <div>
-          <h2>{{ include.title }}</h2>
+          <h2 id="people-carousel-heading">{{ include.title }}</h2>
         </div>
       </div>
       {% if include.intro %}
@@ -13,7 +13,7 @@
 
     {% assign all_people = site.data.people %}
     {% if all_people.size > 0 %}
-    <div class="people-carousel" data-carousel>
+    <div class="people-carousel" data-carousel role="region" aria-labelledby="people-carousel-heading">
       <div class="people-carousel-inner">
         {% for person in all_people %}
         <article class="person-slide{% if forloop.first %} is-active{% endif %}" data-carousel-slide>
@@ -34,7 +34,7 @@
               <p class="person-statement">{{ person.statement }}</p>
               {% endif %}
               {% if person.link and person.link != "" %}
-              <a href="{{ person.link }}" class="person-link" target="_blank" rel="noopener">
+              <a href="{{ person.link }}" class="person-link" target="_blank" rel="noopener noreferrer" aria-label="{{ include.profile_label | default: 'Profile' }} (opens in new tab)">
                 {{ include.profile_label | default: "Profile" }}
               </a>
               {% endif %}
@@ -56,7 +56,7 @@
           &#x203A;
         </button>
       </div>
-      <div class="people-carousel-dots" role="tablist" data-carousel-dots></div>
+      <div class="people-carousel-dots" role="tablist" aria-label="Choose featured person" data-carousel-dots></div>
     </div>
     {% endif %}
   </div>
@@ -122,23 +122,17 @@ document.addEventListener('DOMContentLoaded', function () {
     var dotsContainer = carousel.querySelector('[data-carousel-dots]');
     var dots = [];
     var current = 0;
-    var autoAdvanceInterval = 20000; // ms
-    var autoAdvanceTimer = null;
+    var carouselId = 'people-carousel-' + (Math.random().toString(36).slice(2, 9));
 
-    function startAutoAdvance() {
-      if (slides.length <= 1) return;
-      stopAutoAdvance();
-      autoAdvanceTimer = setInterval(function () {
-        showSlide(current + 1);
-      }, autoAdvanceInterval);
-    }
-
-    function stopAutoAdvance() {
-      if (autoAdvanceTimer) {
-        clearInterval(autoAdvanceTimer);
-        autoAdvanceTimer = null;
-      }
-    }
+    // Assign slide IDs and ARIA for tablist/tabpanel pattern
+    slides.forEach(function (slide, idx) {
+      var panelId = carouselId + '-panel-' + idx;
+      slide.id = panelId;
+      slide.setAttribute('role', 'tabpanel');
+      var nameEl = slide.querySelector('.person-name');
+      var name = nameEl ? nameEl.textContent.trim() : ('Person ' + (idx + 1));
+      slide.setAttribute('aria-label', name);
+    });
 
     function rebuildDots() {
       if (!dotsContainer) return;
@@ -147,13 +141,18 @@ document.addEventListener('DOMContentLoaded', function () {
 
       slides.forEach(function (slide, idx) {
         var nameEl = slide.querySelector('.person-name');
-        var name = nameEl ? nameEl.textContent : ('Person ' + (idx + 1));
+        var name = nameEl ? nameEl.textContent.trim() : ('Person ' + (idx + 1));
+        var panelId = slide.id;
 
         var dot = document.createElement('button');
         dot.type = 'button';
         dot.className = 'carousel-dot' + (idx === 0 ? ' is-active' : '');
+        dot.setAttribute('role', 'tab');
+        dot.setAttribute('aria-selected', idx === 0 ? 'true' : 'false');
+        dot.setAttribute('aria-controls', panelId);
         dot.setAttribute('data-carousel-dot', String(idx));
         dot.setAttribute('aria-label', 'Show ' + name);
+        dot.setAttribute('tabindex', idx === 0 ? '0' : '-1');
         dotsContainer.appendChild(dot);
         dots.push(dot);
       });
@@ -165,25 +164,28 @@ document.addEventListener('DOMContentLoaded', function () {
       current = (index + total) % total;
 
       slides.forEach(function (slide, i) {
-        slide.classList.toggle('is-active', i === current);
+        var isActive = i === current;
+        slide.classList.toggle('is-active', isActive);
+        slide.setAttribute('aria-hidden', isActive ? 'false' : 'true');
       });
 
       dots.forEach(function (dot, i) {
-        dot.classList.toggle('is-active', i === current);
+        var isActive = i === current;
+        dot.classList.toggle('is-active', isActive);
+        dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+        dot.setAttribute('tabindex', isActive ? '0' : '-1');
       });
     }
 
     prevBtns.forEach(function (btn) {
       btn.addEventListener('click', function () {
         showSlide(current - 1);
-        startAutoAdvance();
       });
     });
 
     nextBtns.forEach(function (btn) {
       btn.addEventListener('click', function () {
         showSlide(current + 1);
-        startAutoAdvance();
       });
     });
 
@@ -192,14 +194,28 @@ document.addEventListener('DOMContentLoaded', function () {
     dots.forEach(function (dot) {
       dot.addEventListener('click', function () {
         var idx = parseInt(dot.getAttribute('data-carousel-dot'), 10);
-        if (!isNaN(idx)) {
-          showSlide(idx);
-          startAutoAdvance();
-        }
+        if (!isNaN(idx)) showSlide(idx);
       });
     });
 
-    startAutoAdvance();
+    if (dotsContainer) {
+      dotsContainer.addEventListener('keydown', function (e) {
+        var target = e.target;
+        if (target.getAttribute('role') !== 'tab') return;
+        var idx = parseInt(target.getAttribute('data-carousel-dot'), 10);
+        if (isNaN(idx)) return;
+        var nextIdx = idx;
+        if (e.key === 'ArrowLeft') {
+          e.preventDefault();
+          nextIdx = (idx - 1 + slides.length) % slides.length;
+        } else if (e.key === 'ArrowRight') {
+          e.preventDefault();
+          nextIdx = (idx + 1) % slides.length;
+        } else return;
+        showSlide(nextIdx);
+        dots[nextIdx].focus();
+      });
+    }
 
     // Hide controls/dots/side avatars when there's only one featured person
     var controls = carousel.querySelector('.people-carousel-controls');

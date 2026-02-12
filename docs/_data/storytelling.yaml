@@ -1,0 +1,21 @@
+# Storytelling examples (used on Services page)
+# Each entry: title, description (up to 2 sentences), image (main image path).
+# Optional: url, images (array of up to 3 additional image paths).
+
+- title: "Bike Share & Sustainable Mobility"
+  description: "This project transforms open transportation and environmental data into a clear visual narrative about bike sharing. By combining maps, timelines, and comparative charts, the visualization highlights how bike share systems can reduce emissions and reshape urban mobility."
+  image: "/assets/images/examples/bike/bike_3.png"
+  url: "https://example.com/bike-share"
+  images:
+    - "/assets/images/examples/bike/bike_1.png"
+    - "/assets/images/examples/bike/bike_2.png"
+    - "/assets/images/examples/bike/bike_3.png"
+
+- title: "Street Safety & Public Space Impact"
+  description: "This infographic uses open mobility and safety data to show the real-world impact of street design decisions. By visualizing collisions, trends, and outcomes over time, the project supports transparent communication between policymakers, stakeholders, and the public."
+  image: "/assets/images/examples/sf-tenderloin/map_2.png"
+  # url: "https://example.com/street-safety"
+  # images:
+  #   - "/assets/images/examples/sf-tenderloin/1.png"
+  #   - "/assets/images/examples/sf-tenderloin/2.png"
+  #   - "/assets/images/examples/sf-tenderloin/3.png"

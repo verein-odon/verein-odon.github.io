@@ -1,0 +1,38 @@
+{% assign examples = site.data.storytelling %}
+{% if examples.size > 0 %}
+<section class="section storytelling-section {% if include.bg %}{{ include.bg }}{% else %}bg-gray{% endif %}">
+  <div class="container">
+    {% if include.title %}
+    <div class="content-section">
+      <h2>{{ include.title }}</h2>
+      {% if include.intro %}<p>{{ include.intro }}</p>{% endif %}
+    </div>
+    {% endif %}
+    <div class="storytelling-grid">
+      {% for example in examples %}
+      <article class="storytelling-card">
+        <div class="storytelling-card-image">
+          <img src="{{ example.image }}" alt="{{ example.title | escape }}" loading="lazy" width="400" height="250">
+        </div>
+        <div class="storytelling-card-body">
+          <h3 class="storytelling-card-title">{{ example.title }}</h3>
+          <p class="storytelling-card-description">{{ example.description }}</p>
+          {% if example.url and example.url != "" %}
+          <a href="{{ example.url }}" class="storytelling-card-link" target="_blank" rel="noopener noreferrer" aria-label="{{ include.link_label | default: 'View example' }} (opens in new tab)">
+            {{ include.link_label | default: "View example" }}
+          </a>
+          {% endif %}
+          {% if example.images and example.images.size > 0 %}
+          <div class="storytelling-card-gallery">
+            {% for img in example.images limit: 3 %}
+            <img src="{{ img }}" alt="" loading="lazy" width="120" height="90" class="storytelling-card-thumb">
+            {% endfor %}
+          </div>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}

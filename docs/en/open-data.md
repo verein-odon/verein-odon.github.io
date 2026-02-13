@@ -135,8 +135,8 @@ permalink: /en/open-data/
             <h2>
                 ODON’s Role in Open Data
             </h2>
-            <p>Open Data is more than data! It is an enabler of transparency, better decisions, innovation, and shared learning — values that lie at the heart of ODON’s work.</p>
-            <p>ODON supports Open Data by:</p>
+            <p>Open Data is an enabler of transparency, better decisions, innovation, and knowledge sharing — values that lie at the heart of ODON’s work.</p>
+            <p>And that is what we are doing:</p>
             <ul>
                 <li>
                     <span class="bullet">•</span>
@@ -144,11 +144,11 @@ permalink: /en/open-data/
                 </li>
                 <li>
                     <span class="bullet">•</span>
-                    <span>Making data accessible via APIs - see <a href="/{{ page.lang }}/apis/">APIs</a></span>
+                    <span>Making Open Data accessible via our APIs - see <a href="/{{ page.lang }}/apis/">APIs</a></span>
                 </li>
                 <li>
                     <span class="bullet">•</span>
-                    <span>Educating people about data literacy - see <a href="/{{ page.lang }}/education/">Education</a></span>
+                    <span>Educating people about Open Data - see <a href="/{{ page.lang }}/education/">Education</a></span>
                 </li>
             </ul>
         </div>

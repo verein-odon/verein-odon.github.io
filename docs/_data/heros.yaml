@@ -89,8 +89,8 @@ membership:
     alt_text: "People at a table"
 opendata:
   en:
-    hero-title: "Open Data: A Resource for Everyone"
-    hero-subtitle: "Information is the fuel of modern democracy. Discover how machine-readable, transparent, and freely accessible data drives innovation, empowers education, and tells the stories that shape our world."
+    hero-title: "Open Data: Yes, open and data, but..."
+    hero-subtitle: "Open Data is for everyone, theoretically but what does that mean in practice? And what are the real benefits and challenges? Let's find out!"
     image_src: "/assets/images/heros/open-data.svg"
     alt_text: "Open data from table to application"
   de:

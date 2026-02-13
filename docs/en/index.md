@@ -7,6 +7,7 @@ lang: en
 ref: index
 list_title: News
 show_excerpts: true
+last_updated: "2025-02-13 14:30"
 ---
 
 <!-- START --- Intro section ----------------------->

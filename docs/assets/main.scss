@@ -492,6 +492,15 @@ a.btn-primary, a.btn-primary:hover {
 
 .hero-visual {
   position: relative;
+  width: 100%;
+}
+
+.hero-image-wrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
 }
 
 .hero-box {
@@ -517,9 +526,20 @@ a.btn-primary, a.btn-primary:hover {
 }
 
 .hero-image {
-  width: 130%;      /* Fills the container */
-  max-width: 400px; /* Stops growing at 400px */
+  width: 100%;
+  max-width: 100%;
   height: auto;
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .hero-image-wrapper {
+    max-width: none;
+  }
+  .hero-image {
+    width: 130%;
+    max-width: 400px;
+  }
 }
 
 /* Section Styles */

@@ -71,31 +71,8 @@ show_excerpts: true
     </div>
 </section>
 
-<!-- START --- About section --------------------- -->
-<section class="section bg-white">
-    <div class="container">
-        <div class="content-section">
-            <div class="icon-header">
-                <!-- <div class="icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <rect x="3" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="3" width="7" height="7"></rect>
-                    <rect x="14" y="14" width="7" height="7"></rect>
-                    <rect x="3" y="14" width="7" height="7"></rect>
-                </svg>
-                </div> -->
-                <div>
-                <h2>Our Purpose</h2>
-                </div>
-            </div>
-            <p>By supporting and advancing Open Data, we foster an ecosystem of innovation. We provide the technical infrastructure and community support needed to ensure data serves the public good.
-            </p>
-        </div>
-    </div>
-</section>
-<!-- END --- About section ----------------------->
-
 {% include people_carousel.html
+   bg_color="white"
    title="People at ODON"
    intro="Meet three people behind ODON - this week Nooshin, Clemens and Wolfgang!"
    profile_label="Profile" %}

@@ -1,0 +1,21 @@
+{% comment %}
+  Quote section – same structure as other sections. Configurable bg (bg-white / bg-gray).
+  Parameters:
+    - quote (required): the quote text
+    - author (optional): author name or source, shown subtly below the quote
+    - bg (optional): section background, e.g. bg-white or bg-gray (default: bg-gray)
+{% endcomment %}
+{% if include.quote and include.quote != "" %}
+<section class="section quote-section bg-{{ include.bg_color | default: 'gray' }}" aria-label="Quote">
+  <div class="container">
+    <div class="content-section">
+      <blockquote class="quote-section-block">
+        <p class="quote-section-text">{{ include.quote }}</p>
+        {% if include.author and include.author != "" %}
+        <footer class="quote-section-author">{{ include.author }}</footer>
+        {% endif %}
+      </blockquote>
+    </div>
+  </div>
+</section>
+{% endif %}

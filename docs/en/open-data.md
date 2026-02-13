@@ -13,9 +13,15 @@ permalink: /en/open-data/
             <h2>
                 What is Open Data?
             </h2>
-            <div>
-                <quote>“Open Data is data that can be freely used, processed, modified, and shared by anyone.”</quote>
-            </div>
+        </div>
+    </div>
+</section>
+
+{% include quote_section.html quote="Open Data is data that can be freely used, processed, modified, and shared by anyone." author="Open Definition" bg="bg-gray" %}
+
+<section class="section bg-white">
+    <div class="container">
+        <div class="content-section">
             <p>
                 This is a concise definition of Open Data. However, there is more behind the term. For example Open Data enables:
             </p>

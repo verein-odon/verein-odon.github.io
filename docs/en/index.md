@@ -35,7 +35,7 @@ show_excerpts: true
     <div class="container">
         <div class="content-section">
             <h2>
-                What we Provide
+                What We Do
             </h2>
         </div>
         <div class="cards-grid">
@@ -43,18 +43,17 @@ show_excerpts: true
                 <div class="card-icon">
                     <img src="/assets/images/icons/data-services.svg" alt="Data services" loading="lazy">
                 </div>
-                <h3>Data Services</h3>
+                <h3>Data Services Around Open Data</h3>
                 <p class="membership-subtitle">For Organisations and Institutions</p>
-                <p class="card-text">From engineering to storytelling, we help organisations turn raw data into insights.
+                <p class="card-text">From data engineering to storytelling, we help organisations turn raw data into insights and value.
                 </p>
-                <!-- <a href="/en/services" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Find the Right Service</a> -->
             </div>
             <div class="card">
                 <div class="card-icon">
                     <img src="/assets/images/icons/apis.svg" alt="API visualization" loading="lazy">
                 </div>
-                <h3>Open Data API</h3>
-                <p class="membership-subtitle">For Developers and Researchers </p>
+                <h3>APIs for Open Data</h3>
+                <p class="membership-subtitle">For Developers and Researchers</p>
                 <p class="card-text">We provide a wealth of access to various public datasets via modern APIs.
                 </p>
                 <!-- <a href="/en/apis" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Explore our APIs</a> -->
@@ -63,7 +62,7 @@ show_excerpts: true
                 <div class="card-icon">
                     <img src="/assets/images/icons/education.svg" alt="Data services" loading="lazy">
                 </div>
-                <h3>Education</h3>
+                <h3>Education on Open Data</h3>
                 <p class="membership-subtitle">For Students</p>
                 <p class="card-text">We build the next generation of data specialists through internships and webinars.</p>
                 <!-- <a href="/en/education" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Discover new Knowledge</a> -->

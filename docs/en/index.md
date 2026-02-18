@@ -10,29 +10,9 @@ show_excerpts: true
 last_updated: "2025-02-13 14:30"
 ---
 
-<!-- START --- Intro section ----------------------->
-<section class="section bg-white">
-    <div class="container">
-        <div class="content-section">
-        <h2>
-            Welcome to ODON
-        </h2>
-        <p>
-            We build a platform that makes Open Data accessible, understandable, and usable for everyone. Whether you are a developer, researcher, journalist, student, or entrepreneur, our tools help you turn open datasets into meaningful insights and real-world applications.
-        </p>
-        <p> 
-            By providing robust technical infrastructure and intuitive user interfaces, we lower the barriers to using Open Data and actively promote collaboration across communities and organizations. Our team brings together technical excellence and a strong commitment to the societal value of Open Data—working to ensure that data can spark innovation, strengthen transparency, and support impactful projects.<br>
-        </p>
-        <p>  
-            Interested in working with us or learning more?
-        </p>
-        </div>
-    </div>
-</section>
-<!-- END --- Intro section ----------------------->
 
 <!-- What We Do Section -->
-<section class="section bg-gray">
+<section class="section bg-white">
     <div class="container">
         <div class="content-section">
             <h2>
@@ -71,6 +51,14 @@ last_updated: "2025-02-13 14:30"
         </div>
     </div>
 </section>
+
+{% include examples_carousel.html
+   title="Examples of Our Work"
+   intro="See how we turn Open Data into clear visual narratives and practical insights."
+   examples_url="/en/services/#examples"
+   bg_color="gray"
+   view_all_label="View all examples"
+   read_more_label="Read more" %}
 
 {% include people_carousel.html
    bg_color="white"

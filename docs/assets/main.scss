@@ -856,6 +856,153 @@ a.btn-primary, a.btn-primary:hover {
   background-color: var(--color-blue-600);
 }
 
+/* Examples carousel (landing page) */
+.examples-carousel {
+  margin-top: 2rem;
+}
+
+.examples-carousel-inner {
+  position: relative;
+  min-height: 280px;
+}
+
+.example-slide {
+  display: none;
+}
+
+.example-slide.is-active {
+  display: block;
+}
+
+.example-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+@media (min-width: 1024px) {
+  .example-card {
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+  }
+}
+
+.example-side-thumb {
+  display: none;
+  border: none;
+  padding: 0;
+  background: none;
+  cursor: pointer;
+}
+
+.example-side-thumb-inner {
+  width: 6rem;
+  height: 4.5rem;
+  border-radius: 0.5rem;
+  background: var(--color-gray-200);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.8;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.example-side-thumb-inner--blur {
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
+  border: 1px solid var(--color-gray-300);
+}
+
+.example-side-thumb:hover .example-side-thumb-inner {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+@media (min-width: 1024px) {
+  .example-side-thumb {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 6rem;
+  }
+}
+
+.example-main {
+  max-width: 28rem;
+  text-align: center;
+}
+
+.example-main-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+  transition: opacity 0.2s ease;
+}
+
+.example-main-link:hover {
+  opacity: 0.9;
+}
+
+.example-image-wrapper {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  background: var(--color-gray-100);
+  margin-bottom: 0.75rem;
+}
+
+.example-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.example-sentence {
+  font-size: 1rem;
+  color: var(--color-gray-700);
+  line-height: 1.5;
+  margin: 0;
+}
+
+.example-optional-link {
+  display: inline-block;
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--color-blue-600);
+  text-decoration: none;
+}
+
+.example-optional-link:hover {
+  text-decoration: underline;
+}
+
+.examples-carousel-controls {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.examples-carousel-dots {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.examples-carousel-dots .carousel-dot {
+  width: 0.75rem;
+  height: 0.75rem;
+}
+
+.examples-carousel-dots .carousel-dot.is-active {
+  width: 1.5rem;
+}
+
 .person-statement {
   margin-top: 0.75rem;
   margin-left: 0;

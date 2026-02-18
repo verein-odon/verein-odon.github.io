@@ -1,0 +1,14 @@
+# Featured examples for the landing page carousel (max 3 shown).
+# Each: image path, one sentence, optional link (if empty, click goes to Examples on Services page).
+
+- image: "/assets/images/examples/wfh-burnout/wfh-burnout-0.png"
+  sentence: "Infographic: Working-from-home life & Burnout"
+  link: ""
+
+- image: "/assets/images/examples/sf-tenderloin/map_2.png"
+  sentence: "Infographic: Street Safety & Public Space Impact"
+  link: ""
+
+- image: "/assets/images/examples/bike/bike_1.png"
+  sentence: "Infographic: Bike Share & Sustainable Mobility"
+  link: ""

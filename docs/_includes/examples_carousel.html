@@ -1,0 +1,176 @@
+{% assign all_examples = site.data.featured_examples | slice: 0, 3 %}
+{% assign examples_url = include.examples_url | default: "/en/services/#examples" %}
+
+<section class="section bg-{{ include.bg_color | default: 'gray' }}">
+  <div class="container">
+    <div class="content-section">
+      <div class="icon-header">
+        <div>
+          <h2 id="examples-carousel-heading">{{ include.title | default: "Examples" }}</h2>
+        </div>
+      </div>
+      {% if include.intro %}
+      <p>{{ include.intro }}</p>
+      {% endif %}
+    </div>
+
+    {% if all_examples.size > 0 %}
+    <div class="examples-carousel" data-examples-carousel role="region" aria-labelledby="examples-carousel-heading">
+      <div class="examples-carousel-inner">
+        {% for example in all_examples %}
+        <article class="example-slide{% if forloop.first %} is-active{% endif %}" data-examples-slide>
+          <div class="example-card">
+            <button type="button" class="example-side-thumb left" data-examples-prev aria-label="Previous example">
+              <span class="example-side-thumb-inner" aria-hidden="true"></span>
+            </button>
+
+            <div class="example-main">
+              <a href="{{ examples_url }}" class="example-main-link" aria-label="View all examples on Services page">
+                <div class="example-image-wrapper">
+                  <img src="{{ example.image }}" alt="{{ example.sentence | truncate: 80 }}" class="example-image" loading="lazy" width="400" height="250">
+                </div>
+                <p class="example-sentence">{{ example.sentence }}</p>
+              </a>
+              {% if example.link and example.link != "" %}
+              <a href="{{ example.link }}" class="example-optional-link" target="_blank" rel="noopener noreferrer">{{ include.read_more_label | default: "Read more" }} &#x203A;</a>
+              {% endif %}
+            </div>
+
+            <button type="button" class="example-side-thumb right" data-examples-next aria-label="Next example">
+              <span class="example-side-thumb-inner" aria-hidden="true"></span>
+            </button>
+          </div>
+        </article>
+        {% endfor %}
+      </div>
+
+      <div class="examples-carousel-controls">
+        <button type="button" class="carousel-btn prev" data-examples-prev aria-label="Previous example">
+          &#x2039;
+        </button>
+        <button type="button" class="carousel-btn next" data-examples-next aria-label="Next example">
+          &#x203A;
+        </button>
+      </div>
+      <div class="examples-carousel-dots" role="tablist" aria-label="Choose example" data-examples-dots></div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+<script>
+(function () {
+  function initExamplesCarousels() {
+    var carousels = document.querySelectorAll('[data-examples-carousel]');
+    if (!carousels.length) return;
+
+    carousels.forEach(function (carousel) {
+      var inner = carousel.querySelector('.examples-carousel-inner');
+      var slides = Array.prototype.slice.call(carousel.querySelectorAll('[data-examples-slide]'));
+      if (!slides.length || !inner) return;
+
+      var prevBtns = carousel.querySelectorAll('[data-examples-prev]');
+      var nextBtns = carousel.querySelectorAll('[data-examples-next]');
+      var dotsContainer = carousel.querySelector('[data-examples-dots]');
+      var dots = [];
+      var current = 0;
+
+      function showSlide(index) {
+        if (!slides.length) return;
+        var total = slides.length;
+        current = (index + total) % total;
+
+        slides.forEach(function (slide, i) {
+          var isActive = i === current;
+          slide.classList.toggle('is-active', isActive);
+        });
+
+        if (dots.length) {
+          dots.forEach(function (dot, i) {
+            dot.classList.toggle('is-active', i === current);
+          });
+        }
+      }
+
+      function rebuildDots() {
+        if (!dotsContainer) return;
+        dotsContainer.innerHTML = '';
+        dots = [];
+        slides.forEach(function (slide, idx) {
+          var dot = document.createElement('button');
+          dot.type = 'button';
+          dot.className = 'carousel-dot' + (idx === 0 ? ' is-active' : '');
+          dot.setAttribute('data-examples-dot', String(idx));
+          dot.setAttribute('aria-label', 'Show example ' + (idx + 1));
+          dotsContainer.appendChild(dot);
+          dots.push(dot);
+        });
+      }
+
+      // Side thumbs: show adjacent example images (blurred)
+      var total = slides.length;
+      function getExampleImageUrl(slide) {
+        var img = slide && slide.querySelector('.example-image');
+        return img && img.src ? img.src : '';
+      }
+      slides.forEach(function (slide, idx) {
+        var prevIdx = (idx - 1 + total) % total;
+        var nextIdx = (idx + 1) % total;
+        var prevUrl = getExampleImageUrl(slides[prevIdx]);
+        var nextUrl = getExampleImageUrl(slides[nextIdx]);
+        var leftInner = slide.querySelector('.example-side-thumb.left .example-side-thumb-inner');
+        var rightInner = slide.querySelector('.example-side-thumb.right .example-side-thumb-inner');
+        if (leftInner) {
+          if (prevUrl) {
+            leftInner.style.backgroundImage = 'url(' + prevUrl + ')';
+            leftInner.classList.add('example-side-thumb-inner--blur');
+          }
+        }
+        if (rightInner) {
+          if (nextUrl) {
+            rightInner.style.backgroundImage = 'url(' + nextUrl + ')';
+            rightInner.classList.add('example-side-thumb-inner--blur');
+          }
+        }
+      });
+
+      prevBtns.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          showSlide(current - 1);
+        });
+      });
+      nextBtns.forEach(function (btn) {
+        btn.addEventListener('click', function (e) {
+          e.preventDefault();
+          showSlide(current + 1);
+        });
+      });
+
+      rebuildDots();
+      dots.forEach(function (dot) {
+        dot.addEventListener('click', function () {
+          var idx = parseInt(dot.getAttribute('data-examples-dot'), 10);
+          if (!isNaN(idx)) showSlide(idx);
+        });
+      });
+
+      var controls = carousel.querySelector('.examples-carousel-controls');
+      var sideThumbs = carousel.querySelectorAll('.example-side-thumb');
+      if (slides.length <= 1) {
+        if (controls) controls.style.display = 'none';
+        if (dotsContainer) dotsContainer.style.display = 'none';
+        sideThumbs.forEach(function (btn) { btn.style.display = 'none'; });
+      }
+
+      showSlide(current);
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initExamplesCarousels);
+  } else {
+    initExamplesCarousels();
+  }
+})();
+</script>

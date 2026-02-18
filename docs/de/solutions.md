@@ -32,3 +32,5 @@ Individuelle Lösungen ermöglichen es, das volle Potenzial von Offenen Daten zu
 <hr style="margin-top: 20px; margin-bottom: 20px; border: 1px solid #ccc;" />
 
 Für Anfragen, Vorschläge oder Ideen zu unseren technischen Lösungen stehen wir Ihnen jederzeit zur Verfügung. Kontaktieren Sie uns gerne unter [info@odon.at](mailto:info@odon.at). Gemeinsam finden wir die passende Lösung für Ihre Anforderungen!
+
+{% include storytelling_grid.html title="Beispiele für Data Storytelling" bg="bg-gray" link_label="Beispiel ansehen" %}

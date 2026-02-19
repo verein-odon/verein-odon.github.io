@@ -1141,6 +1141,100 @@ a.btn-primary, a.btn-primary:hover {
   object-fit: cover;
   border-radius: 0.375rem;
   border: 1px solid var(--color-gray-200);
+  cursor: pointer;
+}
+
+.storytelling-card-image {
+  cursor: pointer;
+}
+
+/* Lightbox: enlarged image on click */
+.storytelling-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  box-sizing: border-box;
+}
+
+.storytelling-lightbox[hidden] {
+  display: none;
+}
+
+.storytelling-lightbox-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+}
+
+.storytelling-lightbox-content {
+  position: relative;
+  z-index: 1;
+  max-width: 95vw;
+  max-height: 90vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.storytelling-lightbox-prev,
+.storytelling-lightbox-next {
+  flex-shrink: 0;
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-white);
+  color: var(--color-gray-800);
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: background 0.2s, transform 0.2s;
+}
+
+.storytelling-lightbox-prev:hover,
+.storytelling-lightbox-next:hover {
+  background: var(--color-gray-100);
+  transform: scale(1.05);
+}
+
+.storytelling-lightbox-img {
+  max-width: 100%;
+  max-height: 85vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0.5rem;
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+}
+
+
+.storytelling-lightbox-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  z-index: 2;
+  width: 2.5rem;
+  height: 2.5rem;
+  border: none;
+  border-radius: 50%;
+  background: var(--color-white);
+  color: var(--color-gray-800);
+  font-size: 1.5rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: var(--shadow-md);
+  transition: background 0.2s, color 0.2s;
+}
+
+.storytelling-lightbox-close:hover {
+  background: var(--color-gray-100);
 }
 
 /* News Section */

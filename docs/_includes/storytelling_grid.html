@@ -1,6 +1,6 @@
 {% assign examples = site.data.storytelling %}
 {% if examples.size > 0 %}
-<section id="examples" class="section storytelling-section {% if include.bg %}{{ include.bg }}{% else %}bg-gray{% endif %}">
+<section id="examples" class="section storytelling-section {% if include.bg %}{{ include.bg }}{% else %}bg-gray{% endif %}" data-storytelling-section>
   <div class="container">
     {% if include.title %}
     <div class="content-section">
@@ -11,7 +11,7 @@
     <div class="storytelling-grid">
       {% for example in examples %}
       <article class="storytelling-card">
-        <div class="storytelling-card-image">
+        <div class="storytelling-card-image" role="button" tabindex="0" aria-label="Enlarge image">
           <img src="{{ example.image }}" alt="{{ example.title | escape }}" loading="lazy" width="400" height="250">
         </div>
         <div class="storytelling-card-body">
@@ -25,7 +25,7 @@
           {% if example.images and example.images.size > 0 %}
           <div class="storytelling-card-gallery">
             {% for img in example.images limit: 3 %}
-            <img src="{{ img }}" alt="" loading="lazy" width="120" height="90" class="storytelling-card-thumb">
+            <img src="{{ img }}" alt="" loading="lazy" width="120" height="90" class="storytelling-card-thumb" role="button" tabindex="0">
             {% endfor %}
           </div>
           {% endif %}
@@ -34,5 +34,140 @@
       {% endfor %}
     </div>
   </div>
+
+  <div class="storytelling-lightbox" id="storytelling-lightbox" role="dialog" aria-modal="true" aria-label="Enlarged image" hidden>
+    <button type="button" class="storytelling-lightbox-close" aria-label="Close">&#x2715;</button>
+    <div class="storytelling-lightbox-backdrop"></div>
+    <div class="storytelling-lightbox-content">
+      <button type="button" class="storytelling-lightbox-prev" data-lightbox-prev aria-label="Previous example">&#x2039;</button>
+      <img src="" alt="" class="storytelling-lightbox-img">
+      <button type="button" class="storytelling-lightbox-next" data-lightbox-next aria-label="Next example">&#x203A;</button>
+    </div>
+  </div>
 </section>
+
+<script>
+(function () {
+  var section = document.querySelector('[data-storytelling-section]');
+  if (!section) return;
+  var lightbox = section.querySelector('.storytelling-lightbox');
+  var lightboxImg = section.querySelector('.storytelling-lightbox-img');
+  var closeBtn = section.querySelector('.storytelling-lightbox-close');
+  var backdrop = section.querySelector('.storytelling-lightbox-backdrop');
+  var prevBtn = section.querySelector('[data-lightbox-prev]');
+  var nextBtn = section.querySelector('[data-lightbox-next]');
+
+  var cards = section.querySelectorAll('.storytelling-card');
+  // Per-card slides: main image first, then thumbs for that card only
+  var cardsSlides = [];
+  cards.forEach(function (card) {
+    var list = [];
+    var mainImg = card.querySelector('.storytelling-card-image img');
+    if (mainImg) list.push({ src: mainImg.src, alt: mainImg.alt || '' });
+    var thumbs = card.querySelectorAll('.storytelling-card-thumb');
+    thumbs.forEach(function (thumb) {
+      list.push({ src: thumb.src, alt: '' });
+    });
+    cardsSlides.push(list);
+  });
+
+  var slides = [];
+  var currentIndex = 0;
+
+  function getCardIndex(el) {
+    var card = el && el.closest('.storytelling-card');
+    return card ? Array.prototype.indexOf.call(cards, card) : -1;
+  }
+
+  function getImageIndexInCard(card, thumbEl) {
+    if (!thumbEl || !thumbEl.classList.contains('storytelling-card-thumb')) return 0;
+    var thumbs = card.querySelectorAll('.storytelling-card-thumb');
+    return 1 + Array.prototype.indexOf.call(thumbs, thumbEl);
+  }
+
+  function showSlide(index) {
+    if (!slides.length) return;
+    currentIndex = (index + slides.length) % slides.length;
+    var s = slides[currentIndex];
+    lightboxImg.src = s.src;
+    lightboxImg.alt = s.alt || 'Enlarged image';
+  }
+
+  function openLightbox(cardIndex, imageIndexInCard) {
+    if (!lightbox || !lightboxImg) return;
+    var cardSlides = cardsSlides[cardIndex];
+    if (!cardSlides || !cardSlides.length) return;
+    slides = cardSlides;
+    currentIndex = (imageIndexInCard + slides.length) % slides.length;
+
+    if (prevBtn) prevBtn.style.display = slides.length > 1 ? '' : 'none';
+    if (nextBtn) nextBtn.style.display = slides.length > 1 ? '' : 'none';
+
+    showSlide(currentIndex);
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+    closeBtn && closeBtn.focus();
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  section.addEventListener('click', function (e) {
+    var target = e.target;
+    var cardImage = target.closest('.storytelling-card-image');
+    if (cardImage) {
+      var img = cardImage.querySelector('img');
+      if (img) {
+        e.preventDefault();
+        openLightbox(getCardIndex(cardImage), 0);
+      }
+    } else if (target.classList.contains('storytelling-card-thumb')) {
+      e.preventDefault();
+      var card = target.closest('.storytelling-card');
+      var cardIdx = getCardIndex(target);
+      var imgIdx = getImageIndexInCard(card, target);
+      openLightbox(cardIdx, imgIdx);
+    }
+  });
+
+  section.addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter' && e.key !== ' ') return;
+    var target = e.target;
+    var cardImage = target.closest('.storytelling-card-image');
+    if (cardImage) {
+      var img = cardImage.querySelector('img');
+      if (img) {
+        e.preventDefault();
+        openLightbox(getCardIndex(cardImage), 0);
+      }
+    } else if (target.classList.contains('storytelling-card-thumb')) {
+      e.preventDefault();
+      var card = target.closest('.storytelling-card');
+      openLightbox(getCardIndex(target), getImageIndexInCard(card, target));
+    }
+  });
+
+  if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+  if (backdrop) backdrop.addEventListener('click', closeLightbox);
+
+  if (prevBtn) prevBtn.addEventListener('click', function (e) { e.stopPropagation(); showSlide(currentIndex - 1); });
+  if (nextBtn) nextBtn.addEventListener('click', function (e) { e.stopPropagation(); showSlide(currentIndex + 1); });
+
+  document.addEventListener('keydown', function (e) {
+    if (!section.contains(lightbox) || lightbox.hidden) return;
+    if (e.key === 'Escape') {
+      closeLightbox();
+    } else if (e.key === 'ArrowLeft') {
+      e.preventDefault();
+      showSlide(currentIndex - 1);
+    } else if (e.key === 'ArrowRight') {
+      e.preventDefault();
+      showSlide(currentIndex + 1);
+    }
+  });
+})();
+</script>
 {% endif %}

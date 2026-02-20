@@ -1,8 +1,9 @@
 # Storytelling examples (used on Services page)
 # Each entry: title, description (up to 2 sentences), image (main image path).
-# Optional: url, images (array of up to 3 additional image paths).
+# Optional: id (for linkable URL hash, e.g. #burnout), url, images (array of up to 3 additional image paths).
 
 - title: "Working-from-home life &  Burnout"
+  id: burnout-while-working-from-home
   description: "This infographic explores the reasons of a burnout in the context of working-from-home life. It is based on a dataset with 1600 samples. <br><br> And the findings? 🤔 They are not what you might expect."
   image: "/assets/images/examples/wfh-burnout/wfh-burnout-0.png"
   url: "/stories/burnout-while-working-from-home/"
@@ -12,6 +13,7 @@
     - "/assets/images/examples/wfh-burnout/wfh-burnout-3.png"
     
 - title: "Bike Share & Sustainable Mobility"
+  id: bike-share
   description: "This project transforms open transportation and environmental data into a clear visual narrative about bike sharing. By combining maps, timelines, and comparative charts, the visualization highlights how bike share systems can reduce emissions and reshape urban mobility."
   image: "/assets/images/examples/bike/bike_3.png"
   #url: "https://example.com/bike-share"
@@ -21,6 +23,7 @@
     - "/assets/images/examples/bike/bike_3.png"
 
 - title: "Street Safety & Public Space Impact"
+  id: street-safety
   description: "This infographic uses open mobility and safety data to show the real-world impact of street design decisions. By visualizing collisions, trends, and outcomes over time, the project supports transparent communication between policymakers, stakeholders, and the public."
   image: "/assets/images/examples/sf-tenderloin/map_2.png"
   # url: "https://example.com/street-safety"

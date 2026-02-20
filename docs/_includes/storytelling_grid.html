@@ -10,7 +10,9 @@
     {% endif %}
     <div class="storytelling-grid">
       {% for example in examples %}
-      <article class="storytelling-card" id="story-{{ forloop.index0 }}" {% if example.url and example.url != "" %}data-story-url="{{ example.url }}"{% endif %}>
+      {% assign story_id = example.id | default: forloop.index0 | prepend: "story-" %}
+      {% if example.id %}{% assign story_id = example.id %}{% endif %}
+      <article class="storytelling-card" id="{{ story_id }}" {% if example.url and example.url != "" %}data-story-url="{{ example.url }}"{% endif %}>
         <div class="storytelling-card-image" role="button" tabindex="0" aria-label="Enlarge image">
           <img src="{{ example.image }}" alt="{{ example.title | escape }}" loading="lazy" width="400" height="250">
         </div>
@@ -51,6 +53,11 @@
     <div class="storytelling-iframe-lightbox-content">
       <iframe src="" class="storytelling-iframe-lightbox-frame" title="Example"></iframe>
     </div>
+  </div>
+
+  <div class="storytelling-error-message" id="storytelling-error-message" role="alert" hidden>
+    <button type="button" class="storytelling-error-close" aria-label="Close">&#x2715;</button>
+    <p>This example is not available. Please check if the link is recent or contact us via <a href="mailto:info@odon.at">info@odon.at</a></p>
   </div>
 </section>
 
@@ -184,8 +191,30 @@
   var iframeBackdrop = section.querySelector('.storytelling-iframe-lightbox-backdrop');
   var currentStoryId = null;
 
+  // Error message for invalid anchors
+  var errorMessage = section.querySelector('.storytelling-error-message');
+  var errorCloseBtn = section.querySelector('.storytelling-error-close');
+
+  function showErrorMessage() {
+    if (!errorMessage) return;
+    errorMessage.hidden = false;
+  }
+
+  function hideErrorMessage() {
+    if (!errorMessage) return;
+    errorMessage.hidden = true;
+  }
+
+  if (errorCloseBtn) {
+    errorCloseBtn.addEventListener('click', function () {
+      hideErrorMessage();
+      history.pushState(null, '', window.location.pathname + window.location.search);
+    });
+  }
+
   function openIframeLightbox(url, storyId, updateHash) {
     if (!iframeLightbox || !iframeEl || !url) return;
+    hideErrorMessage();
     iframeEl.src = url;
     iframeLightbox.hidden = false;
     document.body.style.overflow = 'hidden';
@@ -209,13 +238,21 @@
 
   function openStoryFromHash() {
     var hash = window.location.hash;
-    if (!hash || !hash.startsWith('#story-')) return;
+    if (!hash || hash.length < 2) {
+      hideErrorMessage();
+      return;
+    }
     var storyId = hash.slice(1);
-    var card = section.querySelector('#' + storyId);
-    if (!card) return;
+    var card = section.querySelector('.storytelling-card#' + CSS.escape(storyId));
+    if (!card) {
+      showErrorMessage();
+      return;
+    }
     var url = card.getAttribute('data-story-url');
     if (url) {
       openIframeLightbox(url, storyId, false);
+    } else {
+      showErrorMessage();
     }
   }
 
@@ -242,14 +279,23 @@
 
   window.addEventListener('hashchange', function () {
     var hash = window.location.hash;
-    if (hash && hash.startsWith('#story-')) {
-      if (iframeLightbox.hidden || currentStoryId !== hash.slice(1)) {
-        openStoryFromHash();
+    if (hash && hash.length > 1) {
+      var storyId = hash.slice(1);
+      var card = section.querySelector('.storytelling-card#' + CSS.escape(storyId));
+      if (card && card.getAttribute('data-story-url')) {
+        hideErrorMessage();
+        if (iframeLightbox.hidden || currentStoryId !== storyId) {
+          openStoryFromHash();
+        }
+        return;
+      } else {
+        showErrorMessage();
+        return;
       }
-    } else {
-      if (!iframeLightbox.hidden) {
-        closeIframeLightbox(false);
-      }
+    }
+    hideErrorMessage();
+    if (!iframeLightbox.hidden) {
+      closeIframeLightbox(false);
     }
   });
 

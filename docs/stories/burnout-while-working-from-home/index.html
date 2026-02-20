@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Work-from-home life & Burnout</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="story">
+      <section class="panel reveal">
+        <h1>Work-from-home life &amp; Burnout</h1>
+        <div class="placeholder" data-label="burnout comparison"></div>
+        <p>When people talk about burnout, the same reasons always come up.</p>
+        <div class="grid grid-3">
+          <div class="tile tile-no-border tile-center-text">
+            <div class="placeholder" data-label="Not-enough-sleep"></div>
+            <p class="tile-text">Not enough sleep</p>
+          </div>
+          <div class="tile tile-no-border tile-center-text">
+            <div class="placeholder" data-label="Many-working-hours"></div>
+            <p class="tile-text">Many working hours</p>
+          </div>
+          <div class="tile tile-no-border tile-center-text">
+            <div class="placeholder" data-label="Too-few-breaks"></div>
+            <p class="tile-text">Too few breaks</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel reveal">
+        <p>
+          To explore it further, a dataset capturing daily work-from-home behavior
+          and wellbeing was analyzed. The dataset contains 1,800 daily records
+          collected from 180 users.
+        </p>
+        <div class="grid grid-2">
+          <div class="tile horizontal tile-no-border tile-center-content">
+            <p class="tile-text large">180X</p>
+            <div class="placeholder" data-label="house-worker"></div>          
+          </div>
+          <div class="tile horizontal tile-no-border tile-center-content">
+            <p class="tile-text large">each 10X</p>
+            <div class="placeholder" data-label="day"></div>
+          </div>
+        </div>
+        <p>
+          Each record represents a single day of work activity, including
+          working hours and number of breaks, with wellbeing and outcome
+          indicators, including sleep hours, burnout score, and task completion.
+        </p>
+        <p>Now let’s answer some questions by looking at the data.</p>
+      </section>
+
+      <section class="panel reveal">
+        <h2>Q1: Does getting more sleep mean lower burnout?</h2>
+        <div class="chart" id="chart-sleep"></div>
+        <h3>A1: No, no such trend is visible in the data.</h3>
+      </section>
+
+      <section class="panel reveal">
+        <h2>
+          Q2: How about work hours? Does longer work hours lead to higher chance
+          of burnout?
+        </h2>
+        <div class="chart" id="chart-work"></div>
+        <h3>
+          A2: Longer work hours lead to slightly higher burnout but this doesn’t
+          seem like a strong factor leading to burnout.
+        </h3>
+      </section>
+
+      <section class="panel reveal">
+        <h2>
+          Q3: Let’s check the breaks taken! Does taking more breaks lead to
+          lower chance of burnout?
+        </h2>
+        <div class="chart" id="chart-breaks"></div>
+        <h3>A3: A big NO!</h3>
+      </section>
+
+      <section class="panel reveal">
+        <div class="split">
+          <div class="split-text">
+            <p>
+              These findings already challenge common assumptions about
+              remote-work wellbeing. If it’s not sleep hours, work hours, or
+              breaks taken, then what could lead to a burnout or prevent someone
+              from burnout?
+            </p>
+          </div>
+          <div class="split-media">
+            <div class="placeholder" data-label="person-thinking"></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel reveal">
+        <h2>The answer is: Task completion!</h2>
+        <div class="chart" id="chart-tasks"></div>
+        <h3>Now a clear trend is visible!</h3>
+      </section>
+
+      <section class="panel reveal">
+        <blockquote>
+          People don’t burn out just because they work a lot. They burn out when
+          effort doesn’t turn into progress.
+        </blockquote>
+      </section>
+
+      <section class="panel reveal">
+        <h1>Main takeaway for managers and any home-worker</h1>
+        <p>
+          Reducing burnout may require a shift from managing time to supporting
+          progress. Designing systems that help people complete tasks
+          efficiently could be one of the most effective wellbeing
+          interventions.
+        </p>
+        <div class="placeholder" data-label="task-completion-effect"></div>
+      </section>
+    </main>
+
+    <script src="https://d3js.org/d3.v7.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -108,6 +108,11 @@
       return;
     }
     var storyId = hash.slice(1);
+    // Ignore section anchor links like #examples
+    if (storyId === 'examples') {
+      hideErrorMessage();
+      return;
+    }
     var card = section.querySelector('.storytelling-card#' + CSS.escape(storyId));
     if (!card) {
       showErrorMessage();
@@ -159,6 +164,11 @@
     var hash = window.location.hash;
     if (hash && hash.length > 1) {
       var storyId = hash.slice(1);
+      // Ignore section anchor links like #examples
+      if (storyId === 'examples') {
+        hideErrorMessage();
+        return;
+      }
       var card = section.querySelector('.storytelling-card#' + CSS.escape(storyId));
       if (card && card.getAttribute('data-story-url')) {
         hideErrorMessage();

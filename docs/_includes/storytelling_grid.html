@@ -18,7 +18,7 @@
           <h3 class="storytelling-card-title">{{ example.title }}</h3>
           <p class="storytelling-card-description">{{ example.description }}</p>
           {% if example.url and example.url != "" %}
-          <a href="{{ example.url }}" class="storytelling-card-link" target="_blank" rel="noopener noreferrer" aria-label="{{ include.link_label | default: 'View example' }} (opens in new tab)">
+          <a href="{{ example.url }}" class="storytelling-card-link" data-iframe-url="{{ example.url }}" aria-label="{{ include.link_label | default: 'View example' }}">
             {{ include.link_label | default: "View example" }}
           </a>
           {% endif %}
@@ -42,6 +42,14 @@
       <button type="button" class="storytelling-lightbox-prev" data-lightbox-prev aria-label="Previous example">&#x2039;</button>
       <img src="" alt="" class="storytelling-lightbox-img">
       <button type="button" class="storytelling-lightbox-next" data-lightbox-next aria-label="Next example">&#x203A;</button>
+    </div>
+  </div>
+
+  <div class="storytelling-iframe-lightbox" id="storytelling-iframe-lightbox" role="dialog" aria-modal="true" aria-label="Example" hidden>
+    <button type="button" class="storytelling-iframe-lightbox-close" aria-label="Close">&#x2715;</button>
+    <div class="storytelling-iframe-lightbox-backdrop"></div>
+    <div class="storytelling-iframe-lightbox-content">
+      <iframe src="" class="storytelling-iframe-lightbox-frame" title="Example"></iframe>
     </div>
   </div>
 </section>
@@ -166,6 +174,46 @@
     } else if (e.key === 'ArrowRight') {
       e.preventDefault();
       showSlide(currentIndex + 1);
+    }
+  });
+
+  // Iframe lightbox for example URLs
+  var iframeLightbox = section.querySelector('.storytelling-iframe-lightbox');
+  var iframeEl = section.querySelector('.storytelling-iframe-lightbox-frame');
+  var iframeCloseBtn = section.querySelector('.storytelling-iframe-lightbox-close');
+  var iframeBackdrop = section.querySelector('.storytelling-iframe-lightbox-backdrop');
+
+  function openIframeLightbox(url) {
+    if (!iframeLightbox || !iframeEl) return;
+    iframeEl.src = url;
+    iframeLightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+    iframeCloseBtn && iframeCloseBtn.focus();
+  }
+
+  function closeIframeLightbox() {
+    if (!iframeLightbox || !iframeEl) return;
+    iframeLightbox.hidden = true;
+    iframeEl.src = '';
+    document.body.style.overflow = '';
+  }
+
+  section.addEventListener('click', function (e) {
+    var link = e.target.closest('[data-iframe-url]');
+    if (link) {
+      e.preventDefault();
+      var url = link.getAttribute('data-iframe-url');
+      if (url) openIframeLightbox(url);
+    }
+  });
+
+  if (iframeCloseBtn) iframeCloseBtn.addEventListener('click', closeIframeLightbox);
+  if (iframeBackdrop) iframeBackdrop.addEventListener('click', closeIframeLightbox);
+
+  document.addEventListener('keydown', function (e) {
+    if (!iframeLightbox || iframeLightbox.hidden) return;
+    if (e.key === 'Escape') {
+      closeIframeLightbox();
     }
   });
 })();

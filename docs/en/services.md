@@ -79,5 +79,5 @@ last_updated: "2025-02-13 14:30"
 </section>
 <!-- END --- Membership Types -->
 
-{% include storytelling_grid.html title="Data Storytelling Examples" bg="bg-gray" link_label="View example" %}
+{% include storytelling_grid.html title="Data Storytelling Examples" bg="bg-gray" link_label="View the story" %}
 

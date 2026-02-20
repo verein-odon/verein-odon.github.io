@@ -46,7 +46,9 @@
             src="{{ hero_data.image_src | relative_url }}"
             alt="{{ hero_data.alt_text | escape }}"
             class="hero-image"
-            loading="lazy"
+            width="520"
+            height="228"
+            fetchpriority="high"
           />
         </div>
       </div>

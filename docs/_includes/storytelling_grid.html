@@ -10,7 +10,7 @@
     {% endif %}
     <div class="storytelling-grid">
       {% for example in examples %}
-      <article class="storytelling-card">
+      <article class="storytelling-card" id="story-{{ forloop.index0 }}" {% if example.url and example.url != "" %}data-story-url="{{ example.url }}"{% endif %}>
         <div class="storytelling-card-image" role="button" tabindex="0" aria-label="Enlarge image">
           <img src="{{ example.image }}" alt="{{ example.title | escape }}" loading="lazy" width="400" height="250">
         </div>
@@ -182,20 +182,41 @@
   var iframeEl = section.querySelector('.storytelling-iframe-lightbox-frame');
   var iframeCloseBtn = section.querySelector('.storytelling-iframe-lightbox-close');
   var iframeBackdrop = section.querySelector('.storytelling-iframe-lightbox-backdrop');
+  var currentStoryId = null;
 
-  function openIframeLightbox(url) {
-    if (!iframeLightbox || !iframeEl) return;
+  function openIframeLightbox(url, storyId, updateHash) {
+    if (!iframeLightbox || !iframeEl || !url) return;
     iframeEl.src = url;
     iframeLightbox.hidden = false;
     document.body.style.overflow = 'hidden';
+    currentStoryId = storyId || null;
+    if (updateHash !== false && storyId) {
+      history.pushState(null, '', '#' + storyId);
+    }
     iframeCloseBtn && iframeCloseBtn.focus();
   }
 
-  function closeIframeLightbox() {
+  function closeIframeLightbox(updateHash) {
     if (!iframeLightbox || !iframeEl) return;
     iframeLightbox.hidden = true;
     iframeEl.src = '';
     document.body.style.overflow = '';
+    currentStoryId = null;
+    if (updateHash !== false && window.location.hash) {
+      history.pushState(null, '', window.location.pathname + window.location.search);
+    }
+  }
+
+  function openStoryFromHash() {
+    var hash = window.location.hash;
+    if (!hash || !hash.startsWith('#story-')) return;
+    var storyId = hash.slice(1);
+    var card = section.querySelector('#' + storyId);
+    if (!card) return;
+    var url = card.getAttribute('data-story-url');
+    if (url) {
+      openIframeLightbox(url, storyId, false);
+    }
   }
 
   section.addEventListener('click', function (e) {
@@ -203,19 +224,37 @@
     if (link) {
       e.preventDefault();
       var url = link.getAttribute('data-iframe-url');
-      if (url) openIframeLightbox(url);
+      var card = link.closest('.storytelling-card');
+      var storyId = card ? card.id : null;
+      if (url) openIframeLightbox(url, storyId, true);
     }
   });
 
-  if (iframeCloseBtn) iframeCloseBtn.addEventListener('click', closeIframeLightbox);
-  if (iframeBackdrop) iframeBackdrop.addEventListener('click', closeIframeLightbox);
+  if (iframeCloseBtn) iframeCloseBtn.addEventListener('click', function () { closeIframeLightbox(true); });
+  if (iframeBackdrop) iframeBackdrop.addEventListener('click', function () { closeIframeLightbox(true); });
 
   document.addEventListener('keydown', function (e) {
     if (!iframeLightbox || iframeLightbox.hidden) return;
     if (e.key === 'Escape') {
-      closeIframeLightbox();
+      closeIframeLightbox(true);
     }
   });
+
+  window.addEventListener('hashchange', function () {
+    var hash = window.location.hash;
+    if (hash && hash.startsWith('#story-')) {
+      if (iframeLightbox.hidden || currentStoryId !== hash.slice(1)) {
+        openStoryFromHash();
+      }
+    } else {
+      if (!iframeLightbox.hidden) {
+        closeIframeLightbox(false);
+      }
+    }
+  });
+
+  // On page load, check if URL has a story hash
+  openStoryFromHash();
 })();
 </script>
 {% endif %}

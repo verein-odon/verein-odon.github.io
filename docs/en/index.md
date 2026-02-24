@@ -52,13 +52,13 @@ last_updated: "2025-02-13 14:30"
     </div>
 </section>
 
-{% include examples_carousel.html
-   title="Examples of Our Work"
-   intro="See how we turn Open Data into clear visual narratives and practical insights."
-   examples_url="/en/services/#examples"
+{% include storytelling_feature.html
+   title="Data Storytelling Example"
+   intro="A closer look at how we turn Open Data into clear, engaging narratives."
+   featured_id="burnout"
    bg_color="gray"
-   view_all_label="View all examples"
-   read_more_label="Read more" %}
+   more_url="/en/services/#examples"
+   more_label="View more stories" %}
 
 {% include people_carousel.html
    bg_color="white"

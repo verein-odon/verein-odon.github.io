@@ -1,0 +1,92 @@
+{% assign examples = site.data.storytelling %}
+{% if examples.size > 0 %}
+<section class="section storytelling-feature-section bg-{{ include.bg_color | default: 'white' }}" data-storytelling-feature{% if include.featured_id %} data-feature-id="{{ include.featured_id }}"{% endif %}>
+  <div class="container">
+    <div class="content-section">
+      <div class="icon-header">
+        <div>
+          <h2>{{ include.title | default: "Data storytelling example" }}</h2>
+        </div>
+      </div>
+      {% if include.intro %}
+      <p>{{ include.intro }}</p>
+      {% endif %}
+    </div>
+
+    <div class="storytelling-feature-cards">
+      {% for example in examples %}
+      {% assign story_key = example.id | default: forloop.index0 %}
+      <article class="storytelling-feature-card{% if forloop.first %} is-active{% endif %}" data-story-key="{{ story_key }}" {% if example.url and example.url != "" %}data-story-url="{{ example.url }}"{% endif %}>
+        <div class="storytelling-feature-image-wrapper">
+          <img
+            src="{{ example.image }}"
+            alt="{{ example.title | escape }}"
+            class="storytelling-feature-image"
+            loading="lazy"
+            width="640"
+            height="400"
+          >
+        </div>
+        <div class="storytelling-feature-body">
+          <h3 class="storytelling-feature-title">
+            {{ example.title }}
+          </h3>
+          <p class="storytelling-feature-description">
+            {{ example.description }}
+          </p>
+          <div class="storytelling-feature-actions">
+            {% if example.url and example.url != "" %}
+            <a href="{{ example.url }}" class="btn btn-primary storytelling-feature-link">
+              {{ include.view_story_label | default: "View story" }}
+            </a>
+            {% endif %}
+            {% if include.more_url %}
+            <a href="{{ include.more_url }}" class="btn btn-secondary storytelling-feature-more-link">
+              {{ include.more_label | default: "View more stories" }}
+            </a>
+            {% endif %}
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script>
+(function () {
+  var sections = document.querySelectorAll('[data-storytelling-feature]');
+  if (!sections.length) return;
+
+  sections.forEach(function (section) {
+    var cards = section.querySelectorAll('.storytelling-feature-card');
+    if (!cards.length) return;
+
+    var featureId = section.getAttribute('data-feature-id');
+    var chosenIndex = 0;
+
+    if (featureId && featureId.trim() !== '') {
+      for (var i = 0; i < cards.length; i++) {
+        var key = cards[i].getAttribute('data-story-key');
+        if (key === featureId) {
+          chosenIndex = i;
+          break;
+        }
+      }
+    } else {
+      // Randomly feature one story on each page load
+      chosenIndex = Math.floor(Math.random() * cards.length);
+    }
+
+    cards.forEach(function (card, index) {
+      if (index === chosenIndex) {
+        card.classList.add('is-active');
+      } else {
+        card.classList.remove('is-active');
+      }
+    });
+  });
+})();
+</script>
+{% endif %}
+

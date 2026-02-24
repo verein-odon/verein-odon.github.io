@@ -53,12 +53,9 @@ show_excerpts: true
     </div>
 </section>
 
-{% include examples_carousel.html
-   title="Beispiele"
-   intro="So verwandeln wir Open Data in klare Visualisierungen und nutzbare Erkenntnisse. Klicken Sie auf ein Beispiel, um mehr auf unserer Seite Technische Lösungen zu sehen."
-   examples_url="/de/technische-loesungen/#examples"
-   bg_color="gray"
-   view_all_label="Alle Beispiele anzeigen"
-   read_more_label="Weiterlesen" %}
-
+{% include storytelling_feature.html
+   title="Datenstorytelling"
+   intro="Ein Beispiel dafür, wie wir offene Daten in verständliche Geschichten verwandeln."
+   more_url="/de/technische-loesungen/#examples"
+   more_label="Mehr Geschichten ansehen" %}
 

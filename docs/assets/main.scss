@@ -581,10 +581,16 @@ a.btn-primary, a.btn-primary:hover {
 }
 
 .card {
+  display: flex;
+  flex-direction: column;
   padding: 1.5rem;
   border-radius: 0.75rem;
   border: 1px solid var(--color-gray-200);
   transition: all 0.3s;
+}
+
+.card .btn {
+  margin-top: auto;
 }
 
 .card:hover {

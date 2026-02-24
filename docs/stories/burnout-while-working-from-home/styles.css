@@ -7,6 +7,7 @@
   --green: #00af6f;
   --accent: rgba(255, 255, 255, 0.85);
   --accent-soft: rgba(255, 255, 255, 0.18);
+  --surface-dark: rgba(45, 4, 17, 0.2);
   --grid-gap: clamp(16px, 2.4vw, 28px);
   --max-width: 980px;
   --chart-height: clamp(240px, 45vw, 420px);
@@ -31,7 +32,7 @@ body {
 .story {
   width: min(100%, var(--max-width));
   margin: 0 auto;
-  padding: clamp(36px, 6vw, 84px) clamp(20px, 6vw, 60px) 120px;
+  padding: clamp(36px, 6vw, 84px) clamp(20px, 6vw, 60px) 0;
   display: flex;
   flex-direction: column;
   gap: clamp(48px, 8vw, 120px);
@@ -51,6 +52,16 @@ h1 {
 
 h2 {
   font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.byline {
+  text-align: center;
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  font-family: var(--font-body);
+  font-weight: 600;
+  margin-top: -14px;
+  margin-bottom: 8px;
+  color: #2f49c7;
 }
 
 h3 {
@@ -167,7 +178,7 @@ p {
 .chart {
   width: 100%;
   height: var(--chart-height);
-  background: rgba(45, 4, 17, 0.2);
+  background: var(--surface-dark);
   border-radius: 20px;
   border: none;
   padding: 16px;
@@ -179,8 +190,56 @@ blockquote {
   font-size: clamp(1.4rem, 3vw, 2.2rem);
   line-height: 1.4;
   font-weight: 600;
-  background: rgba(45, 4, 17, 0.35);
+  background: var(--surface-dark);
   border-radius: 22px;
+}
+
+.disclaimer {
+  color: var(--fg);
+  gap: 10px;
+  position: relative;
+  isolation: isolate;
+  border-radius: 0;
+  padding: clamp(18px, 2.8vw, 28px);
+}
+
+.disclaimer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: var(--surface-dark);
+  z-index: -1;
+}
+
+.disclaimer h2 {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  margin-bottom: 6px;
+}
+
+.disclaimer h3 {
+  font-size: clamp(0.92rem, 1.6vw, 1.05rem);
+  margin: 12px 0 4px;
+  letter-spacing: 0.02em;
+}
+
+.disclaimer p {
+  font-size: clamp(0.8rem, 1.15vw, 0.9rem);
+  margin-bottom: 6px;
+  line-height: 1.45;
+}
+
+.disclaimer a {
+  color: var(--fg);
+}
+
+.disclaimer a:hover,
+.disclaimer a:focus-visible {
+  color: var(--fg);
+  opacity: 0.85;
 }
 
 .reveal {

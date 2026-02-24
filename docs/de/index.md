@@ -25,6 +25,7 @@ show_excerpts: true
             <h3 class="card-title">For Organizations and Companies</h3>
             <p class="card-text">We develop technical solutions to make Open Data usable and assist with every step, from the initial idea and software development to storytelling!
             </p>
+            <a href="/de/technische-loesungen/" class="btn btn-primary">Technische Lösungen</a>
         </div>
         <div class="card">
             <div class="card-icon">
@@ -38,6 +39,7 @@ show_excerpts: true
             <h3 class="card-title">For Members and the Data Community</h3>
             <p class="card-text">We offer a platform within the association where data enthusiasts, developers, researchers, and decision-makers can network and collaborate on projects that leverage the full potential of Open Data.
             </p>
+            <a href="/de/verein/" class="btn btn-primary">Verein</a>
         </div>
         <div class="card">
             <div class="card-icon">
@@ -48,6 +50,7 @@ show_excerpts: true
             </div>
             <h3 class="card-title">For the Data Hungry</h3>
             <p class="card-text">We provide APIs for various Open Data.</p>
+            <a href="/de/apis/" class="btn btn-primary">APIs</a>
         </div>
         </div>
     </div>

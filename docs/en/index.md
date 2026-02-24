@@ -28,6 +28,7 @@ last_updated: "2025-02-13 14:30"
                 <p class="membership-subtitle">For Organisations and Institutions</p>
                 <p class="card-text">From data engineering to storytelling, we help organisations turn raw data into insights and value.
                 </p>
+                <a href="/en/services/" class="btn btn-primary">Services</a>
             </div>
             <div class="card">
                 <div class="card-icon">
@@ -37,7 +38,7 @@ last_updated: "2025-02-13 14:30"
                 <p class="membership-subtitle">For Developers and Researchers</p>
                 <p class="card-text">We provide a wealth of access to various public datasets via modern APIs.
                 </p>
-                <!-- <a href="/en/apis" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Explore our APIs</a> -->
+                <a href="/en/apis/" class="btn btn-primary">APIs</a>
             </div>
             <div class="card">
                 <div class="card-icon">
@@ -46,7 +47,7 @@ last_updated: "2025-02-13 14:30"
                 <h3>Education on Open Data</h3>
                 <p class="membership-subtitle">For Students</p>
                 <p class="card-text">We build the next generation of data specialists through internships and webinars.</p>
-                <!-- <a href="/en/education" class="btn btn-primary btn-full" style="background-color: var(--color-indigo);">Discover new Knowledge</a> -->
+                <a href="/en/education/" class="btn btn-primary">Education</a>
             </div>
         </div>
     </div>

@@ -36,7 +36,7 @@
           </p>
           <div class="storytelling-feature-actions">
             {% if example.url and example.url != "" %}
-            <a href="{{ example.url }}" class="btn btn-primary storytelling-feature-link">
+            <a href="{{ example.url }}" class="btn btn-primary storytelling-feature-link" data-iframe-url="{{ example.url }}">
               {{ include.view_story_label | default: "View story" }}
             </a>
             {% endif %}
@@ -49,6 +49,14 @@
         </div>
       </article>
       {% endfor %}
+    </div>
+  </div>
+
+  <div class="storytelling-iframe-lightbox storytelling-feature-lightbox" role="dialog" aria-modal="true" aria-label="Example" hidden>
+    <button type="button" class="storytelling-iframe-lightbox-close" aria-label="Close">&#x2715;</button>
+    <div class="storytelling-iframe-lightbox-backdrop"></div>
+    <div class="storytelling-iframe-lightbox-content">
+      <iframe src="" class="storytelling-iframe-lightbox-frame" title="Example"></iframe>
     </div>
   </div>
 </section>
@@ -84,6 +92,44 @@
       } else {
         card.classList.remove('is-active');
       }
+    });
+
+    // Iframe lightbox for "View story" (same behavior as services page)
+    var lightbox = section.querySelector('.storytelling-feature-lightbox');
+    if (!lightbox) return;
+    var iframeEl = lightbox.querySelector('.storytelling-iframe-lightbox-frame');
+    var closeBtn = lightbox.querySelector('.storytelling-iframe-lightbox-close');
+    var backdrop = lightbox.querySelector('.storytelling-iframe-lightbox-backdrop');
+    if (!iframeEl) return;
+
+    function openLightbox(url) {
+      if (!url) return;
+      iframeEl.src = url;
+      lightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+      if (closeBtn) closeBtn.focus();
+    }
+
+    function closeLightbox() {
+      lightbox.hidden = true;
+      iframeEl.src = '';
+      document.body.style.overflow = '';
+    }
+
+    section.addEventListener('click', function (e) {
+      var link = e.target.closest('.storytelling-feature-link[data-iframe-url]');
+      if (link) {
+        e.preventDefault();
+        openLightbox(link.getAttribute('data-iframe-url'));
+      }
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', closeLightbox);
+    if (backdrop) backdrop.addEventListener('click', closeLightbox);
+
+    document.addEventListener('keydown', function (e) {
+      if (!section.contains(lightbox) || lightbox.hidden) return;
+      if (e.key === 'Escape') closeLightbox();
     });
   });
 })();

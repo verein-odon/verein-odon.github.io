@@ -30,14 +30,18 @@ last_updated: "2025-02-13 14:30"
                 </p>
                 <a href="/en/services/" class="btn btn-primary">Services</a>
             </div>
-            <div class="card">
+            <div class="card card-apis">
                 <div class="card-icon">
                     <img src="/assets/images/icons/apis.svg" alt="API visualization" loading="lazy">
                 </div>
                 <h3>APIs for Open Data</h3>
                 <p class="membership-subtitle">For Developers and Researchers</p>
-                <p class="card-text">We provide a wealth of access to various public datasets via modern APIs.
+                <p class="card-text">We provide access to various Open Data datasets via our APIs.
                 </p>
+                <div class="card-counter-block">
+                    <span class="card-counter-wrap"><span class="card-counter" data-target="1500" data-duration="2000">0</span><span class="card-counter-suffix">+</span></span>
+                    <span class="card-counter-label">Number of datasets currently served</span>
+                </div>
                 <a href="/en/apis/" class="btn btn-primary">APIs</a>
             </div>
             <div class="card">
@@ -52,6 +56,54 @@ last_updated: "2025-02-13 14:30"
         </div>
     </div>
 </section>
+
+<script>
+(function () {
+  var counterEl = document.querySelector('.card-counter[data-target]');
+  if (!counterEl) return;
+  var target = parseInt(counterEl.getAttribute('data-target'), 10) || 1500;
+  var duration = parseInt(counterEl.getAttribute('data-duration'), 10) || 2000;
+  var startTime = null;
+
+  function easeOutQuart(t) {
+    return 1 - (--t) * t * t * t;
+  }
+
+  function runCount(now) {
+    if (!startTime) startTime = now;
+    var elapsed = now - startTime;
+    var progress = Math.min(elapsed / duration, 1);
+    var eased = easeOutQuart(progress);
+    var value = Math.floor(eased * target);
+    counterEl.textContent = value.toLocaleString();
+    if (progress < 1) {
+      requestAnimationFrame(runCount);
+    } else {
+      counterEl.textContent = target.toLocaleString();
+    }
+  }
+
+  function startCount() {
+    if (counterEl.dataset.started) return;
+    counterEl.dataset.started = '1';
+    requestAnimationFrame(runCount);
+  }
+
+  if (typeof IntersectionObserver !== 'undefined') {
+    var observer = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          startCount();
+          observer.disconnect();
+        }
+      });
+    }, { threshold: 0.2 });
+    observer.observe(counterEl);
+  } else {
+    startCount();
+  }
+})();
+</script>
 
 {% include storytelling_feature.html
    title="Data Storytelling Example"

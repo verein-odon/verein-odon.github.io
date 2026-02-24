@@ -593,6 +593,34 @@ a.btn-primary, a.btn-primary:hover {
   margin-top: auto;
 }
 
+.card-counter-block {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-top: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.card-counter-wrap {
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-blue-600);
+  line-height: 1.2;
+}
+
+.card-counter-suffix {
+  font-size: inherit;
+  font-weight: inherit;
+  color: inherit;
+}
+
+.card-counter-label {
+  font-size: 0.875rem;
+  color: var(--color-gray-600);
+  margin-top: 0.25rem;
+}
+
 .card:hover {
   border-color: #93c5fd;
   box-shadow: var(--shadow-lg);

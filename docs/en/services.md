@@ -4,10 +4,9 @@ title: Services
 lang: en
 ref: services
 permalink: /en/services/
-last_updated: "2025-02-13 14:30"
+last_updated: "2025-02-25 16:30"
 ---
 
-<!-- START --- Membership Types -->
 <section class="section bg-white">
     <div class="container">
         <div class="content-section">
@@ -20,14 +19,9 @@ last_updated: "2025-02-13 14:30"
         </div>
         <div class="membership-grid">
         <div class="membership-card">
-            <!-- <div class="membership-icon">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
-                <circle cx="9" cy="7" r="4"></circle>
-                <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
-                <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
-            </svg>
-            </div> -->
+            <div class="membership-icon">
+                <img src="/assets/images/icons/wrench.svg" alt="Data Engineering" loading="lazy">
+            </div>
             <h3>Data Engineering</h3>
             <!-- <p class="membership-subtitle">"Ordentliche Mitgliedschaft"</p> -->
             <ul>
@@ -77,7 +71,7 @@ last_updated: "2025-02-13 14:30"
         </div>
     </div>
 </section>
-<!-- END --- Membership Types -->
 
-{% include storytelling_grid.html title="Data Storytelling Examples" bg="bg-gray" link_label="View the story" %}
+
+{% include storytelling_grid.html title="Data Storytelling Demonstrations" bg="bg-gray" link_label="View the story" %}
 

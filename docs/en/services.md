@@ -38,14 +38,9 @@ last_updated: "2025-02-25 16:30"
             </a> -->
         </div>
         <div class="membership-card">
-            <!-- <div class="membership-icon" style="background: linear-gradient(135deg, var(--color-indigo), var(--color-purple));">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M16 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
-                <circle cx="8.5" cy="7" r="4"></circle>
-                <line x1="20" y1="8" x2="20" y2="14"></line>
-                <line x1="23" y1="11" x2="17" y2="11"></line>
-            </svg>
-            </div> -->
+            <div class="membership-icon">
+                <img src="/assets/images/icons/storytelling.svg" alt="Data Storytelling" loading="lazy">
+            </div>
             <h3>Data Storytelling</h3>
             <!-- <p class="membership-subtitle">"Außerordentliche Mitgliedschaft"</p> -->
             <ul>

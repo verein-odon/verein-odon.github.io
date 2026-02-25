@@ -106,7 +106,7 @@ last_updated: "2025-02-13 14:30"
 </script>
 
 {% include storytelling_feature.html
-   title="Data Storytelling Example"
+   title="Data Storytelling Demonstrations"
    intro="A closer look at how we turn Open Data into clear, engaging narratives."
    featured_id="burnout"
    bg_color="gray"
@@ -116,7 +116,7 @@ last_updated: "2025-02-13 14:30"
 {% include people_carousel.html
    bg_color="white"
    title="People at ODON"
-   intro="Meet three people behind ODON - this week Nooshin, Clemens and Wolfgang!"
+   intro="Meet some people behind ODON"
    profile_label="Profile" %}
 
 

@@ -22,7 +22,7 @@ last_updated: "2025-02-13 14:30"
         <div class="cards-grid">
             <div class="card">
                 <div class="card-icon">
-                    <img src="/assets/images/icons/data-services.svg" alt="Data services" loading="lazy">
+                    <img src="/assets/images/icons/wrench.svg" alt="Data services" loading="lazy">
                 </div>
                 <h3>Data Services Around Open Data</h3>
                 <p class="membership-subtitle">For Organisations and Institutions</p>

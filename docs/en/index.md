@@ -39,7 +39,7 @@ last_updated: "2025-02-13 14:30"
                 <p class="card-text">We provide access to various Open Data datasets via our APIs.
                 </p>
                 <div class="card-counter-block">
-                    <span class="card-counter-wrap"><span class="card-counter" data-target="1500" data-duration="2000">0</span><span class="card-counter-suffix">+</span></span>
+                    <span class="card-counter-wrap"><span class="card-counter" data-target="1500" data-duration="6000">0</span><span class="card-counter-suffix">+</span></span>
                     <span class="card-counter-label">Number of datasets currently served</span>
                 </div>
                 <a href="/en/apis/" class="btn btn-primary">APIs</a>

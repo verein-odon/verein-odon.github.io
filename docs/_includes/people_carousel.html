@@ -22,16 +22,17 @@
               <span class="person-side-avatar-inner" aria-hidden="true"></span>
             </button>
 
+            <div class="person-image-wrapper">
+              <img src="/assets/images/people/{{ person.image }}" alt="{{ person.name }}" class="person-image" loading="lazy" width="640" height="480">
+            </div>
+
             <div class="person-main">
-              <div class="person-image-wrapper">
-                <img src="/assets/images/people/{{ person.image }}" alt="{{ person.name }}" class="person-image" loading="lazy" width="200" height="200">
-              </div>
-              <h3 class="person-name">{{ person.name }}</h3>
+              <h3 class="person-name storytelling-feature-title">{{ person.name }}</h3>
               {% if person.role and person.role != "" %}
-              <p class="person-role">{{ person.role }}</p>
+              <p class="person-role storytelling-feature-description">{{ person.role }}</p>
               {% endif %}
               {% if person.statement and person.statement != "" %}
-              <blockquote class="person-statement">{{ person.statement }}</blockquote>
+              <blockquote class="person-statement storytelling-feature-description">{{ person.statement }}</blockquote>
               {% endif %}
               {% if person.link and person.link != "" %}
               <a href="{{ person.link }}" class="person-link" target="_blank" rel="noopener noreferrer" aria-label="{{ include.profile_label | default: 'Profile' }} (opens in new tab)">
@@ -68,7 +69,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!carousels.length) return;
 
   carousels.forEach(function (carousel) {
-    var MAX_SLIDES = 3;
+    var MAX_SLIDES = 1;
     var inner = carousel.querySelector('.people-carousel-inner');
     var slides = Array.prototype.slice.call(carousel.querySelectorAll('[data-carousel-slide]'));
     if (!slides.length || !inner) return;

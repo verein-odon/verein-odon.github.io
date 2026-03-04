@@ -116,7 +116,7 @@ last_updated: "2025-02-13 14:30"
 {% include people_carousel.html
    bg_color="white"
    title="People at ODON"
-   intro="Meet some people behind ODON"
+   intro=""
    profile_label="Profile" %}
 
 

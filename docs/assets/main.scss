@@ -728,6 +728,42 @@ a.btn-primary, a.btn-primary:hover {
   background: var(--color-gray-100);
 }
 
+/* People carousel: rectangular photo + responsive layout */
+.people-carousel .person-image-wrapper {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  margin: 0 0 1rem;
+  max-width: none;
+}
+
+.people-carousel .person-main {
+  max-width: none;
+  text-align: center;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .people-carousel .person-card {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 1.5rem;
+    text-align: left;
+  }
+
+  .people-carousel .person-image-wrapper {
+    flex: 0 0 40%;
+    margin: 0;
+  }
+
+  .people-carousel .person-main {
+    text-align: left;
+    align-items: flex-start;
+  }
+}
+
 .person-image {
   width: 100%;
   height: 100%;
@@ -806,7 +842,6 @@ a.btn-primary, a.btn-primary:hover {
 
 .people-carousel-inner {
   position: relative;
-  height: 400px; /* Fixed height so controls below never jump */
 }
 
 .person-slide {
@@ -818,11 +853,17 @@ a.btn-primary, a.btn-primary:hover {
   height: 100%;
 }
 
-/* Fixed-height card in carousel only: prevents jump when statement length varies */
-.people-carousel .person-card {
-  height: 100%;
-  min-height: 400px;
-  overflow: hidden;
+/* Fixed-height card in carousel only (desktop): prevents jump when statement length varies */
+@media (min-width: 768px) {
+  .people-carousel-inner {
+    height: 400px; /* Fixed height so controls below never jump */
+  }
+
+  .people-carousel .person-card {
+    height: 100%;
+    min-height: 400px;
+    overflow: hidden;
+  }
 }
 
 .people-carousel .person-main {

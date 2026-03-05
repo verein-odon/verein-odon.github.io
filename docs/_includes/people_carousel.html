@@ -18,10 +18,6 @@
         {% for person in all_people %}
         <article class="person-slide{% if forloop.first %} is-active{% endif %}" data-carousel-slide>
           <div class="person-card">
-            <button type="button" class="person-side-avatar left" data-carousel-prev aria-label="Previous person">
-              <span class="person-side-avatar-inner" aria-hidden="true"></span>
-            </button>
-
             <div class="person-image-wrapper">
               <img src="/assets/images/people/{{ person.image }}" alt="{{ person.name }}" class="person-image" loading="lazy" width="640" height="480">
             </div>
@@ -40,10 +36,6 @@
               </a>
               {% endif %}
             </div>
-
-            <button type="button" class="person-side-avatar right" data-carousel-next aria-label="Next person">
-              <span class="person-side-avatar-inner" aria-hidden="true"></span>
-            </button>
           </div>
         </article>
         {% endfor %}
@@ -69,7 +61,7 @@ document.addEventListener('DOMContentLoaded', function () {
   if (!carousels.length) return;
 
   carousels.forEach(function (carousel) {
-    var MAX_SLIDES = 1;
+    var MAX_SLIDES = 3;
     var inner = carousel.querySelector('.people-carousel-inner');
     var slides = Array.prototype.slice.call(carousel.querySelectorAll('[data-carousel-slide]'));
     if (!slides.length || !inner) return;
@@ -95,28 +87,7 @@ document.addEventListener('DOMContentLoaded', function () {
       slides = slides.slice(0, MAX_SLIDES);
     }
 
-    // Set side avatars to show blurred adjacent person images (prev/next)
-    var total = slides.length;
-    function getPersonImageUrl(slide) {
-      var img = slide && slide.querySelector('.person-image');
-      return img && img.src ? img.src : '';
-    }
-    slides.forEach(function (slide, idx) {
-      var prevIdx = (idx - 1 + total) % total;
-      var nextIdx = (idx + 1) % total;
-      var prevUrl = getPersonImageUrl(slides[prevIdx]);
-      var nextUrl = getPersonImageUrl(slides[nextIdx]);
-      var leftInner = slide.querySelector('.person-side-avatar.left .person-side-avatar-inner');
-      var rightInner = slide.querySelector('.person-side-avatar.right .person-side-avatar-inner');
-      if (leftInner && prevUrl) {
-        leftInner.style.backgroundImage = 'url(' + prevUrl + ')';
-        leftInner.classList.add('person-side-avatar-inner--blur');
-      }
-      if (rightInner && nextUrl) {
-        rightInner.style.backgroundImage = 'url(' + nextUrl + ')';
-        rightInner.classList.add('person-side-avatar-inner--blur');
-      }
-    });
+    // Side avatars removed; navigation uses arrows below
 
     var prevBtns = carousel.querySelectorAll('[data-carousel-prev]');
     var nextBtns = carousel.querySelectorAll('[data-carousel-next]');
@@ -218,15 +189,11 @@ document.addEventListener('DOMContentLoaded', function () {
       });
     }
 
-    // Hide controls/dots/side avatars when there's only one featured person
+    // Hide controls/dots when there's only one featured person
     var controls = carousel.querySelector('.people-carousel-controls');
-    var sideAvatars = carousel.querySelectorAll('.person-side-avatar');
     if (slides.length <= 1) {
       if (controls) controls.style.display = 'none';
       if (dotsContainer) dotsContainer.style.display = 'none';
-      sideAvatars.forEach(function (btn) {
-        btn.style.display = 'none';
-      });
     }
 
     showSlide(current);

@@ -68,5 +68,5 @@ last_updated: "2025-02-25 16:30"
 </section>
 
 
-{% include storytelling_grid.html title="Data Storytelling Demonstrations" bg="bg-gray" link_label="View the story" %}
+{% include data-services-grid.html title="Examples of Data Services " bg="bg-gray" link_label="View the example" %}
 

@@ -20,8 +20,9 @@
           <h3 class="storytelling-card-title">{{ example.title }}</h3>
           <p class="storytelling-card-description">{{ example.description }}</p>
           {% if example.url and example.url != "" %}
-          <a href="{{ example.url }}" class="storytelling-card-link" data-iframe-url="{{ example.url }}" aria-label="{{ include.link_label | default: 'View example' }}">
-            {{ include.link_label | default: "View example" }}
+          {% assign label = example.link_label | default: include.link_label | default: 'View example' %}
+          <a href="{{ example.url }}" class="storytelling-card-link" data-iframe-url="{{ example.url }}" aria-label="{{ label }}">
+            {{ label }}
           </a>
           {% endif %}
         </div>
@@ -192,3 +193,4 @@
 })();
 </script>
 {% endif %}
+

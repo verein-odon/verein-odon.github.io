@@ -19,10 +19,24 @@
         <div class="storytelling-card-body">
           <h3 class="storytelling-card-title">{{ example.title }}</h3>
           <p class="storytelling-card-description">{{ example.description }}</p>
+
           {% if example.url and example.url != "" %}
           {% assign label = example.link_label | default: include.link_label | default: 'View example' %}
           <a href="{{ example.url }}" class="storytelling-card-link" data-iframe-url="{{ example.url }}" aria-label="{{ label }}">
             {{ label }}
+          </a>
+          {% endif %}
+
+          {% if example.images and example.images.size > 0 %}
+          {% assign images_label = example.images_label | default: 'View images' %}
+          <a
+            href="#"
+            class="storytelling-card-link storytelling-card-images-btn"
+            data-images="{{ example.images | join: '|' }}"
+            data-title="{{ example.title | escape }}"
+            aria-label="{{ images_label }}"
+          >
+            {{ images_label }}
           </a>
           {% endif %}
         </div>
@@ -42,6 +56,17 @@
   <div class="storytelling-error-message" id="storytelling-error-message" role="alert" hidden>
     <button type="button" class="storytelling-error-close" aria-label="Close">&#x2715;</button>
     <p>This example is not available. Please check if the link is recent or contact us via <a href="mailto:info@odon.at">info@odon.at</a></p>
+  </div>
+
+  <!-- Image lightbox for example image galleries -->
+  <div class="storytelling-lightbox" id="storytelling-images-lightbox" role="dialog" aria-modal="true" aria-label="Images" hidden>
+    <button type="button" class="storytelling-lightbox-close" aria-label="Close">&#x2715;</button>
+    <div class="storytelling-lightbox-backdrop"></div>
+    <div class="storytelling-lightbox-content">
+      <button type="button" class="storytelling-lightbox-prev" aria-label="Previous image">&#x2039;</button>
+      <img src="" alt="" class="storytelling-lightbox-img" />
+      <button type="button" class="storytelling-lightbox-next" aria-label="Next image">&#x203A;</button>
+    </div>
   </div>
 </section>
 
@@ -77,6 +102,16 @@
       history.pushState(null, '', window.location.pathname + window.location.search);
     });
   }
+
+  // Image lightbox for example image galleries
+  var imagesLightbox = section.querySelector('#storytelling-images-lightbox');
+  var imagesImg = imagesLightbox && imagesLightbox.querySelector('.storytelling-lightbox-img');
+  var imagesCloseBtn = imagesLightbox && imagesLightbox.querySelector('.storytelling-lightbox-close');
+  var imagesBackdrop = imagesLightbox && imagesLightbox.querySelector('.storytelling-lightbox-backdrop');
+  var imagesPrevBtn = imagesLightbox && imagesLightbox.querySelector('.storytelling-lightbox-prev');
+  var imagesNextBtn = imagesLightbox && imagesLightbox.querySelector('.storytelling-lightbox-next');
+  var imagesList = [];
+  var imagesIndex = 0;
 
   function openIframeLightbox(url, storyId, updateHash) {
     if (!iframeLightbox || !iframeEl || !url) return;
@@ -139,6 +174,27 @@
     if (link) {
       e.preventDefault();
       handleIframeLink(link);
+      return;
+    }
+
+    var imagesBtn = e.target.closest('.storytelling-card-images-btn');
+    if (imagesBtn && imagesLightbox) {
+      e.preventDefault();
+      var raw = imagesBtn.getAttribute('data-images') || '';
+      var list = raw
+        .split('|')
+        .map(function (s) { return s.trim(); })
+        .filter(function (s) { return s.length > 0; });
+      if (!list.length) return;
+      imagesList = list;
+      imagesIndex = 0;
+      if (imagesImg) {
+        imagesImg.src = imagesList[imagesIndex];
+        imagesImg.alt = imagesBtn.getAttribute('data-title') || '';
+      }
+      imagesLightbox.hidden = false;
+      document.body.style.overflow = 'hidden';
+      if (imagesCloseBtn) imagesCloseBtn.focus();
     }
   });
 
@@ -155,11 +211,61 @@
   if (iframeBackdrop) iframeBackdrop.addEventListener('click', function () { closeIframeLightbox(true); });
 
   document.addEventListener('keydown', function (e) {
-    if (!iframeLightbox || iframeLightbox.hidden) return;
-    if (e.key === 'Escape') {
+    // Iframe lightbox ESC handling
+    if (iframeLightbox && !iframeLightbox.hidden && e.key === 'Escape') {
       closeIframeLightbox(true);
+      return;
+    }
+
+    // Image lightbox keyboard handling
+    if (!imagesLightbox || imagesLightbox.hidden) return;
+    if (e.key === 'Escape') {
+      imagesLightbox.hidden = true;
+      if (imagesImg) imagesImg.src = '';
+      imagesList = [];
+      document.body.style.overflow = '';
+    } else if (e.key === 'ArrowLeft' && imagesList.length) {
+      imagesIndex = (imagesIndex - 1 + imagesList.length) % imagesList.length;
+      if (imagesImg) imagesImg.src = imagesList[imagesIndex];
+    } else if (e.key === 'ArrowRight' && imagesList.length) {
+      imagesIndex = (imagesIndex + 1) % imagesList.length;
+      if (imagesImg) imagesImg.src = imagesList[imagesIndex];
     }
   });
+
+  if (imagesCloseBtn && imagesLightbox) {
+    imagesCloseBtn.addEventListener('click', function () {
+      imagesLightbox.hidden = true;
+      if (imagesImg) imagesImg.src = '';
+      imagesList = [];
+      document.body.style.overflow = '';
+    });
+  }
+
+  if (imagesBackdrop && imagesLightbox) {
+    imagesBackdrop.addEventListener('click', function () {
+      imagesLightbox.hidden = true;
+      if (imagesImg) imagesImg.src = '';
+      imagesList = [];
+      document.body.style.overflow = '';
+    });
+  }
+
+  if (imagesPrevBtn && imagesLightbox) {
+    imagesPrevBtn.addEventListener('click', function () {
+      if (!imagesList.length || !imagesImg) return;
+      imagesIndex = (imagesIndex - 1 + imagesList.length) % imagesList.length;
+      imagesImg.src = imagesList[imagesIndex];
+    });
+  }
+
+  if (imagesNextBtn && imagesLightbox) {
+    imagesNextBtn.addEventListener('click', function () {
+      if (!imagesList.length || !imagesImg) return;
+      imagesIndex = (imagesIndex + 1) % imagesList.length;
+      imagesImg.src = imagesList[imagesIndex];
+    });
+  }
 
   window.addEventListener('hashchange', function () {
     var hash = window.location.hash;

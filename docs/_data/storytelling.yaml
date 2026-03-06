@@ -8,10 +8,10 @@
   image: "/assets/images/examples/wfh-burnout/wfh-burnout-0.png"
   url: "/stories/burnout-while-working-from-home/"
   link_label: "View the story"
-  images:
-    - "/assets/images/examples/wfh-burnout/wfh-burnout-1.png"
-    - "/assets/images/examples/wfh-burnout/wfh-burnout-2.png"
-    - "/assets/images/examples/wfh-burnout/wfh-burnout-3.png"
+  # images:
+  #   - "/assets/images/examples/wfh-burnout/wfh-burnout-1.png"
+  #   - "/assets/images/examples/wfh-burnout/wfh-burnout-2.png"
+  #   - "/assets/images/examples/wfh-burnout/wfh-burnout-3.png"
     
 - title: "Bike Share & Sustainable Mobility"
   id: bike-share
@@ -25,6 +25,16 @@
     - "/assets/images/examples/bike/bike_2.png"
     - "/assets/images/examples/bike/bike_3.png"
 
+- title: "Bike Rental Dashboard & Live Data"
+  id: bike-rental-dashboard
+  description: "This data dashboard visualizes the locations of bike rental stations and the number of available bikes at each one. It is powered by a live data feed, providing an up-to-date snapshot of bike availability across the city.
+  <br><br> And the insights? 🚲 They update in real time."
+  image: "/assets/images/examples/bike-rental-dashboard/dashboard.png"
+  images:
+    - "/assets/images/examples/bike-rental-dashboard/dashboard-1.png"
+    - "/assets/images/examples/bike-rental-dashboard/dashboard-2.png"
+    - "/assets/images/examples/bike-rental-dashboard/dashboard-3.png"
+
 - title: "Street Safety & Public Space Impact"
   id: street-safety
   description: "This data story visualization explores how street design decisions shape safety in public space. It draws on open mobility and safety datasets to reveal patterns in collisions, trends, and outcomes over time.
@@ -37,8 +47,3 @@
   #   - "/assets/images/examples/sf-tenderloin/2.png"
   #   - "/assets/images/examples/sf-tenderloin/3.png"
 
-- title: "Bike Rental Dashboard & Live Data"
-  id: bike-rental-dashboard
-  description: "This data dashboard visualizes the locations of bike rental stations and the number of available bikes at each one. It is powered by a live data feed, providing an up-to-date snapshot of bike availability across the city.
-  <br><br> And the insights? 🚲 They update in real time."
-  image: "/assets/images/examples/bike-rental-dashboard/dashboard.png"

@@ -29,7 +29,7 @@ in_nav: false
                 <li>
                     <span class="bullet">•</span>
                     <span>Append the API token to your request with the URL parameter 'api-token' and you can start using it!<br>
-                    Example: https://api-eu-2.odon.at/agricultural-land-sq-km/data?api-token=&lt;API_TOKEN&gt;</span>
+                    Example: <b>https://api-eu-2.odon.at/agricultural-land-sq-km/data?api-token=&lt;API_TOKEN&gt;</b></span>
                     
                 </li>
             </ul>

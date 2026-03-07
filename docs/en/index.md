@@ -49,8 +49,13 @@ last_updated: "2025-02-13 14:30"
                     <img src="/assets/images/icons/education.svg" alt="Data services" loading="lazy">
                 </div>
                 <h3>Education on Open Data</h3>
-                <p class="membership-subtitle">For Students and Open Data Lovers</p>
-                <p class="card-text">We build the next generation of data specialists through internships and webinars.</p>
+                <p class="membership-subtitle">For Students and Open Data Fans</p>
+                <p class="card-text">We build the next generation of data specialists through:</p>
+                <ul class="card-text-list">
+                    <li>online education</li>
+                    <li>internships</li>
+                    <li>hackathons</li>
+                </ul>
                 <a href="/en/education/" class="btn btn-primary">Education</a>
             </div>
         </div>

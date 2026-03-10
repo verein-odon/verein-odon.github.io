@@ -1813,12 +1813,13 @@ td {
 }
 
 .quote-section-text {
-  font-size: 1.375rem;
-  line-height: 1.6;
+  font-size: 3rem;
+  line-height: 1.4;
   color: var(--color-gray-900);
-  font-weight: 500;
+  font-weight: 700;
   font-style: italic;
-  margin: 0 0 0.75rem 0;
+  margin: 0 0 1rem 0;
+  text-align: center;
 }
 
 .quote-section-author {
@@ -1831,7 +1832,7 @@ td {
 
 @media (min-width: 768px) {
   .quote-section-text {
-    font-size: 1.625rem;
+    font-size: 3.75rem;
   }
 }
 

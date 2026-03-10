@@ -5,9 +5,9 @@
 layout: home
 lang: en
 ref: index
-list_title: News
+list_title: Recent Announcements
 show_excerpts: true
-last_updated: "2025-02-13 14:30"
+last_updated: "2025-03-10 14:30"
 ---
 
 
@@ -111,7 +111,7 @@ last_updated: "2025-02-13 14:30"
 </script>
 
 {% include storytelling_feature.html
-   title="Data Storytelling Demonstrations"
+   title="Data Storytelling Example"
    intro="A closer look at how we turn Open Data into clear, engaging narratives."
    featured_id="burnout"
    bg_color="gray"

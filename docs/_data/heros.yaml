@@ -3,7 +3,7 @@
 #   2nd key = "lang" attribute
 index:
   en:
-    hero-title: "We turn Open Data into Real-World Impact"
+    hero-title: "We help turn open data into real-world impact."
     hero-subtitle: "ODON makes public datasets easy to access, easy to use, and ready to power innovation, transparency, and knowledge sharing."
     image_src: "/assets/images/heros/home.svg"
     alt_text: "Open Data visualization"

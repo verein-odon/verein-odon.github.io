@@ -46,15 +46,16 @@
 
  
  <header class="header">
-    <div class="container">
-      <div class="header-content">
-        <a class="logo" rel="author" href="/{{ page.lang }}/">{{ site.title | escape }}</a>
-        <!-- <a class="logo" rel="author" href="/{{ page.lang }}/">
-          <div class="icon-card">
-            <img src="/assets/images/headers/logo.svg" alt="logo" style="width: 4em" loading="lazy">
-          </div>
-        </a> -->
-        
+   <div class="container">
+     <div class="header-content">
+       <a class="logo" rel="author" href="/{{ page.lang }}/">
+         <img
+           src="{{ "/assets/images/logo-odon.png" | relative_url }}"
+           alt="ODON logo"
+           loading="lazy"
+         >
+         <span class="logo-text">{{ site.title | escape }}</span>
+       </a>
         <nav class="nav desktop-nav">
         {% for nav_page in sorted_nav_pages %}
           {% comment %} Highlight the active page! {% endcomment %}

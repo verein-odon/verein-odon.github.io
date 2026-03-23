@@ -4,7 +4,7 @@ title: Open Data
 lang: en
 ref: opendata
 permalink: /en/open-data/
-last_updated: "2025-03-10 08:30"
+last_updated: "2025-03-23 08:30"
 ---
 
 <!-- START --- Intro section ----------------------->
@@ -15,11 +15,205 @@ last_updated: "2025-03-10 08:30"
                 What is Open Data?
             </h2>
             <p>
-                Understanding what Open Data is and why it matters helps citizens, organisations, and policymakers make better use of public information.
+                 Although the term "Open Data" seems intuitive and self-explanatory, there is no single universally agreed-upon definition. In most cases the domain and field of application guides the definition. (We compiled a list of definitions from popular sources, which can be found further down.)
+            </p>
+            <p>
+                In our daily work with data, we see two aspects regularly emerging:
+            </p>
+            <ol>
+                <li>
+                    <b>Legal Openness</b><br>
+                    Can I legally use and reuse this data?
+                </li>
+                <li>
+                    <b>Technical Openness</b><br>
+                    Can I actually access and use the data easily?
+                </li>
+            </ol>
+            <p>
+                Since our work is not limited to one field, we needed a way to be able to handle data in a consistent way that works independent of a domain-based definition or field and we came up with <b>ODON's Data Maturity Framework</b>, that you can also see applied in ODON's Data Catalog. 
             </p>
         </div>
     </div>
 </section>
+
+<!-- START - ODON's Data Maturity Framework -->
+<section class="section bg-gray">
+    <div class="container">
+        <div class="content-section">
+            <h2>
+                ODON's Data Maturity Framework
+            </h2>
+            <p>
+                ODON's Data Maturity Framework (ODMF) assesses data openness across two dimensions: legal and technical. This framework helps evaluate how open data is for reuse, independent of domain-specific definitions.
+            </p>
+            <h3>Legal Openness Levels</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Definition</th>
+                        <th>Indicators</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>L1 - Closed/Undefined</td>
+                        <td>No clear legal permission for reuse</td>
+                        <td>
+                            <ul>
+                                <li>Restriction: No explicit license is provided</li>
+                                <li>Restriction: Terms of use are missing or unclear</li>
+                                <li>Restriction: Default copyright applies</li>
+                            </ul>
+                            <p>If any restriction is present, the data is L1.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>L2 - Restricted</td>
+                        <td>License exists but limits reuse significantly</td>
+                        <td>
+                            <ul>
+                                <li>A license is explicitly provided</li>
+                                <li>License is publicly accessible</li>
+                                <li>Restriction: License contains restrictive clauses, such as:
+                                    <ul>
+                                        <li>No commercial use</li>
+                                        <li>No derivatives</li>
+                                        <li>Usage limited to specific groups or purposes</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p>All indicators must apply for this level.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>L3 - Open with Conditions</td>
+                        <td>Reusable with minimal obligations</td>
+                        <td>
+                            <ul>
+                                <li>License is clearly stated and accessible</li>
+                                <li>License allows:
+                                    <ul>
+                                        <li>Commercial use</li>
+                                        <li>Modification</li>
+                                    </ul>
+                                </li>
+                                <li>Only light obligations, such as:
+                                    <ul>
+                                        <li>Attribution</li>
+                                        <li>Share-alike (optional, depending on strictness)</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p>All indicators must apply for this level.</p>
+                            <p>Typical licenses: Attribution-style licenses</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>L4 - Fully Open</td>
+                        <td>No legal barriers</td>
+                        <td>
+                            <ul>
+                                <li>Explicit open license or public domain dedication</li>
+                                <li>Allows:
+                                    <ul>
+                                        <li>Commercial use</li>
+                                        <li>Modification</li>
+                                        <li>Redistribution</li>
+                                    </ul>
+                                </li>
+                                <li>No mandatory obligations (or only trivial ones like attribution optional)</li>
+                            </ul>
+                            <p>All indicators must apply for this level.</p>
+                            <p>Typical licenses: Public domain / CC0-like</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Technical Openness Levels</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Level</th>
+                        <th>Definition</th>
+                        <th>Indicators</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>T1 - Not Usable</td>
+                        <td>Data cannot be effectively reused</td>
+                        <td>
+                            <ul>
+                                <li>Restriction: Not machine-readable (e.g., scanned PDF, image)</li>
+                                <li>Restriction: No structured format</li>
+                                <li>Restriction: Cannot be extracted without significant effort</li>
+                            </ul>
+                            <p>If any restriction is present, the data is T1.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>T2 - Accessible but Limited</td>
+                        <td>Technically accessible, but with barriers</td>
+                        <td>
+                            <ul>
+                                <li>Machine-readable format exists</li>
+                                <li>Data can be downloaded or accessed</li>
+                                <li>Restriction: One or more limitations:
+                                    <ul>
+                                        <li>Proprietary format (e.g., XLSX only)</li>
+                                        <li>Poor structure (merged cells, inconsistent schema)</li>
+                                        <li>No metadata or documentation</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p>All indicators must apply for this level.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>T3 - Structured & Standardized</td>
+                        <td>Data is well-structured and usable</td>
+                        <td>
+                            <ul>
+                                <li>Non-proprietary, structured format (CSV, JSON, XML)</li>
+                                <li>Consistent schema and data structure</li>
+                                <li>Encoding and formats are consistent</li>
+                                <li>Basic metadata available:
+                                    <ul>
+                                        <li>Field descriptions</li>
+                                        <li>Update frequency</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p>All indicators must apply for this level.</p>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>T4 - Fully Open & Interoperable</td>
+                        <td>Data is optimized for reuse and integration</td>
+                        <td>
+                            <ul>
+                                <li>Meets all T3 requirements</li>
+                                <li>Uses open standards (e.g., standard vocabularies, formats)</li>
+                                <li>Stable identifiers (IDs, URIs)</li>
+                                <li>Versioning or update tracking available</li>
+                                <li>Available via:
+                                    <ul>
+                                        <li>API and/or bulk download</li>
+                                    </ul>
+                                </li>
+                            </ul>
+                            <p>All indicators must apply for this level.</p>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<!-- END - ODON's Data Maturity Framework -->
+
 
 {% include quote_section.html quote="“Open Data is data that can be freely used, processed, modified, and shared by anyone.”" author="Open Definition" bg="bg-gray" %}
 
@@ -164,8 +358,49 @@ last_updated: "2025-03-10 08:30"
 </section>
 <!-- END - ODON's Role section -->
 
-<!-- START - Learn more -->
+<!-- START - Research & papers -->
 <section class="section bg-gray">
+    <div class="container">
+        <div class="content-section">
+            <h2>
+                Research &amp; papers on Open Data
+            </h2>
+            <p>
+                For readers who want to go deeper into Open Data, the following academic papers provide useful overviews and case studies on how Open (Government) Data is used, what impact it has, and which challenges remain.
+            </p>
+            <ul>
+                <li>
+                    <span class="bullet">•</span>
+                    <span>
+                        <b><a href="https://pubmed.ncbi.nlm.nih.gov/36158525/" target="_blank" rel="noopener">Open government data: A systematic literature review of empirical research</a></b><br>
+                        <i>Bernd W. Wirtz, Jan C. Weyerer, Marcel Becker, Wilhelm M. Müller (2022)</i><br>
+                        A comprehensive review of 169 empirical studies on Open Government Data, organising the field into an Antecedents–Decisions–Outcomes framework and identifying key research gaps.
+                    </span>
+                </li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span>
+                        <b><a href="https://content.iospress.com/articles/information-polity/ip160012" target="_blank" rel="noopener">Utilization of open government data: A systematic literature review of types, conditions, effects and users</a></b><br>
+                        <i>Igbal Safarov, Albert Meijer, Stephan Grimmelikhuijsen (2017)</i><br>
+                        Summarises how Open Government Data is actually used in practice, which factors enable or hinder reuse, and what kinds of effects different user groups experience.
+                    </span>
+                </li>
+                <li>
+                    <span class="bullet">•</span>
+                    <span>
+                        <b><a href="https://doi.org/10.1109/ACCESS.2024.3414282" target="_blank" rel="noopener">Identifying the Evolution of Open Government Data Initiatives and Their User Engagement</a></b><br>
+                        <i>Abdul Aziz, Dagoberto José Herrera-Murillo, Javier Nogueras-Iso, Javier Lacasta, Francisco J. Lopez-Pellicer (2024)</i><br>
+                        Proposes a methodology to analyse the maturity and user engagement of Open Data portals over time, using social media signals from 27 European Open Government Data initiatives.
+                    </span>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!-- END - Research & papers -->
+
+<!-- START - Learn more -->
+<section class="section bg-white">
     <div class="container">
         <div class="content-section">
             <h2>
@@ -179,3 +414,32 @@ last_updated: "2025-03-10 08:30"
     </div>
 </section>
 <!-- END - Learn more -->
+
+<!-- START - List of Definitions and Sources -->
+<section class="section bg-gray">
+    <div class="container">
+        <div class="content-section">
+            <h2>
+                List of Definitions and Sources
+            </h2>
+            <p>
+                Here you can find some of the definitions that exist on Open Data. For your convenience, we added also the source.
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Source</th>
+                        <th>Definition</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>blah</td>
+                        <td>source</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+<!-- END - List of Definitions and Sources -->

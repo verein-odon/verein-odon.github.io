@@ -4,7 +4,7 @@
 index:
   en:
     hero-title: "We help turn open data into real-world impact."
-    hero-subtitle: "ODON makes public datasets easy to access, easy to use, and ready to power innovation, transparency, and knowledge sharing."
+    hero-subtitle: "ODON helps to bring data to its full potential - for organisations, education and research!"
     image_src: "/assets/images/heros/home.svg"
     alt_text: "Open Data visualization"
     buttons:

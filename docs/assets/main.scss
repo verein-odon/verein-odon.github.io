@@ -219,6 +219,10 @@ body {
   backdrop-filter: blur(8px);
 }
 
+[id] {
+  scroll-margin-top: 5rem;
+}
+
 .header-content {
   display: flex;
   align-items: center;

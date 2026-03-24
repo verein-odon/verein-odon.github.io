@@ -15,23 +15,27 @@ last_updated: "2025-03-23 08:30"
                 What is Open Data?
             </h2>
             <p>
-                 Although the term "Open Data" seems intuitive and self-explanatory, there is no single universally agreed-upon definition. In most cases the domain and field of application guides the definition. (We compiled a list of definitions from popular sources, which can be found further down.)
+                 Although the term "Open Data" seems intuitive and self-explanatory, there is no single universally agreed-upon definition. In most cases the domain and field of application guides the definition. One can get a feeling for this when looking at the various definitions for Open Data that we compiled <a href="#definitions">here</a>.
             </p>
             <p>
                 In our daily work with data, we see two aspects regularly emerging:
             </p>
-            <ol>
+            <ul>
                 <li>
-                    <b>Legal Openness</b><br>
-                    Can I legally use and reuse this data?
+                    <span class="bullet">•</span>
+                    <span><b>Legal Openness</b><br>
+                        Can I legally use and reuse this data?
+                    </span>
                 </li>
                 <li>
-                    <b>Technical Openness</b><br>
-                    Can I actually access and use the data easily?
+                    <span class="bullet">•</span>
+                    <span><b>Technical Openness</b><br>
+                        Can I actually access and use the data easily?
+                    </span>
                 </li>
-            </ol>
+            </ul>
             <p>
-                Since our work is not limited to one field, we needed a way to be able to handle data in a consistent way that works independent of a domain-based definition or field and we came up with <b>ODON's Data Maturity Framework</b>, that you can also see applied in ODON's Data Catalog. 
+                Since our work is not limited to one field, we needed a way to be able to handle data in a consistent way that works independent of a domain-based definition or field and we came up with <b>ODON's Data Maturity Model (ODMM)</b>, that you can also see applied in ODON's Data Catalog. 
             </p>
         </div>
     </div>
@@ -41,7 +45,7 @@ last_updated: "2025-03-23 08:30"
 <section class="section bg-gray">
     <div class="container">
         <div class="content-section">
-            <h2>ODON's Data Maturity Framework</h2>
+            <h2 id="odmm">ODON's Data Maturity Model (ODMM)</h2>
             <p>
                 The framework assesses data along two independent dimensions: <b>Legal Openness</b> and <b>Technical Openness</b>. Each dimension has four levels. A dataset is assigned the level whose indicators all apply — or, for the first level of each dimension, the level that applies when any restriction is present.
             </p>
@@ -178,207 +182,8 @@ last_updated: "2025-03-23 08:30"
 <!-- END - Data Maturity Framework -->
 
 
-{% include quote_section.html quote="“Open Data is data that can be freely used, processed, modified, and shared by anyone.”" author="Open Definition" bg="bg-gray" %}
-
-<section class="section bg-white">
-    <div class="container">
-        <div class="content-section">
-            <p>
-                This definition comes from the <a href="https://opendefinition.org/" target="_blank" rel="noopener">Open Definition</a>. In practice, Open Data enables much more, including:
-            </p>
-            <ul>
-                <li>
-                    <span class="bullet">•</span>
-                    <span><b>Transparent governance</b><br>
-                        Open Data makes public information openly accessible. When data on budgets, infrastructure, demographics, or environmental indicators is published openly, citizens, journalists, and organisations can see how decisions are made and how public resources are used.<br>
-                        Transparency builds trust and allows people to verify information independently and engage more actively in public discourse.<br>
-                        <i>Example</i>: A city publishes its budget as Open Data. Citizens and NGOs analyse how funds are allocated across education, transport, and social services, and raise informed questions in public discussions.</span>
-                </li>
-                <li>
-                    <span class="bullet">•</span>
-                    <span><b>Evidence-based decisions</b><br>
-                        Open Data enables decisions grounded in facts rather than assumptions. By combining openly available datasets with domain knowledge, organisations and policymakers can evaluate options, measure outcomes, and adjust strategies based on real-world evidence.<br>
-                        As a result, policies become more effective and resource allocation improves.<br>
-                        <i>Example</i>: A regional authority uses Open Data on traffic flows, population density, and air quality to decide where to introduce traffic-calming measures, leading to targeted and measurable improvements.</span>
-                </li>
-                <li>
-                    <span class="bullet">•</span>
-                    <span><b>Innovation across sectors</b><br>
-                        Open Data acts as a catalyst for innovation by lowering barriers to access information. Startups, researchers, non-profits, and established organisations can build new services, products, and insights on top of shared datasets.<br>
-                        Because the same data can be reused in many contexts, innovation extends beyond technology into healthcare, education, mobility, and the public sector.<br>
-                        <i>Example</i>: A startup combines Open Data on public transport and weather to build an app that helps commuters plan more reliable routes; researchers use the same data to study mobility patterns and improve urban planning.</span>
-                </li>
-                <li>
-                    <span class="bullet">•</span>
-                    <span><b>Collaboration and learning</b><br>
-                        Open Data creates a shared foundation of information. When data is openly available, people from different disciplines can work together and build upon existing knowledge instead of starting from scratch.<br>
-                        In turn, this supports education, cross-sector collaboration, and continuous learning.<br>
-                        <i>Example</i>: Students, researchers, and developers use the same Open Data APIs in courses, hackathons, and research projects; insights and tools from one context are reused and improved in another.</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
-<!-- END --- Intro section ----------------------->
-
-<!-- START - Characteristics Section -->
-<section class="section bg-gray">
-    <div class="container">
-        <div class="content-section">
-            <h2>
-                Key Characteristics of Open Data
-            </h2>
-        </div>
-        <div class="characteristics-grid">
-        <div class="characteristic-card">
-            <div class="characteristic-header">
-            <div class="icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                <polyline points="14 2 14 8 20 8"></polyline>
-                <line x1="16" y1="13" x2="8" y2="13"></line>
-                <line x1="16" y1="17" x2="8" y2="17"></line>
-                <polyline points="10 9 9 9 8 9"></polyline>
-                </svg>
-            </div>
-            <div>
-                <h3>Machine-Readability</h3>
-            </div>
-            </div>
-            <p>Open Data should be provided in formats that can be easily read and processed by computers. This facilitates the analysis and integration of the data into a wide variety of applications.</p>
-        </div>
-        <div class="characteristic-card">
-            <div class="characteristic-header">
-            <div class="icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                </svg>
-            </div>
-            <div>
-                <h3>Transparency</h3>
-            </div>
-            </div>
-            <p>The publication of Open Data promotes transparency, especially for public administration data — strengthening public trust and traceability of decisions, as described in the section on transparent governance above.</p>
-        </div>
-        <div class="characteristic-card">
-            <div class="characteristic-header">
-            <div class="icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
-                <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
-                </svg>
-            </div>
-            <div>
-                <h3>Licensing</h3>
-            </div>
-            </div>
-            <p>Open Data is published under an open license that allows use, redistribution, and modification. Clear, open licenses such as Creative Commons (e.g. CC BY, CC0) make it easy for others to know what they are allowed to do with the data.</p>
-        </div>
-        <div class="characteristic-card">
-            <div class="characteristic-header">
-            <div class="icon-box">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
-                </svg>
-            </div>
-            <div>
-                <h3>Reusability &amp; Value Creation</h3>
-            </div>
-            </div>
-            <p>Open Data can be reused in many contexts, enabling innovation and the development of new applications, services, or business models. Companies and organisations can use it to improve services, streamline processes, or tap into new markets.</p>
-        </div>
-        </div>
-    </div>
-</section>
-<!-- END - Characteristics Section -->
-
-<!-- START - ODON's Role section -->
-<section class="section bg-white">
-    <div class="container">
-        <div class="content-section">
-            <h2>
-                ODON’s Role in Open Data
-            </h2>
-            <p>Open Data is an enabler of transparency, better decisions, innovation, and knowledge sharing — values that lie at the heart of ODON’s work.</p>
-            <p>ODON contributes to this Open Data ecosystem in three main ways:</p>
-            <ul>
-                <li>
-                    <span class="bullet">•</span>
-                    <span><b>Data Services</b> — Supporting organisations in using Open Data for evidence-based decisions. <a href="/{{ page.lang }}/services/">Learn more</a></span>
-                </li>
-                <li>
-                    <span class="bullet">•</span>
-                    <span><b>APIs</b> — Making Open Data accessible and machine-readable to support innovation across sectors. <a href="/{{ page.lang }}/apis/">Learn more</a></span>
-                </li>
-                <li>
-                    <span class="bullet">•</span>
-                    <span><b>Education</b> — Educating people about Open Data to promote collaboration and learning. <a href="/{{ page.lang }}/education/">Learn more</a></span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
-<!-- END - ODON's Role section -->
-
-<!-- START - Research & papers -->
-<section class="section bg-gray">
-    <div class="container">
-        <div class="content-section">
-            <h2>
-                Research &amp; papers on Open Data
-            </h2>
-            <p>
-                For readers who want to go deeper into Open Data, the following academic papers provide useful overviews and case studies on how Open (Government) Data is used, what impact it has, and which challenges remain.
-            </p>
-            <ul>
-                <li>
-                    <span class="bullet">•</span>
-                    <span>
-                        <b><a href="https://pubmed.ncbi.nlm.nih.gov/36158525/" target="_blank" rel="noopener">Open government data: A systematic literature review of empirical research</a></b><br>
-                        <i>Bernd W. Wirtz, Jan C. Weyerer, Marcel Becker, Wilhelm M. Müller (2022)</i><br>
-                        A comprehensive review of 169 empirical studies on Open Government Data, organising the field into an Antecedents–Decisions–Outcomes framework and identifying key research gaps.
-                    </span>
-                </li>
-                <li>
-                    <span class="bullet">•</span>
-                    <span>
-                        <b><a href="https://content.iospress.com/articles/information-polity/ip160012" target="_blank" rel="noopener">Utilization of open government data: A systematic literature review of types, conditions, effects and users</a></b><br>
-                        <i>Igbal Safarov, Albert Meijer, Stephan Grimmelikhuijsen (2017)</i><br>
-                        Summarises how Open Government Data is actually used in practice, which factors enable or hinder reuse, and what kinds of effects different user groups experience.
-                    </span>
-                </li>
-                <li>
-                    <span class="bullet">•</span>
-                    <span>
-                        <b><a href="https://doi.org/10.1109/ACCESS.2024.3414282" target="_blank" rel="noopener">Identifying the Evolution of Open Government Data Initiatives and Their User Engagement</a></b><br>
-                        <i>Abdul Aziz, Dagoberto José Herrera-Murillo, Javier Nogueras-Iso, Javier Lacasta, Francisco J. Lopez-Pellicer (2024)</i><br>
-                        Proposes a methodology to analyse the maturity and user engagement of Open Data portals over time, using social media signals from 27 European Open Government Data initiatives.
-                    </span>
-                </li>
-            </ul>
-        </div>
-    </div>
-</section>
-<!-- END - Research & papers -->
-
-<!-- START - Learn more -->
-<section class="section bg-white">
-    <div class="container">
-        <div class="content-section">
-            <h2>
-                Learn more
-            </h2>
-            <ul>
-                <li><a href="https://opendefinition.org/" target="_blank" rel="noopener">Open Definition</a> — The standard for “open” in relation to data and content</li>
-                <li><a href="/{{ page.lang }}/api-documentation/">API Documentation</a> — How to use ODON’s Open Data APIs</li>
-            </ul>
-        </div>
-    </div>
-</section>
-<!-- END - Learn more -->
-
 <!-- START - List of Definitions and Sources -->
+<div id="definitions"></div>
 <section class="section bg-gray">
     <div class="container">
         <div class="content-section">
@@ -397,8 +202,32 @@ last_updated: "2025-03-23 08:30"
                 </thead>
                 <tbody>
                     <tr>
-                        <td>blah</td>
-                        <td>source</td>
+                        <td><a href="https://opendefinition.org/" target="_blank" rel="noopener">Open Knowledge Foundation<br>Open Definition</a></td>
+                        <td>"Open data and open content can be freely used, modified, and shared by anyone for any purpose."</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://data.europa.eu/en/publications/open-data" target="_blank" rel="noopener">European Commission<br>data.europa.eu</a></td>
+                        <td>"Open data is data that anyone can access, use or share. Open data must be available online in an open format, accompanied by an open licence that allows the data to be re-used freely by anyone for any purpose."</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://data.worldbank.org/open-data" target="_blank" rel="noopener">World Bank</a></td>
+                        <td>"Open data refers to data that can be freely used, re-used and redistributed by anyone – subject only, at most, to the requirement to attribute and share alike."</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://www.oecd.org/en/topics/open-government-data.html" target="_blank" rel="noopener">OECD</a></td>
+                        <td>"Open government data refers to data produced or commissioned by government or government-controlled entities which can be freely used, reused and redistributed by anyone."</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://opendatahandbook.org/guide/en/what-is-open-data/" target="_blank" rel="noopener">Open Data Handbook<br>(OKF)</a></td>
+                        <td>"Open data is data that can be freely used, re-used and redistributed by anyone – subject only, at most, to the requirement to attribute and share alike."</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://opendatacharter.net/principles/" target="_blank" rel="noopener">International Open Data Charter</a></td>
+                        <td>"Digital data that is made available with the technical and legal characteristics necessary for it to be freely used, reused, and redistributed by anyone, anytime, anywhere."</td>
+                    </tr>
+                    <tr>
+                        <td><a href="https://en.wikipedia.org/wiki/Open_data" target="_blank" rel="noopener">Wikipedia</a></td>
+                        <td>"Open data is data that is openly accessible, exploitable, editable and shared by anyone for any purpose, even commercially."</td>
                     </tr>
                 </tbody>
             </table>

@@ -21,6 +21,12 @@
 title: ODON
 email: info@odon.at
 version: "2.8"
+
+defaults:
+  - scope:
+      path: ""
+    values:
+      image: /assets/images/logo/v2/logo-300x300.png
 description: >- # this means to ignore newlines until "baseurl:"
   Offene Daten, Offene Nutzung!
 baseurl: "" # the subpath of your site, e.g. /blog

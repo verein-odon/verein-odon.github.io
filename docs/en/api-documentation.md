@@ -33,17 +33,14 @@ last_updated: "2026-03-27 18:00"
   </div>
 </section>
 
-<!-- API Table Section -->
 <section class="section bg-gray">
   <div class="container">
     <div class="content-section">
-        <h2>
-            Data Documentation
-        </h2>
+      <h2>Data Documentation</h2>
     </div>
     <div style="max-width: 96rem; margin: 0 auto;">
       <div class="api-search-wrapper">
-        <label for="api-search" class="api-search-label">Filter APIs</label>
+        <label for="api-search" class="api-search-label">Search datasets</label>
         <div class="api-search-input-container">
           <span class="api-search-icon">🔍</span>
           <input
@@ -75,9 +72,15 @@ last_updated: "2026-03-27 18:00"
           <tr>
             <td class="api-name">{{ api.name }}</td>
             <td class="api-url">
-              <a href="{{ api.url }}" target="_blank" rel="noopener">api-eu-2</a>
+              <div style="display: flex; align-items: center; gap: 0.4rem;">
+                <a href="{{ api.url }}" target="_blank" rel="noopener">EU-2</a>
+                <button class="api-copy-btn" data-url="{{ api.url }}" title="Copy URL" aria-label="Copy URL">📋</button>
+              </div>
             </td>
-            <td class="api-description">{{ api.description }}</td>
+            <td class="api-description">
+              <span class="api-desc-text">{{ api.description | truncatewords: 20 }}</span>
+              <button class="api-desc-toggle" data-short="{{ api.description | truncatewords: 20 | escape }}" data-full="{{ api.description | escape }}">more</button>
+            </td>
           </tr>
           {% endfor %}
         </tbody>
@@ -157,6 +160,26 @@ last_updated: "2026-03-27 18:00"
 
     // Initial counts
     updateCountsAndNoResults(totalCount);
+
+    // Expand/collapse description
+    document.querySelectorAll('.api-desc-toggle').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        const span = btn.previousElementSibling;
+        const isExpanded = btn.textContent.trim() === 'less';
+        span.textContent = isExpanded ? btn.dataset.short : btn.dataset.full;
+        btn.textContent = isExpanded ? 'more' : 'less';
+      });
+    });
+
+    // Copy to clipboard
+    document.querySelectorAll('.api-copy-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        navigator.clipboard.writeText(btn.getAttribute('data-url')).then(function() {
+          btn.textContent = '✓';
+          setTimeout(function() { btn.textContent = '📋'; }, 1500);
+        });
+      });
+    });
   });
 </script>
 
@@ -247,6 +270,12 @@ last_updated: "2026-03-27 18:00"
     vertical-align: top;
   }
 
+  .api-table th:nth-child(2),
+  .api-table td:nth-child(2) {
+    width: 7rem;
+    white-space: nowrap;
+  }
+
   .api-table th {
     font-weight: 600;
     font-size: 0.9rem;
@@ -264,6 +293,38 @@ last_updated: "2026-03-27 18:00"
 
   .api-table a:hover {
     text-decoration: underline;
+  }
+
+  .api-desc-toggle {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    font-size: 0.8rem;
+    color: #2563eb;
+    padding: 0 0.2rem;
+    margin-left: 0.2rem;
+    vertical-align: baseline;
+  }
+
+  .api-desc-toggle:hover {
+    text-decoration: underline;
+  }
+
+  .api-copy-btn {
+    background: transparent;
+    border: 1px solid #d1d5db;
+    border-radius: 0.25rem;
+    cursor: pointer;
+    font-size: 0.8rem;
+    padding: 0.1rem 0.35rem;
+    margin-left: 0.4rem;
+    color: #6b7280;
+    vertical-align: middle;
+  }
+
+  .api-copy-btn:hover {
+    background: #f3f4f6;
+    color: #374151;
   }
 
   .api-no-results {

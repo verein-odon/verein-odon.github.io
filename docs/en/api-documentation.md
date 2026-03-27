@@ -5,41 +5,33 @@ lang: en
 ref: api-documentation
 permalink: /en/api-documentation/
 in_nav: false
+last_updated: "2026-03-27 18:00"
 ---
 
-<!-- START --- Intro section ----------------------->
 <section class="section bg-white">
-    <div class="container">
-        <div class="content-section">
-            <h2>
-                API Documentation
-            </h2>
-            <p>
-                Using the API is easy and includes the following steps:
-            </p>
-            <ul>
-                <li>
-                    <span class="bullet">•</span>
-                    <span>Make sure you have an API token. If you don't have one, request one here: <a href="/en/api-registration">API Registration</a></span>
-                </li>
-                <li>
-                    <span class="bullet">•</span>
-                    <span>Choose the data set you want to use from the list below and note the URL endpoint.</span>
-                </li>
-                <li>
-                    <span class="bullet">•</span>
-                    <span>Append the API token to your request with the URL parameter 'api-token' and you can start using it!<br>
-                    Example: <b>https://api-eu-2.odon.at/agricultural-land-sq-km/data?api-token=&lt;API_TOKEN&gt;</b></span>
-
-                    URL paths → kebab-case
-                    JSON keys → snake_case
-                    
-                </li>
-            </ul>
-        </div>
+  <div class="container">
+    <div class="content-section">
+      <h2>API Documentation</h2>
+      <p>Using the API is easy and includes the following steps:</p>
+      <ul>
+        <li>
+          <span class="bullet" style="margin-top: 0;">1.</span>
+          <span>Make sure you have an API token. If you don't have one, <a href="/en/api-registration/">register here</a>.</span>
+        </li>
+        <li>
+          <span class="bullet" style="margin-top: 0;">2.</span>
+          <span>Choose a dataset from the list below and note its URL endpoint.</span>
+        </li>
+        <li>
+          <span class="bullet" style="margin-top: 0;">3.</span>
+          <span>Append your token to the URL and you're ready to query.</span>
+        </li>
+      </ul>
+      <pre><code>https://api-eu-2.odon.at/agricultural-land-sq-km/data?api-token=YOUR_TOKEN</code></pre>
+      <p><small>URL paths use kebab-case; JSON keys use snake_case.</small></p>
     </div>
+  </div>
 </section>
-<!-- END --- Intro section ----------------------->
 
 <!-- API Table Section -->
 <section class="section bg-gray">

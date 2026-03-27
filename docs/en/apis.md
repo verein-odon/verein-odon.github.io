@@ -10,7 +10,7 @@ permalink: /en/apis/
   <div class="container">
     <div class="content-section">
       <p>
-        The purpose of ODON is to promote the use, provision, and publication of open data. One way to achieve this is by providing APIs for Open Data. Before you start using it, please consider the following:
+        The purpose of ODON is to promote the use, provision, and publication of Open Data. One way to achieve this is by providing APIs for everyone to use. Here is how you can use it:
       </p>
       <ul>
         <li>

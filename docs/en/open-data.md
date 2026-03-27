@@ -4,7 +4,7 @@ title: Open Data
 lang: en
 ref: opendata
 permalink: /en/open-data/
-last_updated: "2025-03-23 08:30"
+last_updated: "2025-03-27 17:30"
 ---
 
 <!-- START --- Intro section ----------------------->

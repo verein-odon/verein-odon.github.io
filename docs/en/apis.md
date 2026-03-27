@@ -14,21 +14,40 @@ last_updated: "2026-03-27 00:00"
       <p>
         ODON provides programmatic access to curated open datasets through a simple token-based API. Each request uses a URL parameter to authenticate, making it straightforward to integrate into any application or data pipeline.
       </p>
+      <p style="background: #eff6ff; border-left: 3px solid #2563eb; padding: 0.75rem 1rem; border-radius: 0.25rem; margin-top: 1rem;">
+        ODON's APIs are <b>free to use</b>. All underlying datasets are open data, free to access, use, and share.
+      </p>
+      <h3>How It Works</h3>
+      <ol>
+        <li>Register for a free API token.</li>
+        <li>Browse the <a href="/en/api-documentation/">API Documentation</a> to find a dataset and note its endpoint.</li>
+        <li>Append your token to the URL and start querying.</li>
+      </ol>
+      <pre><code>https://api-eu-2.odon.at/agricultural-land-sq-km/data?api-token=YOUR_TOKEN</code></pre>
+      <p><small>All responses return JSON. URL paths use kebab-case; JSON keys use snake_case.</small></p>
+      <p>
+        <a href="/en/api-registration/" class="btn btn-primary">Get Your API Token</a>
+        &nbsp;
+        <a href="/en/api-documentation/" class="btn btn-primary">Browse API Documentation</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-gray">
+  <div class="container">
+    <div class="content-section">
+      <h3>Notes</h3>
       <ul>
         <li>
           <span class="bullet">•</span>
-          <span><b>Registration</b><br>
-          Since we operate these APIs within our financial means and want to prevent misuse, a simple registration is required. After registration, you will receive an API token that allows you to use each of our APIs for a set number of requests without further restrictions. <a href="/en/api-registration/">Register here to get your token.</a></span>
+          <span><b>Why registration is required</b><br>
+          We operate these APIs within our financial means. A simple registration helps us prevent misuse and ensure fair access for everyone.</span>
         </li>
         <li>
           <span class="bullet">•</span>
-          <span><b>API Documentation</b><br>
-          Once you have your token, visit the <a href="/en/api-documentation/">API Documentation</a> page for a step-by-step guide on how to use the API and a full list of all available data sets.</span>
-        </li>
-        <li>
-          <span class="bullet">•</span>
-          <span><b>More Requests</b><br>
-          Should you require a higher request quota, you can become a <a href="/en/supporters/">supporting member</a> and receive increased limits.</span>
+          <span><b>Support Us</b><br>
+          If you find our APIs useful and would like to support us, consider making a <a href="/en/supporters/">donation</a> or becoming a <a href="/en/membership/">supporting member</a>.</span>
         </li>
         <li>
           <span class="bullet">•</span>

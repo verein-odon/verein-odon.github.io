@@ -37,15 +37,15 @@ apis:
     hero-subtitle: "From raw datasets to real-world applications. Use our APIs to build tools that foster transparency, drive research, and tell the stories that matter."
     image_src: "/assets/images/heros/apis.svg" 
     alt_text: "Open Data APIs"
-    buttons:
-      - text: "Get Your API Token"
-        url: "/en/api-registration/"
-        style: "primary"
-        arrow: false
-      - text: "API & Data Documentation"
-        url: "/en/api-documentation/"
-        style: "secondary"
-        arrow: false
+    # buttons:
+    #   - text: "Get Your API Token"
+    #     url: "/en/api-registration/"
+    #     style: "primary"
+    #     arrow: false
+    #   - text: "API & Data Documentation"
+    #     url: "/en/api-documentation/"
+    #     style: "secondary"
+    #     arrow: false
   # de:
   #   hero-title: "Open Data APIs für echte Wirkung"
   #   image_src: "/assets/images/heros/apis.svg" 

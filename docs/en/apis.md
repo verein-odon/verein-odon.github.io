@@ -20,15 +20,15 @@ last_updated: "2026-03-27 18:00"
       <h3>How It Works</h3>
       <ul>
         <li>
-          <span class="bullet" style="margin-top: 0;">1.</span>
+          <span class="bullet bullet-num">1.</span>
           <span>Register for a free API token.</span>
         </li>
         <li>
-          <span class="bullet" style="margin-top: 0;">2.</span>
+          <span class="bullet bullet-num">2.</span>
           <span>Browse the <a href="/en/api-documentation/">API Documentation</a> to find a dataset and note its endpoint.</span>
         </li>
         <li>
-          <span class="bullet" style="margin-top: 0;">3.</span>
+          <span class="bullet bullet-num">3.</span>
           <span>Append your token to the URL and start querying.</span>
         </li>
       </ul>

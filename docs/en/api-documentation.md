@@ -15,15 +15,15 @@ last_updated: "2026-03-27 18:00"
       <p>Using the API is easy and includes the following steps:</p>
       <ul>
         <li>
-          <span class="bullet" style="margin-top: 0;">1.</span>
+          <span class="bullet bullet-num">1.</span>
           <span>Make sure you have an API token. If you don't have one, <a href="/en/api-registration/">register here</a>.</span>
         </li>
         <li>
-          <span class="bullet" style="margin-top: 0;">2.</span>
+          <span class="bullet bullet-num">2.</span>
           <span>Choose a dataset from the list below and note its URL endpoint.</span>
         </li>
         <li>
-          <span class="bullet" style="margin-top: 0;">3.</span>
+          <span class="bullet bullet-num">3.</span>
           <span>Append your token to the URL and you're ready to query.</span>
         </li>
       </ul>

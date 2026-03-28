@@ -11,8 +11,6 @@
       {% if include.intro %}
       <p>{{ include.intro }}</p>
       {% endif %}
-    </div>
-
     <div class="storytelling-feature-cards">
       {% for example in examples %}
       {% assign story_key = example.id | default: forloop.index0 %}
@@ -49,6 +47,7 @@
         </div>
       </article>
       {% endfor %}
+    </div>
     </div>
   </div>
 

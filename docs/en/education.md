@@ -4,7 +4,7 @@ title: Education
 lang: en
 ref: education
 permalink: /en/education/
-last_updated: "2026-03-27 18:00"
+last_updated: "2026-03-29 00:00"
 ---
 
 <section class="section bg-white">
@@ -12,27 +12,32 @@ last_updated: "2026-03-27 18:00"
     <div class="content-section">
       <h2>Open Data Internships</h2>
       <p>
-        ODON offers internships for students who want to gain practical experience in:
+        ODON offers internships for students who want to gain practical experience working with real-world data.
+      </p>
+      <p style="background: #eff6ff; border-left: 3px solid #2563eb; padding: 0.75rem 1rem; border-radius: 0.25rem; margin-top: 1rem;">
+        Interns work on <b>real projects with societal relevance</b> — not toy examples, but live datasets and tools used by real users.
       </p>
       <ul>
         <li>
-          <span class="bullet">•</span>
-          <span>Open Data</span>
+          <span class="bullet"></span>
+          <span><b>Open Data</b><br>
+          Understanding open datasets, licenses, and how to find, access, and evaluate data sources.</span>
         </li>
         <li>
-          <span class="bullet">•</span>
-          <span>APIs and data engineering</span>
+          <span class="bullet"></span>
+          <span><b>APIs and Data Engineering</b><br>
+          Working with APIs, data pipelines, and processing tools to structure and serve data reliably.</span>
         </li>
         <li>
-          <span class="bullet">•</span>
-          <span>Data analysis and storytelling</span>
+          <span class="bullet"></span>
+          <span><b>Data Analysis and Storytelling</b><br>
+          Turning raw data into insights, visualisations, and narratives that communicate clearly.</span>
         </li>
       </ul>
       <p>
-        Interns work on real projects with societal relevance.
-      </p>
-      <p>
         <a href="/en/internships/" class="btn btn-primary">Explore our internships</a>
+        &nbsp;
+        <a href="mailto:info@odon.at" class="btn btn-primary">Get in Touch</a>
       </p>
     </div>
   </div>
@@ -47,20 +52,26 @@ last_updated: "2026-03-27 18:00"
       </p>
       <ul>
         <li>
-          <span class="bullet">•</span>
-          <span>Online trainings</span>
+          <span class="bullet"></span>
+          <span><b>Online Trainings</b><br>
+          Self-paced or guided courses covering Open Data topics for practitioners and beginners alike.</span>
         </li>
         <li>
-          <span class="bullet">•</span>
-          <span>Webinars</span>
+          <span class="bullet"></span>
+          <span><b>Webinars</b><br>
+          Live sessions with experts on specific datasets, tools, and Open Data use cases.</span>
         </li>
         <li>
-          <span class="bullet">•</span>
-          <span>Workshops on Open Data topics</span>
+          <span class="bullet"></span>
+          <span><b>Workshops</b><br>
+          Hands-on sessions for schools, organisations, and communities exploring Open Data together.</span>
         </li>
       </ul>
-      <p>
-        If you are interested in working with us on these offerings, please send us an email to <a href="mailto:info@odon.at">info@odon.at</a>.
+      <p style="background: #f9fafb; border-left: 3px solid #d1d5db; padding: 0.75rem 1rem; border-radius: 0.25rem; margin-top: 1rem;">
+        These formats are currently in development. If you are interested in collaborating or want to be notified when they launch, reach out at <a href="mailto:info@odon.at">info@odon.at</a>.
+      </p>
+      <p style="margin-top: 1.5rem; color: var(--color-gray-500); font-style: italic;">
+        Interested in partnering with us on education? We are always looking for schools, universities, and organisations to work with.
       </p>
     </div>
   </div>

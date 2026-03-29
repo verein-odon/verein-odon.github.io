@@ -56,13 +56,13 @@ association:
     hero-subtitle: "ODON is a Vienna-based non-profit association of developers, researchers, and data enthusiasts working to turn public Open Data into real-world impact. We support transparent, innovative, and accessible use of data through technical expertise and community collaboration."
     image_src: "/assets/images/heros/association.svg"
     alt_text: "Value flows in the association"
-    # buttons:
-    #   - text: "Support Us"
-    #     url: "/en/supporters/"
-    #     style: "primary"
-    #   - text: "Become a Member"
-    #     url: "/en/membership/"
-    #     style: "secondary"
+    buttons:
+      - text: "Support Us"
+        url: "/en/supporters/"
+        style: "primary"
+      - text: "Become a Member"
+        url: "/en/membership/"
+        style: "secondary"
   # de: 
   #   hero-title: "Verein"
   #   image_src: "/assets/images/heros/association.svg"

@@ -8,4 +8,4 @@ in_nav: false
 sitemap: false
 ---
 
-<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfn5Y3tJhubXs728mx15wYk5Cucal7b1X917T4jV1_cPCEBow/viewform?usp=dialog" width="100%" height="800" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSfn5Y3tJhubXs728mx15wYk5Cucal7b1X917T4jV1_cPCEBow/viewform?usp=dialog" style="width: 100%; height: calc(100vh - 6rem); min-height: 600px; border: none; display: block;" marginheight="0" marginwidth="0">Loading…</iframe>

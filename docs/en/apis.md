@@ -56,7 +56,7 @@ last_updated: "2026-03-27 18:00"
         <li>
           <span class="bullet">•</span>
           <span><b>Suggestions &amp; Feedback</b><br>
-          We are always open to feedback and suggestions. If you would like to see a new data set added as an API, let us know — just send us an email to <a href="mailto:info@odon.at">info@odon.at</a>.</span>
+          We are always open to feedback and suggestions. If you would like to see a new data set added as an API, let us know — <a href="/en/contact/">get in touch</a>.</span>
         </li>
       </ul>
       <p style="margin-top: 1.5rem; color: var(--color-gray-500); font-style: italic;">

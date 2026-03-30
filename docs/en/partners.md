@@ -48,7 +48,7 @@ last_updated: "2026-03-29 00:00"
         We are always looking for collaborators who share our passion for Open Data — schools, universities, organisations, and companies are all welcome.
       </p>
       <p style="margin-top: 1.5rem; color: var(--color-gray-500); font-style: italic;">
-        &#9829; Interested in partnering with ODON? <a href="mailto:info@odon.at">Get in touch</a> — we are happy to explore how we can work together.
+        &#9829; Interested in partnering with ODON? <a href="/en/contact/">Get in touch</a> — we are happy to explore how we can work together.
       </p>
     </div>
   </div>

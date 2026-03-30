@@ -48,10 +48,10 @@ last_updated: "2026-03-29 00:00"
         </article>
       </div>
       <p>
-        <a href="mailto:info@odon.at" class="btn btn-primary">Apply or Get in Touch</a>
+        <a href="/en/contact/" class="btn btn-primary">Apply or Get in Touch</a>
       </p>
       <p style="margin-top: 1.5rem; color: var(--color-gray-500); font-style: italic;">
-        Interested in offering an internship project through ODON? Reach out at <a href="mailto:info@odon.at">info@odon.at</a>.
+        Interested in offering an internship project through ODON? <a href="/en/contact/">Get in touch</a>.
       </p>
     </div>
   </div>

@@ -60,7 +60,7 @@ last_updated: "2026-03-29 00:00"
         </div>
       </div>
       <p style="margin-top: 1.5rem; color: var(--color-gray-500); font-style: italic;">
-        &#9829; Interested in our services? <a href="mailto:info@odon.at">Get in touch</a> — we are happy to discuss how we can help.
+        &#9829; Interested in our services? <a href="/en/contact/">Get in touch</a> — we are happy to discuss how we can help.
       </p>
     </div>
   </div>

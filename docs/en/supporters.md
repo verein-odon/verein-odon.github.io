@@ -38,7 +38,7 @@ last_updated: "2026-03-29 00:00"
         </div>
       </div>
       <p style="margin-top: 1.5rem; color: var(--color-gray-500); font-style: italic;">
-        &#9829; Your support makes Open Data accessible to everyone. To donate, <a href="mailto:info@odon.at">get in touch</a>.
+        &#9829; Your support makes Open Data accessible to everyone. To donate, <a href="/en/contact/">get in touch</a>.
       </p>
     </div>
   </div>

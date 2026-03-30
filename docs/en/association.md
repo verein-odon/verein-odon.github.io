@@ -48,7 +48,7 @@ last_updated: "2026-03-29 00:00"
   <div class="container">
     <div class="content-section">
       <h2>Get Involved</h2>
-      <p>Interested in collaborating or learning more? Reach out to us at <a href="mailto:info@odon.at">info@odon.at</a> — we're always open to questions, projects, and partnerships.
+      <p>Interested in collaborating or learning more? <a href="/en/contact/">Get in touch</a> — we're always open to questions, projects, and partnerships.
       </p>
       <p>
         You can also <a href="/en/membership/">become a member</a> or explore our <a href="/en/services/">services</a>.

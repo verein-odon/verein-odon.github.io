@@ -37,7 +37,7 @@ last_updated: "2026-03-29 00:00"
       <p>
         <a href="/en/internships/" class="btn btn-primary">Explore our internships</a>
         &nbsp;
-        <a href="mailto:info@odon.at" class="btn btn-primary">Get in Touch</a>
+        <a href="/en/contact/" class="btn btn-primary">Get in Touch</a>
       </p>
     </div>
   </div>
@@ -68,7 +68,7 @@ last_updated: "2026-03-29 00:00"
         </li>
       </ul>
       <p style="background: #f9fafb; border-left: 3px solid #d1d5db; padding: 0.75rem 1rem; border-radius: 0.25rem; margin-top: 1rem;">
-        These formats are currently in development. If you are interested in collaborating or want to be notified when they launch, reach out at <a href="mailto:info@odon.at">info@odon.at</a>.
+        These formats are currently in development. If you are interested in collaborating or want to be notified when they launch, <a href="/en/contact/">get in touch</a>.
       </p>
       <p style="margin-top: 1.5rem; color: var(--color-gray-500); font-style: italic;">
         Interested in partnering with us on education? We are always looking for schools, universities, and organisations to work with.

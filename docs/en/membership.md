@@ -124,7 +124,7 @@ last_updated: "2026-03-29 00:00"
     <div class="content-section">
       <h2>Get in Touch</h2>
       <p style="margin-top: 1.5rem; color: var(--color-gray-500); font-style: italic;">
-        &#9829; Every membership directly supports open and accessible data for everyone. If you have questions or would like to join, <a href="mailto:info@odon.at">get in touch</a>.
+        &#9829; Every membership directly supports open and accessible data for everyone. If you have questions or would like to join, <a href="/en/contact/">get in touch</a>.
       </p>
     </div>
   </div>

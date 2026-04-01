@@ -1,0 +1,25 @@
+{% if site.banner.enabled %}
+<div class="site-banner" id="site-banner">
+  <div class="container site-banner-inner">
+    <p class="site-banner-message">
+      {{ site.banner.message | escape }}
+      {% if site.banner.url != "" and site.banner.url %}
+        <a class="site-banner-link" href="{{ site.banner.url }}">{{ site.banner.url_label | default: "Learn more" }}</a>
+      {% endif %}
+    </p>
+    <button class="site-banner-close" id="site-banner-close" aria-label="Dismiss banner">&#x2715;</button>
+  </div>
+</div>
+<script>
+  (function () {
+    var key = 'dismissed_{{ site.banner.id | escape }}';
+    if (localStorage.getItem(key)) {
+      document.getElementById('site-banner').style.display = 'none';
+    }
+    document.getElementById('site-banner-close').addEventListener('click', function () {
+      localStorage.setItem(key, '1');
+      document.getElementById('site-banner').style.display = 'none';
+    });
+  })();
+</script>
+{% endif %}

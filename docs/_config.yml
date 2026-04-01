@@ -18,6 +18,16 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
+# Site-wide promotional banner
+# Set enabled: true to show the banner on every page.
+# Change `id` whenever you update the message so returning visitors see it again.
+banner:
+  enabled: false
+  id: "banner-2026-04"
+  message: "Something exciting is happening — stay tuned!"
+  url: ""             # optional link URL, e.g. /en/events/
+  url_label: "Learn more"
+
 title: ODON
 email: info@odon.at
 version: "2.8"

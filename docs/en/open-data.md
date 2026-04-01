@@ -42,7 +42,7 @@ last_updated: "2026-03-29 00:00"
 <section class="section bg-gray">
   <div class="container">
     <div class="content-section">
-      <h2 id="odmm">ODON's Data Maturity Model (ODMM)</h2>
+      <h2 id="odmm">ODON's Data Maturity Model (ODMM) <small style="font-size: 0.6em; font-weight: normal; color: var(--color-gray-500);">v1.2 &middot; 2026-03-29</small></h2>
       <p>
         The framework assesses data along two independent dimensions: <b>Legal Openness</b> and <b>Technical Openness</b>. Each dimension has four levels. A dataset is assigned the level whose indicators all apply — or, for the first level of each dimension, the level that applies when any restriction is present.
       </p>
@@ -170,6 +170,44 @@ last_updated: "2026-03-29 00:00"
               </ul>
             </td>
             <td>All indicators must apply</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h3 id="odmm-version-history" style="margin-top: 2rem;">Version History</h3>
+      <table>
+        <thead>
+          <tr>
+            <th>Version</th>
+            <th>Date</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><b>1.2</b></td>
+            <td>2026-03-29</td>
+            <td>Added clarifications to indicators and classification rules</td>
+          </tr>
+          <tr>
+            <td>1.1</td>
+            <td>2026-03-24</td>
+            <td>Improved wording throughout</td>
+          </tr>
+          <tr>
+            <td>1.0</td>
+            <td>2026-03-23</td>
+            <td>Overhauled the model from the ground up; introduced four levels per dimension</td>
+          </tr>
+          <tr>
+            <td>0.2</td>
+            <td>2025-08-15</td>
+            <td>Corrected style and typos</td>
+          </tr>
+          <tr>
+            <td>0.1</td>
+            <td>2025-08-10</td>
+            <td>Initial implementation of the ODMM</td>
           </tr>
         </tbody>
       </table>

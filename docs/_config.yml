@@ -22,9 +22,9 @@
 # Set enabled: true to show the banner on every page.
 # Change `id` whenever you update the message so returning visitors see it again.
 banner:
-  enabled: false
-  id: "banner-2026-04"
-  message: "Something exciting is happening — stay tuned!"
+  enabled: true
+  id: "data-storytelling-fund-2026-04-02" # increment this to show the banner again to returning visitors
+  message: "Coming this April: the Data Storytelling Fund — a free storytelling project for selected organisations!"
   url: ""             # optional link URL, e.g. /en/events/
   url_label: "Learn more"
 

@@ -30,7 +30,7 @@ last_updated: "2026-03-29 00:00"
         </li>
       </ul>
       <p>
-        Since our work spans many fields, we needed a consistent approach that works independent of any domain-based definition. This led us to develop <b>ODON's Data Maturity Model (ODMM)</b>.
+        Since our work spans many fields, we needed a consistent approach that works independent of any domain-based definition. This led us to develop <b>ODON's Open Data Maturity Model (ODMM)</b>.
       </p>
       <p style="background: #eff6ff; border-left: 3px solid #2563eb; padding: 0.75rem 1rem; border-radius: 0.25rem; margin-top: 1rem;">
         The ODMM assesses datasets along two dimensions — <b>Legal Openness</b> and <b>Technical Openness</b> — each with four levels, providing a clear, domain-independent classification.
@@ -42,7 +42,7 @@ last_updated: "2026-03-29 00:00"
 <section class="section bg-gray">
   <div class="container">
     <div class="content-section">
-      <h2 id="odmm">ODON's Data Maturity Model (ODMM) <small style="font-size: 0.6em; font-weight: normal; color: var(--color-gray-500);">v1.2 &middot; 2026-03-29</small></h2>
+      <h2 id="odmm">ODON's Open Data Maturity Model (ODMM) <small style="font-size: 0.6em; font-weight: normal; color: var(--color-gray-500);">v1.2 &middot; 2026-03-29</small></h2>
       <p>
         The framework assesses data along two independent dimensions: <b>Legal Openness</b> and <b>Technical Openness</b>. Each dimension has four levels. A dataset is assigned the level whose indicators all apply — or, for the first level of each dimension, the level that applies when any restriction is present.
       </p>

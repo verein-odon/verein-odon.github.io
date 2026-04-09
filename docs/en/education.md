@@ -36,8 +36,6 @@ last_updated: "2026-03-29 00:00"
       </ul>
       <p>
         <a href="/en/internships/" class="btn btn-primary">Explore our internships</a>
-        &nbsp;
-        <a href="/en/contact/" class="btn btn-primary">Get in Touch</a>
       </p>
     </div>
   </div>

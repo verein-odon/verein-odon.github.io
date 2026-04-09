@@ -45,6 +45,7 @@ baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://odon.at" # the base hostname & protocol for your site, e.g. http://example.com
 #twitter_username: odon-at
 github_username:  odon-at
+linkedin_username: odon-at
 
 # Build settings
 #theme: minima

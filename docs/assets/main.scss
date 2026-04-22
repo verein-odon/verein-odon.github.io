@@ -439,19 +439,19 @@ body {
 .hero {
   position: relative;
   background: linear-gradient(135deg, var(--color-blue-50), var(--color-indigo-50), #faf5ff);
-  padding: 5rem 0;
+  padding: 3rem 0;
   overflow: hidden;
 }
 
 @media (min-width: 768px) {
   .hero {
-    padding: 8rem 0;
+    padding: 5rem 0;
   }
 }
 
 .hero-grid {
   display: grid;
-  gap: 3rem;
+  gap: 2rem;
   align-items: center;
 }
 
@@ -481,7 +481,7 @@ body {
 
 @media (min-width: 1024px) {
   .hero-title {
-    font-size: 3.75rem;
+    font-size: 3rem;
   }
 }
 
@@ -603,7 +603,7 @@ a.btn-primary, a.btn-primary:hover {
 
 /* Section Styles */
 .section {
-  padding: 2rem 0 4em 0;
+  padding: 2rem 0 3rem 0;
 }
 
 .bg-white {
@@ -617,7 +617,7 @@ a.btn-primary, a.btn-primary:hover {
 .section-title {
   font-size: 1.875rem;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 1.5rem;
   color: var(--color-gray-900);
 }
 
@@ -926,12 +926,12 @@ a.btn-primary, a.btn-primary:hover {
 /* Fixed-height card in carousel only (desktop): prevents jump when statement length varies */
 @media (min-width: 768px) {
   .people-carousel-inner {
-    height: 400px; /* Fixed height so controls below never jump */
+    height: 320px; /* Fixed height so controls below never jump */
   }
 
   .people-carousel .person-card {
     height: 100%;
-    min-height: 400px;
+    min-height: 320px;
     overflow: hidden;
   }
 }

@@ -12,6 +12,10 @@ bundle exec jekyll build        # one-off build to _site/
 bundle exec jekyll serve --incremental  # faster rebuilds during active editing
 ```
 
+`_config.yml` changes require a full server restart — Jekyll does not hot-reload it.
+
+The site uses the `github-pages` gem (not a pinned Jekyll version), so it tracks GitHub Pages' Jekyll. To upgrade: `bundle update github-pages`.
+
 The site deploys to GitHub Pages on push to `main`. No CI/CD pipeline — GitHub Pages builds automatically.
 
 ## Repository Layout
@@ -20,13 +24,15 @@ The site deploys to GitHub Pages on push to `main`. No CI/CD pipeline — GitHub
 docs/                   Jekyll source root (working directory)
   en/                   English content pages
   de/                   German content pages (partial — not all EN pages have a DE counterpart)
-  _data/                YAML data files (apis.yaml, heros.yaml, people.yaml, storytelling.yaml)
+  _data/                YAML data files (apis.yaml ~1 MB, heros.yaml, people.yaml, storytelling.yaml)
   _includes/            Reusable partials
   _layouts/             default → page / home / post
-  _posts/en/            English blog posts
+  _posts/en/            English blog posts (YYYY-MM-DD-slug.md)
   _posts/de/            German blog posts
-  assets/main.scss      Single compiled stylesheet (all CSS lives here)
-  _config.yml           Site config (title, url, version, OG image defaults)
+  _sass/                Sass partials (minima.scss + minima/ theme overrides)
+  assets/main.scss      Single compiled stylesheet (all custom CSS lives here)
+  stories/              Standalone HTML data stories (not Jekyll-managed, served as static files)
+  _config.yml           Site config (title, url, version, banner, OG image defaults)
 ```
 
 ## Bilingual System
@@ -42,6 +48,7 @@ permalink: /en/apis/
 - **Navigation** is auto-built from all pages where `lang == page.lang` and `in_nav != false`. Pages are sorted alphabetically by `title`. Add `in_nav: false` to exclude a page from the nav (e.g. internships, api-registration, contact).
 - **Language switcher** (`_includes/language_switcher.html`) uses `page.ref` to find the counterpart page in the other language.
 - **Hero sections** are driven by `_data/heros.yaml`, keyed by `page.ref` and `page.lang`.
+- `last_updated: "YYYY-MM-DD HH:MM"` is an optional front matter field displayed on pages that show a timestamp.
 
 ## Page Structure Conventions
 
@@ -69,6 +76,23 @@ Defined in `assets/main.scss`:
 - **API table** (`en/api-documentation.md`) — rendered from `_data/apis.yaml`. Each entry: `id`, `title`, `description`, `endpoint`, `docs_url`. Uses `| escape` on all user-facing string outputs to prevent HTML injection from description text.
 - **Storytelling grid** — rendered via `{% include data-services-grid.html %}`, driven by `_data/storytelling.yaml`.
 - **People carousel** — driven by `_data/people.yaml`.
+
+## Site-Wide Banner
+
+Controlled in `_config.yml` under the `banner:` key:
+
+```yaml
+banner:
+  enabled: true
+  id: "some-unique-id"   # increment to force returning visitors to see it again (stored in localStorage)
+  message: "Banner text here"
+  url: ""                # optional link; leave empty for no link
+  url_label: "Learn more"
+```
+
+## Standalone Data Stories
+
+Files under `stories/` are self-contained HTML pages (own CSS, JS, CSV) not processed by Jekyll. They live at `/stories/<slug>/` on the published site. Add a new story by creating a subdirectory with an `index.html`.
 
 ## Embedded Forms
 

@@ -2158,6 +2158,18 @@ td {
   }
 }
 
+.gform-gate-alt {
+  font-size: 0.8125rem;
+  color: var(--color-gray-400);
+  margin: 0;
+
+  a {
+    color: var(--color-gray-400);
+    text-decoration: underline;
+    &:hover { color: var(--color-gray-600); text-decoration: none; }
+  }
+}
+
 /* Cookie Consent Banner */
 .cookie-banner {
   position: fixed;

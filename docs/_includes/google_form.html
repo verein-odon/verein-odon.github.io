@@ -1,0 +1,46 @@
+{% comment %}
+  Consent gate for embedded Google Forms.
+  Parameters:
+    include.src    — iframe src URL (required)
+    include.height — css height value, e.g. "900px" or "calc(100vh - 6rem)" (default: "900px")
+
+  Clicking "Load form" stores consent in localStorage so subsequent form pages
+  load automatically without showing the gate again.
+{% endcomment %}
+{% assign gform_height = include.height | default: "900px" %}
+<div class="gform-gate" data-src="{{ include.src | escape }}" data-height="{{ gform_height | escape }}">
+  <div class="gform-gate-inner">
+    <p class="gform-gate-title">Google Form</p>
+    <p class="gform-gate-text">
+      This form is provided by Google and may set cookies when loaded.
+      See our <a href="/{{ page.lang | default: 'en' }}/privacy/">Privacy Policy</a> for details.
+    </p>
+    <button class="btn btn-primary gform-gate-btn" type="button">Load form</button>
+  </div>
+</div>
+<script>
+(function () {
+  var KEY = 'odon_google_consent';
+  var gate = document.currentScript.previousElementSibling;
+  if (!gate || !gate.classList.contains('gform-gate')) return;
+
+  function loadForm() {
+    var iframe = document.createElement('iframe');
+    iframe.src = gate.getAttribute('data-src');
+    iframe.style.cssText = 'width:100%;height:' + gate.getAttribute('data-height') + ';border:none;display:block;';
+    iframe.setAttribute('marginheight', '0');
+    iframe.setAttribute('marginwidth', '0');
+    gate.parentNode.replaceChild(iframe, gate);
+  }
+
+  if (localStorage.getItem(KEY) === 'true') {
+    loadForm();
+    return;
+  }
+
+  gate.querySelector('.gform-gate-btn').addEventListener('click', function () {
+    localStorage.setItem(KEY, 'true');
+    loadForm();
+  });
+})();
+</script>

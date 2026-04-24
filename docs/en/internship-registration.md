@@ -25,7 +25,5 @@ in_nav: false
 </section>
 
 <div style="padding-top: 1rem; border-top: 1px solid var(--color-gray-200);">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeuWaTSVftC36oSvdSEkowmjIRy4yRnQvrdrqP19UkcyEWJ8Q/viewform?embedded=true"
-    style="width: 100%; height: 900px; border: none; display: block;"
-    marginheight="0" marginwidth="0">Loading…</iframe>
+  {% include google_form.html src="https://docs.google.com/forms/d/e/1FAIpQLSeuWaTSVftC36oSvdSEkowmjIRy4yRnQvrdrqP19UkcyEWJ8Q/viewform?embedded=true" height="900px" %}
 </div>

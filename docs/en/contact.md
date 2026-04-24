@@ -43,5 +43,5 @@ last_updated: "2026-03-30 00:00"
 </section>
 
 <div style="padding-top: 1rem; border-top: 1px solid var(--color-gray-200);">
-  <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSeG4yfxObSqEcIY41kKJ9-ztOn6z8ZrTUVoAJq1isldnpGDTA/viewform?embedded=true" style="width: 100%; height: 900px; border: none; display: block;" marginheight="0" marginwidth="0">Loading…</iframe>
+  {% include google_form.html src="https://docs.google.com/forms/d/e/1FAIpQLSeG4yfxObSqEcIY41kKJ9-ztOn6z8ZrTUVoAJq1isldnpGDTA/viewform?embedded=true" height="900px" %}
 </div>

@@ -1642,6 +1642,58 @@ a.btn-primary, a.btn-primary:hover {
   color: var(--color-blue-600);
 }
 
+/* Markdown-rendered lists inside .content-section (no .bullet spans).
+   Uses position: absolute for the dot so <li> keeps normal block text flow,
+   avoiding the column-constraint issue that display: flex causes for long text. */
+.content-section ul:not(:has(.bullet)) {
+  list-style: none;
+  padding-left: 0;
+  margin: 1.5rem 0;
+}
+
+.content-section ul:not(:has(.bullet)) li {
+  display: block;
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.content-section ul:not(:has(.bullet)) li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.65rem;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-blue-600);
+}
+
+.content-section h1 {
+  font-size: 2.25rem;
+  margin-bottom: 0.25rem;
+  color: var(--color-gray-900);
+}
+
+.content-section h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.75rem;
+  margin-bottom: 0.75rem;
+  color: var(--color-gray-900);
+}
+
+.content-section hr {
+  border: none;
+  border-top: 1px solid var(--color-gray-200);
+  margin: 2rem 0;
+}
+
+.content-section table {
+  margin-bottom: 1.5rem;
+  font-size: 0.9375rem;
+}
+
 /* Search Input */
 .search-container {
   position: relative;
@@ -2062,6 +2114,122 @@ td {
   color: var(--color-gray-900);
   line-height: 1.75;
   margin-bottom: 1.5rem;
+}
+
+/* Google Form consent gate */
+.gform-gate {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  width: 100%;
+  background: var(--color-gray-50);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 0.75rem;
+  padding: 2.5rem 2rem;
+  text-align: center;
+}
+
+.gform-gate-inner {
+  max-width: 28rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.gform-gate-title {
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-gray-900);
+  margin: 0;
+}
+
+.gform-gate-text {
+  font-size: 0.9375rem;
+  color: var(--color-gray-600);
+  line-height: 1.6;
+  margin: 0;
+
+  a {
+    color: var(--color-blue-600);
+    text-decoration: underline;
+    &:hover { text-decoration: none; }
+  }
+}
+
+/* Cookie Consent Banner */
+.cookie-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background: var(--color-white);
+  border-top: 1px solid var(--color-gray-200);
+  box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.06);
+  padding: 0.875rem 0;
+}
+
+.cookie-banner-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.cookie-banner-text {
+  font-size: 0.875rem;
+  color: var(--color-gray-600);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.cookie-banner-text a {
+  color: var(--color-blue-600);
+  text-decoration: underline;
+}
+
+.cookie-banner-text a:hover {
+  text-decoration: none;
+}
+
+.cookie-banner-actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.cookie-btn {
+  padding: 0.375rem 0.875rem;
+  border-radius: 0.375rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.cookie-btn-accept {
+  background-color: var(--color-blue-600);
+  color: var(--color-white);
+  border: none;
+}
+
+.cookie-btn-accept:hover {
+  background-color: var(--color-blue-700);
+}
+
+.cookie-btn-decline {
+  background: none;
+  color: var(--color-gray-500);
+  border: 1px solid var(--color-gray-300);
+}
+
+.cookie-btn-decline:hover {
+  background-color: var(--color-gray-100);
+  color: var(--color-gray-700);
 }
 
 /* Utility Classes */

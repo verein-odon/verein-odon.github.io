@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Supporters
+title: Support Us
 lang: en
 ref: supporters
 permalink: /en/supporters/

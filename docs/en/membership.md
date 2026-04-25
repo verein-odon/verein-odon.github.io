@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Membership
+title: Join Us
 lang: en
 ref: membership
 permalink: /en/membership/

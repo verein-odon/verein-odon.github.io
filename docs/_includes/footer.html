@@ -11,6 +11,11 @@
           {%- include social.html -%}
           <p><a href="/{{page.lang}}/contact/">Contact</a></p>
           <p><a href="/{{page.lang}}/partners">Partners</a></p>
+          {% if page.lang == 'de' %}
+          <p><a href="/de/impressum/">Impressum</a></p>
+          {% else %}
+          <p><a href="/en/impressum/">Legal Notice</a></p>
+          {% endif %}
           <p><a href="/{{page.lang}}/privacy/">Privacy Policy</a></p>
           <p class="footer-tagline" data-translate="footer.tagline">{{- site.description | escape -}}</p>
         </div>

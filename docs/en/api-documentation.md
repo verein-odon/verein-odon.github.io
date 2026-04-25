@@ -73,7 +73,7 @@ last_updated: "2026-03-27 18:00"
             <td class="api-name">{{ api.name }}</td>
             <td class="api-url">
               <div style="display: flex; align-items: center; gap: 0.4rem;">
-                <a href="{{ api.url }}" target="_blank" rel="noopener">EU-2</a>
+                <a href="{{ api.url }}" target="_blank" rel="noopener nofollow">EU-2</a>
                 <button class="api-copy-btn" data-url="{{ api.url }}" title="Copy URL" aria-label="Copy URL">📋</button>
               </div>
             </td>

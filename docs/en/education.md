@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Education
+nav_order: 3
 lang: en
 ref: education
 permalink: /en/education/

@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Join Us
+nav_order: 5
 lang: en
 ref: membership
 permalink: /en/membership/

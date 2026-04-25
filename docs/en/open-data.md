@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Open Data
+nav_order: 1
 lang: en
 ref: opendata
 permalink: /en/open-data/

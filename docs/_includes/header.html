@@ -42,7 +42,7 @@
 {% comment %} Step 3: Remove anything explicitly marked as hidden {% endcomment %}
 {% assign nav_pages = stage2 | where_exp: "item", "item.in_nav != false" %}
 
-{% assign sorted_nav_pages = nav_pages | sort: "title" %}
+{% assign sorted_nav_pages = nav_pages | sort: "nav_order" %}
 
  
  <header class="header">

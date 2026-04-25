@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Services
+nav_order: 4
 lang: en
 ref: services
 permalink: /en/services/

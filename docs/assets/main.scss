@@ -1515,9 +1515,9 @@ a.btn-primary, a.btn-primary:hover {
 }
 
 .footer-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.25rem 3rem;
   color: #d1d5db;
 }
 
@@ -1532,6 +1532,7 @@ a.btn-primary, a.btn-primary:hover {
 }
 
 .footer-tagline {
+  grid-column: 1 / -1;
   font-style: italic;
   margin-top: 0.5rem;
 }

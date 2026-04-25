@@ -1,6 +1,7 @@
 ---
 layout: page
-title: Verein
+title: Über Uns
+in_nav: false
 lang: de
 ref: association
 permalink: /de/verein/

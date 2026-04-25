@@ -12,6 +12,11 @@
           <p><a href="/{{page.lang}}/contact/">Contact</a></p>
           <p><a href="/{{page.lang}}/partners">Partners</a></p>
           {% if page.lang == 'de' %}
+          <p><a href="/de/verein/">Über Uns</a></p>
+          {% else %}
+          <p><a href="/en/association/">About Us</a></p>
+          {% endif %}
+          {% if page.lang == 'de' %}
           <p><a href="/de/impressum/">Impressum</a></p>
           {% else %}
           <p><a href="/en/impressum/">Legal Notice</a></p>

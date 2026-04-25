@@ -1,6 +1,7 @@
 ---
 layout: page
-title: Association
+title: About Us
+in_nav: false
 lang: en
 ref: association
 permalink: /en/association/

@@ -1,0 +1,203 @@
+---
+layout: page
+title: Data Stories
+nav_order: 5
+lang: en
+ref: data-stories
+permalink: /en/data-stories/
+last_updated: "2026-04-26 00:00"
+description: "A curated gallery of data stories, dashboards, and visualisations produced by or with ODON — powered by open data."
+---
+
+<section class="section bg-white">
+  <div class="container">
+    <div class="content-section">
+      <h2>Data Stories</h2>
+      <p>
+        <!-- TODO: team to write final 2-sentence marketing intro -->
+        We turn open data into clear, engaging narratives. Browse our published work below — from live dashboards to in-depth data investigations.
+      </p>
+      <p style="background: #eff6ff; border-left: 3px solid #2563eb; padding: 0.75rem 1rem; border-radius: 0.25rem; margin-top: 1rem;">
+        Every entry documents its data sources using our <a href="/en/open-data/#odmm">Open Data Maturity Model (ODMM)</a>, so you can see exactly how open the underlying data is. Interested in a similar project for your organisation? <a href="/en/services/">See our Services</a>.
+      </p>
+    </div>
+  </div>
+</section>
+
+{% assign sorted_stories = site.data_stories | sort: "date" | reverse %}
+
+{% assign all_types = site.data_stories | map: "type" | uniq | sort %}
+
+{% assign all_topics = "" | split: "" %}
+{% for entry in site.data_stories %}
+  {% assign all_topics = all_topics | concat: entry.topics %}
+{% endfor %}
+{% assign all_topics = all_topics | uniq | sort %}
+
+{% assign all_years = "" | split: "" %}
+{% for entry in site.data_stories %}
+  {% assign yr = entry.date | date: "%Y" %}
+  {% assign all_years = all_years | push: yr %}
+{% endfor %}
+{% assign all_years = all_years | uniq | sort | reverse %}
+
+<section class="section bg-gray">
+  <div class="container">
+
+    <noscript>
+      <p style="font-size: 0.875rem; color: var(--color-gray-500); margin-bottom: 1rem;">Enable JavaScript to filter stories by type, topic, year, or keyword.</p>
+    </noscript>
+
+    <div class="ds-filter-bar" id="ds-filter-bar" role="search" aria-label="Filter data stories">
+      <input
+        type="search"
+        id="ds-search"
+        placeholder="Search stories…"
+        aria-label="Search stories by keyword"
+        autocomplete="off"
+      >
+      <select id="ds-type-filter" aria-label="Filter by type">
+        <option value="">All types</option>
+        {% for t in all_types %}
+        <option value="{{ t | escape }}">{{ t | capitalize }}</option>
+        {% endfor %}
+      </select>
+      <select id="ds-topic-filter" aria-label="Filter by topic">
+        <option value="">All topics</option>
+        {% for topic in all_topics %}
+        <option value="{{ topic | escape }}">{{ topic | capitalize | replace: "-", " " }}</option>
+        {% endfor %}
+      </select>
+      <select id="ds-year-filter" aria-label="Filter by year">
+        <option value="">All years</option>
+        {% for yr in all_years %}
+        <option value="{{ yr }}">{{ yr }}</option>
+        {% endfor %}
+      </select>
+      <span class="ds-results-count" id="ds-results-count" aria-live="polite" aria-atomic="true"></span>
+    </div>
+
+    <div class="ds-grid" id="ds-grid">
+      {% for entry in sorted_stories %}
+      {% assign topics_joined = entry.topics | join: " " %}
+      {% assign search_blob = entry.title | append: " " | append: entry.summary | append: " " | append: topics_joined | strip_newlines %}
+      {% assign entry_year = entry.date | date: "%Y" %}
+      <article
+        class="ds-card"
+        data-type="{{ entry.type | escape }}"
+        data-topics="{{ topics_joined | escape }}"
+        data-year="{{ entry_year }}"
+        data-search="{{ search_blob | downcase | escape }}"
+      >
+        <div class="ds-card-image">
+          {% assign thumb_alt = entry.thumbnail_alt | default: entry.title %}
+          <a href="{{ entry.url }}" tabindex="-1" aria-hidden="true">
+            <img
+              src="{{ entry.thumbnail }}"
+              alt="{{ thumb_alt | escape }}"
+              loading="lazy"
+              width="600"
+              height="400"
+            >
+          </a>
+        </div>
+        <div class="ds-card-body">
+          <a class="ds-card-title" href="{{ entry.url }}">{{ entry.title | escape }}</a>
+          <p class="ds-card-summary">{{ entry.summary | truncatewords: 28 }}</p>
+          <div class="ds-card-meta">
+            <span class="ds-type-badge ds-type-{{ entry.type | downcase | escape }}">{{ entry.type }}</span>
+            {% for topic in entry.topics %}
+            <span class="ds-tag">{{ topic | replace: "-", " " }}</span>
+            {% endfor %}
+          </div>
+          <div class="ds-card-meta" style="margin-top: 0.25rem;">
+            <time datetime="{{ entry.date | date_to_xmlschema }}">{{ entry.date | date: "%B %Y" }}</time>
+            {% if entry.authors and entry.authors.size > 0 %}
+            <span>·</span>
+            {% for author in entry.authors %}{{ author.name }}{% unless forloop.last %}, {% endunless %}{% endfor %}
+            {% endif %}
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+
+    <p class="ds-empty-state" id="ds-empty" hidden>No stories match your filters. <a href="/en/data-stories/">Clear filters</a></p>
+
+  </div>
+</section>
+
+<script>
+(function () {
+  document.documentElement.classList.add('js');
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var searchInput  = document.getElementById('ds-search');
+    var typeFilter   = document.getElementById('ds-type-filter');
+    var topicFilter  = document.getElementById('ds-topic-filter');
+    var yearFilter   = document.getElementById('ds-year-filter');
+    var countEl      = document.getElementById('ds-results-count');
+    var emptyEl      = document.getElementById('ds-empty');
+    var cards        = Array.from(document.querySelectorAll('#ds-grid .ds-card'));
+    var total        = cards.length;
+
+    function applyFilters() {
+      var query  = searchInput.value.trim().toLowerCase();
+      var type   = typeFilter.value;
+      var topic  = topicFilter.value;
+      var year   = yearFilter.value;
+      var visible = 0;
+
+      cards.forEach(function (card) {
+        var matchSearch = !query || card.dataset.search.indexOf(query) !== -1;
+        var matchType   = !type  || card.dataset.type === type;
+        var matchTopic  = !topic || (' ' + card.dataset.topics + ' ').indexOf(' ' + topic + ' ') !== -1;
+        var matchYear   = !year  || card.dataset.year === year;
+
+        if (matchSearch && matchType && matchTopic && matchYear) {
+          card.hidden = false;
+          visible++;
+        } else {
+          card.hidden = true;
+        }
+      });
+
+      countEl.textContent = visible + ' of ' + total + ' ' + (total === 1 ? 'story' : 'stories');
+      emptyEl.hidden = visible > 0;
+      pushState(query, type, topic, year);
+    }
+
+    function pushState(query, type, topic, year) {
+      var params = new URLSearchParams();
+      if (query)  params.set('search', query);
+      if (type)   params.set('type', type);
+      if (topic)  params.set('topic', topic);
+      if (year)   params.set('year', year);
+      var qs = params.toString();
+      history.replaceState(null, '', qs ? ('?' + qs) : location.pathname);
+    }
+
+    function restoreFromUrl() {
+      var params = new URLSearchParams(location.search);
+      if (params.has('search')) searchInput.value = params.get('search');
+      if (params.has('type'))   typeFilter.value  = params.get('type');
+      if (params.has('topic'))  topicFilter.value = params.get('topic');
+      if (params.has('year'))   yearFilter.value  = params.get('year');
+      applyFilters();
+    }
+
+    var debounce;
+    function onInput() {
+      clearTimeout(debounce);
+      debounce = setTimeout(applyFilters, 120);
+    }
+
+    searchInput.addEventListener('input', onInput);
+    typeFilter.addEventListener('change', applyFilters);
+    topicFilter.addEventListener('change', applyFilters);
+    yearFilter.addEventListener('change', applyFilters);
+
+    restoreFromUrl();
+  });
+})();
+</script>

@@ -1,0 +1,357 @@
+:root {
+  --bg: #5677fe;
+  --fg: #ffffff;
+  --ink: #2d0411;
+  --red: #ffcc2a;
+  --yellow: #ff3348;
+  --green: #00af6f;
+  --accent: rgba(255, 255, 255, 0.85);
+  --accent-soft: rgba(255, 255, 255, 0.18);
+  --surface-dark: rgba(45, 4, 17, 0.2);
+  --grid-gap: clamp(16px, 2.4vw, 28px);
+  --max-width: 980px;
+  --chart-height: clamp(240px, 45vw, 420px);
+  --font-title: "Bebas Neue", "Oswald", "Arial Black", sans-serif;
+  --font-body: "Space Grotesk", "Helvetica", "Arial", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: radial-gradient(circle at 20% 20%, #6b87ff 0%, var(--bg) 45%),
+    radial-gradient(circle at 80% 80%, #4361f4 0%, var(--bg) 55%);
+  color: var(--fg);
+  font-family: var(--font-body);
+  line-height: 1.55;
+  min-height: 100vh;
+}
+
+.story {
+  width: min(100%, var(--max-width));
+  margin: 0 auto;
+  padding: clamp(36px, 6vw, 84px) clamp(20px, 6vw, 60px) 0;
+  display: flex;
+  flex-direction: column;
+  gap: clamp(48px, 8vw, 120px);
+}
+
+h1,
+h2,
+h3 {
+  margin: 0 0 16px;
+  font-family: var(--font-title);
+  letter-spacing: 0.03em;
+}
+
+h1 {
+  font-size: clamp(2.8rem, 6vw, 4.6rem);
+}
+
+h2 {
+  font-size: clamp(2rem, 4vw, 3rem);
+}
+
+.byline {
+  text-align: center;
+  font-size: clamp(1.1rem, 2.2vw, 1.6rem);
+  font-family: var(--font-body);
+  font-weight: 600;
+  margin-top: -14px;
+  margin-bottom: 8px;
+  color: #2f49c7;
+}
+
+h3 {
+  font-size: clamp(1.3rem, 2.6vw, 1.8rem);
+  font-family: var(--font-body);
+  font-weight: 600;
+}
+
+p {
+  margin: 0 0 20px;
+  font-size: clamp(1rem, 1.7vw, 1.2rem);
+}
+
+.panel {
+  display: grid;
+  gap: clamp(16px, 2vw, 28px);
+  padding: clamp(20px, 2vw, 28px) 0;
+}
+
+.grid {
+  display: grid;
+  gap: var(--grid-gap);
+}
+
+.grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+}
+
+.grid-2 {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+}
+
+.tile {
+  display: grid;
+  gap: 12px;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.08);
+  padding: 16px;
+  border-radius: 16px;
+  border: 1px solid var(--ink);
+  backdrop-filter: blur(4px);
+}
+
+.tile.tile-no-border {
+  border: none;
+}
+
+.tile.tile-center-text .tile-text {
+  text-align: center;
+}
+
+.tile.horizontal.tile-center-content {
+  justify-items: center;
+}
+
+.tile.horizontal.tile-center-content .tile-text {
+  text-align: center;
+}
+
+.tile.horizontal {
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.tile-text {
+  margin: 0;
+  font-weight: 600;
+}
+
+.tile-text.large {
+  font-size: clamp(1.6rem, 3.2vw, 2.4rem);
+  text-align: left;
+}
+
+.placeholder {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  background: none;
+  border: none;
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 140px;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.placeholder::after {
+  content: none;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.12em;
+  opacity: 0.85;
+}
+
+.split {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--grid-gap);
+  align-items: center;
+}
+
+.split-text {
+  font-size: clamp(1.05rem, 2vw, 1.25rem);
+}
+
+.split-media .placeholder {
+  aspect-ratio: 3 / 4;
+  min-height: 220px;
+}
+
+.chart {
+  width: 100%;
+  height: var(--chart-height);
+  background: var(--surface-dark);
+  border-radius: 20px;
+  border: none;
+  padding: 16px;
+}
+
+blockquote {
+  margin: 0;
+  padding: clamp(24px, 4vw, 40px);
+  font-size: clamp(1.4rem, 3vw, 2.2rem);
+  line-height: 1.4;
+  font-weight: 600;
+  background: var(--surface-dark);
+  border-radius: 22px;
+}
+
+.disclaimer {
+  color: var(--fg);
+  gap: 10px;
+  position: relative;
+  isolation: isolate;
+  border-radius: 0;
+  padding: clamp(18px, 2.8vw, 28px);
+}
+
+.disclaimer::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  width: 100vw;
+  transform: translateX(-50%);
+  background: var(--surface-dark);
+  z-index: -1;
+}
+
+.disclaimer h2 {
+  font-size: clamp(1.05rem, 2vw, 1.35rem);
+  margin-bottom: 6px;
+}
+
+.disclaimer h3 {
+  font-size: clamp(0.92rem, 1.6vw, 1.05rem);
+  margin: 12px 0 4px;
+  letter-spacing: 0.02em;
+}
+
+.disclaimer p {
+  font-size: clamp(0.8rem, 1.15vw, 0.9rem);
+  margin-bottom: 6px;
+  line-height: 1.45;
+}
+
+.disclaimer a {
+  color: var(--fg);
+}
+
+.disclaimer a:hover,
+.disclaimer a:focus-visible {
+  color: var(--fg);
+  opacity: 0.85;
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(18px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal.is-visible > * {
+  animation: fade-up 0.7s ease forwards;
+  opacity: 0;
+}
+
+.reveal.is-visible > *:nth-child(2) {
+  animation-delay: 0.1s;
+}
+
+.reveal.is-visible > *:nth-child(3) {
+  animation-delay: 0.2s;
+}
+
+.reveal.is-visible > *:nth-child(4) {
+  animation-delay: 0.3s;
+}
+
+.reveal.is-visible > *:nth-child(5) {
+  animation-delay: 0.4s;
+}
+
+@keyframes fade-up {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.chart svg {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.chart text {
+  fill: var(--fg);
+  font-family: var(--font-body);
+  font-size: 12px;
+}
+
+.chart .axis path,
+.chart .axis line {
+  stroke: rgba(45, 4, 17, 0.6);
+}
+
+.chart .axis-label {
+  font-size: 12px;
+  opacity: 0.8;
+}
+
+.chart .dot {
+  fill: var(--red);
+}
+
+.chart .dot,
+.chart .violin,
+.chart .violin-avg {
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.chart.is-animated .dot,
+.chart.is-animated .violin,
+.chart.is-animated .violin-avg {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.chart .trend {
+  stroke: var(--yellow);
+  stroke-width: 4;
+  opacity: 0.95;
+}
+
+.chart .violin {
+  fill: var(--green);
+  stroke: var(--ink);
+  opacity: 0.85;
+}
+
+.chart .violin-avg {
+  stroke: var(--red);
+  stroke-width: 3;
+}
+
+.chart .violin-avg-trend {
+  stroke: var(--accent);
+  stroke-width: 2;
+  stroke-dasharray: 6 6;
+  opacity: 0.35;
+}
+
+@media (max-width: 720px) {
+  .split {
+    grid-template-columns: 1fr;
+  }
+
+  .tile.horizontal {
+    grid-template-columns: 1fr;
+  }
+}

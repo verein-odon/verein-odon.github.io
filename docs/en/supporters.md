@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Support Us
-nav_order: 6
+nav_order: 7
 lang: en
 ref: supporters
 permalink: /en/supporters/

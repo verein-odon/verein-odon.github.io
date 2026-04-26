@@ -32,6 +32,11 @@ title: ODON
 email: info@odon.at
 version: "2.8"
 
+collections:
+  data_stories:
+    output: true
+    permalink: /en/data-stories/:name/
+
 defaults:
   - scope:
       path: ""
@@ -39,6 +44,13 @@ defaults:
       image:
         path: /assets/images/logo/v2/og-image.png
         alt: "ODON logo — a Vienna-based non-profit association dedicated to making Open Data accessible, useful, and impactful for everyone."
+  - scope:
+      path: ""
+      type: data_stories
+    values:
+      layout: data_story
+      lang: en
+      sitemap: true
 description: >- # this means to ignore newlines until "baseurl:"
   Offene Daten, Offene Nutzung!
 baseurl: "" # the subpath of your site, e.g. /blog

@@ -1,0 +1,63 @@
+{% comment %}
+  Parameters:
+    title     — section heading (default: "Latest Data Stories")
+    intro     — optional intro paragraph
+    bg_color  — "white" or "gray" (default: "gray")
+    more_url  — URL for the "see all" link (default: /en/data-stories/)
+    more_label — label for the "see all" link (default: "See all Data Stories")
+{% endcomment %}
+
+{% assign ds_bg = include.bg_color | default: "gray" %}
+{% assign ds_title = include.title | default: "Latest Data Stories" %}
+{% assign ds_more_url = include.more_url | default: "/en/data-stories/" %}
+{% assign ds_more_label = include.more_label | default: "See all Data Stories" %}
+
+{% assign featured_stories = site.data_stories | where: "featured", true | sort: "date" | reverse %}
+{% if featured_stories.size >= 3 %}
+  {% assign teaser_stories = featured_stories | slice: 0, 3 %}
+{% else %}
+  {% assign all_sorted = site.data_stories | sort: "date" | reverse %}
+  {% assign teaser_stories = all_sorted | slice: 0, 3 %}
+{% endif %}
+
+{% if teaser_stories.size > 0 %}
+<section class="section bg-{{ ds_bg }}">
+  <div class="container">
+    <div class="content-section" style="margin-bottom: 1.5rem;">
+      <h2>{{ ds_title | escape }}</h2>
+      {% if include.intro %}<p>{{ include.intro }}</p>{% endif %}
+    </div>
+    <div class="ds-grid">
+      {% for entry in teaser_stories %}
+      {% assign thumb_alt = entry.thumbnail_alt | default: entry.title %}
+      <article class="ds-card">
+        <div class="ds-card-image">
+          <a href="{{ entry.url }}" tabindex="-1" aria-hidden="true">
+            <img
+              src="{{ entry.thumbnail }}"
+              alt="{{ thumb_alt | escape }}"
+              loading="lazy"
+              width="600"
+              height="400"
+            >
+          </a>
+        </div>
+        <div class="ds-card-body">
+          <a class="ds-card-title" href="{{ entry.url }}">{{ entry.title | escape }}</a>
+          <p class="ds-card-summary">{{ entry.summary | truncatewords: 22 }}</p>
+          <div class="ds-card-meta">
+            <span class="ds-type-badge ds-type-{{ entry.type | downcase | escape }}">{{ entry.type }}</span>
+            {% for topic in entry.topics limit: 2 %}
+            <span class="ds-tag">{{ topic | replace: "-", " " }}</span>
+            {% endfor %}
+          </div>
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+    <p style="margin-top: 1.5rem; text-align: center;">
+      <a href="{{ ds_more_url }}" class="btn btn-secondary">{{ ds_more_label | escape }}</a>
+    </p>
+  </div>
+</section>
+{% endif %}

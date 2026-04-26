@@ -47,6 +47,9 @@ last_updated: "2026-03-29 00:00"
       <p>
         The framework assesses data along two independent dimensions: <b>Legal Openness</b> and <b>Technical Openness</b>. Each dimension has four levels. A dataset is assigned the level whose indicators all apply — or, for the first level of each dimension, the level that applies when any restriction is present.
       </p>
+      <p style="font-size: 0.9375rem; color: var(--color-gray-600);">
+        See the ODMM applied in practice on every entry of our <a href="/en/data-stories/">Data Stories</a> gallery.
+      </p>
 
       <h3>Legal Openness</h3>
       <table>

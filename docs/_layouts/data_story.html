@@ -1,0 +1,181 @@
+---
+layout: default
+---
+
+{% comment %} Required-field validation {% endcomment %}
+{% assign missing = "" | split: "" %}
+{% unless page.title %}{% assign missing = missing | push: "title" %}{% endunless %}
+{% unless page.summary %}{% assign missing = missing | push: "summary" %}{% endunless %}
+{% unless page.cover_image %}{% assign missing = missing | push: "cover_image" %}{% endunless %}
+{% unless page.authors %}{% assign missing = missing | push: "authors" %}{% endunless %}
+{% unless page.type %}{% assign missing = missing | push: "type" %}{% endunless %}
+{% unless page.topics %}{% assign missing = missing | push: "topics" %}{% endunless %}
+{% unless page.data_sources %}{% assign missing = missing | push: "data_sources" %}{% endunless %}
+{% if missing.size > 0 %}
+<div class="ds-missing-field-warning">
+  ⚠ Required front-matter field(s) missing on this Data Story: <strong>{{ missing | join: ", " }}</strong>. Please add them to the source file.
+</div>
+{% endif %}
+
+{% comment %} 1. Header {% endcomment %}
+<section class="section bg-white">
+  <div class="container">
+    <div class="content-section">
+      <div class="ds-detail-meta">
+        <span class="ds-type-badge ds-type-{{ page.type | downcase | escape }}">{{ page.type }}</span>
+        {% for topic in page.topics %}
+        <span class="ds-tag">{{ topic | replace: "-", " " }}</span>
+        {% endfor %}
+      </div>
+      <h1 style="margin-top: 0.75rem;">{{ page.title | escape }}</h1>
+      {% if page.summary %}
+      <p class="ds-detail-summary">{{ page.summary }}</p>
+      {% endif %}
+      <div class="ds-detail-meta" style="margin-top: 0.5rem;">
+        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        {% if page.authors and page.authors.size > 0 %}
+        <span>·</span>
+        <span>
+          {% for author in page.authors %}
+          <span class="ds-detail-author-name">{{ author.name | escape }}</span>{% if author.role %} <span class="ds-detail-author-role">({{ author.role | escape }})</span>{% endif %}{% unless forloop.last %}, {% endunless %}
+          {% endfor %}
+        </span>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} 2. Cover / embed {% endcomment %}
+<section class="section bg-gray" style="padding-top: 0; padding-bottom: 0;">
+  <div class="container">
+    {% if page.embed and page.embed.kind == "iframe" %}
+    <div class="ds-embed-wrapper">
+      <iframe
+        src="{{ page.embed.src | escape }}"
+        title="{{ page.title | escape }}"
+        height="{{ page.embed.height | default: 720 }}"
+        loading="lazy"
+        sandbox="allow-scripts allow-same-origin allow-forms"
+        aria-label="Interactive: {{ page.title | escape }}"
+        style="width:100%;border:none;display:block;"
+      ></iframe>
+      <p style="text-align:right; font-size:0.8125rem; margin-top:0.25rem;">
+        <a href="{{ page.embed.src | escape }}" target="_blank" rel="noopener">Open in new tab ↗</a>
+      </p>
+    </div>
+    {% elsif page.embed and page.embed.kind == "image" %}
+    {% assign cover_alt = page.cover_image_alt | default: page.title %}
+    <img class="ds-cover-img" src="{{ page.cover_image | escape }}" alt="{{ cover_alt | escape }}" loading="lazy" style="border-radius:0;">
+    {% else %}
+    {% assign cover_alt = page.cover_image_alt | default: page.title %}
+    <img class="ds-cover-img" src="{{ page.cover_image | escape }}" alt="{{ cover_alt | escape }}" loading="lazy" style="border-radius:0; max-height:480px; object-fit:cover;">
+    {% endif %}
+  </div>
+</section>
+
+{% comment %} 3. Narrative {% endcomment %}
+<section class="section bg-white">
+  <div class="container">
+    <div class="content-section">
+      <div class="odon-post-content">
+        {{ content }}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} 4. Data sources panel {% endcomment %}
+{% if page.data_sources and page.data_sources.size > 0 %}
+<section class="section bg-gray">
+  <div class="container">
+    <div class="content-section">
+      <h2>Data Sources</h2>
+      <p style="font-size:0.9375rem; color:var(--color-gray-600); margin-bottom:1rem;">
+        Ratings use the <a href="/en/open-data/#odmm">ODON Open Data Maturity Model (ODMM)</a>.
+      </p>
+      <ul class="ds-data-sources">
+        {% for source in page.data_sources %}
+        <li>
+          {% if source.url and source.url != "" %}
+          <a href="{{ source.url | escape }}" target="_blank" rel="noopener">{{ source.name | escape }}</a>
+          {% else %}
+          <span>{{ source.name | escape }}</span>
+          {% endif %}
+          {% if source.odmm_legal or source.odmm_technical %}
+          {% include odmm-badge.html legal=source.odmm_legal technical=source.odmm_technical %}
+          {% endif %}
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% comment %} 5. Tools used {% endcomment %}
+{% if page.tools and page.tools.size > 0 %}
+<section class="section bg-white">
+  <div class="container">
+    <div class="content-section">
+      <h3>Tools Used</h3>
+      <ul class="ds-tools-list">
+        {% for tool in page.tools %}
+        <li><span class="ds-tool-chip">{{ tool | escape }}</span></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% comment %} 6. External links {% endcomment %}
+{% if page.external_links and page.external_links.size > 0 %}
+<section class="section {% if page.tools and page.tools.size > 0 %}bg-gray{% else %}bg-white{% endif %}">
+  <div class="container">
+    <div class="content-section">
+      <h3>External Links</h3>
+      <ul class="ds-ext-links">
+        {% for link in page.external_links %}
+        <li>
+          <a href="{{ link.url | escape }}" target="_blank" rel="noopener">{{ link.label | escape }} ↗</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% comment %} 7. Footer CTA {% endcomment %}
+<section class="section bg-gray">
+  <div class="container">
+    <div class="content-section">
+      <p style="color:var(--color-gray-600); font-size:0.9375rem;">
+        ODON is a Vienna-based non-profit making open data accessible and impactful. We produce data stories like this as part of our <a href="/en/services/">Data Services</a> offering.
+      </p>
+      <div class="ds-footer-ctas">
+        <a href="/en/contact/" class="btn btn-primary">Talk to us about a Data Service</a>
+        <a href="/en/data-stories/" class="btn btn-secondary">See all Data Stories</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% comment %} JSON-LD {% endcomment %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": {{ page.title | jsonify }},
+  "description": {{ page.summary | jsonify }},
+  "image": "{{ site.url }}{{ page.cover_image }}",
+  "datePublished": "{{ page.date | date_to_xmlschema }}",
+  "author": [{% for a in page.authors %}{"@type":"Person","name":{{ a.name | jsonify }}}{% unless forloop.last %},{% endunless %}{% endfor %}],
+  "publisher": {
+    "@type": "Organization",
+    "name": "ODON",
+    "url": "{{ site.url }}"
+  }
+}
+</script>

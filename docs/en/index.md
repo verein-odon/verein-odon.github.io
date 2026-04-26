@@ -107,13 +107,12 @@ last_updated: "2025-03-10 14:30"
 })();
 </script>
 
-{% include storytelling_feature.html
-   title="Data Storytelling Example"
+{% include data-stories-teaser.html
+   title="Latest Data Stories"
    intro="A closer look at how we turn Open Data into clear, engaging narratives."
-   featured_id="burnout"
    bg_color="gray"
-   more_url="/en/services/#examples"
-   more_label="View more stories" %}
+   more_url="/en/data-stories/"
+   more_label="See all Data Stories" %}
 
 {% include people_carousel.html
    bg_color="white"

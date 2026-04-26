@@ -79,4 +79,12 @@ last_updated: "2026-03-29 00:00"
   }
 </style>
 
-{% include data-services-grid.html title="Examples of Data Services" bg="bg-gray" link_label="View the example" %}
+<section class="section bg-gray">
+  <div class="container">
+    <div class="content-section">
+      <p>
+        See examples of our published work in our <a href="/en/data-stories/">Data Stories</a> gallery — data stories, dashboards, and visualisations, each with documented data sources and ODMM ratings.
+      </p>
+    </div>
+  </div>
+</section>

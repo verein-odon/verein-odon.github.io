@@ -21,6 +21,9 @@ last_updated: "2026-03-29 00:00"
       <p>
         <a href="/en/internship-registration/" class="btn btn-primary">Register for an Internship</a>
       </p>
+      <p>
+        Selected intern projects are published in our <a href="/en/data-stories/">Data Stories</a> gallery — your work, credited and public.
+      </p>
       <p style="margin-top: 1.5rem; color: var(--color-gray-500); font-style: italic;">
         Interested in offering an internship project through ODON? <a href="/en/contact/">Get in touch</a>.
       </p>

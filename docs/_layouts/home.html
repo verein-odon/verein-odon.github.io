@@ -14,6 +14,7 @@ layout: default
 <!-- News Section -->
 <section class="section bg-gray">
 <div class="container">
+  <div class="content-section">
   <h2 class="section-title">{{ page.list_title | default: "Posts" }}</h2>
   <div class="news-container">
 {% comment %} Filter posts by the current page's language {% endcomment %}
@@ -63,6 +64,7 @@ layout: default
         <span>subscribe via RSS</span>
       </a>
     </div>
+  </div>
   </div>
 </section>
 

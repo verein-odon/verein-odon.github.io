@@ -13,7 +13,8 @@ last_updated: "2025-03-10 14:30"
 
 <section class="section bg-white">
   <div class="container">
-    <h2>What We Do</h2>
+    <div class="content-section">
+    <h2 class="section-title">What We Do</h2>
     <div class="cards-grid">
             <div class="card">
                 <div class="card-icon">
@@ -53,6 +54,7 @@ last_updated: "2025-03-10 14:30"
                 </ul>
                 <a href="/en/education/" class="btn btn-primary">Education</a>
             </div>
+    </div>
     </div>
   </div>
 </section>

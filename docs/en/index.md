@@ -16,16 +16,6 @@ last_updated: "2025-03-10 14:30"
     <div class="content-section">
     <h2 class="section-title">What We Do</h2>
     <div class="cards-grid">
-            <div class="card">
-                <div class="card-icon">
-                    <img src="/assets/images/icons/wrench.svg" alt="Data services" loading="lazy">
-                </div>
-                <h3>Data Services Around Open Data</h3>
-                <p class="membership-subtitle">For Organisations and Institutions</p>
-                <p class="card-text">From data engineering to storytelling, we help organisations turn raw data into insights and value.
-                </p>
-                <a href="/en/services/" class="btn btn-primary">Services</a>
-            </div>
             <div class="card card-apis">
                 <div class="card-icon">
                     <img src="/assets/images/icons/apis.svg" alt="API visualization" loading="lazy">
@@ -53,6 +43,16 @@ last_updated: "2025-03-10 14:30"
                     <li>hackathons</li>
                 </ul>
                 <a href="/en/education/" class="btn btn-primary">Education</a>
+            </div>
+            <div class="card">
+                <div class="card-icon">
+                    <img src="/assets/images/icons/wrench.svg" alt="Data services" loading="lazy">
+                </div>
+                <h3>Data Services Around Open Data</h3>
+                <p class="membership-subtitle">For Organisations and Institutions</p>
+                <p class="card-text">From data engineering to storytelling, we help organisations turn raw data into insights and value.
+                </p>
+                <a href="/en/services/" class="btn btn-primary">Services</a>
             </div>
     </div>
     </div>

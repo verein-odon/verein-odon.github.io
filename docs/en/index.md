@@ -20,7 +20,7 @@ last_updated: "2025-03-10 14:30"
                 <div class="card-icon">
                     <img src="/assets/images/icons/apis.svg" alt="API visualization" loading="lazy">
                 </div>
-                <h3>APIs for Open Data</h3>
+                <h3>Open Data APIs</h3>
                 <p class="membership-subtitle">For Developers and Researchers</p>
                 <p class="card-text">We provide access to various Open Data datasets via our APIs.
                 </p>
@@ -46,9 +46,9 @@ last_updated: "2025-03-10 14:30"
             </div>
             <div class="card">
                 <div class="card-icon">
-                    <img src="/assets/images/icons/wrench.svg" alt="Data services" loading="lazy">
+                    <img src="/assets/images/icons/storytelling.svg" alt="Data services" loading="lazy">
                 </div>
-                <h3>Data Services Around Open Data</h3>
+                <h3>Services Around Open Data</h3>
                 <p class="membership-subtitle">For Organisations and Institutions</p>
                 <p class="card-text">From data engineering to storytelling, we help organisations turn raw data into insights and value.
                 </p>

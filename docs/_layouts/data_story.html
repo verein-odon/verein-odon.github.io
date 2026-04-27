@@ -37,7 +37,7 @@ layout: default
         <span>·</span>
         <span>
           {% for author in page.authors %}
-          <span class="ds-detail-author-name">{{ author.name | escape }}</span>{% if author.role %} <span class="ds-detail-author-role">({{ author.role | escape }})</span>{% endif %}{% unless forloop.last %}, {% endunless %}
+          <span class="ds-detail-author-name">{{ author.name | escape }}</span>{% if author.role and author.role != "" %} <span class="ds-detail-author-role">({{ author.role | escape }})</span>{% endif %}{% unless forloop.last %}, {% endunless %}
           {% endfor %}
         </span>
         {% endif %}

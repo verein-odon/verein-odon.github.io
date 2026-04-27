@@ -94,16 +94,41 @@ layout: default
       <p style="font-size:0.9375rem; color:var(--color-gray-600); margin-bottom:1rem;">
         Ratings use the <a href="/en/open-data/#odmm">ODON Open Data Maturity Model (ODMM)</a>.
       </p>
+      {% assign odmm_fallback = "No further details have been documented for this rating yet." %}
       <ul class="ds-data-sources">
         {% for source in page.data_sources %}
+        {% assign show_disclosure = false %}
+        {% if source.odmm_legal or source.odmm_technical %}{% assign show_disclosure = true %}{% endif %}
         <li>
-          {% if source.url and source.url != "" %}
-          <a href="{{ source.url | escape }}" target="_blank" rel="noopener">{{ source.name | escape }}</a>
-          {% else %}
-          <span>{{ source.name | escape }}</span>
+          {% if show_disclosure %}
+          <details class="ds-source-details">
+            <summary class="ds-source-summary">
           {% endif %}
-          {% if source.odmm_legal or source.odmm_technical %}
-          {% include odmm-badge.html legal=source.odmm_legal technical=source.odmm_technical %}
+            {% if source.url and source.url != "" %}
+            <a href="{{ source.url | escape }}" target="_blank" rel="noopener">{{ source.name | escape }}</a>
+            {% else %}
+            <span>{{ source.name | escape }}</span>
+            {% endif %}
+            {% if source.odmm_legal or source.odmm_technical %}
+            {% include odmm-badge.html legal=source.odmm_legal technical=source.odmm_technical no_link="true" %}
+            {% endif %}
+          {% if show_disclosure %}
+            </summary>
+            <div class="ds-source-detail-body">
+              {% if source.odmm_legal %}
+              <p>
+                <span class="odmm-badge__legal ds-detail-label">Legal {{ source.odmm_legal }}</span>
+                <span class="ds-detail-text">{{ source.odmm_legal_details | default: odmm_fallback | escape }}</span>
+              </p>
+              {% endif %}
+              {% if source.odmm_technical %}
+              <p>
+                <span class="odmm-badge__tech ds-detail-label">Technical {{ source.odmm_technical }}</span>
+                <span class="ds-detail-text">{{ source.odmm_technical_details | default: odmm_fallback | escape }}</span>
+              </p>
+              {% endif %}
+            </div>
+          </details>
           {% endif %}
         </li>
         {% endfor %}

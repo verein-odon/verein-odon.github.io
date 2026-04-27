@@ -28,8 +28,15 @@ tools:
 data_sources:
   - name: "Work From Home Employee Burnout Dataset"  # TODO: replace with actual dataset URL and source
     url: "https://www.kaggle.com/datasets/sonalshinde123/work-from-home-employee-burnout-dataset"
-    odmm_legal: "L4"    
-    odmm_technical: "T4"
+    odmm_legal: "L3"
+    odmm_legal_details: >
+      Published on Kaggle under a custom dataset licence that permits non-commercial
+      use with attribution. Redistribution and commercial use require separate
+      permission — placing it at L3 (open with conditions).
+    odmm_technical: "T3"
+    odmm_technical_details: >
+      Provided as a single structured CSV file downloadable directly from Kaggle.
+      Well-formed tabular format, no specialist tooling required — T3.
 embed:
   kind: "iframe"
   src: "/assets/data-stories/wfh-burnout/src/"

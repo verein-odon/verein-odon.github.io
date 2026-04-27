@@ -16,8 +16,8 @@ image:
   path: /assets/data-stories/street-safety/cover.webp
   alt: "Map visualisation of collision patterns and street design features"
 authors:
-  - name: "Clemens"
-    role: "Board Member"
+  - name: "Kenji Wanda"
+    role: ""
 type: "visualisation"
 topics:
   - "safety"

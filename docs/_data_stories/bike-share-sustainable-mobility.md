@@ -1,7 +1,7 @@
 ---
 title: "Bike Share & Sustainable Mobility"
 slug: "bike-share-sustainable-mobility"
-date: 2012-12-19
+date: 2025-12-17
 summary: >
   An information-design poster tracing the global rise of bike share programs and
   their potential to cut transport-sector carbon dioxide emissions.
@@ -18,7 +18,7 @@ image:
   alt: "Bike Share infographic poster combining global maps, an emissions trend line, and a history timeline of bike share programs"
 authors:
   - name: "Kenji Wada"
-    role: "ODON Expert"
+    role: ""
 type: "story"
 topics:
   - "mobility"

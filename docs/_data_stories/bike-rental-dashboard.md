@@ -34,7 +34,16 @@ data_sources:
   - name: "Donkey Republic GBFS — Amsterdam (station_information & station_status)"
     url: "https://stables.donkey.bike/api/public/gbfs/donkey_am/nl/station_information.json"
     odmm_legal: "L3"
+    odmm_legal_details: >
+      The GBFS feed is publicly accessible without authentication but carries no
+      explicit open-licence declaration from the operator. Free use is established
+      by convention across the GBFS ecosystem, but formal terms are not stated —
+      placing it at L3 rather than L4.
     odmm_technical: "T4"
+    odmm_technical_details: >
+      Follows the open GBFS standard (General Bikeshare Feed Specification):
+      a documented, versioned JSON API served live with no download or
+      registration step required. Immediately machine-readable — T4.
 embed:
   kind: "none"
 featured: true

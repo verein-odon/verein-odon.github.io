@@ -2516,6 +2516,59 @@ html:not(.js) .ds-filter-bar { display: none; }
   font-size: 0.9375rem;
 }
 .ds-data-sources li:last-child { border-bottom: none; }
+
+/* ODMM source disclosure widget */
+.ds-source-details summary { list-style: none; }
+.ds-source-details summary::-webkit-details-marker { display: none; }
+.ds-source-details > summary.ds-source-summary {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+}
+.odmm-badge__chevron {
+  background: var(--color-gray-200, #e5e7eb);
+  color: var(--color-gray-500, #6b7280);
+  padding: 0.2em 0.45em;
+  font-size: 0.65rem;
+  display: inline-flex;
+  align-items: center;
+}
+.odmm-badge__chevron::before { content: "▸"; }
+.ds-source-details[open] .odmm-badge__chevron::before { content: "▾"; }
+.ds-source-detail-body {
+  margin: 0.6rem 0 0.25rem 1.1rem;
+  display: inline-grid;
+  grid-template-columns: auto 1fr;
+  gap: 0.5rem 0.75rem;
+  max-width: 66%;
+  background: var(--color-blue-50, #eff6ff);
+  border-radius: 0.5rem;
+  padding: 0.65rem 0.9rem;
+}
+.ds-source-detail-body p {
+  display: contents;
+}
+.ds-detail-text {
+  font-size: 0.875rem;
+  color: var(--color-gray-600);
+  line-height: 1.5;
+}
+.ds-detail-label {
+  flex-shrink: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  padding: 0.15em 0.5em;
+  border-radius: 0.2rem;
+}
+.ds-data-sources li:not(:has(details)) {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+}
+.ds-data-sources li:has(details) { display: block; }
 .ds-tools-list, .ds-ext-links {
   display: flex;
   flex-wrap: wrap;

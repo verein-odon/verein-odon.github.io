@@ -2525,8 +2525,9 @@ html:not(.js) .ds-filter-bar { display: none; }
   flex-wrap: wrap;
   align-items: center;
   gap: 0.5rem;
-  cursor: pointer;
+  cursor: default;
 }
+.ds-source-summary .odmm-badge--expandable { cursor: pointer; }
 .odmm-badge__chevron {
   background: var(--color-gray-200, #e5e7eb);
   color: var(--color-gray-600, #4b5563);

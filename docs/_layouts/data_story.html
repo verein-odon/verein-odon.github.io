@@ -104,13 +104,13 @@ layout: default
           <details class="ds-source-details">
             <summary class="ds-source-summary">
           {% endif %}
+            {% if source.odmm_legal or source.odmm_technical %}
+            {% include odmm-badge.html legal=source.odmm_legal technical=source.odmm_technical no_link="true" %}
+            {% endif %}
             {% if source.url and source.url != "" %}
             <a href="{{ source.url | escape }}" target="_blank" rel="noopener">{{ source.name | escape }}</a>
             {% else %}
             <span>{{ source.name | escape }}</span>
-            {% endif %}
-            {% if source.odmm_legal or source.odmm_technical %}
-            {% include odmm-badge.html legal=source.odmm_legal technical=source.odmm_technical no_link="true" %}
             {% endif %}
           {% if show_disclosure %}
             </summary>

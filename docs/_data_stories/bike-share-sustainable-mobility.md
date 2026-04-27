@@ -27,30 +27,61 @@ topics:
 tools:
   - "Adobe Illustrator"
 data_sources:
-  - name: "U.S. Environmental Protection Agency (EPA) — greenhouse gas emissions data"
-    url: ""
-    odmm_legal: ""    # TODO: verify ODMM ratings against the specific EPA dataset cited
-    odmm_technical: ""
   - name: "U.S. Energy Information Administration (EIA) — global CO2 emissions from energy consumption"
-    url: ""
-    odmm_legal: ""    # TODO: verify ODMM ratings against the specific EIA dataset cited
-    odmm_technical: ""
+    url: "https://www.eia.gov/opendata/"
+    odmm_legal: "L4"
+    odmm_legal_details: >
+      U.S. Government publications are in the public domain. The EIA explicitly
+      permits use and distribution of all data, files, databases, reports, and graphs
+      from its website, with attribution requested as a courtesy but not legally
+      required — L4.
+    odmm_technical: "T3"
+    odmm_technical_details: >
+      Data is available via the EIA Open Data API (JSON) with stable series IDs, as
+      well as bulk downloads and structured tables. The API requires a free registration
+      key, which prevents a strict T4 classification. Rated T3. Note: this rating
+      reflects the EIA publisher in general; the exact series used on the poster has
+      not been pinned down.
+  - name: "U.S. Environmental Protection Agency (EPA) — greenhouse gas emissions data"
+    url: "https://www.epa.gov/ghgemissions"
+    odmm_legal: "L4"
+    odmm_legal_details: >
+      EPA materials are U.S. Government works and public domain by default. Use and
+      distribution require no permission, though EPA notes that data from non-EPA
+      sources embedded in its publications may carry separate restrictions — L4 at
+      the EPA publisher level.
+    odmm_technical: "T2"
+    odmm_technical_details: >
+      As cited on the poster, the statistic (fossil CO2 as a share of total GHG
+      emissions) appears to come from a high-level report figure rather than a
+      specific machine-readable dataset. The U.S. GHG Inventory is available in
+      structured CSV form (which would be T3), but the exact underlying dataset
+      cannot be confirmed from the poster alone — rated T2 pending verification.
   - name: "San Francisco Municipal Transportation Agency (SFMTA)"
     url: ""
-    odmm_legal: ""    # TODO: verify ODMM ratings
-    odmm_technical: ""
+    odmm_legal: "L2"
+    odmm_legal_details: >
+      The poster does not specify which SFMTA dataset was used, and the legal rating
+      depends entirely on the source. The SFMTA GTFS transit feed is published under
+      a custom revocable licence that restricts reuse — L2. Data published via DataSF
+      carries a Public Domain Dedication and would be L4. Without knowing the exact
+      dataset, the more conservative L2 applies.
+    odmm_technical: "T3"
+    odmm_technical_details: >
+      Structured transit feeds and DataSF exports are typically available as
+      downloadable files in standard formats (GTFS, CSV) — rated T3. The exact
+      dataset and endpoint have not been confirmed from the poster alone.
   - name: "People for Bikes (Bike Belongs) — U.S. bike share program inventory"
     url: ""
-    odmm_legal: ""    # TODO: verify ODMM ratings
-    odmm_technical: ""
-  - name: "Shaheen, Guzman & Zhang — 'Bikesharing in Europe, the Americas, and Asia'"
-    url: ""
-    odmm_legal: ""    # TODO: verify ODMM ratings; this is a research paper, not a dataset
-    odmm_technical: ""
-  - name: "European Cyclists' Federation — 'Cycle More Often 2 Cool Down the Planet! Quantifying CO2 savings of cycling'"
-    url: ""
-    odmm_legal: ""    # TODO: verify ODMM ratings; this is a report, not a dataset
-    odmm_technical: ""
+    odmm_legal: "L1"
+    odmm_legal_details: >
+      The cited material is a webpage on an advocacy organisation's site with no
+      explicit open data licence or terms of reuse stated. In the absence of clear
+      permission, ODMM defaults to L1 (any restriction or absence of clarity).
+    odmm_technical: "T1"
+    odmm_technical_details: >
+      Content was rendered as a webpage with no structured data export, download, or
+      machine-readable format available at the time of publication — rated T1.
 embed:
   kind: "none"
 featured: false
@@ -74,3 +105,10 @@ Bike share has grown rapidly: as of 2010 there were more than 300 bike share sys
 ## Takeaways
 
 Even with operational drawbacks, bike share is a working example of a sustainable transport mode that can reduce urban congestion, support last-mile trips from other transit, and deliver individual benefits — better health, savings, more social interaction. European cities have shown the model works at scale; demand for bike share is likely to keep rising. Bringing together emissions data, program inventories and the history of the systems themselves makes the policy case more concrete than any single dataset would on its own.
+
+## References
+
+The following sources informed the narrative but are scholarly or advocacy publications rather than datasets, and are therefore not classified under the ODMM.
+
+- Shaheen, S., Guzman, S., & Zhang, H. (2010). *Bikesharing in Europe, the Americas, and Asia.* Transportation Research Record: Journal of the Transportation Research Board, 2143, 159–167.
+- European Cyclists' Federation. (2011). *Cycle More Often 2 Cool Down the Planet! Quantifying CO2 savings of cycling.*

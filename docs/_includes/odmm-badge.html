@@ -1,6 +1,6 @@
 {% comment %} usage: include odmm-badge.html legal=source.odmm_legal technical=source.odmm_technical no_link="true" {% endcomment %}
 {% if include.no_link %}
-<span class="odmm-badge odmm-badge--expandable" title="ODON Open Data Maturity Model — Legal {{ include.legal }} · Technical {{ include.technical }} — click to expand">
+<span class="odmm-badge odmm-badge--expandable" title="ODON Open Data Maturity Model — Legal {{ include.legal }} · Technical {{ include.technical }}">
   <span class="odmm-badge__legal">Legal {{ include.legal }}</span><span class="odmm-badge__tech">Technical {{ include.technical }}</span><span class="odmm-badge__chevron"></span>
 </span>
 {% else %}

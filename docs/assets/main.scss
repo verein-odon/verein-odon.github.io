@@ -2529,11 +2529,16 @@ html:not(.js) .ds-filter-bar { display: none; }
 }
 .odmm-badge__chevron {
   background: var(--color-gray-200, #e5e7eb);
-  color: var(--color-gray-500, #6b7280);
-  padding: 0.2em 0.45em;
-  font-size: 0.65rem;
+  color: var(--color-gray-600, #4b5563);
+  padding: 0.15em 0.5em;
+  font-size: 1rem;
   display: inline-flex;
   align-items: center;
+  transition: background 0.15s, color 0.15s;
+}
+.ds-source-details[open] .odmm-badge__chevron {
+  background: #bfdbfe;
+  color: #1e40af;
 }
 .odmm-badge__chevron::before { content: "▸"; }
 .ds-source-details[open] .odmm-badge__chevron::before { content: "▾"; }

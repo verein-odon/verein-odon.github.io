@@ -2,6 +2,7 @@
 title: "Street Safety & Public Space Impact"
 slug: "street-safety"
 date: 2026-03-12
+published: false
 summary: >
   Exploring how street design decisions shape safety in public space, drawing on open
   mobility and safety datasets to reveal patterns in collisions and outcomes over time.

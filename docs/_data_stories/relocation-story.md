@@ -47,6 +47,33 @@ data_sources:
     odmm_technical: "T4"
     odmm_technical_details: >
       Structured tabular data via CBS StatLine with direct download and full documentation — T4.
+  - name: "InterNations Expat Insider Survey 2023 & 2024"
+    url: "https://www.internations.org/expat-insider/"
+    odmm_legal: "L2"
+    odmm_legal_details: >
+      Summary report freely accessible; underlying microdata proprietary — L2.
+    odmm_technical: "T2"
+    odmm_technical_details: >
+      Published as web and PDF only, no structured download available — T2.
+      Three editions used: 2024 for country rankings (NL 44th for finding friends, 49th for housing);
+      2023 for friend-making difficulty figures (50% NL vs 36% global);
+      2020 for social circle composition (51% expat-only, 11% mostly Dutch).
+  - name: "Eurostat — Migrant integration statistics: housing (EU-SILC 2024)"
+    url: "https://ec.europa.eu/eurostat/statistics-explained/index.php?title=Migrant_integration_statistics_-_housing"
+    odmm_legal: "L4"
+    odmm_legal_details: >
+      Free reuse with attribution — L4.
+    odmm_technical: "T4"
+    odmm_technical_details: >
+      Available via Eurostat API in SDMX, CSV and TSV with full metadata — T4.
+  - name: "ABF Research — Netherlands housing shortage estimate (2025)"
+    url: "https://www.abfresearch.nl/"
+    odmm_legal: "L2"
+    odmm_legal_details: >
+      Summary findings public via ministry communications; full model not open — L2.
+    odmm_technical: "T2"
+    odmm_technical_details: >
+      No structured download available — T2.
 embed:
   kind: "iframe"
   src: "/assets/data-stories/relocation-story/src/"
@@ -81,8 +108,3 @@ Relocation is an integration problem, not a process problem. Systems address arr
 
 The Netherlands data reveals a structural gap, not a personal failure: migrants have frequent social contact yet rarely achieve depth of connection with locals. Open datasets on migration, loneliness, and urban services offer material for stories that go beyond logistics into lived experience. The gap is clear — and that makes it designable.
 
-## References
-
-- InterNations Expat Insider 2024 — global expat survey, n=12,000+
-- Eurostat EU-SILC 2024 — housing cost overburden by migrant status
-- ABF Research 2025 — housing market analysis, Netherlands

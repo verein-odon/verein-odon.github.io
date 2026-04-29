@@ -85,6 +85,8 @@ data_sources:
 embed:
   kind: "none"
 featured: false
+#license: "CC BY 4.0"
+#license_url: "https://creativecommons.org/licenses/by/4.0/"
 ---
 
 <!-- TODO: add actual image files to /assets/data-stories/bike-share-sustainable-mobility/ -->

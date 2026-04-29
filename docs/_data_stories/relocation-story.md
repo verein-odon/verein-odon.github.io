@@ -81,6 +81,8 @@ external_links:
   - label: "View the interactive story"
     url: "/assets/data-stories/relocation-story/src/"
 featured: true
+license: "CC BY 4.0"
+license_url: "https://creativecommons.org/licenses/by/4.0/"
 ---
 
 ## Overview

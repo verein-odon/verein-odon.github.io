@@ -183,6 +183,15 @@ layout: default
         <a href="/en/contact/" class="btn btn-primary">Talk to us about a Data Service</a>
         <a href="/en/data-stories/" class="btn btn-secondary">See all Data Stories</a>
       </div>
+      {% if page.license %}
+      <p style="margin-top:1.25rem; font-size:0.8125rem; color:var(--color-gray-500);">
+        {% if page.license_url %}
+        This story is published under <a href="{{ page.license_url }}" target="_blank" rel="noopener license">{{ page.license | escape }}</a> — free to share and adapt with attribution.
+        {% else %}
+        This story is published under {{ page.license | escape }} — free to share and adapt with attribution.
+        {% endif %}
+      </p>
+      {% endif %}
     </div>
   </div>
 </section>

@@ -5,7 +5,7 @@ lang: en
 ref: privacy
 permalink: /en/privacy/
 in_nav: false
-last_updated: "2026-04-24"
+last_updated: "2026-04-29"
 ---
 
 <section class="section bg-white">
@@ -14,7 +14,7 @@ last_updated: "2026-04-24"
 
 # Privacy Policy
 
-_Last updated: 2026-04-24_
+_Last updated: 2026-04-29_
 
 This Privacy Policy explains how **ODON – Offene Daten für Offene Nutzung** ("ODON", "we", "us") collects and processes personal data when you visit our website, use our services, or otherwise interact with us. We follow the EU General Data Protection Regulation (GDPR) and the Austrian Data Protection Act (DSG).
 
@@ -118,6 +118,15 @@ We maintain profiles on LinkedIn and GitHub. If you interact with these profiles
 Where LinkedIn and we jointly determine the purposes and means of processing page insights (for example on a LinkedIn Page), LinkedIn and ODON are **joint controllers** under Art. 26 GDPR. The primary responsibility for compliance and for providing information to data subjects lies with LinkedIn. To exercise your rights regarding data processed on the platform, please contact LinkedIn directly; we will forward any request we receive.
 
 We link to these profiles from our website but do not embed their widgets or scripts. Note, however, that our website is hosted on GitHub Pages (see section 3.1) and uses embedded Google Forms for contact and registration (see sections 3.2 and 3.3), which do cause technical data to be shared with GitHub and Google respectively when those pages or forms are loaded.
+
+### 3.8 Data Stories — contributor credits
+
+When we publish a Data Story on our website with an external contributor credited as author, we publish their name and, if provided, their role or affiliation, as part of that story.
+
+- **Purpose:** to attribute published work to its contributors.
+- **Legal basis:** Art. 6(1)(a) GDPR — contributors provide their name and role specifically for publication, which constitutes consent. Where a contributor withdraws that consent, we will remove or anonymise their credit upon request.
+- **Retention:** for as long as the data story is published. If you ask us to remove your name, we will do so within a reasonable timeframe; third-party caches or archives may retain copies beyond our control.
+- **Note:** communications during the production process (emails, draft exchanges) are handled under section 3.2 above.
 
 ---
 

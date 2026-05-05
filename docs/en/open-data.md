@@ -5,7 +5,7 @@ nav_order: 1
 lang: en
 ref: opendata
 permalink: /en/open-data/
-last_updated: "2026-03-29 00:00"
+last_updated: "2026-05-05 00:00"
 ---
 
 <section class="section bg-white">
@@ -43,7 +43,7 @@ last_updated: "2026-03-29 00:00"
 <section class="section bg-gray">
   <div class="container">
     <div class="content-section">
-      <h2 id="odmm">ODON's Open Data Maturity Model (ODMM) <small style="font-size: 0.6em; font-weight: normal; color: var(--color-gray-500);">v1.2 &middot; 2026-03-29</small></h2>
+      <h2 id="odmm">ODON's Open Data Maturity Model (ODMM) <small style="font-size: 0.6em; font-weight: normal; color: var(--color-gray-500);">v1.4 &middot; 2026-05-05</small></h2>
       <p>
         The framework assesses data along two independent dimensions: <b>Legal Openness</b> and <b>Technical Openness</b>. Each dimension has four levels. A dataset is assigned the level whose indicators all apply — or, for the first level of each dimension, the level that applies when any restriction is present.
       </p>
@@ -125,13 +125,13 @@ last_updated: "2026-03-29 00:00"
         </thead>
         <tbody>
           <tr>
-            <td><b>T1</b><br>Not Usable</td>
-            <td>Data cannot be effectively reused</td>
+            <td><b>T1</b><br>Extraction Required</td>
+            <td>Data can only be accessed via manual effort or AI-assisted extraction; accuracy, completeness, and reproducibility cannot be guaranteed without human verification</td>
             <td>
               <ul>
-                <li>Not machine-readable (e.g. scanned PDF, image)</li>
-                <li>No structured format</li>
-                <li>Cannot be extracted without significant effort</li>
+                <li>Not directly machine-readable (e.g. scanned PDF, image, handwritten document)</li>
+                <li>No structured format; extraction requires manual effort or AI-assisted parsing</li>
+                <li>Accuracy, completeness, and reproducibility of any extract cannot be verified without human review</li>
               </ul>
             </td>
             <td>If <em>any</em> restriction is present → T1</td>
@@ -204,7 +204,17 @@ last_updated: "2026-03-29 00:00"
         </thead>
         <tbody>
           <tr>
-            <td><b>1.2</b></td>
+            <td><b>1.4</b></td>
+            <td>2026-05-05</td>
+            <td>Revised T1 to reflect AI-assisted extraction; renamed from "Not Usable" to "Extraction Required"</td>
+          </tr>
+          <tr>
+            <td>1.3</td>
+            <td>2026-05-05</td>
+            <td>Added downloadable context files for AI use</td>
+          </tr>
+          <tr>
+            <td>1.2</td>
             <td>2026-03-29</td>
             <td>Added clarifications to indicators and classification rules</td>
           </tr>

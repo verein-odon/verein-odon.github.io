@@ -18,10 +18,10 @@ If information is missing or ambiguous, state what additional information would 
 
 ---
 
-# ODON's Open Data Maturity Model (ODMM) — v1.2
+# ODON's Open Data Maturity Model (ODMM) — v1.4
 
 Source: https://odon.at/en/open-data/#odmm  
-Last updated: 2026-03-29
+Last updated: 2026-05-05
 
 The ODMM assesses datasets along two independent dimensions: Legal Openness and Technical Openness. Each dimension has four levels. A dataset is assigned the level whose indicators all apply — or, for the first level of each dimension, the level that applies when any restriction is present.
 
@@ -69,12 +69,12 @@ The ODMM assesses datasets along two independent dimensions: Legal Openness and 
 
 ## Technical Openness
 
-### T1 — Not Usable
-**Definition:** Data cannot be effectively reused  
+### T1 — Extraction Required
+**Definition:** Data can only be accessed via manual effort or AI-assisted extraction; accuracy, completeness, and reproducibility cannot be guaranteed without human verification  
 **Indicators:**
-- Not machine-readable (e.g. scanned PDF, image)
-- No structured format
-- Cannot be extracted without significant effort
+- Not directly machine-readable (e.g. scanned PDF, image, handwritten document)
+- No structured format; extraction requires manual effort or AI-assisted parsing
+- Accuracy, completeness, and reproducibility of any extract cannot be verified without human review
 
 **Classification rule:** If *any* restriction is present → T1
 

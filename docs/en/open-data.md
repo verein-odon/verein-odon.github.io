@@ -178,6 +178,21 @@ last_updated: "2026-03-29 00:00"
         </tbody>
       </table>
 
+      <h3 id="odmm-downloads" style="margin-top: 2rem;">Download as Context File</h3>
+      <p>
+        Use these files to give an AI assistant knowledge of the ODMM — paste the content into your AI chat or project context before asking it to classify datasets.
+      </p>
+      <ul>
+        <li>
+          <span class="bullet"></span>
+          <span><a href="/assets/downloads/odmm-raw.md" download><b>Raw</b></a> — the model as-is: levels, indicators, and classification rules. Use this if you want to integrate the ODMM into your own system prompt or workflow.</span>
+        </li>
+        <li>
+          <span class="bullet"></span>
+          <span><a href="/assets/downloads/odmm-preamble.md" download><b>Preamble</b></a> — the model preceded by instructions that tell the AI how to apply it for classification tasks. Recommended for direct use in chat interfaces such as Claude or ChatGPT.</span>
+        </li>
+      </ul>
+
       <h3 id="odmm-version-history" style="margin-top: 2rem;">Version History</h3>
       <table>
         <thead>

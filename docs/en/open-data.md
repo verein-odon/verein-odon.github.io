@@ -185,11 +185,11 @@ last_updated: "2026-05-05 00:00"
       <ul>
         <li>
           <span class="bullet"></span>
-          <span><a href="/assets/downloads/odmm-raw.md" download><b>Raw</b></a> — the model as-is: levels, indicators, and classification rules. Use this if you want to integrate the ODMM into your own system prompt or workflow.</span>
+          <span><a href="/assets/downloads/odmm-v1.4-raw.md" download><b>Raw</b></a> — the model as-is: levels, indicators, and classification rules. Use this if you want to integrate the ODMM into your own system prompt or workflow.</span>
         </li>
         <li>
           <span class="bullet"></span>
-          <span><a href="/assets/downloads/odmm-preamble.md" download><b>Preamble</b></a> — the model preceded by instructions that tell the AI how to apply it for classification tasks. Recommended for direct use in chat interfaces such as Claude or ChatGPT.</span>
+          <span><a href="/assets/downloads/odmm-v1.4-preamble.md" download><b>Preamble</b></a> — the model preceded by instructions that tell the AI how to apply it for classification tasks. Recommended for direct use in chat interfaces such as Claude or ChatGPT.</span>
         </li>
       </ul>
 

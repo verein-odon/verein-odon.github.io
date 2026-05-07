@@ -85,6 +85,105 @@ layout: default
   </div>
 </section>
 
+{% comment %} 3b. Gallery {% endcomment %}
+{% if page.gallery and page.gallery.size > 0 %}
+<section class="section bg-gray">
+  <div class="container">
+    <div class="content-section">
+      <h3>Gallery</h3>
+      <div class="ds-gallery">
+        {% for img in page.gallery limit:10 %}
+        <div>
+          <button class="ds-gallery-item"
+                  data-lightbox-index="{{ forloop.index0 }}"
+                  aria-label="View image {{ forloop.index }}{% if img.alt and img.alt != "" %}: {{ img.alt | escape }}{% elsif img.caption and img.caption != "" %}: {{ img.caption | escape }}{% endif %}">
+            <img class="ds-gallery-thumb"
+                 src="{{ img.src | escape }}"
+                 alt="{{ img.alt | default: '' | escape }}"
+                 loading="lazy">
+          </button>
+          {% if img.caption and img.caption != "" %}
+          <p class="ds-gallery-caption">{{ img.caption | escape }}</p>
+          {% endif %}
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<div id="ds-lightbox" class="ds-lightbox" role="dialog" aria-modal="true" aria-label="Image viewer">
+  <button class="ds-lightbox-close" id="ds-lightbox-close" aria-label="Close">&#x2715;</button>
+  <button class="ds-lightbox-prev" id="ds-lightbox-prev" aria-label="Previous image">&#8249;</button>
+  <div class="ds-lightbox-content">
+    <img id="ds-lightbox-img" src="" alt="" class="ds-lightbox-img">
+    <p id="ds-lightbox-caption" class="ds-lightbox-caption"></p>
+  </div>
+  <button class="ds-lightbox-next" id="ds-lightbox-next" aria-label="Next image">&#8250;</button>
+</div>
+
+<script>
+(function () {
+  var items = [
+    {% for img in page.gallery limit:10 %}
+    { src: {{ img.src | jsonify }}, alt: {{ img.alt | default: '' | jsonify }}, caption: {{ img.caption | default: '' | jsonify }} }{% unless forloop.last %},{% endunless %}
+
+    {% endfor %}
+  ];
+  var lb      = document.getElementById('ds-lightbox');
+  var lbImg   = document.getElementById('ds-lightbox-img');
+  var lbCap   = document.getElementById('ds-lightbox-caption');
+  var lbClose = document.getElementById('ds-lightbox-close');
+  var lbPrev  = document.getElementById('ds-lightbox-prev');
+  var lbNext  = document.getElementById('ds-lightbox-next');
+  var current = 0;
+  var multi   = items.length > 1;
+
+  function show(index) {
+    current = (index + items.length) % items.length;
+    var item = items[current];
+    lbImg.src = item.src;
+    lbImg.alt = item.alt;
+    lbCap.textContent = item.caption;
+    lbCap.hidden = !item.caption;
+    lbPrev.hidden = !multi;
+    lbNext.hidden = !multi;
+  }
+
+  function open(index) {
+    show(index);
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+    lbClose.focus();
+  }
+
+  function close() {
+    lb.classList.remove('is-open');
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll('.ds-gallery-item').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      open(parseInt(this.dataset.lightboxIndex, 10));
+    });
+  });
+
+  lbClose.addEventListener('click', close);
+  lbPrev.addEventListener('click', function () { show(current - 1); });
+  lbNext.addEventListener('click', function () { show(current + 1); });
+
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('is-open')) return;
+    if (e.key === 'Escape')     { close(); }
+    if (e.key === 'ArrowLeft')  { show(current - 1); }
+    if (e.key === 'ArrowRight') { show(current + 1); }
+  });
+}());
+</script>
+{% endif %}
+
 {% comment %} 4. Data sources panel {% endcomment %}
 {% if page.data_sources and page.data_sources.size > 0 %}
 <section class="section bg-gray">

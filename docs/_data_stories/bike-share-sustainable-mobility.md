@@ -10,12 +10,12 @@ description: >
   Kyoto Protocol signatories, and the worldwide spread of bike share programs to argue
   that station-based bike share is a viable sustainable transport solution.
 cover_image: /assets/data-stories/bike-share-sustainable-mobility/cover.png
-cover_image_alt: "Bike Share infographic poster combining global maps, an emissions trend line, and a history timeline of bike share programs"
+cover_image_alt: "Full Bike Share infographic poster — global maps, CO2 emissions trend, per-capita comparison, and a history timeline of bike share programs"
 thumbnail: /assets/data-stories/bike-share-sustainable-mobility/thumbnail.png
-thumbnail_alt: "Bike share sustainable mobility story thumbnail"
+thumbnail_alt: "BIKE SHARE poster title detail with bicycle wheel graphic"
 image:
   path: /assets/data-stories/bike-share-sustainable-mobility/cover.png
-  alt: "Bike Share infographic poster combining global maps, an emissions trend line, and a history timeline of bike share programs"
+  alt: "Full Bike Share infographic poster — global maps, CO2 emissions trend, per-capita comparison, and a history timeline of bike share programs"
 authors:
   - name: "Kenji Wada"
     role: ""
@@ -82,14 +82,44 @@ data_sources:
     odmm_technical_details: >
       Content was rendered as a webpage with no structured data export, download, or
       machine-readable format available at the time of publication — rated T1.
+gallery:
+  - src: /assets/data-stories/bike-share-sustainable-mobility/src/g1_title_intro.png
+    alt: "Poster headline and introductory argument for bike share as a sustainable transport mode"
+    caption: "The central argument: bike share can replace car trips and cut CO2 emissions"
+  - src: /assets/data-stories/bike-share-sustainable-mobility/src/g2_co2_trend.png
+    alt: "Line chart showing the trend of global CO2 emissions from energy consumption, 1980–2010"
+    caption: "Global CO2 emissions from energy consumption, 1980–2010 (source: EIA)"
+  - src: /assets/data-stories/bike-share-sustainable-mobility/src/g3_per_capita.png
+    alt: "Slope chart comparing per-capita CO2 emissions in 1997 and 2010 for Kyoto Protocol signatories"
+    caption: "Per-capita CO2 emissions 1997 vs. 2010 — many high-emitting signatories made little progress"
+  - src: /assets/data-stories/bike-share-sustainable-mobility/src/g4_world_map.png
+    alt: "World map with proportional circles showing the scale of bike share programs by country in 2010"
+    caption: "Bike share programs worldwide in 2010 — circle size proportional to number of bikes"
+  - src: /assets/data-stories/bike-share-sustainable-mobility/src/g9_europe_detail.png
+    alt: "Enlarged European detail showing large orange circles for France, Spain and Italy dominating bike share volume"
+    caption: "Europe detail — France, Spain and Italy lead the world in bike share fleet size"
+  - src: /assets/data-stories/bike-share-sustainable-mobility/src/g5_history_timeline.png
+    alt: "Horizontal timeline tracing bike share history from Amsterdam's White Bike Plan (1965) to BIXI and YouBike (2009–2010)"
+    caption: "Three generations of bike share: from free bikes lost to theft, to coin-deposit, to IT-enabled station systems"
+  - src: /assets/data-stories/bike-share-sustainable-mobility/src/g6_us_map.png
+    alt: "US map showing existing and planned bike share programs in 2012, with New York's 10,000-bike plan highlighted"
+    caption: "US bike share in 2012 — 41 cities and schools, with New York planning the largest system"
+  - src: /assets/data-stories/bike-share-sustainable-mobility/src/g7_text_sections.png
+    alt: "Text sections on the rise of global bike share and how the three-generation system evolved"
+    caption: "From first-generation free bikes to GPS-tracked, station-based third-generation systems"
+  - src: /assets/data-stories/bike-share-sustainable-mobility/src/g8_bixi_station.png
+    alt: "Diagram of a PBSC Urban Solutions BIXI station showing docking stations, solar panel, payment kiosk and commuter bikes"
+    caption: "How it works: a BIXI station with smartcard check-in, docking locks and solar-powered kiosk"
+  - src: /assets/data-stories/bike-share-sustainable-mobility/src/g10_full_poster.png
+    alt: "Complete Bike Share infographic poster at reduced scale"
+    caption: "The complete poster — DAI 523 Information Design, Kenji Wada, 19 December 2012"
 embed:
   kind: "none"
 featured: false
-#license: "CC BY 4.0"
-#license_url: "https://creativecommons.org/licenses/by/4.0/"
+license: "CC BY 4.0"
+license_url: "https://creativecommons.org/licenses/by/4.0/"
 ---
 
-<!-- TODO: add actual image files to /assets/data-stories/bike-share-sustainable-mobility/ -->
 <!-- Note: original artefact is a single-page poster (DAI 523 Information Design, 19 Dec 2012). -->
 
 ## Overview

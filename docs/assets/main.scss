@@ -2505,6 +2505,30 @@ html:not(.js) .ds-filter-bar { display: none; }
   display: block;
   border-radius: 0.5rem;
 }
+.ds-embed-cover { position: relative; }
+.ds-embed-cover-btn {
+  display: block; width: 100%; border: none; padding: 0; background: none;
+  cursor: pointer; position: relative;
+}
+.ds-embed-cover-btn:hover .ds-embed-play,
+.ds-embed-cover-btn:focus-visible .ds-embed-play { opacity: 1; }
+.ds-embed-cover-btn:focus-visible { outline: 2px solid var(--brand-color); outline-offset: 2px; }
+.ds-embed-play {
+  position: absolute; inset: 0; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.35); opacity: 0; transition: opacity 0.2s;
+}
+.ds-embed-play-icon {
+  width: 3.5rem; height: 3.5rem; border-radius: 50%;
+  background: rgba(255, 255, 255, 0.92); color: var(--brand-color);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.25rem; padding-left: 3px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+}
+.ds-embed-play-label {
+  font-size: 0.8125rem; font-weight: 600; color: white;
+  letter-spacing: 0.03em; text-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+}
 .ds-data-sources { list-style: none; padding: 0; margin: 0; }
 .ds-data-sources li {
   display: flex;

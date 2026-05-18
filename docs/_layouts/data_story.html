@@ -50,20 +50,52 @@ layout: default
 <section class="section bg-gray" style="padding-top: 0; padding-bottom: 0;">
   <div class="container">
     {% if page.embed and page.embed.kind == "iframe" %}
-    <div class="ds-embed-wrapper">
-      <iframe
-        src="{{ page.embed.src | escape }}"
-        title="{{ page.title | escape }}"
-        height="{{ page.embed.height | default: 720 }}"
-        loading="lazy"
-        sandbox="allow-scripts allow-same-origin allow-forms"
-        aria-label="Interactive: {{ page.title | escape }}"
-        style="width:100%;border:none;display:block;"
-      ></iframe>
+    {% assign cover_alt = page.cover_image_alt | default: page.title %}
+    <div class="ds-embed-cover">
+      <button class="ds-embed-cover-btn" id="ds-embed-open"
+              aria-label="Launch interactive story: {{ page.title | escape }}">
+        <img class="ds-cover-img" src="{{ page.cover_image | escape }}"
+             alt="{{ cover_alt | escape }}" loading="lazy"
+             style="border-radius:0; max-height:480px; object-fit:cover;">
+        <span class="ds-embed-play" aria-hidden="true">
+          <span class="ds-embed-play-icon">&#9654;</span>
+          <span class="ds-embed-play-label">Launch interactive story</span>
+        </span>
+      </button>
       <p style="text-align:right; font-size:0.8125rem; margin-top:0.25rem;">
         <a href="{{ page.embed.src | escape }}" target="_blank" rel="noopener">Open in new tab ↗</a>
       </p>
     </div>
+
+    <div class="storytelling-iframe-lightbox" id="ds-embed-lightbox" hidden
+         role="dialog" aria-modal="true" aria-label="Interactive story: {{ page.title | escape }}">
+      <div class="storytelling-iframe-lightbox-backdrop" id="ds-embed-backdrop"></div>
+      <div class="storytelling-iframe-lightbox-content">
+        <button class="storytelling-iframe-lightbox-close" id="ds-embed-close" aria-label="Close">&#x2715;</button>
+        <iframe class="storytelling-iframe-lightbox-frame" id="ds-embed-iframe"
+          src="" data-src="{{ page.embed.src | escape }}"
+          title="{{ page.title | escape }}"
+          sandbox="allow-scripts allow-same-origin allow-forms"
+          aria-label="Interactive: {{ page.title | escape }}"></iframe>
+      </div>
+    </div>
+
+    <script>
+    (function () {
+      var btn    = document.getElementById('ds-embed-open');
+      var lb     = document.getElementById('ds-embed-lightbox');
+      var iframe = document.getElementById('ds-embed-iframe');
+      var close  = document.getElementById('ds-embed-close');
+      var back   = document.getElementById('ds-embed-backdrop');
+      var src    = iframe.dataset.src;
+      function open()   { iframe.src = src; lb.hidden = false; document.body.style.overflow = 'hidden'; close.focus(); iframe.addEventListener('load', function() { try { iframe.contentWindow.focus(); } catch (e) {} }, { once: true }); }
+      function closeLb(){ lb.hidden = true; iframe.src = ''; document.body.style.overflow = ''; btn.focus(); }
+      btn.addEventListener('click', open);
+      close.addEventListener('click', closeLb);
+      back.addEventListener('click', closeLb);
+      document.addEventListener('keydown', function (e) { if (!lb.hidden && e.key === 'Escape') closeLb(); });
+    }());
+    </script>
     {% elsif page.embed and page.embed.kind == "image" %}
     {% assign cover_alt = page.cover_image_alt | default: page.title %}
     <img class="ds-cover-img" src="{{ page.cover_image | escape }}" alt="{{ cover_alt | escape }}" loading="lazy" style="border-radius:0;">

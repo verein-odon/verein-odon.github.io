@@ -12,13 +12,13 @@ description: >
   and social belonging — not paperwork or housing — are the hardest parts of relocating.
   Using the Netherlands as a focal case, this story maps relocation as a five-phase UX
   journey and shows where design exists and where it stops.
-cover_image: /assets/data-stories/relocation-story/thumbnail.png
-cover_image_alt: "Visual journey map of the five phases of relocation, highlighting the integration gap"
+cover_image: /assets/data-stories/relocation-story/cover.png
+cover_image_alt: "The hardest part of relocation is not the move — hero text on dark background"
 thumbnail: /assets/data-stories/relocation-story/thumbnail.png
 thumbnail_alt: "Relocation story thumbnail"
 image:
-  path: /assets/data-stories/relocation-story/thumbnail.png
-  alt: "Visual journey map of the five phases of relocation, highlighting the integration gap"
+  path: /assets/data-stories/relocation-story/cover.png
+  alt: "The hardest part of relocation is not the move — hero text on dark background"
 authors:
   - name: "Samreen Khan"
     role: ""

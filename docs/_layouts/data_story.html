@@ -42,6 +42,9 @@ layout: default
         </span>
         {% endif %}
       </div>
+      {% if page.note %}
+      <p class="ds-detail-note">{{ page.note | escape }}</p>
+      {% endif %}
     </div>
   </div>
 </section>

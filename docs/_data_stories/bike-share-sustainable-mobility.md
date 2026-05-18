@@ -19,6 +19,9 @@ image:
 authors:
   - name: "Kenji Wada"
     role: ""
+note: >
+  This work was originally created in 2012 for DAI 523 Information Design,
+  a graduate course in the Master's program at San Francisco State University (SFSU).
 type: "story"
 topics:
   - "mobility"

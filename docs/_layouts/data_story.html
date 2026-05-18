@@ -32,12 +32,12 @@ layout: default
       <p class="ds-detail-summary">{{ page.summary }}</p>
       {% endif %}
       <div class="ds-detail-meta" style="margin-top: 0.5rem;">
-        <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time>
+        <span>Published on <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%B %-d, %Y" }}</time></span>
         {% if page.authors and page.authors.size > 0 %}
         <span>·</span>
-        <span>
+        <span>by
           {% for author in page.authors %}
-          <span class="ds-detail-author-name">{{ author.name | escape }}</span>{% if author.role and author.role != "" %} <span class="ds-detail-author-role">({{ author.role | escape }})</span>{% endif %}{% unless forloop.last %}, {% endunless %}
+          <span class="ds-detail-author-name">{{ author.name | escape }}</span>{% unless forloop.last %}, {% endunless %}
           {% endfor %}
         </span>
         {% endif %}
@@ -303,29 +303,27 @@ layout: default
 </section>
 {% endif %}
 
-{% comment %} 7. Footer CTA {% endcomment %}
-<section class="section bg-gray">
+{% comment %} 7. License & Disclaimer {% endcomment %}
+<section class="section bg-white">
   <div class="container">
     <div class="content-section">
-      <p style="color:var(--color-gray-600); font-size:0.9375rem;">
-        ODON is a Vienna-based non-profit making open data accessible and impactful. We produce data stories like this as part of our <a href="/en/services/">Data Services</a> offering.
-      </p>
-      <div class="ds-footer-ctas">
-        <a href="/en/contact/" class="btn btn-primary">Talk to us about a Data Service</a>
-        <a href="/en/data-stories/" class="btn btn-secondary">See all Data Stories</a>
-      </div>
-      {% if page.license %}
-      <p style="margin-top:1.25rem; font-size:0.8125rem; color:var(--color-gray-500);">
-        {% if page.license_url %}
-        This story is published under <a href="{{ page.license_url }}" target="_blank" rel="noopener license">{{ page.license | escape }}</a> — free to share and adapt with attribution.
-        {% else %}
-        This story is published under {{ page.license | escape }} — free to share and adapt with attribution.
+      <h3>License &amp; Disclaimer</h3>
+      <div class="ds-footer-legal">
+        {% if page.license %}
+        <p>
+          {% if page.license_url %}
+          Published under <a href="{{ page.license_url }}" target="_blank" rel="noopener license">{{ page.license | escape }}</a> — free to share and adapt with attribution.
+          {% else %}
+          Published under {{ page.license | escape }} — free to share and adapt with attribution.
+          {% endif %}
+        </p>
         {% endif %}
-      </p>
-      {% endif %}
+        <p>The views expressed are those of the author. ODON provides this publishing space as a neutral party and does not endorse any opinions or interpretations expressed.</p>
+      </div>
     </div>
   </div>
 </section>
+
 
 {% comment %} JSON-LD {% endcomment %}
 <script type="application/ld+json">

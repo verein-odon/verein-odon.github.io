@@ -4,6 +4,8 @@ Welcome ...
 
 ## Rendering the website
 
+If you use a Mac, please follow [these](https://docs.google.com/document/d/18xafWBF8V93tSIrqO0FBKCRQsd6CzkcVaT0Dr6O7SfQ/edit?tab=t.0#heading=h.tkebpg14cdt0) instructions. Below are those for Ubuntu.
+
 ### Prerequisites
 
 It is built with a tool called [Jekyll](https://jekyllrb.com/). Installation instructions for several operating systems can be found [here](https://jekyllrb.com/docs/installation/). 

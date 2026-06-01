@@ -98,7 +98,7 @@ The first recorded European outbreak of syphilis struck Naples in 1495, among th
 
 ## Methodology
 
-The naming relationships were compiled by hand from medical-history and lexicographic sources (listed below) into a single sourced table, then encoded as a directed graph. Each edge stores the blamer, the blamed party, the exact name used (with the vernacular term), and a citation. The map is built in JavaScript with D3.js: countries are placed at real `[lon, lat]` anchors on a Mercator projection over a Natural Earth basemap (world-atlas TopoJSON), and blame is drawn as quadratic-bézier arrows whose curvature uses a fixed handedness — so reciprocal pairs (France ↔ Italy, France ↔ Spain) bow to opposite sides instead of overlapping. Clicking a legend colour isolates one name. The data table beneath the map is generated from the same edge data, so it can never drift from the arrows.
+The naming relationships were compiled by hand from medical-history and lexicographic sources (listed below) into a single sourced table, then encoded as a directed graph. Each edge stores the blamer, the blamed party, the exact name used (with the vernacular term), and a citation. The map is built in JavaScript with D3.js: countries are placed at real `[lon, lat]` anchors on a Mercator projection over a Natural Earth basemap (world-atlas TopoJSON), and blame is drawn as quadratic-bézier arrows whose curvature uses a fixed handedness — so reciprocal pairs (France ↔ Italy, France ↔ Spain) bow to opposite sides instead of overlapping. Clicking a legend colour isolates one name. The data table beneath the map is generated from the same edge data.
 
 ## Findings
 
@@ -107,8 +107,11 @@ The naming relationships were compiled by hand from medical-history and lexicogr
 - **Poland blamed three ways** — Germany, France, and (per several sources) the Ottoman Turks.
 - **Croatia blamed itself** — the *Škrljevo* and *Župa* diseases are named after Croatian places, not a foreign country.
 - **No intra-Nordic blame** is recorded, and the Baltics coined no distinct name of their own.
-- Contested or omitted: the French "British disease" (a likely misattribution) and the Irish *gallbholgach* ("foreign pox," usually read as the English).
+- Contested or omitted: the French "British disease" (a likely misattribution) and the Irish *gallbholgach* ("foreign pox," we Irish seem to have missed an opportunity to blame this on the English).
+
+- The data table also has some non European blame someone else examples. 
 
 ## Takeaways
 
-The naming of syphilis is a centuries-old case study in how societies displace blame for a stigmatised threat onto outsiders. Mapping the names turns scattered etymological footnotes into a single legible picture: the arrows almost never point inward, and the busiest target — France — was simply the army everyone could see carrying the disease home. The same impulse to name a disease after "them" rather than "us" recurs in every later epidemic.
+The naming of syphilis is a centuries-old case study in how societies displace blame for a stigmatised threat onto outsiders.  The same impulse to name a disease after "them" recurs in later epidemics.
+

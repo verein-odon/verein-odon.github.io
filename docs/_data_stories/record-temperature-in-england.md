@@ -19,12 +19,11 @@ image:
   alt: "Scatter plot of daily mean May temperatures in Central England from 1772 to 2026"
 authors:
   - name: "David Curran"
-    role: ""
+    linkedin: "https://www.linkedin.com/in/david-curran-8ba5534/"
 type: "story"
 topics:
   - "climate"
   - "environment"
-  - "open-data"
 tools:
   - "Python"
   - "JavaScript"

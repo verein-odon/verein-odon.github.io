@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Blaming the Neighbours: what Europe called Syphilis</title>
+<style>
+  :root { color-scheme: light; }
+  body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    color: #1a1a1a;
+    background: #ffffff;
+  }
+  header { padding: 24px 24px 8px; }
+  h1 { font-size: 34px; line-height: 1.15; margin: 0 0 8px; }
+  p.sub { margin: 0; color: #555; font-size: 14px; max-width: 900px; }
+  #wrap { display: flex; gap: 16px; padding: 8px 24px 24px; align-items: flex-start; flex-wrap: wrap; }
+  #map { flex: 1 1 640px; min-width: 320px; }
+  svg { width: 100%; height: auto; display: block; }
+  .land { fill: #eceae5; stroke: #cfccc4; stroke-width: 0.5; }
+  .water { fill: #dfeaf2; }
+  .node circle { fill: #fff; stroke: #444; stroke-width: 1.4; cursor: pointer; }
+  .node.foreign circle { stroke: #999; stroke-dasharray: 3 2; }
+  .node text { font-size: 13px; font-weight: 600; fill: #1a1a1a; pointer-events: none;
+               paint-order: stroke; stroke: #ffffff; stroke-width: 3px; stroke-linejoin: round; }
+  .node.foreign text { fill: #777; }
+  .flow { fill: none; stroke-width: 2.2; stroke-linecap: round; }
+  aside { flex: 0 0 240px; font-size: 13px; }
+  aside h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .04em; color: #777; margin: 4px 0 8px; }
+  .legend-item { display: flex; align-items: center; gap: 8px; padding: 5px 6px; border-radius: 6px; cursor: pointer; }
+  .legend-item:hover { background: #f2f1ee; }
+  .legend-item.active { background: #e8edf3; }
+  .legend-item .sw { width: 22px; height: 4px; border-radius: 2px; flex: 0 0 auto; }
+  .reset { margin-top: 10px; font-size: 12px; color: #2E79B5; cursor: pointer; user-select: none; }
+  .sectionh { padding: 8px 24px 4px; font-size: 20px; font-weight: 600; margin: 0; }
+  #datatable { padding: 4px 24px 8px; }
+  table.blame { border-collapse: collapse; width: 100%; font-size: 13px; }
+  table.blame th, table.blame td { text-align: left; padding: 6px 10px; border-bottom: 1px solid #e3e1db; vertical-align: top; }
+  table.blame th { color: #555; font-weight: 600; border-bottom: 2px solid #cfccc4; position: sticky; top: 0; background: #fff; }
+  table.blame tbody tr:hover { background: #f7f6f3; }
+  table.blame .sw { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 7px; vertical-align: middle; }
+  table.blame a { color: #2E79B5; text-decoration: none; }
+  table.blame a:hover { text-decoration: underline; }
+  table.blame tr.group td { background: #f2f1ee; color: #666; font-weight: 600; font-size: 11px; text-transform: uppercase; letter-spacing: .04em; }
+  table.blame tr.extra td { color: #666; }
+  table.blame tr.extra .sw { background: #c9c6bf !important; }
+  footer { padding: 4px 24px 24px; color: #888; font-size: 12px; }
+  /* story metadata + data sources (mirrors the ODON story template) */
+  .supp { padding: 8px 24px 28px; }
+  .facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 10px 24px;
+           margin: 6px 0 20px; padding: 14px 16px; background: #faf9f7; border: 1px solid #e3e1db; border-radius: 8px; }
+  .facts dt { margin: 0; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; color: #888; }
+  .facts dd { margin: 3px 0 0; font-size: 14px; }
+  .facts .full { grid-column: 1 / -1; }
+  .facts a, .src-card a { color: #2E79B5; text-decoration: none; }
+  .facts a:hover, .src-card a:hover { text-decoration: underline; }
+  .chip { display: inline-block; padding: 3px 9px; margin: 2px 4px 2px 0; border-radius: 999px;
+          font-size: 13px; background: #eef1f5; border: 1px solid #d7dde4; color: #333; }
+  .odmm-note { font-size: 12px; color: #888; margin: 0 0 10px; }
+  .sources { display: grid; gap: 12px; max-width: 900px; }
+  .src-card { padding: 12px 14px; background: #fff; border: 1px solid #e3e1db; border-radius: 8px; }
+  .src-card h4 { margin: 0 0 6px; font-size: 15px; font-weight: 600; }
+  .src-card p { margin: 0; font-size: 13px; color: #555; }
+  .src-card ul { margin: 7px 0 0; padding-left: 18px; font-size: 13px; }
+  .src-card li { margin: 3px 0; }
+  .odmm { display: inline-block; padding: 2px 8px; margin-right: 6px; border-radius: 5px; font-size: 11px; font-weight: 600; }
+  .odmm.legal { background: #e8edf3; color: #2E5A8A; }
+  .odmm.tech { background: #ece6f3; color: #5B3FA0; }
+  /* export mode (?export=1): just the title + map + legend for a shareable image */
+  body.export .sectionh, body.export #datatable, body.export .supp, body.export footer, body.export .reset { display: none; }
+  body.export #wrap { padding-bottom: 16px; }
+  body.export aside { flex: 0 0 220px; }
+  /* map-only export (?export=map): the bare map for a cover image */
+  body.exportmap header, body.exportmap aside, body.exportmap .sectionh,
+  body.exportmap #datatable, body.exportmap .supp, body.exportmap footer { display: none; }
+  body.exportmap #wrap { padding: 0; }
+  body.exportmap #map { flex: 1 1 100%; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Blaming the Neighbours: what Europe called Syphilis</h1>
+  <p class="sub">Each arrow points from a population to the country it blamed; color is the <b>name</b> they used. Click a legend color to isolate it.</p>
+</header>
+
+<div id="wrap">
+  <div id="map"></div>
+  <aside>
+    <h2>Name used (who they blamed)</h2>
+    <div id="legend"></div>
+    <div class="reset" id="reset">Show all</div>
+  </aside>
+</div>
+
+<h2 class="sectionh">The full blame list</h2>
+<div id="datatable"></div>
+
+<section class="supp">
+  <dl class="facts">
+    <div>
+      <dt>Author</dt>
+      <dd><a href="https://www.linkedin.com/in/david-curran-8ba5534/" target="_blank" rel="noopener">David Curran</a></dd>
+    </div>
+    <div>
+      <dt>Type</dt>
+      <dd>Interactive data story · exploratory chart</dd>
+    </div>
+    <div class="full">
+      <dt>Topics</dt>
+      <dd>
+        <span class="chip">medicine</span>
+        <span class="chip">sti</span>
+        <span class="chip">etymology</span>
+        <span class="chip">open data</span>
+      </dd>
+    </div>
+    <div class="full">
+      <dt>Tools</dt>
+      <dd>
+        <span class="chip">TopoJSON (Natural Earth)</span>
+        <span class="chip">JavaScript</span>
+        <span class="chip">D3.js</span>
+      </dd>
+    </div>
+  </dl>
+
+  <h2 class="sectionh">Data sources</h2>
+  <p class="odmm-note">Ratings use the ODON Open Data Maturity Model (ODMM).</p>
+  <div class="sources">
+    <article class="src-card">
+      <h4>Historical &amp; etymological sources</h4>
+      <p>The blame relationships are compiled by hand from secondary literature (all freely readable online). Per-claim citations are in <i>blame-table.md</i>.</p>
+      <ul>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3956094/" target="_blank" rel="noopener">Tampa et al., “Brief History of Syphilis,” <i>J Med Life</i> (2014)</a></li>
+        <li><a href="https://jmvh.org/article/syphilis-its-early-history-and-treatment-until-penicillin-and-the-debate-on-its-origins/" target="_blank" rel="noopener">JMVH, “Syphilis – its early history and treatment until penicillin”</a></li>
+        <li><a href="https://www.historytoday.com/archive/pox-and-paranoia-renaissance-europe" target="_blank" rel="noopener">History Today, “Pox and Paranoia in Renaissance Europe” (Cummins, 1988)</a></li>
+        <li><a href="https://surgeonshallmuseums.wordpress.com/2026/02/13/the-attempt-to-exile-syphilis-sufferers-to-an-island-near-edinburgh/" target="_blank" rel="noopener">Surgeons’ Hall Museums (Scotland)</a></li>
+        <li><a href="https://vesmir.cz/cz/casopis/archiv-casopisu/1996/cislo-2/syfilis-cechach.html" target="_blank" rel="noopener">Vesmír, “Syfilis v Čechách” (Bohemia, 1996)</a></li>
+        <li><a href="https://www.enciklopedija.hr/clanak/sifilis" target="_blank" rel="noopener">Hrvatska enciklopedija, “sifilis” (Croatia)</a></li>
+        <li><a href="https://ijdvl.com/social-aspects-of-syphilis-based-on-the-history-of-its-terminology/" target="_blank" rel="noopener">IJDVL, “Social aspects of syphilis … terminology” (India)</a></li>
+        <li><a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC9545539/" target="_blank" rel="noopener">PMC, “Identifying treponemal disease in early East Asia”</a></li>
+        <li><a href="https://en.wikipedia.org/wiki/History_of_syphilis" target="_blank" rel="noopener">Wikipedia / Wiktionary, “History of syphilis”</a></li>
+      </ul>
+    </article>
+  </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/topojson-client@3/dist/topojson-client.min.js"></script>
+<script>
+const _exp = new URLSearchParams(location.search).get("export");
+if (_exp !== null) document.body.classList.add(_exp === "map" ? "exportmap" : "export");
+
+const W = 1000, H = 660;
+const VIEW_X0 = 205, VIEW_W = 880; // crop the empty Atlantic west of Ireland (X0) and the land east of Moscow (W)
+
+// Categories: arrows colored by the NAME used (i.e. who is blamed)
+const CATS = {
+  french:     { color: "#2E79B5", label: "French disease" },
+  neapolitan: { color: "#E8852E", label: "Neapolitan / Italian disease" },
+  spanish:    { color: "#E0B520", label: "Spanish / Castilian disease" },
+  german:     { color: "#1F8A65", label: "German disease" },
+  polish:     { color: "#7B64B8", label: "Polish disease" },
+  turkish:    { color: "#A0522D", label: "Turkish disease" },
+  hungarian:  { color: "#C0392B", label: "Hungarian disease" },
+  christian:  { color: "#8A8A8A", label: "Christian / Frank disease" },
+  local:      { color: "#74C476", label: "Local place-name (self)" },
+};
+
+// Country anchors as [lon, lat]
+const PLACES = {
+  ireland:     { name: "Ireland",       lonlat: [-8.0, 53.3], foreign: false },
+  scotland:    { name: "Scotland",      lonlat: [-4.0, 56.8], foreign: false },
+  britain:     { name: "England",       lonlat: [-1.5, 52.4], foreign: false },
+  netherlands: { name: "Netherlands",   lonlat: [5.3, 52.1],  foreign: false },
+  denmark:     { name: "Denmark",       lonlat: [9.5, 56.2],  foreign: false },
+  sweden:      { name: "Sweden",        lonlat: [16.5, 59.0], foreign: false },
+  france:      { name: "France",        lonlat: [2.3, 47.0],  foreign: false },
+  germany:     { name: "Germany",       lonlat: [10.4, 51.2], foreign: false },
+  bohemia:     { name: "Bohemia (Czech)",lonlat: [14.6, 49.9],foreign: false },
+  poland:      { name: "Poland",        lonlat: [19.8, 52.2], foreign: false },
+  hungary:     { name: "Hungary",       lonlat: [19.2, 47.3], foreign: false },
+  russia:      { name: "Russia",        lonlat: [37.6, 55.8], foreign: false },
+  spain:       { name: "Spain",         lonlat: [-3.7, 40.4], foreign: false },
+  portugal:    { name: "Portugal",      lonlat: [-8.2, 39.6], foreign: false },
+  italy:       { name: "Italy (Naples)",lonlat: [14.3, 40.9], foreign: false },
+  malta:       { name: "Malta",         lonlat: [14.4, 35.9], foreign: false },
+  croatia:     { name: "Croatia",       lonlat: [16.3, 45.4], foreign: false },
+  turkey:      { name: "Ottoman Turks", lonlat: [29.0, 41.0], foreign: true },
+  nafrica:     { name: "N. Africa",     lonlat: [3.0, 34.5],  foreign: true },
+};
+
+// from -> to, with the name category
+// Short source labels + URLs reused across rows
+const SRC = {
+  pmc:    { label: "Tampa (PMC)",     url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3956094/" },
+  wiki:   { label: "Wikipedia",       url: "https://en.wikipedia.org/wiki/History_of_syphilis" },
+  jmvh:   { label: "JMVH",            url: "https://jmvh.org/article/syphilis-its-early-history-and-treatment-until-penicillin-and-the-debate-on-its-origins/" },
+  htoday: { label: "History Today",   url: "https://www.historytoday.com/archive/pox-and-paranoia-renaissance-europe" },
+  wikt:   { label: "Wiktionary",      url: "https://en.wiktionary.org/wiki/syphilis" },
+  shall:  { label: "Surgeons' Hall",  url: "https://surgeonshallmuseums.wordpress.com/2026/02/13/the-attempt-to-exile-syphilis-sufferers-to-an-island-near-edinburgh/" },
+  vesmir: { label: "Vesmír",          url: "https://vesmir.cz/cz/casopis/archiv-casopisu/1996/cislo-2/syfilis-cechach.html" },
+  hrwiki: { label: "hr.wikipedia",    url: "https://hr.wikipedia.org/wiki/Sifilis" },
+  hrenc:  { label: "Hrvatska enc.",   url: "https://www.enciklopedija.hr/clanak/sifilis" },
+  rune:   { label: "runeberg.org",    url: "https://runeberg.org/manslakt/0167.html" },
+};
+
+// from -> to, with the name used, category color, and source
+const EDGES = [
+  // blamed France ("French disease")
+  { from: "italy",       to: "france",  cat: "french", name: "French disease (mal francese)", src: SRC.pmc },
+  { from: "germany",     to: "france",  cat: "french", name: "French disease (Franzosenkrankheit)", src: SRC.pmc },
+  { from: "britain",     to: "france",  cat: "french", name: "French disease", src: SRC.pmc },
+  { from: "ireland",     to: "france",  cat: "french", name: "French pox (bolgach fhrancach)", src: SRC.htoday },
+  { from: "spain",       to: "france",  cat: "french", name: "French disease (gálico)", src: SRC.wikt },
+  { from: "malta",       to: "france",  cat: "french", name: "French disease (mal francese)", src: SRC.wiki },
+  { from: "poland",      to: "france",  cat: "french", name: "French disease (franca)", src: SRC.wikt },
+  { from: "sweden",      to: "france",  cat: "french", name: "French disease (fransoser)", src: SRC.rune },
+  { from: "croatia",     to: "france",  cat: "french", name: "French disease (francuska bolest)", src: SRC.hrwiki },
+  { from: "bohemia",     to: "france",  cat: "french", name: "French disease (francouzská nemoc)", src: SRC.vesmir },
+  { from: "portugal",    to: "france",  cat: "french", name: "French pox", src: SRC.htoday },
+  { from: "scotland",    to: "france",  cat: "french", name: "French sickness (French seikness)", src: SRC.shall },
+  // blamed Naples / Italy
+  { from: "france",      to: "italy",   cat: "neapolitan", name: "Neapolitan / Italian disease", src: SRC.pmc },
+  { from: "scotland",    to: "italy",   cat: "neapolitan", name: "Sickness of Naples (seikness of Napillis)", src: SRC.shall },
+  // blamed Spain
+  { from: "denmark",     to: "spain",   cat: "spanish", name: "Spanish / Castilian disease", src: SRC.pmc },
+  { from: "netherlands", to: "spain",   cat: "spanish", name: "Spanish disease (Spaanse pokken)", src: SRC.wiki },
+  { from: "portugal",    to: "spain",   cat: "spanish", name: "Spanish / Castilian disease", src: SRC.pmc },
+  { from: "nafrica",     to: "spain",   cat: "spanish", name: "Spanish / Castilian disease", src: SRC.pmc },
+  { from: "france",      to: "spain",   cat: "spanish", name: "Spanish disease", src: SRC.jmvh },
+  { from: "scotland",    to: "spain",   cat: "spanish", name: "Spanish sickness (Spanje seikness)", src: SRC.shall },
+  // other directions
+  { from: "russia",      to: "poland",  cat: "polish", name: "Polish disease", src: SRC.pmc },
+  { from: "poland",      to: "germany", cat: "german", name: "German disease", src: SRC.pmc },
+  { from: "poland",      to: "turkey",  cat: "turkish", name: "Turkish disease", src: SRC.jmvh },
+  { from: "bohemia",     to: "hungary", cat: "hungarian", name: "Hungarian disease (uherská nemoc)", src: SRC.vesmir },
+  { from: "turkey",      to: "germany", cat: "christian", name: "Christian / Frank disease (frengi)", src: SRC.pmc, blamed: "Christendom / the West" },
+  // Croatia blamed itself (internal place-names)
+  { from: "croatia",     to: "croatia", cat: "local", loop: 205, name: "Škrljevo disease (škrljevska bolest)", src: SRC.hrenc, blamed: "Croatia (self)" },
+  { from: "croatia",     to: "croatia", cat: "local", loop: 25,  name: "Župa disease (župska bolest)", src: SRC.hrenc, blamed: "Croatia (self)" },
+];
+
+const svg = d3.select("#map").append("svg").attr("viewBox", `${VIEW_X0} 0 ${VIEW_W - VIEW_X0} ${H}`);
+svg.append("rect").attr("class", "water").attr("x", VIEW_X0).attr("y", 0).attr("width", VIEW_W - VIEW_X0).attr("height", H);
+
+const projection = d3.geoMercator().center([12, 49]).scale(720).translate([W / 2, H / 2]);
+const path = d3.geoPath(projection);
+
+// arrowhead markers, one per category color
+const defs = svg.append("defs");
+Object.entries(CATS).forEach(([key, c]) => {
+  defs.append("marker")
+    .attr("id", `arrow-${key}`)
+    .attr("viewBox", "0 0 10 10").attr("refX", 8).attr("refY", 5)
+    .attr("markerWidth", 7).attr("markerHeight", 7).attr("orient", "auto-start-reverse")
+    .append("path").attr("d", "M0,0 L10,5 L0,10 z").attr("fill", c.color);
+});
+
+const gLand = svg.append("g");
+const gFlow = svg.append("g");
+const gNode = svg.append("g");
+
+// Subtle attribution, bottom-right of the map (kept faint so it doesn't compete with the data)
+svg.append("text")
+  .attr("x", VIEW_W - 14).attr("y", H - 14)
+  .attr("text-anchor", "end")
+  .attr("font-size", 17).attr("font-weight", 600)
+  .attr("fill", "#1a1a1a").attr("opacity", 0.12)
+  .attr("pointer-events", "none")
+  .text("@iamreddave");
+
+function P(id) { return projection(PLACES[id].lonlat); }
+
+function flowPath(a, b) {
+  const PAD = 16;
+  const dx = b[0] - a[0], dy = b[1] - a[1], len = Math.hypot(dx, dy) || 1;
+  const nx = -dy / len, ny = dx / len;          // fixed handedness -> reversed pair bows opposite
+  const k = 0.2;
+  const cx = (a[0] + b[0]) / 2 + nx * k * len;
+  const cy = (a[1] + b[1]) / 2 + ny * k * len;
+  const s = norm(cx - a[0], cy - a[1]);
+  const e = norm(b[0] - cx, b[1] - cy);
+  const p0 = [a[0] + s[0] * PAD, a[1] + s[1] * PAD];
+  const p2 = [b[0] - e[0] * PAD, b[1] - e[1] * PAD];
+  return `M${p0[0]},${p0[1]} Q${cx},${cy} ${p2[0]},${p2[1]}`;
+}
+function norm(x, y) { const l = Math.hypot(x, y) || 1; return [x / l, y / l]; }
+
+// A self-loop: leaves the node, bows out at `angleDeg`, and returns with an arrowhead.
+function selfLoop(p, angleDeg, size) {
+  const a = angleDeg * Math.PI / 180;
+  const ux = Math.cos(a), uy = Math.sin(a);   // outward direction
+  const px = -uy, py = ux;                     // perpendicular (loop width)
+  const pad = 6;
+  const start = [p[0] + px * pad + ux * 5, p[1] + py * pad + uy * 5];
+  const end   = [p[0] - px * pad + ux * 5, p[1] - py * pad + uy * 5];
+  const c1 = [p[0] + px * size + ux * size * 1.8, p[1] + py * size + uy * size * 1.8];
+  const c2 = [p[0] - px * size + ux * size * 1.8, p[1] - py * size + uy * size * 1.8];
+  return `M${start[0]},${start[1]} C${c1[0]},${c1[1]} ${c2[0]},${c2[1]} ${end[0]},${end[1]}`;
+}
+
+let focus = null;
+function applyFocus() {
+  gFlow.selectAll("path.flow")
+    .attr("opacity", d => (!focus || d.cat === focus) ? 1 : 0.08);
+  d3.selectAll(".legend-item")
+    .classed("active", function () { return this.dataset.cat === focus; });
+}
+
+// Legend
+const legend = d3.select("#legend");
+Object.entries(CATS).forEach(([key, c]) => {
+  const row = legend.append("div").attr("class", "legend-item").attr("data-cat", key)
+    .on("click", () => { focus = (focus === key) ? null : key; applyFocus(); });
+  row.append("div").attr("class", "sw").style("background", c.color);
+  row.append("span").text(c.label);
+});
+d3.select("#reset").on("click", () => { focus = null; applyFocus(); });
+
+// Data table below the map, built from the same EDGES so it stays in sync
+const tbl = d3.select("#datatable").append("table").attr("class", "blame");
+tbl.append("thead").append("tr").selectAll("th")
+  .data(["Country", "Name used", "Blamed", "Source"]).join("th").text(d => d);
+const tbody = tbl.append("tbody");
+EDGES.forEach(e => {
+  const tr = tbody.append("tr");
+  tr.append("td").text(PLACES[e.from].name);
+  const nameTd = tr.append("td");
+  nameTd.append("span").attr("class", "sw").style("background", CATS[e.cat].color);
+  nameTd.append("span").text(e.name);
+  tr.append("td").text(e.blamed || PLACES[e.to].name);
+  const srcTd = tr.append("td");
+  srcTd.append("a").attr("href", e.src.url).attr("target", "_blank").attr("rel", "noopener").text(e.src.label);
+});
+
+// Non-European names: listed for completeness, but NOT drawn on the Europe-only map.
+// The pattern inverts — outside Europe almost everyone blamed Europe ("the Franks" / "the Portuguese").
+const EXTRA = [
+  { country: "India (Ayurveda, 16th c.)", blamed: "Europe / Franks / Portuguese", name: "Frankish disease (phiraṅgaroga / firangi roga)", src: { label: "IJDVL", url: "https://ijdvl.com/evolution-of-venereology-in-india/" } },
+  { country: "South India (Tamil)", blamed: "Europeans", name: "Parangi (\u201CFrank / foreigner\u201D)", src: { label: "IJDVL", url: "https://ijdvl.com/social-aspects-of-syphilis-based-on-the-history-of-its-terminology/" } },
+  { country: "China", blamed: "Portugal / Canton", name: "Canton sores; Portuguese disease", src: { label: "PMC", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9545539/" } },
+  { country: "Japan", blamed: "China & the Ryukyus", name: "Tang/Chinese sore (tōgasa 唐瘡); Ryukyu sore", src: { label: "PMC", url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC9545539/" } },
+  { country: "East Asia / Japan", blamed: "Portugal", name: "Portuguese disease", src: { label: "History Today", url: "https://www.historytoday.com/archive/pox-and-paranoia-renaissance-europe" } },
+  { country: "Persia", blamed: "Ottoman Turks", name: "Turkish disease (also \u201CFrankish\u201D for Europe)", src: { label: "Vintage News", url: "https://www.thevintagenews.com/2016/10/21/when-syphilis-first-surfaced-the-english-called-it-the-french-disease-they-werent-happy/" } },
+  { country: "Tahiti / Pacific", blamed: "Britain", name: "British disease (Cook\u2019s crews)", src: { label: "Vintage News", url: "https://www.thevintagenews.com/2016/10/21/when-syphilis-first-surfaced-the-english-called-it-the-french-disease-they-werent-happy/" } },
+];
+tbody.append("tr").attr("class", "group").append("td").attr("colspan", 4)
+  .text("Beyond Europe — listed for context, not drawn on the map");
+EXTRA.forEach(e => {
+  const tr = tbody.append("tr").attr("class", "extra");
+  tr.append("td").text(e.country);
+  const nameTd = tr.append("td");
+  nameTd.append("span").attr("class", "sw");
+  nameTd.append("span").text(e.name);
+  tr.append("td").text(e.blamed);
+  const srcTd = tr.append("td");
+  srcTd.append("a").attr("href", e.src.url).attr("target", "_blank").attr("rel", "noopener").text(e.src.label);
+});
+
+// Load basemap, then draw everything
+d3.json("countries-110m.json").then(world => {
+  const land = topojson.feature(world, world.objects.countries);
+  gLand.selectAll("path").data(land.features).join("path").attr("class", "land").attr("d", path);
+
+  gFlow.selectAll("path").data(EDGES).join("path")
+    .attr("class", "flow")
+    .attr("d", d => d.from === d.to ? selfLoop(P(d.from), d.loop, 30) : flowPath(P(d.from), P(d.to)))
+    .attr("stroke", d => CATS[d.cat].color)
+    .attr("marker-end", d => `url(#arrow-${d.cat})`);
+
+  const node = gNode.selectAll("g").data(Object.entries(PLACES)).join("g")
+    .attr("class", ([id, p]) => "node" + (p.foreign ? " foreign" : ""))
+    .attr("transform", ([id]) => `translate(${P(id)})`);
+  node.append("circle").attr("r", 5);
+  node.append("text").attr("y", 18).attr("text-anchor", "middle").text(([id, p]) => p.name);
+}).catch(err => {
+  d3.select("#map").append("p").style("color", "crimson")
+    .text("Could not load the basemap. Make sure all files are served over HTTP (e.g. jekyll serve).");
+});
+</script>
+</body>
+</html>

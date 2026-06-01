@@ -2481,6 +2481,16 @@ html:not(.js) .ds-filter-bar { display: none; }
 }
 .ds-detail-author-name { font-weight: 600; }
 .ds-detail-author-role { color: var(--color-gray-500); }
+.ds-author-linkedin {
+  display: inline-flex;
+  align-items: center;
+  margin-left: 0.3rem;
+  color: var(--color-gray-400);
+  vertical-align: middle;
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.ds-author-linkedin:hover { color: #0a66c2; }
 .ds-detail-note {
   margin-top: 0.375rem;
   font-size: 0.8125rem;

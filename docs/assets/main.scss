@@ -13,7 +13,7 @@
   --brand-color: #2563eb;     /* A vibrant blue for links */
   --text-color: #1f2937;      /* Soft near-black, less harsh than #000 */
   --bg-color: #ffffff;
-  --code-bg: #f3f4f6;         /* Light grey for code blocks */
+  --code-bg: #fefefe;         /* Light grey for code blocks */
   --header-bg: #ffffff;
   --border-color: #e5e7eb;
 }
@@ -116,7 +116,7 @@ pre, code {
     /* Redefine the variables for dark settings */
     --text-color: #e5e7eb;  /* Light grey text */
     --bg-color: #111827;    /* Deep dark blue-grey background */
-    --code-bg: #1f2937;     /* Slightly lighter for code blocks */
+    --code-bg: #fefefe;     /* Slightly lighter for code blocks */
     --header-bg: #111827;
     --border-color: #374151;
     --brand-color: #60a5fa; /* Lighter blue for contrast against dark bg */

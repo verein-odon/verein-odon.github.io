@@ -87,7 +87,7 @@ external_links:
     url: "/assets/data-stories/what-europe-called-syphilis/src/"
   - label: "Brief History of Syphilis (PMC)"
     url: "https://pmc.ncbi.nlm.nih.gov/articles/PMC3956094/"
-featured: false
+featured: true
 license: "CC BY 4.0"
 license_url: "https://creativecommons.org/licenses/by/4.0/"
 ---

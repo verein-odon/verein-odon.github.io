@@ -6,8 +6,5 @@ _site/
 .bundle/
 vendor/
 .DS_Store
-<<<<<<< HEAD
 tmp/
-=======
 git.md
->>>>>>> eaae4b92cfbe69eaabeeca3218b049f50bd31b3c

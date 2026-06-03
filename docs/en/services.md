@@ -13,7 +13,7 @@ last_updated: "2026-03-29 00:00"
     <div class="content-section">
       <h2>Our Services</h2>
       <p>
-        We support organisations that want to use Open Data but lack the resources or expertise to do so effectively.
+        We support anyone — organisations, institutions, researchers, and individuals — who wants to use Open Data but lacks the resources or expertise to do so effectively.
       </p>
       <p style="background: #eff6ff; border-left: 3px solid #2563eb; padding: 0.75rem 1rem; border-radius: 0.25rem; margin-top: 1rem;">
         Services are available to <b>non-profits and public interest organisations</b> at reduced or no cost — funded through membership and donations.
@@ -60,9 +60,11 @@ last_updated: "2026-03-29 00:00"
           </ul>
         </div>
       </div>
-      <p style="margin-top: 1.5rem; color: var(--color-gray-500); font-style: italic;">
-        &#9829; Interested in our services? <a href="/en/contact/">Get in touch</a> — we are happy to discuss how we can help.
-      </p>
+      <div style="margin-top: 1.5rem;">
+        <h3>Have a Project in Mind?</h3>
+        <p>If you have a data engineering, data storytelling, or education project you'd like our help with, you can submit it via <a href="/en/projects/">ODON Projects</a>. Submitting an idea is the start of a conversation, not a commitment.</p>
+        <a href="/en/projects/" class="btn btn-primary" style="margin-top: 0.75rem;">Submit a Project</a>
+      </div>
     </div>
   </div>
 </section>

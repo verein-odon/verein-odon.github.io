@@ -5,7 +5,7 @@ lang: en
 ref: privacy
 permalink: /en/privacy/
 in_nav: false
-last_updated: "2026-04-29"
+last_updated: "2026-06-03"
 ---
 
 <section class="section bg-white">
@@ -14,7 +14,7 @@ last_updated: "2026-04-29"
 
 # Privacy Policy
 
-_Last updated: 2026-04-29_
+_Last updated: 2026-06-03_
 
 This Privacy Policy explains how **ODON – Offene Daten für Offene Nutzung** ("ODON", "we", "us") collects and processes personal data when you visit our website, use our services, or otherwise interact with us. We follow the EU General Data Protection Regulation (GDPR) and the Austrian Data Protection Act (DSG).
 
@@ -68,6 +68,8 @@ When you send us an email or fill in our contact form, we process the data you p
 - **Purpose:** to answer your enquiry and, where relevant, to follow up with you.
 - **Legal basis:** Art. 6(1)(b) GDPR (pre-contractual steps or contract performance) where your enquiry concerns a service, membership, or similar relationship; Art. 6(1)(f) GDPR (legitimate interest in responding to enquiries) in all other cases.
 - **Retention:** for as long as needed to handle your request, and afterwards for up to **3 years** where retention is needed for accountability or to document the correspondence. You can ask us to delete your message earlier at any time.
+
+This also applies to project ideas submitted via our form at /en/projects/.
 
 ### 3.3 Internship registration
 
@@ -155,7 +157,7 @@ You can request further information about these safeguards at info@odon.at.
 
 ## 5. Cookies and similar technologies
 
-Our website does not set any cookies of its own, and the hosting infrastructure (GitHub Pages) does not set cookies either. The only cookies you may encounter on odon.at come from embedded Google Forms on the contact and internship registration pages: when you load one of those pages, your browser fetches resources from Google's servers, which may set cookies and process technical data under Google's own privacy policy. This processing is carried out by Google as an independent controller for its own purposes in addition to the processing described in sections 3.2 and 3.3.
+Our website does not set any cookies of its own, and the hosting infrastructure (GitHub Pages) does not set cookies either. The only cookies you may encounter on odon.at come from embedded Google Forms on the contact, internship registration, and ODON Projects pages: when you load one of those pages, your browser fetches resources from Google's servers, which may set cookies and process technical data under Google's own privacy policy. This processing is carried out by Google as an independent controller for its own purposes in addition to the processing described in sections 3.2 and 3.3.
 
 We do not use web analytics (such as Google Analytics, Matomo, or Plausible) advertising cookies, or social-media tracking pixels. If this changes in the future, we will update this policy and, where required, ask for your prior consent through a cookie banner.
 

@@ -23,14 +23,14 @@
 # Change `id` whenever you update the message so returning visitors see it again.
 banner:
   enabled: true
-  id: "data-storytelling-fund-2026-04-02" # increment this to show the banner again to returning visitors
-  message: "Update: the Data Storytelling Fund has been delayed. A new timeline will be announced soon — stay tuned!"
-  url: ""             # optional link URL, e.g. /en/events/
-  url_label: "Learn more"
+  id: "odon-projects-2026-06-03" # increment this to show the banner again to returning visitors
+  message: "ODON Projects is open for submissions —"
+  url: "/en/projects/"
+  url_label: "tell us about your data engineering, storytelling, or education idea"
 
 title: ODON
 email: info@odon.at
-version: "2.8"
+version: "2.9"
 
 collections:
   data_stories:

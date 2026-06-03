@@ -12,7 +12,7 @@ index:
         url: "/en/apis/"
         style: "primary"
         arrow: false
-      - text: "Find An Internship"
+      - text: "Find an Internship"
         url: "/en/internships/"
         style: "secondary"
       - text: "Become a Supporter"
@@ -100,13 +100,13 @@ opendata:
 services:
   en:
     hero-title: "Open Data Services"
-    hero-subtitle: "From Data Engineering to Data Storytelling — we help organisations work with Open Data effectively."
+    hero-subtitle: "From Data Engineering to Data Storytelling — we help anyone work with Open Data effectively."
     image_src: "/assets/images/heros/services.svg"
     alt_text: "Solutions"
-    # buttons:
-    #   - text: "Request Our Services"
-    #     url: "mailto:info@odon.at"
-    #     style: "primary"
+    buttons:
+      - text: "Submit a Project"
+        url: "/en/projects/"
+        style: "primary"
   # de:
   #   hero-title: "Lösungen"
   #   hero-subtitle: "Unser Verein bietet technische Lösungen, die Unternehmen, Organisationen und Instituten helfen, Open Data effizient zu verwalten. Wir unterscheiden zwischen Standardlösungen und individuellen Lösungen, um eine breite Palette von Anforderungen zu erfüllen."

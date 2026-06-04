@@ -6,7 +6,7 @@ ref: projects
 permalink: /en/projects/
 in_nav: false
 description: "ODON Projects are real-world implementations in data engineering, data storytelling, and education. Submit your project idea and start a conversation with us."
-last_updated: "2026-06-03"
+last_updated: "2026-06-04"
 ---
 
 <section class="section bg-white">
@@ -23,15 +23,20 @@ ODON Projects are real-world implementations we take on in three core areas:
 
 If you have an idea that fits one of these areas, we'd like to hear about it.
 
-## One Hard Requirement
+## Our Requirements
 
-As a non-profit association dedicated to open data, every project we work on must result in an **outcome that is publicly accessible**. Beyond that, we're flexible — everything else is open for discussion.
+Every project we take on must meet two conditions:
+
+- The outcome must be **publicly accessible**.
+- We do not work on projects involving surveillance, military applications, discrimination, or anything that undermines people's privacy.
+
+Beyond that, we're flexible — everything else is open for discussion.
 
 ## How It Works
 
 Submitting an idea is the start of a conversation, not a commitment. Once you send your idea, we'll get back to you to discuss what you have in mind, whether it fits our mission, and what shape an implementation could take.
 
-Whether we can implement a project depends on available resources and fit with our mission. For 2026, we aim to take on up to three projects per quarter, on a first-come, first-served basis among ideas where we have matching expertise.
+Whether we can implement a project depends on available resources and fit with our mission. We review submissions as they come in and will get back to you with an honest assessment.
 
 ## Cost
 

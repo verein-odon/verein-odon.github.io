@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "ODON Projects"
+title: "Projects"
 lang: en
 ref: projects
 permalink: /en/projects/

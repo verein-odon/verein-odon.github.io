@@ -1,0 +1,9 @@
+{% if page.version or page.last_updated %}
+<div class="page-meta-bar">
+  <div class="container">
+    {% if page.version %}<span>v{{ page.version }}</span>{% endif %}
+    {% if page.version and page.last_updated %} · {% endif %}
+    {% if page.last_updated %}<span>Last updated: {{ page.last_updated | date: "%Y-%m-%d" }}</span>{% endif %}
+  </div>
+</div>
+{% endif %}

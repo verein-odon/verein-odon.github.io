@@ -5,7 +5,8 @@ nav_order: 1
 lang: en
 ref: opendata
 permalink: /en/open-data/
-last_updated: "2026-05-05 00:00"
+last_updated: "2026-05-05"
+version: "1.4"
 ---
 
 <section class="section bg-white">
@@ -43,7 +44,7 @@ last_updated: "2026-05-05 00:00"
 <section class="section bg-gray">
   <div class="container">
     <div class="content-section">
-      <h2 id="odmm">ODON's Open Data Maturity Model (ODMM) <small style="font-size: 0.6em; font-weight: normal; color: var(--color-gray-500);">v1.4 &middot; 2026-05-05</small></h2>
+      <h2 id="odmm">ODON's Open Data Maturity Model (ODMM)</h2>
       <p>
         The framework assesses data along two independent dimensions: <b>Legal Openness</b> and <b>Technical Openness</b>. Each dimension has four levels. A dataset is assigned the level whose indicators all apply — or, for the first level of each dimension, the level that applies when any restriction is present.
       </p>

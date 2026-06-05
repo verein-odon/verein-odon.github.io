@@ -25,9 +25,10 @@ If you have an idea that fits one of these areas, we'd like to hear about it.
 
 ## Our Requirements
 
-Every project we take on must meet two conditions:
+Every project we take on must meet the following conditions:
 
 - The outcome must be **publicly accessible**.
+- At least one dataset used in the project must be rated **L3 or above** on our [Open Data Maturity Model](/en/open-data/#odmm) — meaning it is openly licensed and reusable.
 - We do not work on projects involving surveillance, military applications, discrimination, or anything that undermines people's privacy.
 
 Beyond that, we're flexible — everything else is open for discussion.

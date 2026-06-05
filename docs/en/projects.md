@@ -45,7 +45,7 @@ Most projects are implemented under a service agreement. Some projects may be im
 
 ## Submit Your Idea
 
-Use the form below, or send your idea directly to [info@odon.at](mailto:info@odon.at).
+Use the form below, or prefer email? Download the [submission form](/assets/downloads/projects/odon-projects-submission-form-v1.0.md) (Markdown — works well as context for AI tools) and send it to [info@odon.at](mailto:info@odon.at).
 
   </div>
   </div>

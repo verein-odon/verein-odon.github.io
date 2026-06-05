@@ -53,7 +53,7 @@ version: "1.4"
       </p>
 
       <h3>Legal Openness</h3>
-      <table>
+      <div class="table-container"><div class="table-wrapper"><table>
         <thead>
           <tr>
             <th>Level</th>
@@ -112,10 +112,10 @@ version: "1.4"
             <td>All indicators must apply<br><br>Typical licenses: public domain / CC0-like</td>
           </tr>
         </tbody>
-      </table>
+      </table></div></div>
 
       <h3>Technical Openness</h3>
-      <table>
+      <div class="table-container"><div class="table-wrapper"><table>
         <thead>
           <tr>
             <th>Level</th>
@@ -177,7 +177,7 @@ version: "1.4"
             <td>All indicators must apply</td>
           </tr>
         </tbody>
-      </table>
+      </table></div></div>
 
       <h3 id="odmm-downloads" style="margin-top: 2rem;">Download as Context File</h3>
       <p>
@@ -195,7 +195,7 @@ version: "1.4"
       </ul>
 
       <h3 id="odmm-version-history" style="margin-top: 2rem;">Version History</h3>
-      <table>
+      <div class="table-container"><div class="table-wrapper"><table>
         <thead>
           <tr>
             <th>Version</th>
@@ -240,7 +240,7 @@ version: "1.4"
             <td>Initial implementation of the ODMM</td>
           </tr>
         </tbody>
-      </table>
+      </table></div></div>
     </div>
   </div>
 </section>

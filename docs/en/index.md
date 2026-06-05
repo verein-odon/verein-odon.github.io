@@ -14,7 +14,17 @@ last_updated: "2025-03-10 14:30"
 <section class="section bg-white">
   <div class="container">
     <div class="content-section">
-    <h2 class="section-title">What We Do</h2>
+      <h2 class="section-title">Our Mission</h2>
+      <p class="lead">Open Data only matters when people can actually use it. ODON is the non-profit association that makes that possible — through free APIs, data engineering and storytelling services, and hands-on education for students and practitioners.</p>
+      <p><a href="/en/data-stories/">See how Open Data leads to insights</a></p>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-gray">
+  <div class="container">
+    <div class="content-section">
+    <h2 class="section-title">Our Contribution</h2>
     <div class="cards-grid">
             <div class="card card-apis">
                 <div class="card-icon">
@@ -110,12 +120,12 @@ last_updated: "2025-03-10 14:30"
 {% include data-stories-teaser.html
    title="Latest Data Stories"
    intro="A closer look at how we turn Open Data into clear, engaging narratives."
-   bg_color="gray"
+   bg_color="white"
    more_url="/en/data-stories/"
    more_label="See all Data Stories" %}
 
 {% include people_carousel.html
-   bg_color="white"
+   bg_color="gray"
    title="People at ODON"
    intro=""
    profile_label="Profile" %}

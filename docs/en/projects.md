@@ -6,7 +6,7 @@ ref: projects
 permalink: /en/projects/
 in_nav: false
 description: "ODON Projects are real-world implementations in data engineering, data storytelling, and education. Submit your project idea and start a conversation with us."
-last_updated: "2026-06-04"
+last_updated: "2026-06-07"
 ---
 
 <section class="section bg-white">
@@ -25,13 +25,12 @@ If you have an idea that fits one of these areas, we'd like to hear about it.
 
 ## Our Requirements
 
-Every project we take on must meet the following conditions:
+Every project we take on must meet two project-specific conditions:
 
 - The outcome must be **publicly accessible**.
-- At least one dataset used in the project must be rated **L3 or above** on our [Open Data Maturity Model](/en/open-data/#odmm) — meaning it is openly licensed and reusable.
-- We do not work on projects involving surveillance, military applications, discrimination, or anything that undermines people's privacy.
+- At least one dataset used must be rated **L3 or above** on our [Open Data Maturity Model](/en/open-data/#odmm) — meaning it is openly licensed and reusable.
 
-Beyond that, we're flexible — everything else is open for discussion.
+Beyond that, what we will and won't take on is governed by our [Code of Conduct](/en/code-of-conduct/). In short: we judge a project by how data is used and whether the work is honest — not by who is behind it. Please give it a read before submitting.
 
 ## How It Works
 

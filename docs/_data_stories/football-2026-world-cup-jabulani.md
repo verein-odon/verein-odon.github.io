@@ -23,7 +23,7 @@ authors:
   - name: "David Curran"
     linkedin: "https://www.linkedin.com/in/david-curran-8ba5534/"
 type: "story"
-featured: false
+featured: true
 topics:
   - "sports"
   - "science"

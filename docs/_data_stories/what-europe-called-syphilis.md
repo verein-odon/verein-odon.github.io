@@ -1,5 +1,5 @@
 ---
-title: "Blaming the Neighbours: what Europe called Syphilis"
+title: "Blaming the Neighbours: What Europe Called Syphilis"
 slug: "what-europe-called-syphilis"
 date: 2026-06-01
 summary: >

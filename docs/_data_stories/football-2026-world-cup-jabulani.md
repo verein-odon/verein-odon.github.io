@@ -1,9 +1,9 @@
 ---
-title: "The 2026 World Cup Football is Much Better Than the 2010 One"
+title: "The 2026 World Cup Football Is Much Better Than the 2010 One"
 slug: "football-2026-world-cup-jabulani"
 date: 2026-06-11
 summary: >
-  Pope John Paul II once said "out of all the unimportant things, football is the most important."
+  Pope John Paul II once said "out of all the unimportant things, football is the most important." Of the unimportant things in football I think the football itself is the most important.
   The 2010 World Cup ball was one of the most complained-about in history — short seams meant unpredictable
   flight, low goals. The 2026 ball looks similar on paper but is aerodynamically far better.
   Here is why seam depth, width, and panel texture matter more than seam length alone.
@@ -66,8 +66,11 @@ license_url: "https://creativecommons.org/licenses/by/4.0/"
 
 In 2010, the South African World Cup used [the Jabulani](https://en.wikipedia.org/wiki/Adidas_Jabulani) — one of the most criticised match balls in the tournament's history. It was too smooth, with far less seam than any previous ball, and the manufacturing technology of the time was not ready for that step.
 
-![Jabulani — the 2010 World Cup ball](/assets/data-stories/football-2026-world-cup-jabulani/jabulani.jpg)
-*Jabulani: eight thermally bonded panels, unusually short and shallow seams. [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Adidas_Jabulani_Official_World_Cup_2010_(4158450149).jpg)*
+<figure style="max-width: 458px; margin: 0 auto;">
+  <img src="/assets/data-stories/football-2026-world-cup-jabulani/jabulani.jpg"
+       alt="Jabulani — the 2010 World Cup ball" style="max-width: 100%; height: auto;">
+  <figcaption><em>Jabulani: eight thermally bonded panels, unusually short and shallow seams. <a href="https://commons.wikimedia.org/wiki/File:Adidas_Jabulani_Official_World_Cup_2010_(4158450149).jpg">Wikimedia Commons</a></em></figcaption>
+</figure>
 
 The seams on the Jabulani measured just 1.98 m in total length, 2.2 mm wide, and only 0.5 mm deep — the narrowest and shallowest of any measured World Cup ball.
 
@@ -97,6 +100,13 @@ Seam length is not the only factor. The width and depth of each seam determine h
 ![Jabulani's seams were uniquely shallow and narrow — every ball since has been deeper](/assets/data-stories/football-2026-world-cup-jabulani/seamwd_tufte.png)
 
 The [Trionda](https://news.adidas.com/innovations/adidas-unveils--trionda----the-official-match-ball-of-the-fifa-world-cup26-/s/27042e3a-12ba-482d-8839-8a96e056b33e) also has three pronounced grooves on each panel surface — up to 9 mm wide and 1.3 mm deep — effectively adding roughness across the entire ball surface, not just at the seam edges. Jabulani's panels were smooth glassy plastic between the seams. Trionda's are not.
+
+<figure style="max-width: 586px; margin: 0 auto;">
+  <img src="/assets/data-stories/football-2026-world-cup-jabulani/trionda.jpg"
+       alt="Trionda — the 2026 World Cup ball"
+       style="max-width: 100%; height: auto;">
+  <figcaption><em>Trionda: four panels, deeper seams and textured surface. <a href="https://commons.wikimedia.org/wiki/File:Adidas_Trionda_Official_Match_Ball.jpg">Wikimedia Commons</a> (CC0)</em></figcaption>
+</figure>
 
 ## Did it affect the game?
 

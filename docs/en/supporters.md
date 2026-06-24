@@ -5,7 +5,7 @@ nav_order: 7
 lang: en
 ref: supporters
 permalink: /en/supporters/
-last_updated: "2026-06-16 00:00"
+last_updated: "2026-06-24 00:00"
 ---
 
 <section class="section bg-white">
@@ -59,6 +59,9 @@ last_updated: "2026-06-16 00:00"
             style="padding: 0.75rem 1.25rem; border: none; background: none; cursor: pointer; font-weight: 500; font-size: 0.9375rem; color: var(--color-gray-500); border-bottom: 2px solid transparent; margin-bottom: -2px;">
             Wise
           </button>
+          <!-- EPS and Credit Card tabs hidden until further notice -->
+          <!-- <button id="tab-eps" onclick="showTab('eps')" style="padding: 0.75rem 1.25rem; border: none; background: none; cursor: pointer; font-weight: 500; font-size: 0.9375rem; color: var(--color-gray-500); border-bottom: 2px solid transparent; margin-bottom: -2px;">EPS</button> -->
+          <!-- <button id="tab-cc" onclick="showTab('cc')" style="padding: 0.75rem 1.25rem; border: none; background: none; cursor: pointer; font-weight: 500; font-size: 0.9375rem; color: var(--color-gray-500); border-bottom: 2px solid transparent; margin-bottom: -2px;">Credit Card</button> -->
         </div>
         <div id="tabpanel-sepa" style="padding: 1.25rem 0; display: flex; gap: 1.5rem; flex-wrap: wrap; align-items: flex-start;">
           <div style="flex: 1; min-width: 14rem;">
@@ -134,18 +137,47 @@ last_updated: "2026-06-16 00:00"
         </div>
         <div id="tabpanel-wise" style="display: none; padding: 1.25rem 0;">
           <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
-            <div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center;">
               <img src="/assets/images/wise-qr-code.png" alt="Scan to support via Wise" style="max-width: 200px; display: block;">
+              <span style="font-size: 0.875rem; color: var(--color-gray-500);">Scan to pay</span>
             </div>
-            <div>
-              <a href="https://wise.com/pay/business/odon" target="_blank" rel="noopener">wise.com/pay/business/odon</a>
+            <div style="color: var(--color-gray-400); font-style: italic; flex-shrink: 0;">or</div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center;">
+              <a href="https://wise.com/pay/business/odon" class="btn btn-primary" target="_blank" rel="noopener">Support via Wise</a>
+              <span style="font-size: 0.875rem; color: var(--color-gray-500);">Pay online</span>
+            </div>
+          </div>
+        </div>
+        <div id="tabpanel-eps" style="display: none; padding: 1.25rem 0;">
+          <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center;">
+              <img src="/assets/images/support/mollie-eps-qr-code.png" alt="Scan to support via EPS" style="max-width: 200px; display: block;">
+              <span style="font-size: 0.875rem; color: var(--color-gray-500);">Scan to pay</span>
+            </div>
+            <div style="color: var(--color-gray-400); font-style: italic; flex-shrink: 0;">or</div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center;">
+              <a href="https://payment-links.mollie.com/payment/gMUdudXVaFf5QXoMNdL4T" class="btn btn-primary" target="_blank" rel="noopener">Support via EPS</a>
+              <span style="font-size: 0.875rem; color: var(--color-gray-500);">Pay online</span>
+            </div>
+          </div>
+        </div>
+        <div id="tabpanel-cc" style="display: none; padding: 1.25rem 0;">
+          <div style="display: flex; gap: 1.5rem; align-items: center; flex-wrap: wrap;">
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center;">
+              <img src="/assets/images/support/mollie-cc-qr-code.png" alt="Scan to support via credit card" style="max-width: 200px; display: block;">
+              <span style="font-size: 0.875rem; color: var(--color-gray-500);">Scan to pay</span>
+            </div>
+            <div style="color: var(--color-gray-400); font-style: italic; flex-shrink: 0;">or</div>
+            <div style="flex: 1; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; text-align: center;">
+              <a href="https://payment-links.mollie.com/payment/kwpUK7aFT8SeryxS4kaar" class="btn btn-primary" target="_blank" rel="noopener">Support via Credit Card</a>
+              <span style="font-size: 0.875rem; color: var(--color-gray-500);">Pay online</span>
             </div>
           </div>
         </div>
       </div>
       <script>
         function showTab(tab) {
-          ['sepa', 'wise'].forEach(function(t) {
+          ['sepa', 'wise', 'eps', 'cc'].forEach(function(t) {
             var active = t === tab;
             document.getElementById('tab-' + t).style.color = active ? 'var(--color-blue-600)' : 'var(--color-gray-500)';
             document.getElementById('tab-' + t).style.borderBottom = active ? '2px solid var(--color-blue-600)' : '2px solid transparent';

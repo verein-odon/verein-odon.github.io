@@ -39,15 +39,15 @@ data_sources:
     odmm_technical_details: >
       Full API access available in SDMX, CSV, and TSV formats. T4.
   - name: "European Environment Agency — Sustainability of Europe's Mobility Systems 2024"
-    url: "https://www.eea.europa.eu/en/analysis/indicators/transport-emissions-of-greenhouse-gases"
+    url: "https://www.eea.europa.eu/en/analysis/indicators/greenhouse-gas-emissions-from-transport"
     odmm_legal: "L3"
     odmm_legal_details: >
       EEA publications are freely accessible and reusable for educational and non-commercial purposes; no blanket open licence. L3.
     odmm_technical: "T3"
     odmm_technical_details: >
       Summaries available in report form; raw underlying data quality varies by member state. T3.
-  - name: "Greenpeace — Carbon-intensive flights cheaper than rail on 61% of European routes (142-route study, 2024)"
-    url: "https://www.greenpeace.org/eu-unit/issues/climate-change/46789/its-not-just-about-money-heres-why-flying-in-europe-is-so-cheap/"
+  - name: "Greenpeace — Low-cost flights up to 26× cheaper than trains: 142-route study (2025)"
+    url: "https://www.greenpeace.org/eu-unit/issues/climate-energy/47717/low-cost-flights-up-to-26-times-cheaper-than-trains/"
     odmm_legal: "L2"
     odmm_legal_details: >
       Summary publicly accessible; underlying fare data not released. No open licence. L2.
@@ -55,7 +55,7 @@ data_sources:
     odmm_technical_details: >
       Published as a PDF/web report; no structured data export provided. T2.
   - name: "Greenpeace UK — Cheap Pollution: why flying in the UK is too affordable (112-route study, 2023)"
-    url: "https://www.greenpeace.org.uk/resources/cheap-pollution/"
+    url: "https://www.greenpeace.org.uk/news/cheap-pollution-means-taking-the-train-to-europe-is-four-times-the-cost-of-flying-report/"
     odmm_legal: "L2"
     odmm_legal_details: >
       Report freely accessible online; no open licence. L2.
@@ -70,8 +70,8 @@ data_sources:
     odmm_technical: "T3"
     odmm_technical_details: >
       Figures from press releases; no structured dataset provided. T3.
-  - name: "ÖBB / railcc.net — Nightjet NJ40421 timetable and fares (2025)"
-    url: "https://railcc.net/train/nightjet/"
+  - name: "rail.cc — Nightjet NJ40421 Amsterdam–Vienna timetable and fares (2025)"
+    url: "https://rail.cc/night-train/amsterdam-vienna-oebb-nightjet-nj40421/629"
     odmm_legal: "L2"
     odmm_legal_details: >
       Timetable is publicly available; pricing is dynamic and unarchived. No open licence. L2.
@@ -79,7 +79,7 @@ data_sources:
     odmm_technical_details: >
       Human-readable only; no machine-readable export. T2.
   - name: "Flightright — Train vs Plane CO₂ comparison (2024)"
-    url: "https://www.flightright.com/knowledge/how-much-co2-does-a-flight-emit"
+    url: "https://www.flightright.com/blog/train-vs-plane"
     odmm_legal: "L3"
     odmm_legal_details: >
       Methodology described on a publicly accessible page; proprietary models underlie the estimates. L3.
@@ -95,21 +95,21 @@ data_sources:
     odmm_technical_details: >
       PDF/web summaries freely available; detailed STATFOR data requires institutional access. T3.
   - name: "TIME Magazine / Transport & Environment — Why train travel costs more than flying in Europe (2024)"
-    url: "https://time.com/6975842/europe-train-travel-cost/"
+    url: "https://time.com/6108578/why-flying-is-more-expensive-than-taking-the-train/"
     odmm_legal: "L2"
     odmm_legal_details: >
       Published in a commercial magazine. No open licence; article is readable online but not licensed for reuse. L2.
     odmm_technical: "T3"
     odmm_technical_details: >
       No structured data download; fare comparisons compiled manually. T3.
-  - name: "CarbonClick — Night train carbon savings guide (April 2025)"
-    url: "https://www.carbonclick.com/insights/"
+  - name: "Man in Seat 61 — Nightjet guide"
+    url: "https://www.seat61.com/trains-and-routes/nightjet.htm"
     odmm_legal: "L2"
     odmm_legal_details: >
-      Commercial company insights page. No open licence stated; freely readable but not licensed for reuse. L2.
+      Independent travel guide website. No open licence stated; freely readable but not licensed for reuse. L2.
     odmm_technical: "T2"
     odmm_technical_details: >
-      Figures drawn from public sources and presented as web content; no original dataset provided. T2.
+      HTML web page; timetable and fare information presented as prose with no structured data download. T2.
   - name: "EcoPassenger — CO₂ calculator (2024)"
     url: "https://www.ecopassenger.org/"
     odmm_legal: "L3"

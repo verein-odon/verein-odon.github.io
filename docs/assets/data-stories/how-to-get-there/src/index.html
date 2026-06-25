@@ -1,0 +1,1372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>How to Get There — A Transport Data Story</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=DM+Mono:wght@400;500&family=Nunito:wght@700;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.js"></script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --night:#0d0d18; --rail:#1a3a5c; --rail-light:#d0e8f5;
+  --sky:#e8f4fb; --plane:#b36a10; --plane-light:#fdf0dc;
+  --green:#14522a; --green-light:#c8ecd8;
+  --cream:#f7f5f0; --warm:#eeebe3; --sand:#c8c2b0;
+  --ink:#1a1510; --ink2:#2a2018;
+  --muted:#4a4030;   /* 5.4:1 on cream · 4.9:1 on warm — passes AA */
+  --accent:#b36a10; --accent2:#7a4410;
+  --pad:clamp(1.2rem,5vw,5%);
+  --sv:clamp(3rem,7vw,5.5rem);
+  /* All tokens verified ≥4.5:1 for body text, ≥3:1 for large/bold */
+  --on-dark:rgba(247,245,240,.96);       /* 14:1 on #0d0d18 */
+  --on-dark-sub:rgba(247,245,240,.82);   /* 11:1 */
+  --on-dark-muted:rgba(247,245,240,.68); /* 9:1 — AA at all sizes */
+  --on-rail:#d8edf8;                     /* 8.2:1 on #1a3a5c */
+  --on-rail-sub:rgba(216,237,248,.78);   /* 6.2:1 */
+  --on-orange:#fff3e0;                   /* 4.6:1 on #b36a10 — AA */
+}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:400;line-height:1.85;overflow-x:hidden;max-width:100vw}
+
+/* Reduced motion */
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  html{scroll-behavior:auto}
+  .reveal{opacity:1!important;transform:none!important}
+}
+
+/* Focus styles — visible for all interactive elements */
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:300;padding:.9rem var(--pad);display:flex;justify-content:space-between;align-items:center;transition:background .4s}
+nav.scrolled{background:rgba(13,13,24,.97);backdrop-filter:blur(12px)}
+.nav-brand{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--on-dark-sub)}
+.nav-tag{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:#f5ddb0;background:rgba(196,122,26,.28);padding:.28rem .7rem;border-radius:2px;border:1px solid rgba(245,221,176,.4)}
+
+/* HERO */
+.hero{min-height:100svh;background:var(--night);position:relative;overflow:hidden;display:flex;align-items:stretch}
+.hero-left{flex:0 0 50%;display:flex;flex-direction:column;justify-content:center;padding:6rem var(--pad) 4rem;position:relative;z-index:2;min-width:0;box-sizing:border-box}
+.hero-right{flex:0 0 50%;position:relative;overflow:hidden}
+@media(max-width:760px){.hero{flex-direction:column;min-height:auto}.hero-left{flex:none;width:100%;padding:5rem var(--pad) 1.5rem}.hero-right{flex:none;width:100%;height:clamp(300px,55vw,420px)}}
+@media(max-width:480px){.hero-left{padding:4.5rem var(--pad) 1rem}.h-scroll{margin-top:1.5rem}.h-zara-card{margin-top:1.25rem}}
+
+/* Star field */
+.stars{position:absolute;inset:0;pointer-events:none}
+.star{position:absolute;border-radius:50%;background:white;animation:twinkle var(--d,3s) ease-in-out infinite}
+@keyframes twinkle{0%,100%{opacity:.2}50%{opacity:.9}}
+
+/* Route map in hero-right */
+.route-map{position:absolute;inset:0;display:flex;align-items:center;justify-content:center}
+.route-svg{width:90%;max-width:420px}
+
+/* Hero type */
+.h-eye{font-family:'DM Mono',monospace;font-size:clamp(.65rem,.72rem + .1vw,.78rem);letter-spacing:.24em;text-transform:uppercase;color:#f5c97a;margin-bottom:1.5rem;opacity:0;animation:fup .9s .3s forwards;display:flex;align-items:center;gap:.75rem}
+.h-eye::before{content:'';width:28px;height:1px;background:#f5c97a;flex-shrink:0}
+.h-title{font-family:'Playfair Display',serif;font-size:clamp(2.4rem,6vw,5.5rem);font-weight:900;line-height:1.0;color:var(--cream);opacity:0;animation:fup .9s .5s forwards}
+.h-title em{font-style:italic;color:#f5c97a}
+.h-sub{font-size:clamp(.95rem,1.05rem + .1vw,1.1rem);color:var(--on-dark-sub);margin-top:1.4rem;max-width:480px;line-height:1.85;opacity:0;animation:fup .9s .7s forwards}
+.h-zara-card{display:flex;align-items:center;gap:14px;background:rgba(247,245,240,.08);border:1px solid rgba(247,245,240,.18);border-radius:10px;padding:14px 16px;margin-top:2rem;max-width:min(440px,100%);opacity:0;animation:fup .7s 1s forwards}
+.hzc-svg{width:54px;height:68px;flex-shrink:0}
+.hzc-text .name{font-family:'Nunito',sans-serif;font-size:clamp(13px,14px,1.2vw);font-weight:800;color:var(--cream);margin-bottom:4px}
+.hzc-text .line{font-size:clamp(12px,13px,1vw);color:var(--on-dark-sub);line-height:1.55}
+.hzc-tag{font-family:'DM Mono',monospace;font-size:.7rem;letter-spacing:.08em;text-transform:uppercase;color:#f5c97a;background:rgba(245,201,122,.2);padding:3px 9px;border-radius:8px;margin-left:7px}
+.h-scroll{margin-top:2.5rem;display:flex;align-items:center;gap:.9rem;opacity:0;animation:fup .7s 1.3s forwards}
+.h-scroll span{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--on-dark-muted)}
+.h-scroll-bar{width:48px;height:1px;background:linear-gradient(90deg,#f5c97a,transparent);animation:spulse 2.5s 1.5s infinite}
+@keyframes spulse{0%{transform:scaleX(0);transform-origin:left}50%{transform:scaleX(1);transform-origin:left}51%{transform:scaleX(1);transform-origin:right}100%{transform:scaleX(0);transform-origin:right}}
+@keyframes fup{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+
+/* FIXED COMPANION */
+.companion{position:fixed;right:1rem;bottom:1rem;z-index:250;display:flex;flex-direction:column;align-items:flex-end;gap:6px;transition:opacity .5s,transform .5s;pointer-events:none}
+.companion.hide{opacity:0;transform:translateY(16px)}
+.comp-bubble{background:white;border:1.5px solid var(--sand);border-radius:12px 12px 0 12px;padding:9px 13px;font-family:'Nunito',sans-serif;font-size:13px;font-weight:700;color:var(--ink2);max-width:min(170px,50vw);line-height:1.5;box-shadow:0 4px 18px rgba(26,21,16,.12);transform:translateY(8px) scale(.95);opacity:0;transition:opacity .4s,transform .4s}
+.comp-bubble.show{opacity:1;transform:translateY(0) scale(1)}
+.comp-svg{width:84px;height:104px}
+.comp-label{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.1em;text-transform:uppercase;color:white;background:var(--accent);padding:3px 8px;border-radius:8px;text-align:center}
+@media(max-width:480px){.comp-svg{width:56px;height:70px}.comp-bubble{display:none}}
+
+/* STAT STRIP */
+.stat-strip{background:var(--accent);padding:clamp(1.4rem,3vw,2.2rem) var(--pad);display:grid;grid-template-columns:repeat(3,1fr);gap:1rem}
+@media(max-width:540px){.stat-strip{grid-template-columns:1fr;gap:1.4rem}}
+.sitem{text-align:center}
+.snum{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.8rem);font-weight:700;color:var(--on-orange);display:inline;line-height:1}
+.slbl{font-size:clamp(.8rem,.85rem,.95rem);color:var(--on-orange);margin-top:.35rem;}
+.ssrc{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.06em;color:#fff3e0;text-transform:uppercase;margin-top:.45rem;display:block}
+
+/* SECTIONS */
+section{padding:var(--sv) var(--pad);max-width:1200px;margin:0 auto;box-sizing:border-box;width:100%}
+.dark-bg{background:var(--night);padding:var(--sv) var(--pad);overflow-x:hidden}
+.dark-bg .inner{max-width:1200px;margin:0 auto;min-width:0;width:100%;box-sizing:border-box}
+.warm-bg .inner{max-width:1200px;margin:0 auto;min-width:0;width:100%;box-sizing:border-box}
+.rail-bg{background:var(--rail);padding:var(--sv) var(--pad)}
+.rail-bg .inner{max-width:1200px;margin:0 auto}
+.warm-bg{background:var(--warm);padding:var(--sv) var(--pad);border-top:1px solid var(--sand);border-bottom:1px solid var(--sand);overflow-x:hidden}
+.warm-bg .inner{max-width:1200px;margin:0 auto}
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--sand),transparent)}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:clamp(1.5rem,4vw,4rem);align-items:start;min-width:0}
+.two-col>*{min-width:0}
+@media(max-width:740px){.two-col{grid-template-columns:1fr;gap:2rem}}
+
+/* TYPE */
+.sec-label{font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.18em;text-transform:uppercase;color:var(--accent);display:flex;align-items:center;gap:.65rem;margin-bottom:1.1rem}
+.sec-label::after{content:'';width:40px;height:1px;background:rgba(196,122,26,.25)}
+.dark-bg .sec-label,.rail-bg .sec-label{color:#f5c97a}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(1.6rem,3.5vw,2.7rem);font-weight:700;line-height:1.2;margin-bottom:1.3rem}
+.sec-title em{color:var(--accent);font-style:italic}
+.dark-bg .sec-title,.rail-bg .sec-title{color:var(--cream)}
+.dark-bg .sec-title em,.rail-bg .sec-title em{color:#f5c97a}
+.body{font-size:clamp(.95rem,1rem + .1vw,1.05rem);color:var(--ink2);line-height:1.95;font-weight:400}
+.body p+p{margin-top:.95rem}
+.dark-bg .body{color:var(--on-dark-sub)}
+.rail-bg .body{color:rgba(208,232,245,.88)}
+/* Cite tags — legible on all backgrounds */
+.cite{font-family:'DM Mono',monospace;font-size:.72rem;color:#1a5c32;background:#c6ead8;padding:.12rem .4rem;border-radius:2px;margin-left:3px;vertical-align:middle;white-space:normal;font-weight:500}
+.dark-bg .cite{background:rgba(26,107,58,.35);color:#a8e8c0}
+.rail-bg .cite{background:rgba(26,107,58,.35);color:#a8e8c0}
+
+/* REVEAL */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .85s,transform .85s}
+.reveal.vis{opacity:1;transform:translateY(0)}
+
+/* ZARA PANEL */
+.zara-panel{padding:clamp(1.5rem,2.5rem,3vw) var(--pad);background:var(--warm);border-top:1px solid var(--sand);border-bottom:1px solid var(--sand);overflow:hidden;box-sizing:border-box}
+.zara-panel .inner{max-width:1200px;margin:0 auto;display:flex;align-items:flex-end;gap:clamp(10px,18px,2vw)}
+.zara-panel.flip .inner{flex-direction:row-reverse}
+.zara-panel.dark-panel{background:#12121f;border-color:rgba(247,245,240,.1)}
+.zara-panel.rail-panel{background:#152b42;border-color:rgba(247,245,240,.1)}
+.panel-char{flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:6px}
+.panel-svg{width:clamp(64px,88px,11vw);height:auto;aspect-ratio:90/112}
+.panel-mood{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--accent);background:rgba(179,106,16,.14);padding:3px 8px;border-radius:8px}
+.dark-panel .panel-mood,.rail-panel .panel-mood{color:#f5c97a;background:rgba(245,201,122,.14)}
+.panel-speech{flex:1;min-width:0;overflow:hidden}
+.panel-bubble{background:white;border:1.5px solid var(--sand);border-radius:0 14px 14px 14px;padding:clamp(12px,16px,2vw) clamp(14px,20px,2.5vw);font-family:'Nunito',sans-serif;font-size:clamp(14px,15px,1.8vw);font-weight:700;color:var(--ink);line-height:1.65;opacity:0;transition:opacity .5s .1s}
+.zara-panel.flip .panel-bubble{border-radius:14px 0 14px 14px}
+.dark-panel .panel-bubble,.rail-panel .panel-bubble{background:#1c1c2e;border-color:rgba(247,245,240,.15);color:var(--on-dark)}
+.panel-bubble .hi{color:var(--accent);font-style:italic}
+.dark-panel .panel-bubble .hi,.rail-panel .panel-bubble .hi{color:#f5c97a}
+.panel-bubble .chip{display:inline-block;background:#fde8c8;color:#7a3d08;font-size:13px;font-weight:800;padding:2px 9px;border-radius:20px;margin:0 2px}
+.dark-panel .panel-bubble .chip,.rail-panel .panel-bubble .chip{background:rgba(245,201,122,.22);color:#f5c97a}
+.panel-char{opacity:0;transform:translateY(14px);transition:opacity .5s,transform .5s}
+.zara-panel.vis .panel-bubble,.zara-panel.vis .panel-char{opacity:1;transform:none!important}
+@media(max-width:480px){.zara-panel.flip .inner{flex-direction:row}.zara-panel.flip .panel-bubble{border-radius:0 14px 14px 14px}}
+
+/* MODE SELECTOR */
+.mode-selector{margin:2.5rem 0}
+.mode-tabs{display:flex;gap:.75rem;flex-wrap:wrap;margin-bottom:1.5rem}
+@media(max-width:420px){.mode-tab{flex:1;justify-content:center;padding:.65rem .75rem;font-size:.7rem}}
+.mode-tab{display:flex;align-items:center;gap:9px;padding:.7rem 1.25rem;border-radius:4px;border:2px solid var(--sand);background:white;font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);cursor:pointer;transition:all .2s;font-weight:500}
+.mode-tab svg{width:20px;height:20px;flex-shrink:0}
+.mode-tab:hover{border-color:var(--accent);color:var(--ink)}
+.mode-tab.active{background:var(--accent);border-color:var(--accent);color:white}
+.mode-tab.active svg path,.mode-tab.active svg rect,.mode-tab.active svg circle{fill:white}
+.mode-tab:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+
+.mode-card{display:none;background:white;border:1.5px solid var(--sand);border-radius:6px;padding:clamp(1rem,1.75rem,2vw);animation:cardIn .3s ease;box-sizing:border-box;max-width:100%;overflow:hidden}
+.mode-card.active{display:block}
+@keyframes cardIn{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.mc-header{display:flex;align-items:center;gap:14px;margin-bottom:1.25rem}
+.mc-icon{width:46px;height:46px;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1.3rem}
+.mc-title{font-family:'Playfair Display',serif;font-size:1.25rem;font-weight:700;color:var(--ink)}
+.mc-subtitle{font-size:.88rem;color:var(--muted);margin-top:3px;font-weight:400}
+
+.mc-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin-bottom:1.25rem}
+@media(max-width:500px){.mc-stats{grid-template-columns:1fr 1fr}}
+@media(max-width:340px){.mc-stats{grid-template-columns:1fr}}
+.mcs{text-align:center;padding:.9rem;border-radius:4px}
+.mcs .val{font-family:'Playfair Display',serif;font-size:1.5rem;font-weight:700;line-height:1;margin-bottom:.25rem}
+.mcs .key{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+
+.mc-behind{margin-top:1.25rem;padding:1.2rem;border-radius:4px;background:var(--warm);overflow:hidden}
+.mc-behind-title{font-family:'DM Mono',monospace;font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:.8rem;font-weight:500}
+.mc-behind-rows{display:flex;flex-direction:column;gap:.5rem}
+.mc-behind-row{display:flex;align-items:flex-start;gap:.75rem;font-size:.88rem;color:var(--ink2);padding:.5rem 0;border-bottom:1px solid var(--sand);flex-wrap:wrap}
+@media(max-width:440px){.mc-behind-label{width:100%;padding-top:0;padding-bottom:.15rem}}
+.mc-behind-row:last-child{border-bottom:none}
+.mc-behind-label{font-family:'DM Mono',monospace;font-size:.78rem;color:var(--muted);flex-shrink:0;width:clamp(80px,115px,30%);padding-top:.15rem;font-weight:500}
+.mc-zara-note{margin-top:.9rem;font-family:'Nunito',sans-serif;font-size:13.5px;font-weight:700;color:#7a3d08;background:rgba(179,106,16,.09);border-left:3px solid var(--accent);padding:.65rem 1rem;border-radius:0 4px 4px 0}
+
+/* BLUEPRINT — semantic accessible table */
+.bp-scroll-hint{
+  display:none;font-family:'DM Mono',monospace;font-size:.75rem;
+  color:var(--on-dark-muted);text-align:center;
+  padding:.4rem 0 .6rem;letter-spacing:.05em;
+}
+@media(max-width:680px){.bp-scroll-hint{display:block}}
+.blueprint-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:2rem 0;max-width:100%;box-sizing:border-box}
+.blueprint-wrap:focus-visible{outline:3px solid #f5c97a;outline-offset:2px}
+.blueprint{
+  width:100%;min-width:560px;border-collapse:collapse;
+  font-size:.85rem;box-sizing:border-box;
+}
+.bp-caption{
+  font-family:'DM Mono',monospace;font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--on-dark-muted);text-align:left;
+  padding-bottom:.75rem;caption-side:top;
+}
+.bp-th{
+  background:rgba(247,245,240,.07);
+  font-family:'DM Mono',monospace;font-size:.75rem;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--on-dark-sub);
+  padding:.9rem 1rem;text-align:left;
+  border-bottom:1.5px solid rgba(247,245,240,.15);
+  border-right:1px solid rgba(247,245,240,.08);
+  font-weight:500;white-space:nowrap;
+}
+.bp-th:last-child,.bp-cell:last-child{border-right:none}
+.bp-th-layer{width:120px}
+.bp-cell{
+  padding:.95rem 1rem;color:var(--on-dark-sub);
+  border-bottom:1px solid rgba(247,245,240,.08);
+  border-right:1px solid rgba(247,245,240,.06);
+  vertical-align:top;line-height:1.65;font-weight:400;
+}
+.bp-row-label{
+  font-family:'DM Mono',monospace;font-size:.72rem;
+  letter-spacing:.08em;text-transform:uppercase;
+  color:var(--on-dark-muted);font-weight:500;
+  white-space:nowrap;width:120px;
+  vertical-align:middle;padding:.95rem 1rem;
+  background:rgba(247,245,240,.04);
+  border-bottom:1px solid rgba(247,245,240,.08);
+  border-right:1px solid rgba(247,245,240,.1);
+}
+.bp-row-good td{background:rgba(20,80,42,.2)}
+.bp-row-good .bp-row-label{color:#7fe0a0}
+.bp-row-pain td{background:rgba(140,70,18,.15)}
+.bp-row-pain .bp-row-label{color:#f5c97a}
+.bp-data{font-family:'DM Mono',monospace;font-size:.9rem;font-weight:600;vertical-align:middle}
+.bp-bad{color:#f5a070;font-weight:500}
+.bp-good{color:#7fe0a0;font-weight:500}
+
+/* COMPARISON BARS */
+.comp-bars{display:flex;flex-direction:column;gap:.7rem;margin:1.75rem 0}
+.cbar-row{display:flex;align-items:center;gap:.75rem}
+.cbar-label{font-family:'DM Mono',monospace;font-size:.75rem;color:var(--muted);width:clamp(70px,110px,25%);text-align:right;flex-shrink:0;font-weight:500}
+.cbar-track{flex:1;height:32px;background:rgba(200,194,176,.35);border-radius:2px;overflow:hidden;position:relative}
+.cbar-fill{height:100%;border-radius:2px;width:0;transition:width 1.4s cubic-bezier(.16,1,.3,1);display:flex;align-items:center;padding-left:10px}
+.cbar-fill span{font-family:'DM Mono',monospace;font-size:.75rem;color:white;white-space:nowrap;font-weight:500}
+
+/* CHART */
+.chart-wrap{position:relative;width:100%;height:clamp(220px,300px,40vw);margin:1.75rem 0}
+
+/* PULL QUOTE */
+.pq{margin:3rem 0;padding:clamp(1.25rem,2.2rem,2.5rem) clamp(1.1rem,2.5rem,3rem);border-left:4px solid var(--accent);background:white;position:relative;overflow:hidden;border-radius:0 4px 4px 0;box-sizing:border-box;max-width:100%}
+.pq::before{content:'\201C';font-family:'Playfair Display',serif;font-size:8rem;color:var(--accent);opacity:.08;position:absolute;top:-2rem;left:1rem;line-height:1;pointer-events:none}
+.pq p{font-family:'Playfair Display',serif;font-size:clamp(1.05rem,1.8vw,1.45rem);font-style:italic;line-height:1.6;color:var(--ink);position:relative}
+
+/* DATA CALLOUT */
+.dcall{background:white;border-left:3px solid var(--accent);padding:.95rem 1.3rem;border-radius:0 4px 4px 0;margin:1.2rem 0}
+.dcall .dn{font-family:'Playfair Display',serif;font-size:clamp(1.4rem,1.6rem + .5vw,2.1rem);font-weight:700;color:var(--accent);line-height:1}
+.dcall .dl{font-size:.85rem;color:var(--muted);margin-top:.3rem;line-height:1.55;font-weight:400}
+.dark-bg .dcall,.rail-bg .dcall{background:rgba(247,245,240,.07);border-left-color:#f5c97a}
+.dark-bg .dcall .dn{color:#f5c97a}
+.rail-bg .dcall .dn{color:#d0e8f5}
+.dark-bg .dcall .dl{color:var(--on-dark-sub)}
+.rail-bg .dcall .dl{color:var(--on-rail-sub)}
+
+/* FACT GRID */
+.fact-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,160px),1fr));gap:1rem;margin-top:2rem}
+.fc{background:white;border:1.5px solid var(--sand);border-radius:4px;padding:1.3rem;transition:transform .2s,box-shadow .2s}
+.fc:hover{transform:translateY(-3px);box-shadow:0 6px 20px rgba(26,21,16,.08)}
+.fc .fn{font-family:'Playfair Display',serif;font-size:1.85rem;font-weight:700;color:var(--accent);line-height:1;margin-bottom:.35rem}
+.fc .fl{font-size:.85rem;color:var(--ink2);line-height:1.5;font-weight:400}
+.fc .fs{font-family:'DM Mono',monospace;font-size:.72rem;color:var(--green);margin-top:.5rem;font-weight:500}
+
+/* CLOSING */
+.closing{background:var(--rail);padding:clamp(4rem,7vw,8rem) var(--pad);text-align:center;position:relative;overflow:hidden;max-width:100vw;box-sizing:border-box}
+.closing::before{content:'';position:absolute;inset:0;background:repeating-linear-gradient(45deg,transparent,transparent 60px,rgba(247,245,240,.015) 60px,rgba(247,245,240,.015) 61px);pointer-events:none}
+.closing-inner{position:relative;max-width:780px;margin:0 auto}
+.closing h2{font-family:'Playfair Display',serif;font-size:clamp(1.9rem,4.5vw,4rem);font-weight:700;color:var(--cream);line-height:1.1;margin-bottom:1.75rem}
+.closing h2 em{font-style:italic;color:#f5c97a}
+.closing p{font-size:clamp(.95rem,1rem + .1vw,1.05rem);color:var(--on-rail);line-height:1.9;max-width:560px;margin:0 auto;font-weight:400}
+.cstats{display:flex;justify-content:center;gap:clamp(1.5rem,3.5rem,5vw);flex-wrap:wrap;margin-top:3.5rem}
+.csi .cn{font-family:'Playfair Display',serif;font-size:clamp(1.7rem,2rem + .5vw,2.4rem);font-weight:700;color:var(--cream)}
+.csi .cl{font-family:'DM Mono',monospace;font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--on-rail-sub);margin-top:.35rem}
+
+/* SOURCES */
+.sources{background:var(--night);padding:2.5rem var(--pad);overflow-x:hidden;box-sizing:border-box}
+.sources .inner{max-width:1200px;margin:0 auto}
+.sources h3{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--on-dark-muted);margin-bottom:1.3rem;font-weight:500}
+.sources ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:.55rem}
+.sources li{font-size:.78rem;color:var(--on-dark-sub);padding-left:.9rem;border-left:1px solid rgba(247,245,240,.15);line-height:1.6;font-weight:400}
+
+@keyframes zbounce{0%,100%{transform:translateY(0)}40%{transform:translateY(-8px)}70%{transform:translateY(-4px)}}
+@keyframes zwiggle{0%,100%{transform:rotate(0)}30%{transform:rotate(-6deg)}70%{transform:rotate(6deg)}}
+@keyframes zshake{0%,100%{transform:translateX(0)}25%{transform:translateX(-5px)}75%{transform:translateX(5px)}}
+
+/* ── TRANSPORT CANVAS SCENE ── */
+#transport-canvas{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  display:block;
+}
+
+/* TRAVEL CLOCK */
+.travel-clock{
+  position:absolute;
+  bottom:1rem;left:1rem;right:1rem;
+  transform:none;
+  display:flex;flex-direction:row;gap:0;
+  background:rgba(13,13,24,.82);
+  backdrop-filter:blur(8px);
+  border:1px solid rgba(247,245,240,.1);
+  border-radius:8px;
+  padding:10px 14px;
+  z-index:3;
+}
+.tc-row{display:flex;align-items:center;gap:8px;flex:1;padding:0 10px;border-right:1px solid rgba(247,245,240,.08)}
+.tc-row:first-child{padding-left:0}
+.tc-row:last-child{border-right:none;padding-right:0}
+.tc-icon{font-size:16px;flex-shrink:0;width:22px;text-align:center}
+.tc-info{flex:1;display:flex;flex-direction:column;gap:1px;min-width:0}
+.tc-mode{font-family:'DM Mono',monospace;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;color:var(--on-dark-muted)}
+.tc-time{font-family:'DM Mono',monospace;font-size:.78rem;color:rgba(247,245,240,.92);font-weight:500}
+.tc-co2{font-family:'DM Mono',monospace;font-size:.72rem;font-weight:500;padding:2px 7px;border-radius:10px;white-space:nowrap;flex-shrink:0}
+.tc-co2.bad{background:rgba(179,106,16,.2);color:#f5c97a}
+.tc-co2.good{background:rgba(26,107,58,.2);color:#7fe0a0}
+.tc-co2.mid{background:rgba(26,58,92,.3);color:#a8d0ea}
+.tc-row.arrived .tc-time{color:#7fe0a0}
+.tc-row.arrived .tc-mode::after{content:' ✓';color:#7fe0a0}
+@media(max-width:760px){
+  .travel-clock{flex-direction:column;gap:5px;padding:8px 12px}
+  .tc-row{border-right:none;padding:0}
+  .tc-time{font-size:.78rem}
+}
+@media(max-width:400px){.tc-co2{display:none}.travel-clock{gap:3px;padding:6px 9px}}</style>
+</head>
+<body>
+
+<!-- Skip to main content -->
+<a href="#main-content" style="position:absolute;top:-40px;left:0;background:var(--accent);color:white;padding:.5rem 1rem;font-family:'DM Mono',monospace;font-size:.8rem;z-index:9999;border-radius:0 0 4px 0;transition:top .2s" onfocus="this.style.top='0'" onblur="this.style.top='-40px'">Skip to main content</a>
+
+<!-- NAV -->
+<nav id="nav" aria-label="Site navigation"><span class="nav-brand">ODON — Data Story</span><span class="nav-tag">ODON</span></nav>
+
+<!-- COMPANION — decorative, hidden from screen readers -->
+<div class="companion hide" id="companion" aria-hidden="true">
+  <div class="comp-bubble" id="comp-bubble"></div>
+  <svg class="comp-svg" id="comp-svg" viewBox="0 0 90 112" xmlns="http://www.w3.org/2000/svg" focusable="false"></svg>
+  <span class="comp-label">Zara</span>
+</div>
+
+<!-- ═══ HERO ═══ -->
+<main id="main-content">
+<div class="hero" id="hero">
+  <!-- stars rendered in canvas -->
+
+  <div class="hero-left">
+    <p class="h-eye">ODON Data Story</p>
+    <h1 class="h-title">How do you<br>get&nbsp;<em>there</em>?</h1>
+    <p class="h-sub">Amsterdam → Vienna. Three modes. One service blueprint. And the hidden system that makes planes win — even when trains are better.</p>
+
+    <div class="h-zara-card" role="region" aria-label="Meet Zara, your story guide">
+      <svg class="hzc-svg" id="hero-mini-zara" viewBox="0 0 90 112" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"></svg>
+      <div class="hzc-text">
+        <div class="name">Meet Zara <span class="hzc-tag">your guide</span></div>
+        <div class="line">A UX designer navigating the Amsterdam → Vienna route. She mapped the system before picking the mode.</div>
+      </div>
+    </div>
+    <div class="h-scroll" aria-hidden="true"><span>Scroll to explore</span><div class="h-scroll-bar"></div></div>
+  </div>
+
+  <!-- HERO RIGHT: animated transport scene -->
+  <div class="hero-right" role="img" aria-label="Animated scene showing a plane, night train, and coach travelling simultaneously from Amsterdam to Vienna. The plane arrives fastest but with the highest carbon cost. The night train arrives second with the lowest carbon. The coach is slowest.">
+    <canvas id="transport-canvas" aria-hidden="true" focusable="false"></canvas>
+
+    <!-- live travel clock overlay -->
+    <div class="travel-clock" id="travel-clock-el" aria-hidden="true">
+      <div class="tc-row" id="tc-plane">
+        <span class="tc-icon">✈</span>
+        <div class="tc-info">
+          <span class="tc-mode">Flight</span>
+          <span class="tc-time" id="plane-time">0h 00m</span>
+        </div>
+        <span class="tc-co2 bad">87 kg CO₂</span>
+      </div>
+      <div class="tc-row" id="tc-train">
+        <span class="tc-icon">🌙</span>
+        <div class="tc-info">
+          <span class="tc-mode">Nightjet</span>
+          <span class="tc-time" id="train-time">0h 00m</span>
+        </div>
+        <span class="tc-co2 good">6 kg CO₂</span>
+      </div>
+      <div class="tc-row" id="tc-bus">
+        <span class="tc-icon">🚌</span>
+        <div class="tc-info">
+          <span class="tc-mode">Coach</span>
+          <span class="tc-time" id="bus-time">0h 00m</span>
+        </div>
+        <span class="tc-co2 mid">12 kg CO₂</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- STAT STRIP -->
+<div class="stat-strip" id="stat-strip">
+  <div class="sitem">
+    <span class="snum" data-count="1.1" data-dec="1">0</span><span class="snum">B</span>
+    <div class="slbl">EU air passengers in 2024 — up 8.3% in one year</div>
+    <span class="ssrc">Eurostat 2024</span>
+  </div>
+  <div class="sitem">
+    <span class="snum" data-count="4.84" data-dec="1">0</span><span class="snum">×</span>
+    <div class="slbl">more CO₂ per km by plane vs train on average</div>
+    <span class="ssrc">European Environment Agency</span>
+  </div>
+  <div class="sitem">
+    <span class="snum" data-count="61" data-dec="0">0</span><span class="snum">%</span>
+    <div class="slbl">of European cross-border routes are cheaper to fly than train</div>
+    <span class="ssrc">Greenpeace / 142 routes, 2024</span>
+  </div>
+</div>
+
+<!-- ═══ ZARA PANEL 1 ═══ -->
+<div class="zara-panel reveal" id="zp1" data-mood="focused" data-anim="wiggle">
+  <div class="inner">
+    <div class="panel-char"><svg class="panel-svg" id="psv1" viewBox="0 0 90 112" xmlns="http://www.w3.org/2000/svg"></svg><span class="panel-mood">thinking</span></div>
+    <div class="panel-speech"><div class="panel-bubble">Amsterdam to Vienna. Three tabs open: flights, Nightjet, Flixbus. <span class="hi">The flight showed €89 and 2 hours on paper.</span> The Nightjet showed €55 and a night in a sleeping cabin. Flixbus showed €35 and 16 hours. Same destination. Completely different systems behind each button.</div></div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 1: THE CHOICE ═══ -->
+<section class="reveal" id="s1" data-char="focused" data-msg="Three tabs open. One destination. Very different systems.">
+  <p class="sec-label">01 — The choice</p>
+  <h2 class="sec-title">Three modes. One destination.<br>Very <em>different systems</em> behind each.</h2>
+  <div class="two-col">
+    <div class="body">
+      <p>Amsterdam to Vienna is roughly 930 km — a classic European medium-haul journey. Far enough that driving alone doesn't make sense. Close enough that multiple modes are genuinely viable.</p>
+      <p>From a UX perspective, this route is interesting because the <em>front-end experience</em> — booking a ticket — looks broadly similar across all three modes. You enter a city, a date, and a price appears. What you don't see is the service blueprint: the layers of infrastructure, subsidy, booking systems, and carbon accounting that happen before the price is rendered.</p>
+      <p>Understanding those layers is what this story is about.</p>
+    </div>
+    <div>
+      <div class="dcall">
+        <div class="dn">750K+</div>
+        <div class="dl">passengers have already taken the ÖBB Nightjet between the Netherlands and Austria since its 2021 launch — the new-generation train rolled out from May 2025<span class="cite">NS International 2025</span></div>
+      </div>
+      <div class="dcall">
+        <div class="dn">€35–€100</div>
+        <div class="dl">Nightjet ticket range Amsterdam → Vienna: seat from €35, couchette from €55, sleeper from €100. Plane from €89. Bus from €35.<span class="cite">ÖBB / railcc 2025</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODE SELECTOR -->
+  <div class="mode-selector">
+    <p style="font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem">Select a transport mode to see the full picture</p>
+    <div class="mode-tabs" role="group" aria-label="Select transport mode to compare">
+      <button class="mode-tab active" data-mode="plane" type="button" aria-pressed="true" onclick="switchMode('plane',this)">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><path d="M22 2L2 8.5L9.5 12.5M22 2L15.5 22L12.5 14.5M22 2L9.5 12.5M9.5 12.5L12.5 14.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        Flight
+      </button>
+      <button class="mode-tab" data-mode="train" type="button" aria-pressed="false" onclick="switchMode('train',this)">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="4" y="4" width="16" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M8 16L6 20M16 16L18 20M4 10H20" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="8" cy="14" r="1" fill="currentColor"/><circle cx="16" cy="14" r="1" fill="currentColor"/></svg>
+        Night Train
+      </button>
+      <button class="mode-tab" data-mode="bus" type="button" aria-pressed="false" onclick="switchMode('bus',this)">
+        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false"><rect x="2" y="7" width="20" height="12" rx="2" stroke="currentColor" stroke-width="1.5"/><path d="M7 19V21M17 19V21M2 13H22" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><circle cx="7" cy="17" r="1" fill="currentColor"/><circle cx="17" cy="17" r="1" fill="currentColor"/><path d="M7 7V5C7 4 7.5 3 9 3H15C16.5 3 17 4 17 5V7" stroke="currentColor" stroke-width="1.5"/></svg>
+        Coach (Flixbus)
+      </button>
+    </div>
+
+    <!-- PLANE CARD -->
+    <div class="mode-card active" id="card-plane">
+      <div class="mc-header">
+        <div class="mc-icon" style="background:#fdf0dc">✈️</div>
+        <div><div class="mc-title">Amsterdam → Vienna by Flight</div><div class="mc-subtitle">AMS–VIE, ~2h flight time, operated by KLM / Austrian / Ryanair</div></div>
+      </div>
+      <div class="mc-stats">
+        <div class="mcs" style="background:#fdf0dc"><div class="val" style="color:var(--plane)">~2h</div><div class="key">Flight time</div></div>
+        <div class="mcs" style="background:#fdf0dc"><div class="val" style="color:var(--plane)">~5–6h</div><div class="key">Door to door</div></div>
+        <div class="mcs" style="background:#fdf0dc"><div class="val" style="color:var(--plane)">~87 kg</div><div class="key">CO₂ per passenger</div></div>
+      </div>
+      <div class="mc-behind">
+        <div class="mc-behind-title">What the system does behind the booking button</div>
+        <div class="mc-behind-rows">
+          <div class="mc-behind-row"><span class="mc-behind-label">Tax exemption</span><span>Jet fuel (kerosene) carries <strong>zero EU fuel tax</strong>. Trains pay full energy tax on electricity. This alone structurally advantages aviation on price.<span class="cite">Greenpeace 2024</span></span></div>
+          <div class="mc-behind-row"><span class="mc-behind-label">Airport subsidy</span><span>Airports across Europe receive state support; regional airports often subsidise routes to attract low-cost carriers, further distorting the real price of flight.</span></div>
+          <div class="mc-behind-row"><span class="mc-behind-label">Carbon cost</span><span>EU ETS covers aviation from 2024, but only intra-EU routes. Price per tonne still too low to close the gap with rail on ticket price.</span></div>
+          <div class="mc-behind-row"><span class="mc-behind-label">Booking UX</span><span>Skyscanner, Google Flights, dozens of aggregators. Simple, fast, price-sorted. Real door-to-door time (airport transfers, security) rarely shown.</span></div>
+        </div>
+        <div class="mc-zara-note">✈ Zara's take: The price was €89. The real cost, in time and carbon, was much higher. But the booking page made it feel like the obvious choice.</div>
+      </div>
+    </div>
+
+    <!-- TRAIN CARD -->
+    <div class="mode-card" id="card-train">
+      <div class="mc-header">
+        <div class="mc-icon" style="background:#d0e8f5">🌙</div>
+        <div><div class="mc-title">Amsterdam → Vienna by ÖBB Nightjet</div><div class="mc-subtitle">NJ40421, daily departure 18:59 from Amsterdam Centraal, arrives 09:48 Vienna Hbf</div></div>
+      </div>
+      <div class="mc-stats">
+        <div class="mcs" style="background:#d0e8f5"><div class="val" style="color:var(--rail)">14h 49m</div><div class="key">Journey time</div></div>
+        <div class="mcs" style="background:#d0e8f5"><div class="val" style="color:var(--rail)">City–City</div><div class="key">No airport transfer</div></div>
+        <div class="mcs" style="background:#d0e8f5"><div class="val" style="color:var(--rail)">~6 kg</div><div class="key">CO₂ per passenger</div></div>
+      </div>
+      <div class="mc-behind">
+        <div class="mc-behind-title">What the system does behind the booking button</div>
+        <div class="mc-behind-rows">
+          <div class="mc-behind-row"><span class="mc-behind-label">Tax treatment</span><span>Rail operators pay <strong>full energy tax</strong> on traction electricity in most EU countries, plus track access charges and VAT on international tickets in many markets. <span class="cite">Time / Greenpeace 2024</span></span></div>
+          <div class="mc-behind-row"><span class="mc-behind-label">Booking friction</span><span>On 44 out of 109 cross-border European routes, passengers <strong>cannot buy a through-ticket in a single purchase</strong>. ÖBB Nightjet is one of the well-integrated exceptions. <span class="cite">Greenpeace 2024</span></span></div>
+          <div class="mc-behind-row"><span class="mc-behind-label">Overnight value</span><span>The 14h49m is not dead time — it replaces a hotel night (~€80–150 in Vienna), saves airport transfers (1h each side), and arrives city centre to city centre.</span></div>
+          <div class="mc-behind-row"><span class="mc-behind-label">New generation</span><span>Since May 2025, a new Siemens-built Nightjet on this route: Wi-Fi, USB charging, mini cabins for solo travellers, 520 passenger capacity. <span class="cite">NS International 2025</span></span></div>
+        </div>
+        <div class="mc-zara-note" style="border-color:var(--rail);color:var(--rail);background:rgba(26,58,92,.07)">🌙 Zara chose this. Depart in the evening with a book. Wake up in Vienna. Work done.</div>
+      </div>
+    </div>
+
+    <!-- BUS CARD -->
+    <div class="mode-card" id="card-bus">
+      <div class="mc-header">
+        <div class="mc-icon" style="background:#d4f0e0">🚌</div>
+        <div><div class="mc-title">Amsterdam → Vienna by Flixbus</div><div class="mc-subtitle">Multiple daily services, 15–17 hours, from Amsterdam Sloterdijk</div></div>
+      </div>
+      <div class="mc-stats">
+        <div class="mcs" style="background:#d4f0e0"><div class="val" style="color:var(--green)">~16h</div><div class="key">Journey time</div></div>
+        <div class="mcs" style="background:#d4f0e0"><div class="val" style="color:var(--green)">€35+</div><div class="key">Lowest price</div></div>
+        <div class="mcs" style="background:#d4f0e0"><div class="val" style="color:var(--green)">~12 kg</div><div class="key">CO₂ per passenger</div></div>
+      </div>
+      <div class="mc-behind">
+        <div class="mc-behind-title">What the system does behind the booking button</div>
+        <div class="mc-behind-rows">
+          <div class="mc-behind-row"><span class="mc-behind-label">Price driver</span><span>Coaches benefit from road infrastructure built with public funds, and diesel fuel still benefits from lower effective tax rates than rail traction in some markets. Lowest ticket price of the three.</span></div>
+          <div class="mc-behind-row"><span class="mc-behind-label">Carbon trade-off</span><span>Per-passenger CO₂ significantly better than flying when full, but ~2× worse than overnight train. Good for budget travel, not the optimal climate choice.</span></div>
+          <div class="mc-behind-row"><span class="mc-behind-label">Booking UX</span><span>Flixbus app is well-designed — route comparison, seat selection, real-time tracking. But 16 hours in a seat with limited sleep makes this a gruelling option.</span></div>
+        </div>
+        <div class="mc-zara-note" style="border-color:var(--green);color:var(--green);background:rgba(26,107,58,.07)">🚌 Zara's note: Cheapest. But a night in a seat is not a night of rest. The price is low; the hidden cost is your energy for the next day.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ZARA PANEL 2 ═══ -->
+<div class="zara-panel flip dark-panel reveal" id="zp2" data-mood="shocked" data-anim="shake">
+  <div class="inner">
+    <div class="panel-char"><svg class="panel-svg" id="psv2" viewBox="0 0 90 112" xmlns="http://www.w3.org/2000/svg"></svg><span class="panel-mood">realising</span></div>
+    <div class="panel-speech"><div class="panel-bubble">The flight shows €89. The Nightjet shows €55 plus cabin. <span class="hi">But the train arrives at the city centre. The plane arrives at Schwechat — 18km out.</span> Add the transfer, add the time, add the uncertainty. The real comparison isn't what's on the booking page — it's the full journey experience.</div></div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 2: THE BLUEPRINT ═══ -->
+<div class="dark-bg reveal" id="s2" data-char="focused" data-msg="The service blueprint. What you don't see when you book.">
+  <div class="inner">
+    <p class="sec-label">02 — The service blueprint</p>
+    <h2 class="sec-title">What's actually happening<br><em>behind</em> each booking button.</h2>
+    <div class="body" style="max-width:680px;margin-bottom:2rem">
+      <p>A service blueprint maps the full system: what the user does, what the provider does, what the supporting infrastructure does, and where the pain points live. Here's the blueprint for Amsterdam → Vienna, across all three modes.</p>
+    </div>
+    <!-- Mobile scroll hint -->
+    <p class="bp-scroll-hint" aria-hidden="true">Scroll sideways to see all columns →</p>
+
+    <div class="blueprint-wrap" tabindex="0" role="region" aria-label="Service blueprint comparing flight, night train, and coach between Amsterdam and Vienna">
+      <table class="blueprint" aria-describedby="bp-desc">
+        <caption id="bp-desc" class="bp-caption">
+          Service blueprint — Amsterdam → Vienna by three transport modes. Comparing user experience, provider systems, hidden infrastructure, pain points, CO₂ output, and true door-to-door time.
+        </caption>
+        <thead>
+          <tr>
+            <th scope="col" class="bp-th bp-th-layer">Layer</th>
+            <th scope="col" class="bp-th">✈ Flight</th>
+            <th scope="col" class="bp-th">🌙 Night Train</th>
+            <th scope="col" class="bp-th">🚌 Coach</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row" class="bp-cell bp-row-label">User action</th>
+            <td class="bp-cell">Book on aggregator → airport 2h early → security → board → land → airport transfer → city</td>
+            <td class="bp-cell">Book on ÖBB/NS → arrive at station → board → sleep → wake up in Vienna city centre</td>
+            <td class="bp-cell">Book on Flixbus → bus terminal → board → sit ~16h → arrive city centre</td>
+          </tr>
+          <tr>
+            <th scope="row" class="bp-cell bp-row-label">Provider action</th>
+            <td class="bp-cell">Airline manages gate, crew, slot, delays. Airport manages security. Ground transport is a separate provider.</td>
+            <td class="bp-cell">ÖBB + NS joint operation. Single ticket covers full journey. Cabin crew, breakfast, bedding included in sleeper.</td>
+            <td class="bp-cell">Driver operates route. Rest stop mid-journey. Luggage in hold. Single ticket, simple system.</td>
+          </tr>
+          <tr class="bp-row-good">
+            <th scope="row" class="bp-cell bp-row-label">Hidden system</th>
+            <td class="bp-cell"><span class="bp-bad">Zero kerosene tax. Airport subsidies. No VAT on intl tickets. EU ETS carbon price too low to close the price gap with rail.</span></td>
+            <td class="bp-cell"><span class="bp-good">Full energy tax paid. Track access charges. City-centre terminus. Night replaces hotel.</span></td>
+            <td class="bp-cell">Road infrastructure publicly funded. Diesel effective tax generally lower than rail electricity.</td>
+          </tr>
+          <tr class="bp-row-pain">
+            <th scope="row" class="bp-cell bp-row-label">Pain points</th>
+            <td class="bp-cell"><span class="bp-bad">Transfer both ends. 2h early mandatory. Delays cascade. Real door-to-door cost hidden from booking page.</span></td>
+            <td class="bp-cell"><span class="bp-bad">44 of 109 EU cross-border routes have no single through-ticket. Nightjet is a well-integrated exception, not the norm.</span></td>
+            <td class="bp-cell"><span class="bp-bad">~16h seated. Limited sleep infrastructure. Not ideal before a full day.</span></td>
+          </tr>
+          <tr>
+            <th scope="row" class="bp-cell bp-row-label">CO₂ per passenger</th>
+            <td class="bp-cell bp-data" style="color:var(--accent);font-weight:600">~87 kg</td>
+            <td class="bp-cell bp-data" style="color:#14a060;font-weight:600">~6 kg</td>
+            <td class="bp-cell bp-data" style="color:#14a060;font-weight:600">~12 kg</td>
+          </tr>
+          <tr>
+            <th scope="row" class="bp-cell bp-row-label">True time (door–door)</th>
+            <td class="bp-cell bp-data">~5–6h total</td>
+            <td class="bp-cell bp-data" style="color:var(--rail-light);font-weight:600">Overnight — no day lost</td>
+            <td class="bp-cell bp-data">~16–17h</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p style="font-size:.78rem;color:var(--on-dark-muted);margin-top:.75rem;font-family:'DM Mono',monospace">CO₂: EEA / Flightright / EcoPassenger. Time: author estimate from published schedules and airport transfer data.</p>
+  </div>
+</div>
+
+<!-- ═══ SECTION 3: WHY AVIATION WINS ═══ -->
+<section class="reveal" id="s3" data-char="determined" data-msg="A political failure on 61% of European routes.">
+  <p class="sec-label">03 — Why aviation dominates</p>
+  <h2 class="sec-title">The price gap is <em>designed</em>,<br>not natural.</h2>
+  <div class="two-col">
+    <div class="body">
+      <p>Aviation dominates European intra-continental travel not because it is inherently better — but because the price signal is distorted by structural policy choices that have remained largely unchanged for decades.</p>
+      <p><strong style="font-weight:500;color:var(--ink)">Kerosene tax:</strong> Aviation fuel carries zero EU fuel excise duty under international agreements dating to the 1944 Chicago Convention. Trains pay full energy tax on the electricity they use.<span class="cite">Greenpeace 2024</span></p>
+      <p><strong style="font-weight:500;color:var(--ink)">VAT:</strong> International flights pay no VAT in most EU markets. International trains pay VAT in many countries, adding directly to ticket price.</p>
+      <p><strong style="font-weight:500;color:var(--ink)">The result:</strong> On 61% of the 142 cross-border European routes analysed by Greenpeace, flying is cheaper than the train — on average 4× cheaper for UK routes. <em>"Every route where a plane is cheaper than a train is a political failure."</em><span class="cite">Greenpeace CEE 2024</span></p>
+    </div>
+    <div>
+      <p style="font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem">CO₂ per passenger — Amsterdam → Vienna</p>
+      <div class="comp-bars" id="co2-bars">
+        <div class="cbar-row"><span class="cbar-label">Flight</span><div class="cbar-track"><div class="cbar-fill" data-w="100" style="background:var(--plane)"><span>~87 kg CO₂</span></div></div></div>
+        <div class="cbar-row"><span class="cbar-label">Coach</span><div class="cbar-track"><div class="cbar-fill" data-w="14" style="background:var(--green)"><span>~12 kg</span></div></div></div>
+        <div class="cbar-row"><span class="cbar-label">Night train</span><div class="cbar-track"><div class="cbar-fill" data-w="7" style="background:var(--rail)"><span>~6 kg</span></div></div></div>
+      </div>
+      <p style="font-size:.78rem;color:var(--muted);margin-top:.5rem">EEA / EcoPassenger estimates. Train figure based on Dutch/Austrian electricity mix.</p>
+
+      <div style="margin-top:2rem">
+        <p style="font-family:'DM Mono',monospace;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1.2rem">EU air passenger growth — 2022–2024</p>
+        <div class="chart-wrap"><canvas id="airChart" role="img" aria-label="Bar chart showing EU air passenger growth from 2022 to 2024, rising from 850M to 1.1B">EU air passengers grew from approximately 850 million in 2022 to 973 million in 2023 to 1.1 billion in 2024, an 8.3% year-on-year increase.</canvas></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="fact-grid">
+    <div class="fc"><div class="fn">1.1B</div><div class="fl">EU air passengers in 2024 — every single EU country recorded growth</div><div class="fs">Eurostat, avia_paoc 2024</div></div>
+    <div class="fc"><div class="fn">8.3%</div><div class="fl">Year-on-year growth in EU air passengers 2023→2024, highest increase in February at +13%</div><div class="fs">Eurostat 2024</div></div>
+    <div class="fc"><div class="fn">67M</div><div class="fl">Passengers through Amsterdam Schiphol in 2024 — second busiest EU airport after Paris CDG</div><div class="fs">Eurostat / avia_paoa 2024</div></div>
+    <div class="fc"><div class="fn">9.6%</div><div class="fl">Modal share of intra-EU aviation in passenger-km in 2019 — up from 5.3% in 1995</div><div class="fs">European Environment Agency 2024</div></div>
+  </div>
+</section>
+
+<!-- ═══ ZARA PANEL 3 ═══ -->
+<div class="zara-panel rail-panel reveal" id="zp3" data-mood="hopeful" data-anim="bounce">
+  <div class="inner">
+    <div class="panel-char"><svg class="panel-svg" id="psv3" viewBox="0 0 90 112" xmlns="http://www.w3.org/2000/svg"></svg><span class="panel-mood" style="color:#EF9F27;background:rgba(239,159,39,.12)">decided</span></div>
+    <div class="panel-speech"><div class="panel-bubble">Take the Nightjet. <span class="hi">Depart Amsterdam Centraal in the evening. Wake up in Vienna city centre.</span> Read for an hour. Sleep. Have breakfast. Arrive rested — no hotel needed. Emit <span class="chip">~6 kg CO₂</span> instead of <span class="chip">~87 kg</span>. The system made this harder to find than it should be. That's the design problem.</div></div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 4: THE UX PROBLEM ═══ -->
+<div class="warm-bg reveal" id="s4" data-char="determined" data-msg="Booking UX shapes behaviour at scale.">
+  <div class="inner">
+    <p class="sec-label">04 — The UX problem</p>
+    <h2 class="sec-title">Booking design shapes<br>which <em>planet we travel on</em>.</h2>
+    <div class="two-col">
+      <div class="body">
+        <p>The decision between flight and train is not made in a policy paper. It is made on a booking screen, usually at 11pm, usually sorted by price.</p>
+        <p>The booking experience for flights is comprehensively better designed than rail: aggregators compare dozens of airlines instantly; Google Flights shows price calendars, carbon estimates, and alternatives at a glance. Rail has no equivalent cross-border aggregator with comparable coverage or UX quality.</p>
+        <p>On 44 out of 109 cross-border European rail routes, passengers cannot buy a through-ticket in a single purchase — they must book separate legs from different providers. This is not a travel problem. It is a booking system design problem.<span class="cite">Greenpeace 2024</span></p>
+        <p>Google Flights' carbon emissions tracker — launched in 2021 — is a genuine step: it adds a secondary comparison dimension beyond price. But it compares flights to flights, not flights to trains. The modal comparison is still not on the booking page.</p>
+      </div>
+      <div>
+        <div class="pq">
+          <p>"The rail market needs to become a bit more 21st century. There's no rail equivalent to Skyscanner that allows for easy route and fare comparisons across borders."</p>
+        </div>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:.5rem;font-family:'DM Mono',monospace">Source: TIME / Transport & Environment, 2024</p>
+
+        <div style="margin-top:2rem;display:grid;grid-template-columns:1fr 1fr;gap:.9rem">
+          <div class="dcall"><div class="dn">44/109</div><div class="dl">cross-border EU routes where you can't buy a through-ticket in one purchase<span class="cite">Greenpeace 2024</span></div></div>
+          <div class="dcall"><div class="dn">4×</div><div class="dl">average cost premium of train over plane on UK-Europe routes, due to tax asymmetry<span class="cite">Greenpeace 2023</span></div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SECTION 5: THE FUTURE ═══ -->
+<section class="reveal" id="s5" data-char="hopeful" data-msg="Night trains are back. The system is moving.">
+  <p class="sec-label">05 — The direction of travel</p>
+  <h2 class="sec-title">Night trains are back.<br>The question is: <em>at what speed</em>?</h2>
+  <div class="two-col">
+    <div class="body">
+      <p>ÖBB's Nightjet network — 34 routes across Europe — represents the most visible revival of long-distance rail as a genuine alternative to short-haul aviation. <strong style="font-weight:500;color:var(--ink)">750,000 passengers</strong> have already taken the Amsterdam–Austria route since 2021. The new-generation train, rolled out from May 2025, brings private mini-cabins, wireless charging, and a product that competes on experience, not just price.<span class="cite">NS International 2025</span></p>
+      <p>France has pioneered banning short-haul domestic flights where a train alternative exists under 2.5 hours. Austria introduced a unified €1,095/year climate ticket for all public transport. Germany's €49 monthly Deutschlandticket drove a 21% increase in rail ridership.<span class="cite">TIME / Greenpeace 2024</span></p>
+      <p>The demand signal is there. The infrastructure investment is happening. The remaining obstacle is largely a booking and policy design problem — one that has a known solution set.</p>
+    </div>
+    <div>
+      <div class="fact-grid" style="grid-template-columns:1fr 1fr;margin-top:0">
+        <div class="fc"><div class="fn">34</div><div class="fl">European night train routes in the ÖBB Nightjet network, back-on-track.eu 2024</div><div class="fs">Back-on-Track.eu 2024</div></div>
+        <div class="fc"><div class="fn">21%</div><div class="fl">Increase in German rail ridership following the €49/month Deutschlandticket launch</div><div class="fs">TIME / T&amp;E 2024</div></div>
+        <div class="fc"><div class="fn">30%</div><div class="fl">Market share captured by ÖBB on Vienna–Hamburg overnight route vs flights</div><div class="fs">CarbonClick 2025</div></div>
+        <div class="fc"><div class="fn">96.5%</div><div class="fl">Fewer CO₂ emissions per passenger-km on train vs equivalent flight — best case</div><div class="fs">Flightright / EEA</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ ZARA PANEL 4 — Final ═══ -->
+<div class="zara-panel reveal" id="zp4" data-mood="determined" data-anim="wiggle">
+  <div class="inner">
+    <div class="panel-char"><svg class="panel-svg" id="psv4" viewBox="0 0 90 112" xmlns="http://www.w3.org/2000/svg"></svg><span class="panel-mood">designing</span></div>
+    <div class="panel-speech"><div class="panel-bubble">This is a UX problem with a clear brief: <span class="hi">make the better option as easy to find as the default one.</span> A single cross-border rail aggregator. Real door-to-door time shown. Carbon cost alongside ticket price on every booking page. The technology exists. The will is the variable.</div></div>
+  </div>
+</div>
+
+<!-- CLOSING -->
+<div class="closing" id="s6">
+  <div class="closing-inner reveal">
+    <h2>The better option exists.<br>It's the <em>system</em> that needs designing.</h2>
+    <p>Amsterdam to Vienna is 930 km. The train produces 14× less CO₂ per passenger than the flight. It arrives at the city centre. It replaces a hotel night. And it costs less. The gap is not technology. It is policy, booking UX, and the invisible subsidies that make the wrong choice feel like the obvious one.</p>
+    <div class="cstats">
+      <div class="csi"><div class="cn">1.1B</div><div class="cl">EU air passengers, 2024</div></div>
+      <div class="csi"><div class="cn">14×</div><div class="cl">less CO₂ by night train</div></div>
+      <div class="csi"><div class="cn">44/109</div><div class="cl">routes with broken ticketing</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- SOURCES -->
+</main>
+<div class="sources">
+  <div class="inner">
+    <h3>Data sources</h3>
+    <ul>
+      <li>Eurostat — Air Passenger Transport Statistics 2024 (avia_paoc, avia_paoa)</li>
+      <li>European Environment Agency — Sustainability of Europe's Mobility Systems 2024</li>
+      <li>EUROCONTROL — European Aviation Overview 2024 (January 2025)</li>
+      <li>Greenpeace — Carbon-intensive flights cheaper than rail, 142-route study 2024</li>
+      <li>Greenpeace UK — Cheap Pollution report, 112 routes, July 2023</li>
+      <li>NS International / ÖBB — Nightjet Amsterdam → Vienna launch, May 2025</li>
+      <li>ÖBB Nightjet — Schedule NJ40421, railcc.net 2025</li>
+      <li>Flightright — Train vs Plane CO₂ comparison, 2024</li>
+      <li>CarbonClick — Night train carbon savings guide, April 2025</li>
+      <li>TIME Magazine — Why taking the train costs more than flying, 2024</li>
+      <li>Interrail.eu — Modal emissions comparison by route</li>
+      <li>EcoPassenger / Atmosfair — Route-level CO₂ calculator</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+/* ══════════════════════════════════════════
+   TRANSPORT CANVAS ANIMATION ENGINE
+   Three vehicles travel simultaneously.
+   Speed ratio: plane ~6x faster than train,
+   train ~1.2x faster than bus (scaled for drama)
+══════════════════════════════════════════ */
+(function initCanvas(){
+  const canvas = document.getElementById('transport-canvas');
+  if(!canvas) return;
+  const ctx = canvas.getContext('2d');
+
+  // Real durations (hours): plane 6h total, train 14.8h, bus 16.5h
+  // Animation total cycle: 8 seconds. Speed ratio preserved.
+  const CYCLE = 8000; // ms per full journey
+  const SPEEDS = { plane: 1/6, train: 1/14.8, bus: 1/16.5 };
+  const MAX_SPEED = SPEEDS.plane;
+
+  // Normalize so plane completes in CYCLE
+  // train takes CYCLE * (6/14.8), bus takes CYCLE * (6/16.5)
+  const DURATIONS = {
+    plane: CYCLE,
+    train: CYCLE * (14.8/6),
+    bus:   CYCLE * (16.5/6),
+  };
+
+  let startTime = null;
+  let planeArrived = false, trainArrived = false, busArrived = false;
+  let restartTimer = null;
+
+  // Real journey hour tracking (0 → max hours per mode)
+  const MAX_HOURS = { plane: 6, train: 14.8, bus: 16.5 };
+
+  // Measured clock height — updated on resize so usableH is always accurate
+  let measuredClockH = 60;
+
+  function resize(){
+    const rect = canvas.parentElement.getBoundingClientRect();
+    canvas.width = rect.width;
+    canvas.height = rect.height;
+    // Measure the actual rendered travel-clock height + bottom offset
+    const clock = document.getElementById('travel-clock-el');
+    if(clock){
+      const cr = clock.getBoundingClientRect();
+      const pr = canvas.parentElement.getBoundingClientRect();
+      // height of clock + gap from bottom of canvas to top of clock
+      measuredClockH = (pr.bottom - cr.top) + 12;
+    }
+  }
+
+  window.addEventListener('resize', resize);
+  // Delay first resize slightly so clock has rendered and can be measured
+  setTimeout(resize, 50);
+
+  // Terrain layers (parallax scrolling hills)
+  const terrainColors = [
+    'rgba(22,36,22,.55)',   // distant hills
+    'rgba(18,30,18,.7)',    // mid hills
+    'rgba(14,22,14,.9)',    // near ground
+  ];
+
+  function drawTerrain(W, H, scroll){
+    const clockH = measuredClockH;
+    const usableH = H - clockH - 8;
+    terrainColors.forEach((col, i) => {
+      const amp = 24 + i * 18;
+      const freq = 0.012 - i * 0.003;
+      const speed = (i + 1) * 0.3;
+      const yBase = usableH * (0.62 + i * 0.07);
+      ctx.beginPath();
+      ctx.moveTo(0, H);
+      for(let x = 0; x <= W; x += 3){
+        const y = yBase + Math.sin((x + scroll * speed) * freq) * amp
+                        + Math.sin((x * 1.7 + scroll * speed * 0.6) * freq * 0.8) * (amp * 0.4);
+        if(x === 0) ctx.lineTo(x, y); else ctx.lineTo(x, y);
+      }
+      ctx.lineTo(W, H);
+      ctx.fillStyle = col;
+      ctx.fill();
+    });
+  }
+
+  // Stars (pre-generated, fixed)
+  const stars = Array.from({length:90}, () => ({
+    x: Math.random(), y: Math.random() * 0.45,
+    r: Math.random() * 1.4 + 0.3,
+    a: Math.random() * 0.6 + 0.2,
+    twinkle: Math.random() * Math.PI * 2
+  }));
+
+  function drawStars(W, H, t){
+    const clockH = measuredClockH;
+    const usableH = H - clockH - 8;
+    stars.forEach(s => {
+      const alpha = s.a + Math.sin(t * 0.002 + s.twinkle) * 0.15;
+      ctx.beginPath();
+      ctx.arc(s.x * W, s.y * usableH * 0.55, s.r, 0, Math.PI * 2);
+      ctx.fillStyle = `rgba(247,245,240,${alpha.toFixed(2)})`;
+      ctx.fill();
+    });
+  }
+
+  // Moon
+  function drawMoon(W, H){
+    const clockH = measuredClockH;
+    const usableH = H - clockH - 8;
+    const mx = W * 0.82, my = usableH * 0.16;
+    // glow
+    const grd = ctx.createRadialGradient(mx, my, 8, mx, my, 38);
+    grd.addColorStop(0, 'rgba(245,220,150,.18)');
+    grd.addColorStop(1, 'rgba(245,220,150,0)');
+    ctx.beginPath(); ctx.arc(mx, my, 38, 0, Math.PI*2);
+    ctx.fillStyle = grd; ctx.fill();
+    // moon disc
+    ctx.beginPath(); ctx.arc(mx, my, 14, 0, Math.PI*2);
+    ctx.fillStyle = '#f0e8c0'; ctx.fill();
+    // crater
+    ctx.beginPath(); ctx.arc(mx+4, my-3, 4, 0, Math.PI*2);
+    ctx.fillStyle = 'rgba(0,0,0,.08)'; ctx.fill();
+  }
+
+  // City silhouettes
+  function drawCityLeft(W, H){ // Amsterdam
+    ctx.fillStyle = 'rgba(26,22,14,.9)';
+    const bx = W * 0.04;
+    const clockH = measuredClockH;
+    const usableH = H - clockH - 8;
+    const by = usableH * 0.68;
+    [[0,0,18,50],[22,0,14,42],[38,-8,16,58],[56,0,14,40],[72,-4,18,52],[92,0,12,44]].forEach(([dx,dy,w,h]) => {
+      ctx.fillRect(bx+dx, by+dy, w, h);
+      // rooftop triangle
+      ctx.beginPath();
+      ctx.moveTo(bx+dx, by+dy);
+      ctx.lineTo(bx+dx+w/2, by+dy-10);
+      ctx.lineTo(bx+dx+w, by+dy);
+      ctx.fill();
+    });
+    ctx.fillStyle = 'rgba(247,245,240,.55)';
+    ctx.font = '9px DM Mono,monospace';
+    ctx.fillText('Amsterdam', bx, by - 20);
+  }
+
+  function drawCityRight(W, H){ // Vienna
+    ctx.fillStyle = 'rgba(26,22,14,.9)';
+    const bx = W * 0.72;
+    const clockH = measuredClockH;
+    const usableH = H - clockH - 8;
+    const by = usableH * 0.68;
+    [[0,0,20,55],[24,-10,22,65],[50,0,16,48],[70,-5,18,56],[92,0,14,44]].forEach(([dx,dy,w,h]) => {
+      ctx.fillRect(bx+dx, by+dy, w, h);
+      ctx.beginPath();
+      ctx.moveTo(bx+dx, by+dy);
+      ctx.lineTo(bx+dx+w/2, by+dy-12);
+      ctx.lineTo(bx+dx+w, by+dy);
+      ctx.fill();
+    });
+    // Stephansdom spire
+    ctx.fillRect(bx+24, by-50, 6, 50);
+    ctx.beginPath();
+    ctx.moveTo(bx+24, by-50); ctx.lineTo(bx+27, by-70); ctx.lineTo(bx+30, by-50);
+    ctx.fill();
+    ctx.fillStyle = 'rgba(247,245,240,.55)';
+    ctx.font = '9px DM Mono,monospace';
+    ctx.fillText('Vienna', bx+24, by - 76);
+  }
+
+  // Road / rail tracks
+  function drawInfrastructure(W, H){
+    const clockH = measuredClockH;
+    const usableH = H - clockH - 8;
+    const groundY = usableH * 0.80;
+    // Ground line
+    ctx.strokeStyle = 'rgba(247,245,240,.06)';
+    ctx.lineWidth = 1;
+    ctx.beginPath(); ctx.moveTo(0, groundY); ctx.lineTo(W, groundY); ctx.stroke();
+
+    // Rail track (two rails + sleepers)
+    const ry = groundY - 2;
+    ctx.strokeStyle = 'rgba(100,150,200,.18)';
+    ctx.lineWidth = 1.5;
+    // Top rail
+    ctx.beginPath(); ctx.moveTo(0, ry - 4); ctx.lineTo(W, ry - 4); ctx.stroke();
+    // Bottom rail
+    ctx.beginPath(); ctx.moveTo(0, ry + 4); ctx.lineTo(W, ry + 4); ctx.stroke();
+    // Sleepers
+    ctx.strokeStyle = 'rgba(100,150,200,.1)';
+    ctx.lineWidth = 3;
+    for(let x = 0; x < W; x += 18){
+      ctx.beginPath(); ctx.moveTo(x, ry - 6); ctx.lineTo(x, ry + 6); ctx.stroke();
+    }
+
+    // Road (below rail)
+    const roadY = groundY + 14;
+    ctx.fillStyle = 'rgba(40,35,25,.6)';
+    ctx.fillRect(0, roadY, W, 16);
+    // Road markings
+    ctx.strokeStyle = 'rgba(247,245,240,.1)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([14, 14]);
+    ctx.beginPath(); ctx.moveTo(0, roadY + 8); ctx.lineTo(W, roadY + 8); ctx.stroke();
+    ctx.setLineDash([]);
+  }
+
+  // ── VEHICLE DRAWERS ──
+
+  function drawPlane(x, y, scale=1){
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(scale, scale);
+    // Fuselage
+    ctx.fillStyle = '#f5c97a';
+    ctx.beginPath();
+    ctx.ellipse(0, 0, 22, 7, 0, 0, Math.PI*2);
+    ctx.fill();
+    // Nose cone
+    ctx.beginPath();
+    ctx.moveTo(18, 0); ctx.quadraticCurveTo(28, 0, 26, -2);
+    ctx.quadraticCurveTo(30, 0, 26, 2); ctx.quadraticCurveTo(28, 0, 18, 0);
+    ctx.fillStyle = '#e0b050'; ctx.fill();
+    // Wings
+    ctx.fillStyle = '#d4a840';
+    ctx.beginPath(); ctx.moveTo(0,-7); ctx.lineTo(-8,-22); ctx.lineTo(-16,-22); ctx.lineTo(-14,-7); ctx.closePath(); ctx.fill();
+    ctx.beginPath(); ctx.moveTo(0,7); ctx.lineTo(-8,22); ctx.lineTo(-16,22); ctx.lineTo(-14,7); ctx.closePath(); ctx.fill();
+    // Tail fin
+    ctx.beginPath(); ctx.moveTo(-18,-7); ctx.lineTo(-22,-18); ctx.lineTo(-12,-7); ctx.closePath();
+    ctx.fillStyle = '#c49020'; ctx.fill();
+    // Windows row
+    ctx.fillStyle = 'rgba(13,13,24,.6)';
+    for(let i = -8; i <= 10; i += 5){
+      ctx.beginPath(); ctx.ellipse(i, -1, 2, 2.5, 0, 0, Math.PI*2); ctx.fill();
+    }
+    // Engine trail
+    ctx.save();
+    const grd = ctx.createLinearGradient(-40, 0, -22, 0);
+    grd.addColorStop(0, 'rgba(245,201,122,0)');
+    grd.addColorStop(1, 'rgba(245,201,122,.25)');
+    ctx.beginPath(); ctx.moveTo(-22,-3); ctx.lineTo(-40,0); ctx.lineTo(-22,3); ctx.closePath();
+    ctx.fillStyle = grd; ctx.fill();
+    ctx.restore();
+    ctx.restore();
+  }
+
+  function drawTrain(x, y, scale=1){
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(scale, scale);
+    const cw = 42, ch = 18, gap = 4;
+
+    // Three carriages
+    [0, cw+gap, (cw+gap)*2].forEach((ox, i) => {
+      // Body
+      ctx.fillStyle = i === 0 ? '#1a4a7a' : '#1a3a5c';
+      ctx.beginPath();
+      ctx.roundRect(ox, -ch/2, cw, ch, [i===0?6:3, i===0?6:3, 3, 3]);
+      ctx.fill();
+      // Stripe
+      ctx.fillStyle = '#d0e8f5';
+      ctx.fillRect(ox, -2, cw, 4);
+      // Windows
+      ctx.fillStyle = 'rgba(240,248,255,.75)';
+      for(let w=8; w<cw-8; w+=10){
+        ctx.beginPath(); ctx.roundRect(ox+w, -ch/2+4, 7, 8, 1); ctx.fill();
+      }
+      // Wheels
+      [-3, cw-6].forEach(wx => {
+        ctx.beginPath();
+        ctx.arc(ox+wx+4, ch/2+1, 4, 0, Math.PI*2);
+        ctx.fillStyle = '#0d1a2e'; ctx.fill();
+        ctx.strokeStyle = '#4a7aaa'; ctx.lineWidth = 1; ctx.stroke();
+      });
+    });
+
+    // Engine nose (pointed front)
+    ctx.fillStyle = '#1a6096';
+    ctx.beginPath();
+    ctx.moveTo(cw-1, -ch/2);
+    ctx.lineTo(cw+12, -4);
+    ctx.lineTo(cw+12, 4);
+    ctx.lineTo(cw-1, ch/2);
+    ctx.closePath(); ctx.fill();
+    // Headlight
+    ctx.beginPath(); ctx.arc(cw+10, 0, 2.5, 0, Math.PI*2);
+    ctx.fillStyle = '#fff8c0'; ctx.fill();
+    // Light beam
+    const lgt = ctx.createRadialGradient(cw+10,0,2,cw+10,0,24);
+    lgt.addColorStop(0,'rgba(255,248,192,.3)'); lgt.addColorStop(1,'rgba(255,248,192,0)');
+    ctx.beginPath(); ctx.arc(cw+10,0,24,0,Math.PI*2); ctx.fillStyle=lgt; ctx.fill();
+
+    ctx.restore();
+  }
+
+  function drawBus(x, y, scale=1){
+    ctx.save();
+    ctx.translate(x, y);
+    ctx.scale(scale, scale);
+    // Body
+    ctx.fillStyle = '#1e8c3a';
+    ctx.beginPath(); ctx.roundRect(0, -14, 58, 28, 4); ctx.fill();
+    // White stripe
+    ctx.fillStyle = 'rgba(255,255,255,.15)';
+    ctx.fillRect(0, -3, 58, 6);
+    // Windows
+    ctx.fillStyle = 'rgba(200,240,215,.7)';
+    [8,20,32,44].forEach(wx => {
+      ctx.beginPath(); ctx.roundRect(wx, -12, 9, 11, 1); ctx.fill();
+    });
+    // Windscreen
+    ctx.fillStyle = 'rgba(200,240,215,.6)';
+    ctx.beginPath(); ctx.roundRect(48, -12, 9, 11, 1); ctx.fill();
+    // Front bumper
+    ctx.fillStyle = '#16702e';
+    ctx.fillRect(56, -6, 4, 12);
+    // Headlight
+    ctx.beginPath(); ctx.arc(59, 0, 2, 0, Math.PI*2);
+    ctx.fillStyle = '#fff0a0'; ctx.fill();
+    // Wheels
+    [-2, 44].forEach(wx => {
+      ctx.beginPath(); ctx.arc(wx+7, 16, 6, 0, Math.PI*2);
+      ctx.fillStyle='#0d180d'; ctx.fill();
+      ctx.strokeStyle='#3aaa5a'; ctx.lineWidth=1.5; ctx.stroke();
+    });
+    // FLIXBUS text
+    ctx.fillStyle = 'rgba(255,255,255,.5)';
+    ctx.font = 'bold 5px sans-serif';
+    ctx.fillText('FLIXBUS', 6, 4);
+
+    ctx.restore();
+  }
+
+  // Exhaust / smoke puffs for plane and bus
+  const puffs = [];
+  function addPuff(x, y, color){
+    puffs.push({x, y, r: 2, a: 0.5, color, vx: -1.5, vy: -0.5 + Math.random() - 0.5});
+  }
+  function updatePuffs(){
+    for(let i = puffs.length-1; i >= 0; i--){
+      const p = puffs[i];
+      p.x += p.vx; p.y += p.vy; p.r += 0.3; p.a -= 0.012;
+      if(p.a <= 0) puffs.splice(i,1);
+    }
+  }
+  function drawPuffs(){
+    puffs.forEach(p => {
+      ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI*2);
+      ctx.fillStyle = p.color.replace('X', p.a.toFixed(2));
+      ctx.fill();
+    });
+  }
+
+  // Helper: format hours as "Xh XXm"
+  function fmtTime(hours){
+    const h = Math.floor(hours);
+    const m = Math.floor((hours - h) * 60);
+    return `${h}h ${String(m).padStart(2,'0')}m`;
+  }
+
+  // Update the clock UI
+  function updateClock(pProgress, tProgress, bProgress){
+    const pHours = pProgress * MAX_HOURS.plane;
+    const tHours = tProgress * MAX_HOURS.train;
+    const bHours = bProgress * MAX_HOURS.bus;
+
+    document.getElementById('plane-time').textContent = fmtTime(pHours);
+    document.getElementById('train-time').textContent = fmtTime(tHours);
+    document.getElementById('bus-time').textContent = fmtTime(bHours);
+
+    if(pProgress >= 1 && !planeArrived){
+      planeArrived = true;
+      document.getElementById('tc-plane').classList.add('arrived');
+    }
+    if(tProgress >= 1 && !trainArrived){
+      trainArrived = true;
+      document.getElementById('tc-train').classList.add('arrived');
+    }
+    if(bProgress >= 1 && !busArrived){
+      busArrived = true;
+      document.getElementById('tc-bus').classList.add('arrived');
+    }
+  }
+
+  // ── MAIN RENDER LOOP ──
+  let frameCount = 0;
+  function render(ts){
+    if(!startTime) startTime = ts;
+    const elapsed = ts - startTime;
+    frameCount++;
+
+    // Re-measure clock height every 60 frames (~1s) to catch orientation changes
+    if(frameCount % 60 === 0) resize();
+
+    const W = canvas.width, H = canvas.height;
+    ctx.clearRect(0, 0, W, H);
+
+    const clockH = measuredClockH;
+    const usableH = H - clockH - 8;
+
+    // Sky gradient
+    const sky = ctx.createLinearGradient(0, 0, 0, usableH * 0.75);
+    sky.addColorStop(0, '#04040e');
+    sky.addColorStop(1, '#0d1a2e');
+    ctx.fillStyle = sky;
+    ctx.fillRect(0, 0, W, usableH * 0.75);
+
+    // Ground
+    const grd2 = ctx.createLinearGradient(0, usableH * 0.75, 0, H);
+    grd2.addColorStop(0, '#0d1a0d');
+    grd2.addColorStop(1, '#060e06');
+    ctx.fillStyle = grd2;
+    ctx.fillRect(0, usableH * 0.75, W, H - usableH * 0.75);
+
+    // Stars and moon
+    drawStars(W, H, ts);
+    drawMoon(W, H);
+
+    // Scrolling terrain
+    drawTerrain(W, H, elapsed * 0.04);
+
+    // Cities (static)
+    drawCityLeft(W, H);
+    drawCityRight(W, H);
+
+    // Infrastructure
+    drawInfrastructure(W, H);
+
+    // ── PROGRESS CALCULATIONS ──
+    const pProgress = Math.min(elapsed / DURATIONS.plane, 1);
+    const tProgress = Math.min(elapsed / DURATIONS.train, 1);
+    const bProgress = Math.min(elapsed / DURATIONS.bus, 1);
+
+    // Ground positions — stay above the travel-clock overlay
+    const groundY = usableH * 0.80;
+    const roadY   = groundY + 12;
+    const railY   = groundY - 6;
+
+    // Plane arc: starts top-left, arcs through sky, arrives top-right
+    const px = W * 0.05 + pProgress * W * 0.88;
+    const arcHeight = usableH * 0.30;
+    const py = usableH * 0.28 - Math.sin(pProgress * Math.PI) * arcHeight;
+
+    // Emit exhaust every 4 frames
+    if(pProgress < 1 && frameCount % 4 === 0){
+      addPuff(px - 26, py + 2, `rgba(180,160,120,X)`);
+    }
+
+    // Train: travels along rail line
+    const tx = W * 0.04 + tProgress * (W * 0.88 - 148); // 148 = train width (3 carriages)
+    // Bus: travels along road, slightly behind train start
+    const bx = W * 0.04 + bProgress * (W * 0.88 - 62);
+
+    if(bProgress < 1 && frameCount % 6 === 0){
+      addPuff(bx - 4, roadY - 12, `rgba(120,180,120,X)`);
+    }
+
+    // Draw puffs first (behind vehicles)
+    updatePuffs();
+    drawPuffs();
+
+    // Draw vehicles
+    if(tProgress < 1) drawTrain(tx, railY, 1);
+    else if(trainArrived){
+      // pulse at Vienna
+      ctx.save();
+      ctx.globalAlpha = 0.5 + 0.3 * Math.sin(ts * 0.005);
+      drawTrain(W * 0.91 - 148, railY, 1);
+      ctx.restore();
+    }
+
+    if(bProgress < 1) drawBus(bx, roadY, 1);
+
+    if(pProgress < 1) drawPlane(px, py, 1);
+    else if(planeArrived){
+      // Airport landing indicator
+      ctx.fillStyle = `rgba(245,201,122,${0.5 + 0.3*Math.sin(ts*0.005)})`;
+      ctx.font = '22px sans-serif';
+      ctx.fillText('✈', W * 0.9, H * 0.22);
+    }
+
+    // Update the clock UI
+    updateClock(pProgress, tProgress, bProgress);
+
+    // Restart loop after slowest vehicle arrives + 2s pause
+    if(bProgress >= 1 && !restartTimer){
+      restartTimer = setTimeout(() => {
+        startTime = null; planeArrived = false; trainArrived = false; busArrived = false;
+        restartTimer = null;
+        ['tc-plane','tc-train','tc-bus'].forEach(id => {
+          document.getElementById(id).classList.remove('arrived');
+        });
+        puffs.length = 0;
+      }, 2000);
+    }
+
+    requestAnimationFrame(render);
+  }
+
+  requestAnimationFrame(render);
+})();
+
+/* ══ ZARA DRAW ENGINE ══ */
+function shade(hex,p){const n=parseInt(hex.replace('#',''),16),r=Math.max(0,Math.min(255,(n>>16)+p)),g=Math.max(0,Math.min(255,((n>>8)&0xFF)+p)),b=Math.max(0,Math.min(255,(n&0xFF)+p));return '#'+((1<<24)|(r<<16)|(g<<8)|b).toString(16).slice(1)}
+const MOODS={
+  excited:{body:'#D85A30',hair:'#2C1A0E',skin:'#E8C49A',eyes:'wide',mouth:'bigsm',arms:'up',extra:'stars'},
+  hopeful:{body:'#0F6E56',hair:'#2C1A0E',skin:'#E8C49A',eyes:'gentle',mouth:'softsm',arms:'open',extra:'tulip'},
+  focused:{body:'#534AB7',hair:'#2C1A0E',skin:'#E8C49A',eyes:'focus',mouth:'neutral',arms:'type',extra:'laptop'},
+  determined:{body:'#D85A30',hair:'#2C1A0E',skin:'#E8C49A',eyes:'focus',mouth:'firm',arms:'fist',extra:'none'},
+  tired:{body:'#5F5E5A',hair:'#2C1A0E',skin:'#E8C49A',eyes:'droop',mouth:'frown',arms:'low',extra:'coffee'},
+  shocked:{body:'#A32D2D',hair:'#2C1A0E',skin:'#E8C49A',eyes:'shock',mouth:'o',arms:'panic',extra:'none'}
+};
+function drawZara(svgEl,moodKey){
+  if(!svgEl)return;
+  const m=MOODS[moodKey]||MOODS.excited;
+  const s=m.skin,h=m.hair,b=m.body;
+  let o='';
+  o+=`<ellipse cx="45" cy="22" rx="18" ry="19" fill="${h}"/><rect x="27" y="22" width="6" height="25" rx="3" fill="${h}"/><rect x="57" y="22" width="6" height="21" rx="3" fill="${h}"/><ellipse cx="45" cy="13" rx="12" ry="7" fill="${h}"/>`;
+  o+=`<ellipse cx="45" cy="30" rx="15" ry="16" fill="${s}"/>`;
+  if(m.eyes==='focus'||m.eyes==='shock'){const l=m.eyes==='shock'?3:0;o+=`<path d="M35 ${23-l} Q38 ${21-l} 41 ${23-l}" fill="none" stroke="${h}" stroke-width="1.6" stroke-linecap="round"/><path d="M49 ${23-l} Q52 ${21-l} 55 ${23-l}" fill="none" stroke="${h}" stroke-width="1.6" stroke-linecap="round"/>`}
+  if(m.eyes==='wide'){o+=`<ellipse cx="38" cy="28" rx="3" ry="3.5" fill="${h}"/><ellipse cx="52" cy="28" rx="3" ry="3.5" fill="${h}"/><circle cx="39.2" cy="27" r="1" fill="white"/><circle cx="53.2" cy="27" r="1" fill="white"/>`}
+  else if(m.eyes==='focus'){o+=`<ellipse cx="38" cy="28" rx="2.8" ry="3" fill="${h}"/><ellipse cx="52" cy="28" rx="2.8" ry="3" fill="${h}"/><circle cx="39" cy="27" r=".9" fill="white"/><circle cx="53" cy="27" r=".9" fill="white"/>`}
+  else if(m.eyes==='shock'){o+=`<ellipse cx="38" cy="28" rx="4.2" ry="4.8" fill="${h}"/><ellipse cx="52" cy="28" rx="4.2" ry="4.8" fill="${h}"/><circle cx="39.5" cy="26.5" r="1.4" fill="white"/><circle cx="53.5" cy="26.5" r="1.4" fill="white"/>`}
+  else if(m.eyes==='droop'){o+=`<path d="M35 26 Q38 24 41 26" fill="${h}"/><path d="M49 26 Q52 24 55 26" fill="${h}"/>`}
+  else if(m.eyes==='gentle'){o+=`<path d="M35 28 Q38 24.5 41 28" fill="${h}"/><path d="M49 28 Q52 24.5 55 28" fill="${h}"/><ellipse cx="38" cy="31" rx="3" ry="1.5" fill="#E8A090" opacity=".35"/><ellipse cx="52" cy="31" rx="3" ry="1.5" fill="#E8A090" opacity=".35"/>`}
+  if(m.mouth==='bigsm'||m.mouth==='softsm'){o+=`<ellipse cx="24" cy="32" rx="4" ry="2.5" fill="#E8A090" opacity=".38"/><ellipse cx="66" cy="32" rx="4" ry="2.5" fill="#E8A090" opacity=".38"/>`}
+  if(m.mouth==='bigsm')o+=`<path d="M36 37 Q45 44 54 37" fill="none" stroke="#C49070" stroke-width="1.8" stroke-linecap="round"/>`;
+  else if(m.mouth==='softsm')o+=`<path d="M37 37 Q45 42 53 37" fill="none" stroke="#C49070" stroke-width="1.5" stroke-linecap="round"/>`;
+  else if(m.mouth==='firm')o+=`<line x1="38" y1="37" x2="52" y2="37" stroke="#C49070" stroke-width="1.8" stroke-linecap="round"/>`;
+  else if(m.mouth==='neutral')o+=`<path d="M38 37 Q45 39.5 52 37" fill="none" stroke="#C49070" stroke-width="1.3" stroke-linecap="round"/>`;
+  else if(m.mouth==='frown')o+=`<path d="M37 39 Q45 34 53 39" fill="none" stroke="#C49070" stroke-width="1.5" stroke-linecap="round"/>`;
+  else if(m.mouth==='o')o+=`<ellipse cx="45" cy="38" rx="5" ry="5.5" fill="#C49070"/><ellipse cx="45" cy="38" rx="3" ry="3.5" fill="#8B5E3C"/>`;
+  if(m.arms==='up'){o+=`<rect x="8" y="48" width="17" height="8" rx="4" fill="${s}" transform="rotate(-40 8 48)"/><rect x="65" y="48" width="17" height="8" rx="4" fill="${s}" transform="rotate(40 82 48)"/>`}
+  else if(m.arms==='fist'){o+=`<rect x="6" y="36" width="18" height="8" rx="4" fill="${s}" transform="rotate(-45 6 36)"/><ellipse cx="8" cy="33" rx="6" ry="6" fill="${s}"/><rect x="66" y="50" width="14" height="7" rx="3.5" fill="${s}"/>`}
+  else if(m.arms==='type'){o+=`<rect x="12" y="52" width="13" height="6" rx="3" fill="${s}"/><rect x="65" y="52" width="13" height="6" rx="3" fill="${s}"/>`}
+  else if(m.arms==='low'){o+=`<rect x="12" y="54" width="13" height="6" rx="3" fill="${s}"/><rect x="65" y="54" width="13" height="6" rx="3" fill="${s}"/>`}
+  else if(m.arms==='panic'){o+=`<rect x="5" y="32" width="18" height="8" rx="4" fill="${s}" transform="rotate(-55 5 32)"/><rect x="67" y="32" width="18" height="8" rx="4" fill="${s}" transform="rotate(55 85 32)"/>`}
+  else if(m.arms==='open'){o+=`<rect x="8" y="44" width="17" height="8" rx="4" fill="${s}" transform="rotate(-22 8 44)"/><rect x="65" y="44" width="17" height="8" rx="4" fill="${s}" transform="rotate(22 82 44)"/>`}
+  o+=`<rect x="25" y="47" width="40" height="36" rx="8" fill="${b}"/><path d="M34 47 L45 56 L56 47" fill="none" stroke="${shade(b,-22)}" stroke-width="2"/>`;
+  if(m.extra==='stars')o+=`<text x="4" y="24" font-size="11" fill="#BA7517" opacity=".9">✦</text><text x="70" y="19" font-size="8" fill="#BA7517" opacity=".8">✦</text>`;
+  else if(m.extra==='laptop')o+=`<rect x="22" y="74" width="46" height="3" rx="1.5" fill="#2C1A0E"/><rect x="26" y="62" width="38" height="14" rx="3" fill="#18120a"/><rect x="28" y="64" width="34" height="10" rx="2" fill="#534AB7" opacity=".7"/>`;
+  else if(m.extra==='coffee')o+=`<rect x="30" y="70" width="14" height="12" rx="3" fill="#18120a"/><path d="M44 75 Q50 72 50 77" fill="none" stroke="#18120a" stroke-width="2.5"/>`;
+  else if(m.extra==='tulip')o+=`<rect x="67" y="44" width="3" height="16" rx="1.5" fill="#27500A"/><ellipse cx="68.5" cy="42" rx="5" ry="6" fill="#E24B4A"/><ellipse cx="64" cy="45" rx="4" ry="5" fill="#D85A30"/>`;
+  o+=`<rect x="32" y="82" width="11" height="24" rx="5" fill="${h}"/><rect x="47" y="82" width="11" height="24" rx="5" fill="${h}"/><rect x="28" y="100" width="15" height="8" rx="4" fill="#444441"/><rect x="47" y="100" width="15" height="8" rx="4" fill="#444441"/>`;
+  svgEl.innerHTML=o;
+}
+
+/* Draw all characters */
+[['hero-mini-zara','excited'],['comp-svg','focused'],['psv1','focused'],['psv2','shocked'],['psv3','hopeful'],['psv4','determined']].forEach(([id,mood])=>{
+  const el=document.getElementById(id); if(el) drawZara(el,mood);
+});
+
+/* ══ MODE SWITCHER ══ */
+function switchMode(mode,btn){
+  document.querySelectorAll('.mode-tab').forEach(t=>{
+    t.classList.toggle('active',t.dataset.mode===mode);
+    t.setAttribute('aria-pressed', t.dataset.mode===mode ? 'true' : 'false');
+  });
+  document.querySelectorAll('.mode-card').forEach(c=>c.classList.toggle('active',c.id===`card-${mode}`));
+}
+
+/* ══ NAV ══ */
+window.addEventListener('scroll',()=>document.getElementById('nav').classList.toggle('scrolled',scrollY>60));
+
+/* ══ COMPANION ══ */
+const compBubble=document.getElementById('comp-bubble');
+const companion=document.getElementById('companion');
+const compSvg=document.getElementById('comp-svg');
+let bubbleTimer;
+function setComp(mood,msg){
+  drawZara(compSvg,mood);
+  compBubble.textContent=msg;
+  compBubble.classList.add('show');
+  clearTimeout(bubbleTimer);
+  bubbleTimer=setTimeout(()=>compBubble.classList.remove('show'),4000);
+}
+const secData={
+  s1:{mood:'focused',msg:'Three modes. Pick one and see the full picture.'},
+  s2:{mood:'shocked',msg:'The blueprint reveals what the booking page hides.'},
+  s3:{mood:'determined',msg:'61% of routes: flight is cheaper. By policy, not nature.'},
+  s4:{mood:'determined',msg:'No cross-border rail aggregator exists. That\'s the brief.'},
+  s5:{mood:'hopeful',msg:'Night trains: back. 750K Amsterdam→Austria since 2021.'},
+  s6:{mood:'hopeful',msg:'Still applying. Still choosing the train. 🌙'}
+};
+Object.keys(secData).forEach(id=>{
+  const el=document.getElementById(id); if(!el) return;
+  new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting) setComp(secData[id].mood,secData[id].msg)})},{threshold:.35}).observe(el);
+});
+new IntersectionObserver(entries=>{entries.forEach(e=>companion.classList.toggle('hide',e.isIntersecting))},{threshold:.3}).observe(document.getElementById('hero'));
+
+/* ══ REVEAL ══ */
+const revObs=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('vis');revObs.unobserve(e.target)}})},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>revObs.observe(el));
+
+/* ══ STAT COUNTER ══ */
+function countUp(el,target,dec){const dur=2000,t0=performance.now();(function tick(now){const p=Math.min((now-t0)/dur,1);el.textContent=(target*(1-Math.pow(1-p,3))).toFixed(dec);if(p<1)requestAnimationFrame(tick)})(t0)}
+new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting) e.target.querySelectorAll('[data-count]').forEach(el=>countUp(el,parseFloat(el.dataset.count),parseInt(el.dataset.dec||0)))})},{threshold:.5}).observe(document.getElementById('stat-strip'));
+
+/* ══ CO2 BARS ══ */
+new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting) e.target.querySelectorAll('.cbar-fill').forEach((b,i)=>setTimeout(()=>b.style.width=b.dataset.w+'%',i*200))})},{threshold:.3}).observe(document.getElementById('co2-bars'));
+
+/* ══ CHART ══ */
+window.addEventListener('load',()=>{
+  const ctx=document.getElementById('airChart'); if(!ctx) return;
+  new Chart(ctx,{
+    type:'bar',
+    data:{
+      labels:['2022','2023','2024'],
+      datasets:[{label:'EU Air Passengers (billions)',data:[.85,.973,1.053],backgroundColor:['rgba(196,122,26,.5)','rgba(196,122,26,.7)','rgba(196,122,26,.95)'],borderColor:['rgba(196,122,26,.8)','rgba(196,122,26,.9)','rgba(196,122,26,1)'],borderWidth:1.5,borderRadius:3}]
+    },
+    options:{
+      responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{backgroundColor:'#1a1510',titleColor:'#f7f5f0',bodyColor:'rgba(247,245,240,.65)',callbacks:{label:c=>`${c.raw}B passengers`}}},
+      scales:{y:{grid:{color:'rgba(0,0,0,.05)'},ticks:{font:{family:"'DM Mono',monospace",size:10},color:'#7a7060',callback:v=>v+'B'}},x:{grid:{display:false},ticks:{font:{family:"'DM Mono',monospace",size:10},color:'#7a7060'}}}
+    }
+  });
+});
+</script>
+</body>
+</html>

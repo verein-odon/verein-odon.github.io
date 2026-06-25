@@ -19,7 +19,7 @@ image:
 authors:
   - name: "Samreen Khan"
 type: "story"
-featured: false
+featured: true
 topics:
   - "mobility"
   - "sustainability"

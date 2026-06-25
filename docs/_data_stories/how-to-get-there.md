@@ -12,6 +12,7 @@ cover_image: /assets/data-stories/how-to-get-there/cover.png
 cover_image_alt: "Animated scene of a plane, night train, and coach travelling simultaneously with a live journey clock showing CO₂ and time comparisons"
 thumbnail: /assets/data-stories/how-to-get-there/thumbnail.png
 thumbnail_alt: "How Do You Get There? — Amsterdam to Vienna transport comparison"
+thumbnail_position: "left center"
 image:
   path: /assets/data-stories/how-to-get-there/cover.png
   alt: "Animated transport scene comparing plane, night train, and coach on the Amsterdam–Vienna route"

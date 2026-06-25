@@ -39,6 +39,7 @@
               loading="lazy"
               width="600"
               height="400"
+              {% if entry.thumbnail_position %}style="object-position: {{ entry.thumbnail_position | escape }};"{% endif %}
             >
           </a>
         </div>

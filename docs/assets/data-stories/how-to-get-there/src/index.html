@@ -1336,7 +1336,7 @@ const secData={
 };
 Object.keys(secData).forEach(id=>{
   const el=document.getElementById(id); if(!el) return;
-  new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting) setComp(secData[id].mood,secData[id].msg)})},{threshold:.35}).observe(el);
+  new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting) setComp(secData[id].mood,secData[id].msg)})},{threshold:.1}).observe(el);
 });
 new IntersectionObserver(entries=>{entries.forEach(e=>companion.classList.toggle('hide',e.isIntersecting))},{threshold:.3}).observe(document.getElementById('hero'));
 

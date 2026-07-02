@@ -50,7 +50,7 @@ external_links:
     url: "https://odon.at/en/data-stories/record-temperature-in-england/"
   - label: "HadCET data download"
     url: "https://www.metoffice.gov.uk/hadobs/hadcet/data/download.html"
-featured: false
+featured: true
 license: "CC BY 4.0"
 license_url: "https://creativecommons.org/licenses/by/4.0/"
 ---

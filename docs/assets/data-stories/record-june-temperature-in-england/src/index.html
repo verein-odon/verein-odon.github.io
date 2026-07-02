@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>England Kept Breaking Temperature Records in June 2026</title>
+  <script src="https://cdn.jsdelivr.net/npm/d3@7/dist/d3.min.js"></script>
+  <style>
+    :root {
+      --bg: #f6f7f9;
+      --panel: #fff;
+      --border: #d8dde4;
+      --text: #1a1d23;
+      --muted: #5c6570;
+      --accent: #1e5a8a;
+      --chart-bg: #fffff8;
+      --chart-grid: rgba(0, 0, 0, 0.088);
+      --page-max: 86.4rem;
+    }
+    *, *::before, *::after { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      font-size: 1rem;
+      line-height: 1.45;
+      color: var(--text);
+      background: var(--bg);
+    }
+    .page-header {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 1.25rem 1rem 0.5rem;
+    }
+    .page-header h1 {
+      margin: 0 0 0.25rem;
+      font-size: clamp(1.55rem, 3vw, 2rem);
+      font-weight: 600;
+    }
+    .story-meta { margin: 0; font-size: 0.82rem; color: var(--muted); }
+    .lede { margin: 0.5rem 0 0; max-width: 52rem; color: var(--muted); font-size: 0.95rem; }
+    .lede a { color: var(--accent); font-weight: 500; }
+    .hint { margin: 0.5rem 0 0; max-width: 52rem; font-size: 0.85rem; color: var(--muted); }
+    .layout {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 0.5rem 1rem 2rem;
+      align-items: flex-start;
+    }
+    .charts-col { flex: 1 1 26.4rem; min-width: 0; display: flex; flex-direction: column; gap: 1.75rem; }
+    .chart-block {
+      background: var(--panel);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.85rem 0.85rem 0.35rem;
+    }
+    .chart-block h2 {
+      margin: 0 0 0.15rem;
+      font-size: clamp(1.05rem, 2vw, 1.25rem);
+      font-weight: 600;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .chart-block .chart-sub {
+      margin: 0 0 0.55rem;
+      font-size: 0.78rem;
+      color: var(--muted);
+      max-width: 42rem;
+    }
+    .map-root {
+      background: var(--chart-bg);
+      border: 1px solid var(--border);
+      border-radius: 4px;
+      overflow: auto;
+    }
+    svg.chart { display: block; width: 100%; height: auto; font-size: 13px; }
+    .axis text { fill: var(--muted); }
+    .axis path, .axis line { stroke: #999; shape-rendering: crispEdges; }
+    .grid line { stroke: var(--chart-grid); }
+    .loess { fill: none; stroke: #000; stroke-width: 2.8; stroke-linecap: round; }
+    .hit { fill: transparent; cursor: crosshair; }
+    #tooltip {
+      position: fixed; z-index: 100; pointer-events: none;
+      background: rgba(15, 15, 15, 0.88); color: #fff;
+      font-size: 0.8125rem; padding: 0.35rem 0.6rem; border-radius: 4px;
+      display: none; max-width: 18rem;
+    }
+    .detail-panel {
+      flex: 0 1 19rem; min-width: min(100%, 17rem);
+      background: var(--panel); border: 1px solid var(--border); border-radius: 6px;
+      padding: 1rem 1.1rem; position: sticky; top: 0.5rem;
+      max-height: min(88vh, 1200px); overflow: auto;
+    }
+    .detail-panel__title { margin: 0 0 0.35rem; font-size: 1.05rem; }
+    .detail-measure { margin: 0 0 0.65rem; font-size: 0.78rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.04em; }
+    #detail { font-size: 0.92rem; line-height: 1.45; }
+    #detail em { color: var(--muted); }
+    .page-footer { max-width: var(--page-max); margin: 0 auto; padding: 0 1rem 2rem; font-size: 0.82rem; color: var(--muted); }
+    .page-footer .data-link { color: #c81e1e; font-weight: 600; }
+    .story-body {
+      max-width: var(--page-max);
+      margin: 0 auto;
+      padding: 0 1rem 2.5rem;
+    }
+    .story-body h2 {
+      margin: 2rem 0 0.65rem;
+      font-size: 1.25rem;
+      font-weight: 600;
+      line-height: 1.3;
+    }
+    .story-body h2:first-child { margin-top: 0; }
+    .story-body p {
+      margin: 0 0 0.85rem;
+      max-width: 52rem;
+      color: var(--text);
+    }
+    .story-body ul {
+      margin: 0 0 0.85rem;
+      padding-left: 1.25rem;
+      max-width: 52rem;
+    }
+    .story-body li { margin: 0.35rem 0; }
+    .story-body code {
+      font-family: ui-monospace, monospace;
+      font-size: 0.9em;
+      background: #eef1f4;
+      padding: 0.1em 0.35em;
+      border-radius: 3px;
+    }
+    .story-body a { color: var(--accent); }
+    .err { color: #7a1f1f; background: #fde8e8; padding: 0.75rem 1rem; border-radius: 6px; }
+    @media (max-width: 52rem) {
+      .detail-panel { flex: 1 1 100%; position: static; max-height: none; }
+    }
+  </style>
+</head>
+<body>
+  <header class="page-header">
+    <h1 id="page-title">England Kept Breaking Temperature Records in June 2026</h1>
+    <p class="story-meta" id="story-meta"></p>
+    <p class="lede" id="summary"></p>
+    <p class="hint">Hover a point for date and temperature · click to pin in the panel</p>
+  </header>
+
+  <main class="layout">
+    <div class="charts-col">
+      <section class="chart-block" id="block-mean" aria-labelledby="title-mean">
+        <h2 id="title-mean">Mean</h2>
+        <p class="chart-sub" id="sub-mean"></p>
+        <div id="chart-mean" class="map-root"></div>
+      </section>
+      <section class="chart-block" id="block-max" aria-labelledby="title-max">
+        <h2 id="title-max">Maximum</h2>
+        <p class="chart-sub" id="sub-max"></p>
+        <div id="chart-max" class="map-root"></div>
+      </section>
+      <section class="chart-block" id="block-min" aria-labelledby="title-min">
+        <h2 id="title-min">Minimum</h2>
+        <p class="chart-sub" id="sub-min"></p>
+        <div id="chart-min" class="map-root"></div>
+      </section>
+    </div>
+
+    <aside class="detail-panel" aria-label="Pinned day detail">
+      <h2 class="detail-panel__title">Pinned day</h2>
+      <p class="detail-measure" id="detail-measure"></p>
+      <div id="detail"><em>Click a dot in any chart to pin date and temperature here.</em></div>
+    </aside>
+  </main>
+
+  <section class="story-body" aria-label="Story text">
+    <h2>Overview</h2>
+    <p>
+      On 26 June 2026, the Hadley Centre Central England Temperature (HadCET) series recorded a daily mean
+      of 26.5°C — the highest ever measured for any June day in a dataset spanning 254 years. These charts
+      place that heatwave in context: each dot represents one day in June, from 01 June 1772 to 30 June 2026,
+      for daily mean, maximum, and minimum temperature. Only 4 of those 7,650 June days have ever exceeded
+      24°C as a daily mean — all four in June 2026. The LOESS trend lines trace the century-scale
+      pattern across the full series.
+    </p>
+
+    <h2>Methodology</h2>
+    <p>
+      Data was downloaded directly from the Met Office HadCET dataset
+      (<code>meantemp_daily_totals.txt</code>), the longest instrumental temperature record in the world.
+      All June readings (days 1–30, years 1772–2026) were extracted using Python. A LOESS smooth was fitted
+      to the 7,900 data points to show the underlying trend. The interactive chart was built in JavaScript
+      using D3.js, with Delaunay triangulation for efficient nearest-point detection on hover and click.
+    </p>
+
+    <h2>Findings</h2>
+    <ul>
+      <li><strong>Daily mean:</strong> All 4 June days above 24°C in 254 years were in June 2026 (23–26 June: 24.1, 24.3, 25.0, 26.5°C). The series record is <strong>26 June 2026 at 26.5°C</strong>.</li>
+      <li><strong>Daily maximum:</strong> 4 of the 5 hottest June days on record were in June 2026. The series record is <strong>26 June 2026 at 32.8°C</strong>, exceeding the 1976 heatwave peak of 30.3°C.</li>
+      <li><strong>Daily minimum:</strong> The warmest June night on record was <strong>26 June 2026 at 20.1°C</strong> — <strong>2.8°C</strong> above the previous record from <strong>22 June 1941</strong> (17.3°C).</li>
+      <li>The coldest recorded June daily mean in the series: <strong>19 June 1795</strong> at 7.3°C.</li>
+    </ul>
+
+    <h2>Takeaways</h2>
+    <p>
+      Open climate data — and especially a dataset spanning over two centuries — makes it possible to
+      contextualise a single extreme reading immediately and precisely. The HadCET series is public,
+      machine-readable, and updated in near real-time by the Met Office. A record like 26 May 2026 can be
+      verified, contextualised, and published within hours of its occurrence. That is what open data enables.
+    </p>
+  </section>
+
+  <div id="tooltip" role="status" aria-live="polite"></div>
+  <footer class="page-footer"><p id="caption"></p></footer>
+
+  <script>
+(function () {
+  const W = 1200, H = 504;
+  const margin = { top: 12, right: 29, bottom: 48, left: 58 };
+  const FILES = {
+    mean: "june_mean_d3.json",
+    max: "june_max_d3.json",
+    min: "june_min_d3.json",
+  };
+
+  let activeMeasure = "mean";
+
+  function xTickValues(xLo, xHi, xDataMax) {
+    const xMax = xDataMax ?? (xHi - 3);
+    let lo = Math.ceil(xLo / 20) * 20;
+    let hi = Math.ceil(xMax / 20) * 20;
+    if (hi - xMax > 8) hi = Math.floor(xMax / 20) * 20;
+    if (hi <= lo) hi = lo + 20;
+    const out = [];
+    for (let v = lo; v <= hi; v += 20) out.push(v);
+    return out;
+  }
+
+  function colorFor(flag) {
+    if (flag === "warm") return "#e41a1c";
+    if (flag === "cold") return "#4e79a7";
+    return "#999999";
+  }
+
+  function drawPointLabel(g, x, y, pt, side) {
+    const px = x(pt.yr), py = y(pt.temp);
+    if (side === "right") {
+      g.append("line").attr("x1", px).attr("y1", py).attr("x2", px + 38).attr("y2", py + 8)
+        .attr("stroke", "#404040").attr("stroke-width", 0.9);
+      g.append("text").attr("x", px + 42).attr("y", py + 12).attr("fill", "#333")
+        .attr("font-size", 12).attr("text-anchor", "start").text(pt.label);
+    } else {
+      g.append("line").attr("x1", px).attr("y1", py).attr("x2", px - 38).attr("y2", py - 10)
+        .attr("stroke", "#404040").attr("stroke-width", 0.9);
+      g.append("text").attr("x", px - 42).attr("y", py - 12).attr("fill", "#333")
+        .attr("font-size", 12).attr("text-anchor", "end").text(pt.label);
+    }
+  }
+
+  const tooltip = document.getElementById("tooltip");
+  const detail = document.getElementById("detail");
+  const detailMeasure = document.getElementById("detail-measure");
+
+  function fmtPoint(d, meta) {
+    const vl = meta.valueLabel || "Daily";
+    return `<strong>${d.label}</strong><br /><span>${vl} ${d.temp} °C</span>`;
+  }
+
+  function setDetail(html, measure, isPinned) {
+    detail.innerHTML = html;
+    detailMeasure.textContent = measure ? measure.toUpperCase() : "";
+    if (isPinned) activeMeasure = measure;
+  }
+
+  function showTooltip(event, d, meta) {
+    tooltip.style.display = "block";
+    tooltip.innerHTML = fmtPoint(d, meta);
+    let left = event.clientX + 12, top = event.clientY + 12;
+    const rect = tooltip.getBoundingClientRect();
+    if (left + rect.width > window.innerWidth - 8) left = event.clientX - rect.width - 12;
+    if (top + rect.height > window.innerHeight - 8) top = event.clientY - rect.height - 12;
+    tooltip.style.left = Math.max(8, left) + "px";
+    tooltip.style.top = Math.max(8, top) + "px";
+  }
+
+  function renderChart(containerId, data) {
+    const meta = data.meta;
+    const points = data.points;
+    const loess = data.loess || [];
+    const ex = meta.extent;
+    const measure = meta.measure;
+
+    document.getElementById("title-" + measure).textContent = meta.title;
+    document.getElementById("sub-" + measure).textContent = meta.subtitle || "";
+
+    const innerW = W - margin.left - margin.right;
+    const innerH = H - margin.top - margin.bottom;
+    const x = d3.scaleLinear().domain([ex.xLo, ex.xHi]).range([0, innerW]);
+    const yLo = ex.yLo;
+    const yTop = Math.ceil(ex.yHi / 5) * 5;
+    const y = d3.scaleLinear().domain([yLo, yTop]).range([innerH, 0]);
+
+    const svg = d3.select("#" + containerId).append("svg")
+      .attr("class", "chart").attr("viewBox", `0 0 ${W} ${H}`)
+      .attr("preserveAspectRatio", "xMidYMid meet");
+    const g = svg.append("g").attr("transform", `translate(${margin.left},${margin.top})`);
+
+    const yTicks = d3.range(yLo, yTop + 0.01, 5);
+    g.append("g").attr("class", "grid").selectAll("line").data(yTicks).join("line")
+      .attr("x1", 0).attr("x2", innerW).attr("y1", d => y(d)).attr("y2", d => y(d));
+
+    g.append("g").attr("class", "axis").attr("transform", `translate(0,${innerH})`)
+      .call(d3.axisBottom(x).tickValues(xTickValues(ex.xLo, ex.xHi, ex.xDataMax)).tickFormat(d3.format("d")))
+      .append("text").attr("x", innerW / 2).attr("y", 34).attr("fill", "currentColor")
+      .attr("text-anchor", "middle").text("Year");
+
+    g.append("g").attr("class", "axis")
+      .call(d3.axisLeft(y).tickValues(yTicks).tickSizeOuter(0))
+      .append("text").attr("transform", "rotate(-90)").attr("x", -innerH / 2).attr("y", -36)
+      .attr("fill", "currentColor").attr("text-anchor", "middle").text(meta.yAxisLabel || "°C");
+
+    const lineGen = d3.line().curve(d3.curveMonotoneX).x(d => x(d.x)).y(d => y(d.y));
+    g.selectAll("circle.dot").data(points).join("circle").attr("class", "dot")
+      .attr("cx", d => x(d.yr)).attr("cy", d => y(d.temp))
+      .attr("r", d => d.flag === "normal" ? 3.6 : 4.8)
+      .attr("fill", d => colorFor(d.flag))
+      .attr("opacity", d => d.flag === "normal" ? 0.7 : 0.92);
+
+    if (loess.length >= 2) {
+      g.append("path").datum(loess).attr("class", "loess").attr("d", lineGen);
+    }
+
+    const warmPt = meta.extremes && meta.extremes.warm;
+    const coldPt = meta.extremes && meta.extremes.cold;
+    if (warmPt) {
+      const wp = points.find(p => p.iso === warmPt.iso);
+      if (wp) drawPointLabel(g, x, y, wp, "left");
+    }
+    if (coldPt && measure !== "max") {
+      const cp = points.find(p => p.iso === coldPt.iso);
+      if (cp) drawPointLabel(g, x, y, cp, "right");
+    }
+
+    const delaunay = d3.Delaunay.from(points, d => x(d.yr), d => y(d.temp));
+    g.append("rect").attr("class", "hit").attr("width", innerW).attr("height", innerH)
+      .on("mousemove", function (event) {
+        const [mx, my] = d3.pointer(event, this);
+        showTooltip(event, points[delaunay.find(mx, my)], meta);
+      })
+      .on("mouseleave", () => { tooltip.style.display = "none"; })
+      .on("click", function (event) {
+        const [mx, my] = d3.pointer(event, this);
+        const pinned = points[delaunay.find(mx, my)];
+        setDetail(fmtPoint(pinned, meta), measure, true);
+        tooltip.style.display = "none";
+      });
+
+    return { meta, points };
+  }
+
+  function authorCredit(meta) {
+    const a = (meta && meta.author) || {
+      name: "David Curran",
+      url: "https://www.linkedin.com/in/david-curran-8ba5534/",
+    };
+    return `Graphic: <a class="data-link" href="${a.url}" rel="noopener noreferrer">${a.name}</a>`;
+  }
+
+  function initPage(meanData, maxData, minData) {
+    const pm = meanData.meta;
+    const pageTitle = pm.pageTitle || "England Kept Breaking Temperature Records in June 2026";
+    const pageSummary = pm.pageSummary ||
+      "May broke records in England — Central England's warmest May day in 254 years came on 26 May 2026. But June was record-breaking by huge margins across many temperature records: daily mean, maximum, and minimum all rewrote the books in late June, often on consecutive days, against every previous June in HadCET since 1772.";
+    const mayUrl = pm.mayStoryUrl || "https://odon.at/en/data-stories/record-temperature-in-england/";
+    document.title = pageTitle;
+    document.getElementById("page-title").textContent = pageTitle;
+    document.getElementById("story-meta").textContent = pm.coverageLabel || "";
+    const summaryEl = document.getElementById("summary");
+    if (pm.mayStoryUrl || pageSummary.includes("May broke")) {
+      const linked = pageSummary.replace(
+        "came on 26 May 2026.",
+        `came on 26 May 2026 (<a href="${mayUrl}" rel="noopener noreferrer">analysis</a>).`
+      );
+      summaryEl.innerHTML = linked;
+    } else {
+      summaryEl.textContent = pageSummary;
+    }
+
+    const L = pm.links || {};
+    document.getElementById("caption").innerHTML =
+      "Source: Met Office HadCET — " +
+      `<a class="data-link" href="${L.downloadHub}">download hub</a>. ` +
+      authorCredit(pm);
+
+    const charts = [
+      renderChart("chart-mean", meanData),
+      renderChart("chart-max", maxData),
+      renderChart("chart-min", minData),
+    ];
+
+    detail.addEventListener("dblclick", () => {
+      setDetail("<em>Click a dot in any chart to pin date and temperature here.</em>", "", false);
+    });
+
+    const pinIso = pm.preferredPinIso || "2026-06-26";
+    const meanPin = charts[0].points.find(p => p.iso === pinIso) || charts[0].points.find(
+      p => p.iso === pm.extremes.warm.iso
+    );
+    if (meanPin) setDetail(fmtPoint(meanPin, charts[0].meta), "mean", true);
+  }
+
+  Promise.all(
+    Object.entries(FILES).map(([key, file]) =>
+      fetch(file).then(r => { if (!r.ok) throw new Error(file + ": " + r.status); return r.json(); })
+    )
+  ).then(([meanData, maxData, minData]) => initPage(meanData, maxData, minData))
+    .catch(e => {
+      document.getElementById("page-title").textContent = "Could not load chart data";
+      document.getElementById("summary").innerHTML =
+        '<p class="err">Run <code>python build_month_d3_data.py --month 6 --outdir june --prefix june</code>, ' +
+        "serve via HTTP, and open this page. " + String(e).replace(/</g, "&lt;") + "</p>";
+    });
+})();
+  </script>
+</body>
+</html>

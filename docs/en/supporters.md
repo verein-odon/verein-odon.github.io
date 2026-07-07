@@ -185,6 +185,9 @@ last_updated: "2026-06-24 00:00"
           });
         }
       </script>
+      <div style="background: #f9fafb; border-left: 3px solid #d1d5db; padding: 0.75rem 1rem; border-radius: 0.25rem; margin-top: 1rem;">
+        ODON does not currently hold Austrian donation-tax-deductibility status (<em>Spendenbegünstigung</em>). Donations to ODON are therefore <strong>not tax-deductible</strong>, and we do not issue donation receipts for tax purposes.
+      </div>
       <p style="margin-top: 1.5rem; color: var(--color-gray-500); font-style: italic;">
         &#9829; Your support makes Open Data accessible to everyone. Questions? <a href="/en/contact/">Get in touch</a>.
       </p>

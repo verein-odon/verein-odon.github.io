@@ -28,6 +28,8 @@ banner:
   url: "/en/projects/"
   url_label: "tell us about your data engineering, storytelling, or education idea"
 
+timezone: Europe/Vienna
+
 title: ODON
 email: info@odon.at
 phone: "+43 664 93349885"

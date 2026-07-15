@@ -22,7 +22,7 @@
 # Set enabled: true to show the banner on every page.
 # Change `id` whenever you update the message so returning visitors see it again.
 banner:
-  enabled: true
+  enabled: false
   id: "odon-projects-2026-06-03" # increment this to show the banner again to returning visitors
   message: "ODON Projects is open for submissions —"
   url: "/en/projects/"

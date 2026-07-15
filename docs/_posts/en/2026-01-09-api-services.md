@@ -4,6 +4,7 @@ title:  "ODON Expands Its Open Data API Services"
 date:   2026-01-09 00:00:01 +0100
 categories: odon verein
 lang: en
+published: false
 ---
 
 ODON continues to improve access to Open Data by expanding its API based services. The focus remains on making high quality public datasets easier to discover, access, and integrate into applications, research projects, and educational use cases.

@@ -4,6 +4,7 @@ title:  "Internship Registration Now Open"
 date:   2026-04-09 00:00:01 +0100
 categories: odon internship
 lang: en
+published: false
 ---
 
 ODON is now accepting internship registrations. If you are interested in working on real Open Data projects with societal impact — across education, data storytelling, and transparency — we would love to hear from you.

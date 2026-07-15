@@ -4,6 +4,7 @@ title:  "Introducing ODON's Open Data Maturity Model (ODMM)"
 date:   2026-03-23 00:00:01 +0100
 categories: odon verein
 lang: en
+published: false
 ---
 
 When working with Open Data across different domains, one challenge comes up repeatedly: what does it actually mean for data to be "open"? The answer depends on both legal permissions and technical usability — and the two don't always go hand in hand.

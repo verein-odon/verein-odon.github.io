@@ -5,7 +5,7 @@ nav_order: 6
 lang: en
 ref: membership
 permalink: /en/membership/
-last_updated: "2026-03-29 00:00"
+last_updated: "2026-07-29 00:00"
 ---
 
 <section class="section bg-white">

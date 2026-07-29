@@ -63,6 +63,9 @@ last_updated: "2026-03-29 00:00"
             <li><span class="bullet"></span><span>Participate in association activities</span></li>
             <li><span class="bullet"></span><span>Contribute ideas and expertise</span></li>
             <li><span class="bullet"></span><span>Take part in internal decisions</span></li>
+            <li><span class="bullet"></span><span>Get your own <b>@odon.at</b> email address</span></li>
+            <li><span class="bullet"></span><span>Get access to our <b>Google Workspace</b></span></li>
+            <li><span class="bullet"></span><span>Network with a group of experts in and around the Open Data domain</span></li>
           </ul>
         </div>
         <div class="membership-item">

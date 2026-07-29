@@ -71,6 +71,20 @@ last_updated: "2026-03-29 00:00"
         <div class="membership-item">
           <div class="membership-item-header">
             <div>
+              <h3>Full Membership PLUS</h3>
+              <p class="membership-subtitle">"Ordentliche Mitgliedschaft PLUS"</p>
+            </div>
+            <span class="membership-price">200 EUR / year</span>
+          </div>
+          <p>Ideal if you want full involvement in the association together with AI-assisted tooling for your Open Data work.</p>
+          <ul>
+            <li><span class="bullet"></span><span>Everything in Full Membership</span></li>
+            <li><span class="bullet"></span><span><b>AI support from a frontier model provider with a generous usage limit</b></span></li>
+          </ul>
+        </div>
+        <div class="membership-item">
+          <div class="membership-item-header">
+            <div>
               <h3>Associate Membership</h3>
               <p class="membership-subtitle">"Außerordentliche Mitgliedschaft"</p>
             </div>

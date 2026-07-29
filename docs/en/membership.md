@@ -59,6 +59,7 @@ last_updated: "2026-07-29 00:00"
             <span class="membership-price">48 EUR / year</span>
           </div>
           <p>Full members actively participate in the association and help shape its direction. Ideal if you want to be involved in decision making and contribute to ODON's long-term development.</p>
+          <p class="membership-note">Subject to approval by the board.</p>
           <ul>
             <li><span class="bullet"></span><span>Participate in association activities</span></li>
             <li><span class="bullet"></span><span>Contribute ideas and expertise</span></li>
@@ -77,6 +78,7 @@ last_updated: "2026-07-29 00:00"
             <span class="membership-price">200 EUR / year</span>
           </div>
           <p>Ideal if you want full involvement in the association together with AI-assisted tooling for your Open Data work.</p>
+          <p class="membership-note">Subject to approval by the board.</p>
           <ul>
             <li><span class="bullet"></span><span>Everything in Full Membership</span></li>
             <li><span class="bullet"></span><span><b>AI support from a frontier model provider with a generous usage limit</b></span></li>
@@ -134,6 +136,13 @@ last_updated: "2026-07-29 00:00"
     font-weight: 700;
     color: var(--color-blue-600);
     white-space: nowrap;
+  }
+
+  .membership-note {
+    font-size: 0.9rem;
+    font-style: italic;
+    color: var(--color-gray-500);
+    margin: -0.5rem 0 1rem;
   }
 </style>
 

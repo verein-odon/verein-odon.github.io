@@ -60,6 +60,9 @@ url: "https://odon.at" # the base hostname & protocol for your site, e.g. http:/
 #twitter_username: odon-at
 github_username:  odon-at
 linkedin_username: odon-at
+mastodon:
+  - username: odon
+    instance: fosstodon.org
 
 # Build settings
 #theme: minima

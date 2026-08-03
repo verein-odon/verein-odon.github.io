@@ -5,7 +5,7 @@ lang: en
 ref: privacy
 permalink: /en/privacy/
 in_nav: false
-last_updated: "2026-06-03"
+last_updated: "2026-08-03"
 ---
 
 <section class="section bg-white">
@@ -14,7 +14,7 @@ last_updated: "2026-06-03"
 
 # Privacy Policy
 
-_Last updated: 2026-06-03_
+_Last updated: 2026-08-03_
 
 This Privacy Policy explains how **ODON – Offene Daten für Offene Nutzung** ("ODON", "we", "us") collects and processes personal data when you visit our website, use our services, or otherwise interact with us. We follow the EU General Data Protection Regulation (GDPR) and the Austrian Data Protection Act (DSG).
 
@@ -130,6 +130,17 @@ When we publish a Data Story on our website with an external contributor credite
 - **Retention:** for as long as the data story is published. If you ask us to remove your name, we will do so within a reasonable timeframe; third-party caches or archives may retain copies beyond our control.
 - **Note:** communications during the production process (emails, draft exchanges) are handled under section 3.2 above.
 
+### 3.9 Website analytics (Google Analytics)
+
+We use **Google Analytics 4 (GA4)**, a service of Google, to understand how our website is used (for example which pages are visited and how visitors arrive) so that we can improve our content and measure the impact of our work, including for our participation in the Google Ad Grants programme for non-profits.
+
+**Google Analytics runs only if you agree.** When you first visit the site, we ask for your consent through a banner. If you decline, or before you make a choice, no Google Analytics code is loaded and no analytics cookies are set. If you accept, GA4 is loaded and sets analytics cookies on your device to recognise returning sessions. We run GA4 with **Google Consent Mode v2**, with Google Signals and ad-personalisation disabled; GA4 does not log or store your full IP address.
+
+- **Purpose:** website analytics and measurement of the reach and impact of our work.
+- **Legal basis:** **Art. 6(1)(a) GDPR — your consent**, together with **§ 165(3) TKG 2021** for the storing of and access to information on your device. You can withdraw your consent at any time with effect for the future (see section 5); withdrawal does not affect the lawfulness of processing before withdrawal.
+- **Retention:** analytics cookies expire after at most **13 months**; aggregated reports in our GA4 property are retained according to our GA4 data-retention setting (a maximum of **14 months**).
+- **Recipient:** Google Ireland Limited / Google LLC, acting as our processor under the Google Ads Data Processing Terms (see section 4).
+
 ---
 
 ## 4. Third parties who process data on our behalf
@@ -140,6 +151,7 @@ We use a small number of carefully selected service providers ("processors") to 
 | --- | --- | --- |
 | **GitHub, Inc.** (GitHub Pages) | Hosting of the static odon.at website | United States |
 | **Google Ireland Limited / Google LLC** (Google Workspace for Nonprofits) | Email (Gmail), form handling (Google Forms), document and response storage (Google Sheets, Google Drive), internal notifications (Google Chat) | Ireland / United States |
+| **Google Ireland Limited / Google LLC** (Google Analytics 4) | Website analytics, **only with your consent** (see section 3.9) | Ireland / United States |
 | **Hetzner Online GmbH** | Hosting of the ODON API (api-eu-2.odon.at) | Germany (EU) |
 
 We do not currently use a dedicated payment service provider. Membership fees and donations are received by bank transfer to our account with **Wise Europe SA** (an electronic money institution registered in Belgium and licensed by the National Bank of Belgium). Wise is an independent controller, not our processor, and is therefore not listed in the table above.
@@ -148,7 +160,7 @@ We do not currently use a dedicated payment service provider. Membership fees an
 
 Some of our processors are based in the United States or process data there. The transfers are safeguarded as follows:
 
-- **Google Workspace for Nonprofits.** Our plan does not offer data-region selection, so personal data processed through Google services may be processed in the United States or other countries where Google operates. Transfers are safeguarded by the **EU–US Data Privacy Framework** (Google LLC is self-certified) and, where the Framework does not apply, by the **Standard Contractual Clauses** included in Google's [Cloud Data Processing Addendum](https://workspace.google.com/terms/dpa_terms.html). Google encrypts Workspace data in transit and at rest and states that it does not use Workspace customer data for advertising or sell it to third parties.
+- **Google Workspace for Nonprofits and Google Analytics.** Personal data processed through Google services may be processed in the United States or other countries where Google operates. Transfers are safeguarded by the **EU–US Data Privacy Framework** (Google LLC is self-certified) and, where the Framework does not apply, by the **Standard Contractual Clauses** included in Google's [Cloud Data Processing Addendum](https://workspace.google.com/terms/dpa_terms.html). Google encrypts data in transit and at rest and states that it does not use Workspace customer data for advertising or sell it to third parties.
 - **GitHub Pages.** Transfers to GitHub, Inc. in the United States are safeguarded by the **EU–US Data Privacy Framework** (GitHub is self-certified) and by the **Standard Contractual Clauses** contained in GitHub's Data Protection Agreement.
 
 You can request further information about these safeguards at info@odon.at.
@@ -157,9 +169,50 @@ You can request further information about these safeguards at info@odon.at.
 
 ## 5. Cookies and similar technologies
 
-Our website does not set any cookies of its own, and the hosting infrastructure (GitHub Pages) does not set cookies either. The only cookies you may encounter on odon.at come from embedded Google Forms on the contact, internship registration, and ODON Projects pages: when you load one of those pages, your browser fetches resources from Google's servers, which may set cookies and process technical data under Google's own privacy policy. This processing is carried out by Google as an independent controller for its own purposes in addition to the processing described in sections 3.2 and 3.3.
+A cookie is a small text file stored on your device by your browser. Our own website and its hosting infrastructure (GitHub Pages) do not set any cookies. The only cookies you may encounter on odon.at fall into the two categories below, and neither is set unless you actively agree.
 
-We do not use web analytics (such as Google Analytics, Matomo, or Plausible) advertising cookies, or social-media tracking pixels. If this changes in the future, we will update this policy and, where required, ask for your prior consent through a cookie banner.
+### 5.1 Analytics cookies (Google Analytics — consent required)
+
+If you agree via our consent banner, **Google Analytics 4** sets analytics cookies to measure how the site is used, as described in section 3.9. These cookies are set **only after you click "Accept"**. Before you make a choice, and if you decline, no Google Analytics code is loaded and no analytics cookies are set. Your choice is stored locally in your browser so we do not have to ask again on every visit.
+
+You can change or withdraw your choice at any time here:
+
+<div style="margin: 1.5rem 0; padding: 1rem; background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: 0.5rem;">
+  <p style="margin: 0 0 0.75rem; font-size: 0.9375rem; color: var(--color-gray-700);">Analytics status: <strong id="analytics-status">checking…</strong></p>
+  <div style="display: flex; flex-wrap: wrap; gap: 0.5rem;">
+    <button class="btn btn-primary" id="analytics-allow" type="button" style="font-size: 0.875rem; padding: 0.375rem 0.875rem;">Allow analytics</button>
+    <button class="btn btn-secondary" id="analytics-withdraw" type="button" style="font-size: 0.875rem; padding: 0.375rem 0.875rem;">Withdraw / decline</button>
+    <button class="btn btn-secondary" id="analytics-reset" type="button" style="font-size: 0.875rem; padding: 0.375rem 0.875rem;">Reset choice (ask me again)</button>
+  </div>
+</div>
+<script>
+(function () {
+  var KEY = 'odon_analytics_consent';
+  var status = document.getElementById('analytics-status');
+  if (!status) return;
+  function render() {
+    var v;
+    try { v = localStorage.getItem(KEY); } catch (e) { v = null; }
+    status.textContent = v === 'granted' ? 'allowed'
+      : v === 'denied' ? 'declined'
+      : 'no choice made yet';
+  }
+  function set(value) {
+    try { value === null ? localStorage.removeItem(KEY) : localStorage.setItem(KEY, value); } catch (e) {}
+    location.reload();
+  }
+  document.getElementById('analytics-allow').addEventListener('click', function () { set('granted'); });
+  document.getElementById('analytics-withdraw').addEventListener('click', function () { set('denied'); });
+  document.getElementById('analytics-reset').addEventListener('click', function () { set(null); });
+  render();
+})();
+</script>
+
+Withdrawing consent stops Google Analytics from loading on your next page view. To also remove analytics cookies already stored, you can clear cookies for odon.at in your browser settings.
+
+### 5.2 Embedded Google Forms
+
+The other cookies you may encounter come from embedded **Google Forms** on the contact, internship registration, and ODON Projects pages. We do not load these forms automatically: each form is shown behind a consent gate, and only when you choose to load it does your browser fetch resources from Google's servers, which may set cookies and process technical data under Google's own privacy policy. This processing is carried out by Google as an independent controller for its own purposes, in addition to the processing described in sections 3.2 and 3.3.
 
 <div style="margin: 1.5rem 0; padding: 1rem; background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: 0.5rem;">
   <p style="margin: 0 0 0.75rem; font-size: 0.9375rem; color: var(--color-gray-700);">If you previously chose to load a Google Form and want to be asked again on your next visit, you can reset that preference here.</p>
@@ -178,6 +231,8 @@ We do not use web analytics (such as Google Analytics, Matomo, or Plausible) adv
   });
 })();
 </script>
+
+We do not use advertising cookies or social-media tracking pixels.
 
 ---
 

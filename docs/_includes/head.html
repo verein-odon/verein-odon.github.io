@@ -5,9 +5,10 @@
   {%- seo -%}
   <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
   {%- feed_meta -%}
-  {%- if jekyll.environment == 'production' and site.google_analytics -%}
-    {%- include google-analytics.html -%}
-  {%- endif -%}
+  {%- comment -%}
+    Google Analytics 4 is loaded from the <body> (see _layouts/default.html) because
+    it carries the visible consent banner and only loads Google after opt-in.
+  {%- endcomment -%}
 
   {%- if jekyll.environment == 'production' -%}
     {% comment %}

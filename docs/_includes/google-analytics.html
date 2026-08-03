@@ -1,12 +1,109 @@
-<script>
-if(!(window.doNotTrack === "1" || navigator.doNotTrack === "1" || navigator.doNotTrack === "yes" || navigator.msDoNotTrack === "1")) {
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+{%- comment -%}
+  Google Analytics 4 (GA4) with Google Consent Mode v2, gated behind explicit opt-in.
 
-  ga('create', '{{ site.google_analytics }}', 'auto');
-  ga('send', 'pageview');
-}
+  Nothing is requested from Google until the visitor clicks "Accept" in the consent
+  banner. The choice is stored in localStorage under 'odon_analytics_consent'
+  ('granted' | 'denied'). Rendered only in production and only when
+  site.google_analytics is set — see the guard in _layouts/default.html.
+
+  Consent can be withdrawn or changed at any time from the Privacy Policy page
+  (section 5), which reads/clears the same localStorage key.
+
+  This include lives in the <body> (not <head>) because it contains the visible
+  banner markup; the tag loads fine from the body and Consent Mode defaults are
+  declared before any Google script is requested.
+{%- endcomment -%}
+<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Analytics consent" hidden>
+  <div class="container cookie-banner-inner">
+    <p class="cookie-banner-text">
+      We&rsquo;d like to use <strong>Google Analytics</strong> to see how our site is used
+      and to measure the impact of our work. It only sets analytics cookies if you agree.
+      See our <a href="/{{ page.lang | default: 'en' }}/privacy/">Privacy Policy</a>.
+    </p>
+    <div class="cookie-banner-actions">
+      <button class="cookie-btn cookie-btn-decline" id="cookie-decline" type="button">Decline</button>
+      <button class="cookie-btn cookie-btn-accept" id="cookie-accept" type="button">Accept</button>
+    </div>
+  </div>
+</div>
+<script>
+(function () {
+  var CONSENT_KEY = 'odon_analytics_consent';
+  var GA_ID = '{{ site.google_analytics | escape }}';
+
+  // --- Google Consent Mode v2 defaults, declared before any Google tag loads ---
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){ dataLayer.push(arguments); }
+  window.gtag = gtag;
+  gtag('consent', 'default', {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    functionality_storage: 'denied',
+    personalization_storage: 'denied',
+    security_storage: 'granted'
+  });
+
+  var gaLoaded = false;
+  function loadGA() {
+    if (gaLoaded || !GA_ID) return;
+    gaLoaded = true;
+    gtag('consent', 'update', { analytics_storage: 'granted' });
+    gtag('js', new Date());
+    // Privacy-minimal config: no Google Signals / ad personalisation. GA4 does
+    // not log or store IP addresses. Enough for Ad Grants conversion tracking.
+    gtag('config', GA_ID, {
+      allow_google_signals: false,
+      allow_ad_personalization_signals: false,
+      cookie_expires: 34214400 // 396 days (~13 months), within browsers' 400-day cap
+    });
+    var s = document.createElement('script');
+    s.async = true;
+    s.src = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+    document.head.appendChild(s);
+  }
+
+  function showBanner() {
+    var b = document.getElementById('cookie-banner');
+    if (b) b.hidden = false;
+  }
+  function hideBanner() {
+    var b = document.getElementById('cookie-banner');
+    if (b) b.hidden = true;
+  }
+
+  var choice;
+  try { choice = localStorage.getItem(CONSENT_KEY); } catch (e) { choice = null; }
+
+  if (choice === 'granted') {
+    loadGA();
+  } else if (choice !== 'denied') {
+    // No decision yet — offer the choice.
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', showBanner);
+    } else {
+      showBanner();
+    }
+  }
+
+  function wire() {
+    var accept = document.getElementById('cookie-accept');
+    var decline = document.getElementById('cookie-decline');
+    if (accept) accept.addEventListener('click', function () {
+      try { localStorage.setItem(CONSENT_KEY, 'granted'); } catch (e) {}
+      hideBanner();
+      loadGA();
+    });
+    if (decline) decline.addEventListener('click', function () {
+      try { localStorage.setItem(CONSENT_KEY, 'denied'); } catch (e) {}
+      hideBanner();
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', wire);
+  } else {
+    wire();
+  }
+})();
 </script>
-  

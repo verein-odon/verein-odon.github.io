@@ -64,6 +64,11 @@ mastodon:
   - username: odon
     instance: fosstodon.org
 
+# Google Analytics 4 measurement ID.
+# Loaded only in production (JEKYLL_ENV=production) and only after the visitor
+# opts in via the consent banner — see _includes/google-analytics.html.
+google_analytics: G-5NQ5NGXKJB
+
 # Build settings
 #theme: minima
 # Tell Jekyll where to find theme components

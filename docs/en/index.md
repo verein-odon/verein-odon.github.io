@@ -11,15 +11,12 @@ last_updated: "2025-03-10 14:30"
 ---
 
 
-<section class="section bg-white">
-  <div class="container">
-    <div class="content-section">
-      <h2 class="section-title">Our Mission</h2>
-      <p class="lead">Open Data only matters when people can actually use it. ODON is the non-profit association that makes that possible — through free APIs, data engineering and storytelling services, and hands-on education for students and practitioners.</p>
-      <p><a href="/en/data-stories/">See how Open Data leads to insights</a></p>
-    </div>
-  </div>
-</section>
+{% include data-stories-teaser.html
+   title="Latest Data Stories"
+   intro="A closer look at how we turn Open Data into clear, engaging narratives."
+   bg_color="white"
+   more_url="/en/data-stories/"
+   more_label="See all Data Stories" %}
 
 <section class="section bg-gray">
   <div class="container">
@@ -117,12 +114,14 @@ last_updated: "2025-03-10 14:30"
 })();
 </script>
 
-{% include data-stories-teaser.html
-   title="Latest Data Stories"
-   intro="A closer look at how we turn Open Data into clear, engaging narratives."
-   bg_color="white"
-   more_url="/en/data-stories/"
-   more_label="See all Data Stories" %}
+<section class="section bg-white">
+  <div class="container">
+    <div class="content-section">
+      <h2 class="section-title">Our Mission</h2>
+      <p class="lead">Open Data only matters when people can actually use it. ODON is the non-profit association that makes that possible — through free APIs, data engineering and storytelling services, and hands-on education.</p>
+    </div>
+  </div>
+</section>
 
 {% include people_carousel.html
    bg_color="gray"

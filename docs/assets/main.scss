@@ -626,6 +626,18 @@ a.btn-primary, a.btn-primary:hover {
   }
 }
 
+.lead {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-gray-700);
+}
+
+@media (min-width: 768px) {
+  .lead {
+    font-size: 1.25rem;
+  }
+}
+
 /* Cards Grid */
 .cards-grid {
   display: grid;

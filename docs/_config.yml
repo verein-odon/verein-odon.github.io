@@ -71,11 +71,9 @@ google_analytics: G-5NQ5NGXKJB
 
 # Build settings
 #theme: minima
-# Tell Jekyll where to find theme components
-include:
-  - _layouts
-  - _includes
-  - _sass
+# NOTE: do not add _layouts / _includes / _sass to an `include:` list here.
+# Jekyll finds those automatically; listing them makes it copy the raw Liquid
+# templates into _site/ where they are served publicly as source.
 
 plugins:
   - jekyll-feed
@@ -86,7 +84,8 @@ plugins:
 # the internal "default list".
 #
 # Excluded items can be processed by explicitly listing the directories or
-# their entries' file path in the `include:` list.
+# their entries' file path in an `include:` list — but see the warning above
+# the `plugins:` key before adding one.
 exclude:
   - .sass-cache/
   - .jekyll-cache/
@@ -98,3 +97,7 @@ exclude:
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
+  # Repo docs / scratch space — tracked or local-only, but never part of the site.
+  - CLAUDE.md
+  - tmp/
+  - .ruby-version

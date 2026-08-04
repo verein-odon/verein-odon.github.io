@@ -1,4 +1,4 @@
-# People at the association (used on Association page)
+# People at the association (rendered by people_carousel.html on the EN home page)
 # Add or edit entries; image path is under assets/images/people/
 # The carousel will show at most the first three entries.
 

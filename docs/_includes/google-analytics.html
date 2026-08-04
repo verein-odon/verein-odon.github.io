@@ -12,17 +12,25 @@
   This include lives in the <body> (not <head>) because it contains the visible
   banner markup; the tag loads fine from the body and Consent Mode defaults are
   declared before any Google script is requested.
+
+  NOTE ON CLASS NAMES: the banner uses 'prefs-bar' / 'prefs-btn' rather than the
+  obvious 'cookie-banner' / 'cookie-btn'. Cookie-notice filter lists (EasyList
+  Cookie, Fanboy's Annoyances — and Brave, which blocks consent notices by
+  DEFAULT, including in private windows) cosmetically hide elements matching
+  #cookie-banner / .cookie-banner. Visitors then never see the prompt, never
+  make a choice, and GA never loads for them. Do not rename these back to
+  cookie-*. Same reason the aria-label avoids the word "consent".
 {%- endcomment -%}
-<div class="cookie-banner" id="cookie-banner" role="dialog" aria-label="Analytics consent" hidden>
-  <div class="container cookie-banner-inner">
-    <p class="cookie-banner-text">
+<div class="prefs-bar" id="prefs-bar" role="dialog" aria-label="Analytics preferences" hidden>
+  <div class="container prefs-bar-inner">
+    <p class="prefs-bar-text">
       We&rsquo;d like to use <strong>Google Analytics</strong> to see how our site is used
       and to measure the impact of our work. It only sets analytics cookies if you agree.
       See our <a href="/{{ page.lang | default: 'en' }}/privacy/">Privacy Policy</a>.
     </p>
-    <div class="cookie-banner-actions">
-      <button class="cookie-btn cookie-btn-decline" id="cookie-decline" type="button">Decline</button>
-      <button class="cookie-btn cookie-btn-accept" id="cookie-accept" type="button">Accept</button>
+    <div class="prefs-bar-actions">
+      <button class="prefs-btn prefs-btn-decline" id="prefs-decline" type="button">Decline</button>
+      <button class="prefs-btn prefs-btn-accept" id="prefs-accept" type="button">Accept</button>
     </div>
   </div>
 </div>
@@ -65,11 +73,11 @@
   }
 
   function showBanner() {
-    var b = document.getElementById('cookie-banner');
+    var b = document.getElementById('prefs-bar');
     if (b) b.hidden = false;
   }
   function hideBanner() {
-    var b = document.getElementById('cookie-banner');
+    var b = document.getElementById('prefs-bar');
     if (b) b.hidden = true;
   }
 
@@ -88,8 +96,8 @@
   }
 
   function wire() {
-    var accept = document.getElementById('cookie-accept');
-    var decline = document.getElementById('cookie-decline');
+    var accept = document.getElementById('prefs-accept');
+    var decline = document.getElementById('prefs-decline');
     if (accept) accept.addEventListener('click', function () {
       try { localStorage.setItem(CONSENT_KEY, 'granted'); } catch (e) {}
       hideBanner();

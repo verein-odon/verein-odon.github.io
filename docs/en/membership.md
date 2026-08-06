@@ -13,7 +13,7 @@ last_updated: "2026-07-29 00:00"
     <div class="content-section">
       <h2>Why Become a Member?</h2>
       <p>
-        As a member of ODON you directly support the Open Data ecosystem and gain access to extended services.
+        ODON membership is more than support — it's a hands-on way to grow your skills, your network, and your influence in the Open Data and AI community.
       </p>
       <p style="background: #eff6ff; border-left: 3px solid #2563eb; padding: 0.75rem 1rem; border-radius: 0.25rem; margin-top: 1rem;">
         Membership starts at just <b>24 EUR per year</b> and directly funds open data infrastructure, education, and community tools.
@@ -21,26 +21,31 @@ last_updated: "2026-07-29 00:00"
       <ul>
         <li>
           <span class="bullet"></span>
-          <span><b>Support Open Data infrastructure</b><br>
-          Fund the development and maintenance of Open Data tools, APIs, and learning resources used by developers and researchers.</span>
+          <span><b>Learn by doing</b><br>
+          Build hands-on skills in open data and AI through real projects, workshops, and collaboration with the community.</span>
         </li>
         <li>
           <span class="bullet"></span>
-          <span><b>Contribute to a sustainable ecosystem</b><br>
-          Help build a long-term, open, and reusable data infrastructure that benefits everyone.</span>
+          <span><b>Grow your network</b><br>
+          Get access to a network of data and AI experts, developers, researchers, and organisations across Austria and beyond.</span>
         </li>
         <li>
           <span class="bullet"></span>
-          <span><b>Connect with the community</b><br>
-          Join developers, researchers, students, and organisations working with Open Data across Austria and beyond.</span>
+          <span><b>Raise your profile</b><br>
+          Gain visibility in the Open Data and AI community as a contributor, speaker, or collaborator on ODON's projects.</span>
         </li>
         <li>
           <span class="bullet"></span>
-          <span><b>Access extended services</b><br>
-          Benefit from higher API request limits, learning opportunities, and early access to new ODON tools.</span>
+          <span><b>Shape the future</b><br>
+          Actively help shape where data and AI are heading by taking part in ODON's initiatives and decisions.</span>
+        </li>
+        <li>
+          <span class="bullet"></span>
+          <span><b>Access exclusive tools</b><br>
+          Benefit from tools available only to members, including access to the latest AI models.</span>
         </li>
       </ul>
-      <p>Membership is a way to actively support Open Data while benefiting from ODON's growing ecosystem.</p>
+      <p>Membership is a way to actively support Open Data while unlocking real opportunities to learn, connect, and lead.</p>
     </div>
   </div>
 </section>

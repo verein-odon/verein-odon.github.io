@@ -4,6 +4,7 @@ title:  "Welcome Michael Ebalukhe — Working on Open Data Radar"
 date:   2026-07-15 00:00:01 +0100
 categories: odon internship
 lang: en
+published: false
 ---
 
 We're pleased to welcome Michael Ebalukhe to ODON for a three-week internship. Over the coming weeks, Michael will be working on **Open Data Radar**, a project that puts ODON's Open Data Maturity Model (ODMM) to work as a public, searchable registry of Austrian open data.

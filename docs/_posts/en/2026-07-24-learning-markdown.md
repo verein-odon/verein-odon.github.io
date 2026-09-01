@@ -4,6 +4,7 @@ title:  "New Course: Learning Markdown"
 date:   2026-07-24 00:00:01 +0100
 categories: odon education
 lang: en
+published: false
 ---
 
 We've published **Learning Markdown**, a new short course teaching Markdown to interns and members — how to write clean, well-structured Markdown, and how to tell universal syntax apart from the extras that only work in some places (like GitHub's).

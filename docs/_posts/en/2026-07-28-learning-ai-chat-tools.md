@@ -4,6 +4,7 @@ title:  "New Course: Learning AI Chat Tools"
 date:   2026-07-28 00:00:01 +0100
 categories: odon education
 lang: en
+published: false
 ---
 
 We've published **Learning AI Chat Tools**, a new course teaching interns and members how to use AI chat tools effectively — how to get useful answers, judge output critically, and know when to trust one tool over another.

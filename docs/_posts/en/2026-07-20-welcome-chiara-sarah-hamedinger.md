@@ -4,6 +4,7 @@ title:  "Welcome Chiara Hamedinger and Sarah Hamedinger — Working on Open Data
 date:   2026-07-20 00:00:01 +0100
 categories: odon internship
 lang: en
+published: false
 ---
 
 We're pleased to welcome **Chiara Hamedinger** and **Sarah Hamedinger** to ODON for a three-week internship. Starting today, they'll be working together on **Open Data Klassenzimmer**, a project that turns ODON's own internship know-how into a self-paced, open curriculum — teaching students to find, clean, and tell stories with real Austrian open data, no lecture hall required.

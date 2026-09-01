@@ -4,6 +4,7 @@ title:  "New Course: Learning Git With Open Data"
 date:   2026-07-22 00:00:01 +0100
 categories: odon education
 lang: en
+published: false
 ---
 
 We've published **Learning Git With Open Data**, a new course teaching Git and GitHub, using ODON's GitHub organisation and open data for the exercises.

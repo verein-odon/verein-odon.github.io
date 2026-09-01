@@ -21,7 +21,7 @@ ODON Projects are real-world implementations we take on in three core areas:
 - **Data Storytelling** — turning data into clear, engaging narratives, visualisations, and dashboards.
 - **Education** — internships, workshops, and learning collaborations around open data.
 
-If you have an idea that fits one of these areas, we'd like to hear about it.
+If you have an idea that fits one of these areas, we'd like to hear about it. One example: [einfach visuell](/tools/einfach-visuell/), a free, in-browser tool for annotating screenshots — no account, no server, nothing leaves your browser.
 
 ## Our Requirements
 

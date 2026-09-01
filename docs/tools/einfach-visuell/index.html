@@ -1,0 +1,182 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="description" content="einfach visuell — Symbole auf einen Screenshot ziehen und die Zusammenstellung als Bildschirmfoto sichern. Drag icons onto a screenshot, then capture the result with your system's screenshot tool. Läuft komplett im Browser, ohne Konto und ohne Server." />
+  <meta name="color-scheme" content="light" />
+  <title>einfach visuell — zeigen statt beschreiben</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Sichtbare Texte tragen data-i18n-Haken; app.js füllt sie aus STRINGS
+       (js/i18n.js) und aktualisiert sie beim Sprachwechsel. -->
+  <header class="app-header">
+    <h1 class="app-title">einfach&nbsp;visuell</h1>
+
+    <div class="header-actions">
+      <button type="button" class="help-btn" id="help-btn" data-i18n="helpButton" aria-haspopup="dialog">Hilfe</button>
+      <div class="lang-switch" role="group" data-i18n-label="langSwitchLabel" aria-label="Sprache wählen">
+        <button type="button" class="lang-btn" data-lang="de" lang="de" aria-pressed="true">DE</button>
+        <button type="button" class="lang-btn" data-lang="en" lang="en" aria-pressed="false">EN</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="app">
+
+    <!-- Palette: links auf dem Desktop, unten als Leiste auf schmalen Bildschirmen.
+         Die Knöpfe werden aus ICONS (js/icons.js) erzeugt. -->
+    <section class="palette" aria-labelledby="palette-heading">
+      <h2 id="palette-heading" class="visually-hidden" data-i18n="paletteHeading">Symbole</h2>
+      <div id="palette" class="palette-list"></div>
+    </section>
+
+    <section class="workspace">
+
+      <!-- Kein <canvas>: die Fläche ist ein normaler Container mit absolut
+           positionierten Elementen. Keine Einführungstexte mehr direkt auf
+           der Fläche — die Bedienungshilfe steht gesammelt im Hilfe-Dialog
+           (#help-dialog), erreichbar über den Knopf im Kopf. -->
+      <div id="canvas" class="canvas" data-i18n-label="canvasLabel" aria-label="Arbeitsfläche">
+        <p class="drop-overlay" id="drop-overlay" data-i18n="dropHint" aria-hidden="true">Bild hier ablegen</p>
+
+        <!-- Trägt den Zoom/Pan-Transform (app.js). Bewusst ein eigenes
+             Element statt der Fläche selbst: so bleibt canvas.getBoundingClientRect()
+             unabhängig von Zoom/Pan, und die bestehende Platzierungs-/Begrenzungslogik
+             braucht keine Änderung. -->
+        <div id="canvas-content" class="canvas-content">
+          <!-- Verbindungslinien zwischen einem Bereich und seiner Sprechblase.
+               z-index wird in app.js dynamisch über der höchsten Elementebene
+               gehalten (nextZ()), damit eine Linie nie hinter einem später
+               platzierten Element verschwindet. -->
+          <svg id="leader-lines" class="leader-lines" aria-hidden="true"></svg>
+        </div>
+
+        <div class="zoom-control" role="group" data-i18n-label="zoomControlLabel" aria-label="Ansicht">
+          <button type="button" class="zoom-btn" id="zoom-out" data-i18n-label="zoomOutLabel" aria-label="Verkleinern">−</button>
+          <button type="button" class="zoom-reset" id="zoom-reset" data-i18n-label="zoomResetLabel" aria-label="Ansicht zurücksetzen"><span id="zoom-readout">100%</span></button>
+          <button type="button" class="zoom-btn" id="zoom-in" data-i18n-label="zoomInLabel" aria-label="Vergrößern">+</button>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <footer class="app-footer">
+    <p data-i18n-html="footerAboutHtml">
+      Ein Werkzeug von <a href="https://odon.at" target="_blank" rel="noopener noreferrer">ODON – Offene Daten für Offene Nutzung</a>.
+      Nichts verlässt den Browser: keine Konten, keine Server, keine Speicherung.
+    </p>
+    <p data-i18n-html="footerLinksHtml">
+      <a href="https://github.com/odon-at/einfach-visuell/" target="_blank" rel="noopener noreferrer">Quellcode</a> ·
+      <a href="mailto:info@odon.at">info@odon.at</a> ·
+      <a href="https://joinup.ec.europa.eu/collection/eupl/eupl-text-eupl-12" target="_blank" rel="noopener noreferrer">EUPL-1.2</a>
+    </p>
+  </footer>
+
+  <!-- Natives <dialog>: liefert Modal-Verhalten (Escape schließt, Fokus
+       bleibt drinnen, Rückgabe-Fokus auf den öffnenden Knopf) ohne eigenen
+       JS-Code dafür. Der Schließen-Knopf ist type="submit" in einem
+       method="dialog"-Formular — das schließt den Dialog ganz ohne
+       JS-Listener. -->
+  <dialog id="help-dialog" class="help-dialog" aria-labelledby="help-title">
+    <form method="dialog" class="help-form">
+      <h2 id="help-title" data-i18n="helpTitle">Hilfe</h2>
+      <p class="help-intro" data-i18n="helpIntro">Zeig es, statt es zu beschreiben.</p>
+
+      <!-- Der eigentliche Arbeitsablauf, bildlastig statt in Fließtext: ein
+           Bildschirmausschnitt rein, markieren, derselbe Ausschnitt wieder
+           raus. Schritt 1 und 3 teilen sich bewusst dasselbe Symbol — beide
+           sind dieselbe Handlung (Systemausschnitt), nur mit anderem Ziel. -->
+      <h3 class="help-section-title" data-i18n="helpHowTitle">So funktioniert's</h3>
+      <ol class="help-steps">
+        <li>
+          <svg class="help-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4"/>
+          </svg>
+          <span>
+            <strong data-i18n="helpStep1Title">Ausschnitt aufnehmen</strong>
+            <span data-i18n="helpStep1Text">Nimm einen Bildschirmausschnitt von dem auf, worüber du sprichst.</span>
+          </span>
+        </li>
+        <li>
+          <svg class="help-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="3" y="4" width="15" height="12" rx="1.5"/>
+            <path d="M17 16.5v3.5M15.3 18.3h3.5"/>
+          </svg>
+          <span>
+            <strong data-i18n="helpStep2Title">Einfügen &amp; markieren</strong>
+            <span data-i18n="helpStep2Text">Füge ihn ein und ziehe Symbole darauf, um zu zeigen, was du meinst.</span>
+          </span>
+        </li>
+        <li>
+          <svg class="help-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M4 8V4h4M16 4h4v4M20 16v4h-4M8 20H4v-4"/>
+          </svg>
+          <span>
+            <strong data-i18n="helpStep3Title">Ergebnis aufnehmen</strong>
+            <span data-i18n="helpStep3Text">Nimm die Fläche auf demselben Weg auf — fertig zum Teilen.</span>
+          </span>
+        </li>
+      </ol>
+
+      <!-- Dieselbe Tastenkombination gilt für Schritt 1 UND 3 oben, deshalb
+           direkt darunter statt, wie früher, als eigener loser Absatz.
+           Unverändert in Funktion und Kennungen (app.js greift weiterhin
+           per ID darauf zu). -->
+      <p class="help-capture">
+        <span id="shot-tip-text"></span>
+        <select id="shot-os" class="shot-os" data-i18n-label="osSelectLabel" aria-label="System für den Hinweis wählen">
+          <option value="mac" data-i18n="osMac">macOS</option>
+          <option value="win" data-i18n="osWin">Windows</option>
+          <option value="linux" data-i18n="osLinux">Linux</option>
+          <option value="other" data-i18n="osOther">anderes System</option>
+        </select>
+      </p>
+
+      <!-- Alles andere nur noch als knappe Stichworte statt eigener Sätze —
+           wer mehr wissen will, probiert es einfach aus. -->
+      <h3 class="help-section-title" data-i18n="helpBriefTitle">Kurz notiert</h3>
+      <ul class="help-brief">
+        <li>
+          <svg class="help-icon help-icon-small" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M3 3l7.07 16.97 2.51-7.39 7.39-2.51z"/>
+          </svg>
+          <span data-i18n="helpBriefPlace">Ziehen platziert ein Symbol</span>
+        </li>
+        <li>
+          <svg class="help-icon help-icon-small" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="4" y="6" width="16" height="12" rx="1" stroke-dasharray="3 2.5"/>
+          </svg>
+          <span data-i18n="helpBriefArea">Aufziehen markiert einen Bereich</span>
+        </li>
+        <li>
+          <svg class="help-icon help-icon-small" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 3v18M3 12h18"/>
+            <path d="M8.5 6.5 12 3l3.5 3.5M8.5 17.5 12 21l3.5-3.5M6.5 8.5 3 12l3.5 3.5M17.5 8.5 21 12l-3.5 3.5"/>
+          </svg>
+          <span data-i18n="helpBriefMove">Griff beim Überfahren verschiebt, × entfernt</span>
+        </li>
+        <li>
+          <svg class="help-icon help-icon-small" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <rect x="8" y="3" width="8" height="13" rx="4"/>
+            <path d="M12 6v3"/>
+          </svg>
+          <span data-i18n="helpBriefView">Mausrad zoomt, Ziehen schwenkt</span>
+        </li>
+      </ul>
+
+      <button type="submit" class="help-close" data-i18n="helpClose">Schließen</button>
+    </form>
+  </dialog>
+
+  <p id="status" class="visually-hidden" role="status" aria-live="polite"></p>
+
+  <script src="js/i18n.js"></script>
+  <script src="js/icons.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

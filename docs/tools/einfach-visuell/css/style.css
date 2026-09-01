@@ -1,0 +1,832 @@
+/* =========================================================================
+   einfach visuell — layout and design tokens
+   Content: German. Light theme only. Symbol-Farben stehen in --icon-line /
+   --icon-halo: sie gelten für Menü, Zieh-Vorschau und platzierte Symbole.
+   ========================================================================= */
+
+:root {
+  --bg:         #eef1f5;
+  --surface:    #ffffff;
+  --canvas-bg:  #ffffff;
+  --ink:        #1f2933;
+  --ink-soft:   #5b6774;
+  --line:       #d7dce3;
+  --accent:     #2f6fed;
+  --accent-soft: rgba(47, 111, 237, 0.12);
+  --danger:     #c0392b;
+
+  /* Anmerkungsfarben. Die Symbole liegen über fremden Screenshots, deren
+     Hintergrund niemand kennt — deshalb kräftiges Grün mit schwarzer Kontur
+     statt einer Farbe, die zum Seitendesign passt. */
+  --icon-line:  #15803d;      /* Dunkelgrün, die eigentliche Linie */
+  --icon-halo:  #000000;      /* feine Kontur darunter */
+
+  /* Farbe bleibt dem einen Gegen-Urteil vorbehalten — würde auch anderes rot,
+     wäre Rot kein Signal mehr, sondern Dekoration. */
+  --icon-dislike: #ff2d55;
+
+  /* Sprechblase: deckend gefüllt, weil Text auf einem unruhigen Screenshot
+     sonst nicht lesbar ist. Schwarz auf Weiß statt der Symbolfarbe: die
+     Blase ist reiner Lesetext, kein Anmerkungssymbol — maximaler Kontrast
+     zählt hier mehr als die Farbzuordnung zum Symbol. */
+  --bubble-bg:  #ffffff;
+  --bubble-ink: #000000;
+
+  --placed-size: 64px;        /* single source of truth: JS reads this value */
+
+  --radius: 12px;
+  --gap: 12px;
+  --shadow: 0 1px 2px rgba(16, 24, 40, .06), 0 8px 24px rgba(16, 24, 40, .07);
+
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+* { box-sizing: border-box; }
+
+html, body { height: 100%; }
+
+body {
+  margin: 0;
+  padding: var(--gap);
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr) auto;
+  gap: var(--gap);
+  height: 100dvh;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 15px;
+  line-height: 1.45;
+  overflow: hidden;              /* die Fläche scrollt nicht, sie füllt den Schirm */
+}
+
+/* Nur für Screenreader sichtbar. */
+.visually-hidden {
+  position: absolute;
+  width: 1px; height: 1px;
+  margin: -1px; padding: 0;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ============================ Kopf & Fuß ============================ */
+
+.app-header {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 4px 12px;
+}
+
+.app-title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 650;
+  letter-spacing: -0.01em;
+}
+
+/* Hilfe-Knopf + Sprachumschalter zusammen rechts im Kopf. */
+.header-actions {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Bewusst auffällig (Akzentfarbe, gefüllt) statt ein weiterer stiller
+   Text-Knopf — das war ausdrücklich gewünscht ("prominent"), damit die
+   Bedienungshilfe leicht zu finden ist, jetzt wo sie nicht mehr direkt auf
+   der Fläche steht. */
+.help-btn {
+  padding: 6px 16px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font: inherit;
+  font-size: .85rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.help-btn:hover { background: #2558c4; }
+
+.help-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Sprachumschalter: segmentierter Knopf. */
+.lang-switch {
+  display: flex;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  overflow: hidden;
+}
+
+.lang-btn {
+  padding: 4px 12px;
+  border: 0;
+  background: transparent;
+  color: var(--ink-soft);
+  font: inherit;
+  font-size: .82rem;
+  font-weight: 600;
+  letter-spacing: .02em;
+  cursor: pointer;
+}
+
+.lang-btn:hover { background: var(--bg); color: var(--ink); }
+
+.lang-btn.is-active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.lang-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.app-footer {
+  color: var(--ink-soft);
+  font-size: .85rem;
+}
+
+.app-footer p { margin: 0; }
+.app-footer a { color: inherit; }
+
+/* ============================ Hilfe-Dialog =========================== */
+
+/* Natives <dialog>: Größe/Position/Sichtbarkeit sind Browser-Standard
+   (zentriert, über allem, kein eigener z-index nötig) — hier geht es nur um
+   Aussehen. ::backdrop dimmt dahinter, ganz ohne eigenes Overlay-Element. */
+.help-dialog {
+  width: min(480px, calc(100vw - 2 * var(--gap)));
+  max-height: min(600px, calc(100dvh - 2 * var(--gap)));
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  color: var(--ink);
+  overflow-y: auto;    /* scrollt bei Bedarf selbst — .help-form hat keine eigene Höhe */
+}
+
+.help-dialog::backdrop {
+  background: rgba(16, 24, 40, .35);
+}
+
+.help-form {
+  display: grid;
+  gap: 14px;
+  padding: 24px;
+}
+
+.help-dialog h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  font-weight: 650;
+}
+
+.help-intro {
+  margin: 0;
+  color: var(--ink-soft);
+}
+
+.help-section-title {
+  margin: 4px 0 0;
+  font-size: .76rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: .05em;
+  color: var(--ink-soft);
+}
+
+/* Der Arbeitsablauf: Symbol links, Titel + eine Zeile Text rechts. Schritt 1
+   und 3 teilen sich ihr Symbol (siehe index.html) — dieselbe Handlung,
+   anderes Ziel. */
+.help-steps {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.help-steps li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.help-steps strong {
+  display: block;
+  font-weight: 650;
+}
+
+.help-steps li > span > span {
+  display: block;
+  color: var(--ink-soft);
+  font-size: .88rem;
+}
+
+.help-icon {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  margin-top: 1px;
+  stroke: var(--accent);
+  stroke-width: 1.7;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+/* Alles andere: nur noch Symbol + eine knappe Zeile statt eigener Sätze. */
+.help-brief {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 8px;
+}
+
+.help-brief li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--ink-soft);
+  font-size: .88rem;
+}
+
+.help-icon-small {
+  width: 18px;
+  height: 18px;
+  stroke: var(--ink-soft);
+}
+
+.help-close {
+  justify-self: start;
+  padding: 6px 16px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--ink);
+  font: inherit;
+  font-size: .85rem;
+  cursor: pointer;
+}
+
+.help-close:hover { background: var(--bg); }
+
+.help-close:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* ============================== Layout ============================== */
+
+.app {
+  display: grid;
+  grid-template-columns: 210px minmax(0, 1fr);
+  gap: var(--gap);
+  min-height: 0;
+}
+
+/* ============================== Palette ============================= */
+
+.palette {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 10px;
+  overflow: auto;
+  min-height: 0;
+}
+
+.palette-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.palette-item {
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 10px 4px 8px;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  color: var(--ink);
+  font: inherit;
+  font-size: .85rem;
+  cursor: grab;
+  touch-action: none;            /* sonst scrollt die Seite beim Ziehen mit */
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.palette-item:hover { background: var(--bg); }
+
+.palette-item:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* "Scharf gestellt": nächster Klick auf die Fläche setzt dieses Symbol. */
+.palette-item[aria-pressed="true"] {
+  background: var(--accent-soft);
+  border-color: var(--accent);
+}
+
+.palette-item .icon { width: 34px; height: 34px; }
+
+/* Die zwei Zeichenlagen jedes Symbols (siehe svgMarkup in js/app.js):
+   Kontur zuerst, Linie darüber. Gilt für Menü, Zieh-Vorschau und Fläche. */
+.icon-halo { stroke: var(--icon-halo); }
+.icon-line { stroke: var(--icon-line); }
+
+/* Die eine farbige Ausnahme. Der Haken ist die Klasse icon-<id>, die
+   svgMarkup() aus der Symbol-Kennung baut — das Symbol-Markup in js/icons.js
+   bleibt dadurch frei von Farbangaben. */
+.icon-dislike .icon-line { stroke: var(--icon-dislike); }
+
+.palette-label {
+  text-align: center;
+  line-height: 1.2;
+  color: var(--ink-soft);
+}
+
+/* ============================ Arbeitsbereich ======================== */
+
+/* Keine Werkzeugleiste mehr — die Fläche füllt den Arbeitsbereich allein.
+   Ihre Kinder sind alle absolut positioniert, sie hat also keine eigene
+   Inhaltshöhe; min-height:0 lässt sie trotzdem im Grid schrumpfen dürfen. */
+.workspace {
+  display: grid;
+  grid-template-rows: minmax(0, 1fr);
+  min-height: 0;
+  min-width: 0;
+}
+
+/* Hinweis auf die System-Aufnahme, im Hilfe-Dialog. Das Auswahlfeld sitzt im
+   selben Absatz, weil es den Text davor korrigiert. */
+.help-capture {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  color: var(--ink-soft);
+}
+
+.shot-os {
+  flex: 0 0 auto;
+  padding: 2px 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--bg);
+  color: var(--ink);
+  font: inherit;
+  font-size: .85rem;
+  cursor: pointer;
+}
+
+.shot-os:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+/* ============================== Fläche ============================== */
+
+.canvas {
+  position: relative;
+  overflow: hidden;
+  background: var(--canvas-bg);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  min-height: 0;
+  touch-action: none;
+  cursor: grab;              /* leere Fläche: Klicken+Halten schwenkt die Ansicht */
+  /* Bewusst ohne Raster: ein Punktmuster würde Einrasten suggerieren,
+     das es in v1 nicht gibt (freie Platzierung). */
+}
+
+/* Das Fadenkreuz kündigt an, dass sich das scharfgestellte Symbol zu einem
+   Bereich aufziehen lässt — wie in Bildbearbeitungsprogrammen üblich. */
+.canvas.is-armed { cursor: crosshair; }
+
+/* .placed setzt seinen eigenen cursor:grab (zum Verschieben) — der gewinnt
+   sonst über einem Bild/Bereich, obwohl ein Ziehen dort bei scharfgestelltem
+   Symbol genauso einen neuen Bereich aufzieht wie auf leerer Fläche (siehe
+   onPlacedDown() in app.js). Gilt seit dem Griff-basierten Verschieben auch
+   für ein BEREITS ausgewähltes Element: dessen Körper zieht selbst nicht
+   mehr, nur noch der eigene Griff (.placed-grab) — der behält wegen höherer
+   Spezifität ohnehin seinen grab-Cursor. */
+.canvas.is-armed .placed { cursor: crosshair; }
+
+/* Während tatsächlich geschwenkt wird (Ziehschwelle überschritten): Faust
+   statt offener Hand — dieselbe Konvention wie .placed.is-dragging. */
+.canvas.is-panning { cursor: grabbing; }
+
+/* Abwurfziel während einer Datei-Ziehgeste. */
+.canvas.is-dropping {
+  border-color: var(--accent);
+  box-shadow: inset 0 0 0 2px var(--accent-soft);
+}
+
+/* Trägt den Zoom/Pan-Transform aus app.js (translate + scale). Eigenes
+   Element statt .canvas selbst, damit canvas.getBoundingClientRect() davon
+   unberührt bleibt — siehe Kommentar in index.html. */
+.canvas-content {
+  position: absolute;
+  inset: 0;
+  transform-origin: 0 0;
+}
+
+/* Zoom-Kontrolle: Farbe, Rand, Rundung und Schatten wie die übrigen
+   Chip-Elemente (z. B. .shot-os), unten rechts über der Fläche fixiert —
+   der einzige berührungsfreundliche Weg zum Zoomen, siehe app.js. */
+.zoom-control {
+  position: absolute;
+  right: 12px;
+  bottom: 12px;
+  z-index: 950;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface);
+  box-shadow: var(--shadow);
+}
+
+.zoom-btn,
+.zoom-reset {
+  border: 0;
+  background: transparent;
+  color: var(--ink);
+  font: inherit;
+  cursor: pointer;
+  border-radius: 999px;
+}
+
+.zoom-btn {
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.zoom-reset {
+  padding: 4px 9px;
+  font-size: .78rem;
+  color: var(--ink-soft);
+  font-variant-numeric: tabular-nums;
+}
+
+.zoom-btn:hover,
+.zoom-reset:hover { background: var(--bg); color: var(--ink); }
+
+.zoom-btn:focus-visible,
+.zoom-reset:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.drop-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 900;
+  display: none;
+  align-content: center;
+  justify-items: center;
+  margin: 0;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-weight: 600;
+  pointer-events: none;
+}
+
+.canvas.is-dropping .drop-overlay { display: grid; }
+
+/* Live-Vorschau beim Aufziehen eines Bereichs — gestrichelt, weil sie noch
+   nicht verbindlich ist. Wird bei jedem pointerup entfernt, egal ob daraus
+   ein Bereich wird oder nicht (siehe app.js). z-index fest, weil das Element
+   nur für die Dauer einer einzigen Ziehgeste existiert, nie für eine ganze
+   Sitzung — anders als bei den Verbindungslinien lohnt sich hier keine
+   Nachführung des höchsten je vergebenen z-index. */
+.region-preview {
+  --region-color: var(--icon-line);
+  --region-border: color-mix(in srgb, var(--region-color) 80%, black);
+  position: absolute;
+  z-index: 850;
+  border: 2px solid var(--region-border);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--region-color) 14%, transparent);
+  pointer-events: none;
+}
+
+.region-preview.icon-dislike { --region-color: var(--icon-dislike); }
+
+/* ========================= Platzierte Elemente ====================== */
+
+/* Größe kommt pro Element aus dem Modell (style.width/height in app.js):
+   Symbole sind quadratisch, Bilder behalten ihr Seitenverhältnis. */
+.placed {
+  position: absolute;
+  width: var(--placed-size);
+  height: var(--placed-size);
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  cursor: grab;
+  touch-action: none;
+  -webkit-user-select: none;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.placed.is-dragging { cursor: grabbing; }
+
+/* .bubble setzt ihr eigenes cursor:text (zum Tippen) — das gewinnt sonst
+   auch beim Verschieben-per-Ziehen aus dem Schreibmodus heraus (siehe
+   onPlacedDown() in app.js), da der Zeiger dabei über der Blase selbst
+   bleibt. */
+.placed-text.is-dragging .bubble { cursor: grabbing; }
+
+.placed .icon { width: 100%; height: 100%; pointer-events: none; }
+
+.placed img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  pointer-events: none;
+}
+
+/* Ein heller Screenshot auf weißer Fläche hätte sonst keine sichtbare Kante. */
+.placed-image {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+/* ------------------------------- Bereich ------------------------------ */
+
+/* Aufgezogener Bereich: Rand + durchscheinende Füllung in der Symbolfarbe.
+   --region-color wird einmal hier gesetzt und von der dislike-Variante
+   darunter wiederverwendet, statt die Farbkombination doppelt auszuschreiben.
+   --region-border dunkelt sie zusätzlich ab: als dünne Linie sonst zu
+   kontrastarm auf hellem Untergrund. */
+.placed-region {
+  --region-color: var(--icon-line);
+  --region-border: color-mix(in srgb, var(--region-color) 80%, black);
+  border: 2px solid var(--region-border);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--region-color) 6%, transparent);
+}
+
+.placed-region.icon-dislike { --region-color: var(--icon-dislike); }
+
+/* Abzeichen mit dem Symbol des Bereichs, oben links (der ×-Knopf bleibt oben
+   rechts) — bleibt die Bedeutung erkennbar, auch wenn die Bildunterschrift
+   später gelöscht oder leer geräumt wird. Innerhalb der eigenen Ecke statt
+   darüber hinausragend, aus demselben Grund wie bei .placed-del: ragt es
+   über den Rand hinaus, schneidet .canvas' overflow:hidden es ab, sobald
+   die Ecke beim Zoomen/Schwenken am sichtbaren Rand landet. */
+.region-badge {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 26px;
+  height: 26px;
+  display: grid;
+  place-items: center;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  box-shadow: var(--shadow);
+  pointer-events: none;
+}
+
+.region-badge .icon { width: 16px; height: 16px; }
+
+/* Verbindungslinien zwischen einem Bereich und seiner Sprechblase. Bewusst
+   IMMER über allem anderen (siehe nextZ() in app.js): sonst könnte eine
+   Linie hinter einem später platzierten Element verschwinden und der Bezug
+   wäre nicht mehr zu erkennen. */
+/* overflow:visible ist nötig, kein Kosmetik-Extra: ohne eigenes viewBox
+   deckt sich der Koordinatenraum des SVG mit seiner eigenen, ungezoomten
+   Layout-Größe (der Zoom/Pan-Transform auf #canvas-content ändert daran
+   nichts, Transforms wirken erst nach dem Layout) — und SVGs beschneiden
+   ihren Inhalt standardmäßig an diesem eigenen Rand. Eine Linie zu einem
+   weit genug verschobenen Element würde sonst unsichtbar, obwohl das
+   Element selbst (ein normales div, ohne diese Eigenheit) sichtbar bleibt. */
+.leader-lines {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+}
+
+/* Durchgezogen, gleich dick (2px) und in derselben Farbe wie der Blasen-Rand
+   (.bubble border, über --bubble-border) statt gestrichelt — liest sich als
+   direkte Fortsetzung des Rahmens statt als eigenständige, zusätzliche
+   Linienart. */
+.leader-line {
+  stroke: var(--icon-line);
+  stroke-width: 2;
+}
+
+.leader-line.icon-dislike { stroke: var(--icon-dislike); }
+
+/* ---------------------------- Sprechblase ---------------------------- */
+
+/* Die Blase bestimmt ihre Größe selbst; app.js liest sie danach ins Modell
+   zurück (measureText), damit Begrenzung und Ziehen richtig rechnen.
+   --bubble-border kommt vom verknüpften Symbol (icon-<id>-Klasse, siehe
+   createNode()) — derselbe Farbhaken wie bei Bereich und Verbindungslinie,
+   damit alle drei Teile einer Anmerkung zusammengehörig aussehen. */
+.placed-text {
+  --bubble-border: var(--icon-line);
+  width: auto;
+  height: auto;
+  display: block;
+  border-radius: 0;
+}
+
+.placed-text.icon-dislike { --bubble-border: var(--icon-dislike); }
+
+.bubble {
+  min-width: 96px;
+  max-width: 260px;
+  /* Oben UND unten derselbe Abstand: oben wird er für den Greif-/Löschknopf
+     gebraucht (siehe createNode() in app.js), unten ist er nicht nötig,
+     aber ohne ihn stünde der Text sichtbar aus der Mitte gerückt. */
+  padding: 28px 11px;
+  background: var(--bubble-bg);
+  color: var(--bubble-ink);
+  border: 2px solid var(--bubble-border);
+  border-radius: 10px;
+  font-size: .9rem;
+  line-height: 1.35;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  cursor: text;
+  outline: none;
+  /* .placed sperrt Auswahl und Touch-Gesten für das Ziehen — im Textfeld muss
+     beides wieder erlaubt sein, sonst kann man nicht markieren oder tippen. */
+  -webkit-user-select: text;
+  user-select: text;
+  touch-action: auto;
+}
+
+/* Platzhalter über eine Klasse, nicht über :empty — Browser legen beim
+   Bearbeiten ein <br> hinein, damit greift :empty nicht mehr. */
+.bubble.is-empty::before {
+  content: attr(data-placeholder);
+  opacity: .5;
+}
+
+
+/* Bewusst KEIN Auswahl-Umriss und keine Hintergrunds-Änderung bei Auswahl
+   oder beim Ziehen (weder allgemein noch für Bereiche extra): Symbol, Bild,
+   Bereich und Blase haben alle schon ihre eigene, unveränderliche Optik —
+   ein zusätzlicher blauer Ring bzw. eine dunklere Füllung passte da nicht
+   zusammen (Bereich und Blase sahen z. B. unterschiedlich "ausgewählt" aus).
+   Der Greif-Cursor, der beim Ziehen von der offenen Hand zur Faust wechselt
+   (.placed.is-dragging .placed-grab), reicht als Rückmeldung.
+
+   outline:none ist hier kein Kosmetik-Extra: node.focus() (app.js, u. a. im
+   Greif-Knopf) holt sich bei Auswahl/Ziehen/Erzeugen echten Tastaturfokus auf
+   dieses Element — ohne eigene Regel zeigt der Browser dafür seinen eigenen
+   Standard-Fokusring, meist ebenfalls blau (genau das kam nach dem Entfernen
+   der eigenen Auswahl-Regel oben wieder durch). Bewusst :focus statt nur
+   :focus-visible: Browser behandeln vom Code ausgelöstes .focus() nicht
+   einheitlich als "sichtbar" oder nicht — :focus deckt beide Fälle sicher ab,
+   auch wenn dadurch das Element im Tab-Ablauf keinen sichtbaren Fokusring
+   mehr zeigt (dieselbe Fläche ist ohnehin für Tastatur-Navigation nicht das
+   Hauptbedienkonzept, siehe Griff-basiertes Verschieben). */
+.placed:focus {
+  outline: none;
+}
+
+/* Innerhalb der eigenen Ecke statt darüber hinausragend: ragt ein Knopf
+   über den Rand hinaus, schneidet ihn .canvas' overflow:hidden ab, sobald
+   ein Element beim Zoomen/Schwenken mit seiner Ecke am sichtbaren Rand
+   landet — die Begrenzung in setPosition() hilft dabei nicht, die gilt nur
+   für die ungezoomte Position, nicht für den gerade sichtbaren Ausschnitt. */
+.placed-del,
+.placed-grab {
+  position: absolute;
+  top: 3px;
+  width: 22px;
+  height: 22px;
+  display: none;
+  place-items: center;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface);
+  font: inherit;
+  line-height: 1;
+  box-shadow: var(--shadow);
+}
+
+.placed-del {
+  right: 3px;
+  color: var(--danger);
+  font-size: 15px;
+  cursor: pointer;
+}
+
+/* Links daneben statt am eigenen Rand: einziger Weg zum Verschieben (siehe
+   onPlacedDown() in app.js) — kein Ziehen mehr direkt am Element-Körper,
+   das würde bei einer tippenden Sprechblase mit der Cursor-Positionierung
+   kollidieren. */
+.placed-grab {
+  right: 29px;
+  color: var(--ink-soft);
+  cursor: grab;
+}
+
+.placed-grab svg { width: 14px; height: 14px; }
+
+/* Sichtbar bei Auswahl UND bei Hover — Hover macht die Bedienung sofort
+   erreichbar, ohne vorher auswählen zu müssen; Auswahl bleibt zusätzlich
+   nötig für Tastatur-Bedienung, die kein Hover kennt. */
+.placed.is-selected .placed-del,
+.placed.is-selected .placed-grab,
+.placed:hover .placed-del,
+.placed:hover .placed-grab {
+  display: grid;
+}
+
+/* Beim Tippen keine Bedienknöpfe: eine neu angelegte Sprechblase wird sofort
+   ausgewählt und in den Schreibmodus versetzt (siehe addRegionInstance() in
+   app.js), damit man ohne Umweg direkt schreiben kann — Ziehen oder Löschen
+   mitten im Tippen ist dagegen kein naheliegender erster Schritt. Der blaue
+   Blasen-Rand (.placed-text.is-editing .bubble) bleibt als Hinweis "hier
+   wird gerade getippt" trotzdem stehen. */
+.placed-text.is-editing .placed-del,
+.placed-text.is-editing .placed-grab {
+  display: none;
+}
+
+.placed-del:hover { background: var(--danger); color: #fff; border-color: var(--danger); }
+.placed-grab:hover { background: var(--bg); color: var(--ink); }
+.placed.is-dragging .placed-grab { cursor: grabbing; }
+
+/* Der Geist folgt dem Zeiger, während aus dem Menü gezogen wird. */
+.ghost {
+  position: fixed;
+  width: var(--placed-size);
+  height: var(--placed-size);
+  opacity: .7;
+  pointer-events: none;
+  z-index: 1000;
+}
+
+.ghost .icon { width: 100%; height: 100%; }
+
+/* ============================= Schmal =============================== */
+
+@media (max-width: 760px) {
+  .app {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: minmax(0, 1fr) auto;
+  }
+
+  .workspace { order: 1; }
+  .palette   { order: 2; overflow-x: auto; overflow-y: hidden; padding: 8px; }
+
+  .palette-list {
+    display: flex;
+    gap: 6px;
+  }
+
+  .palette-item {
+    flex: 0 0 auto;
+    width: 74px;
+    padding: 6px 2px;
+  }
+
+  .palette-item .icon { width: 28px; height: 28px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation-duration: .001ms !important; transition-duration: .001ms !important; }
+}

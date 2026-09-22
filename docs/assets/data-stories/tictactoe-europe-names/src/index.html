@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Tic-tac-toe — European names (interactive)</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="page-header">
+    <h1>Tic-tac-toe in European languages</h1>
+    <p class="lede">
+      Hover a map label to see its name, meaning group, and sources in the sidebar.
+      Open links from the <strong>Sources</strong> list when you want to read more.
+    </p>
+  </header>
+
+  <main class="layout" id="main">
+    <section class="map-section" aria-labelledby="map-heading">
+      <h2 id="map-heading" class="visually-hidden">Map</h2>
+      <div id="map-root" class="map-root" tabindex="-1"></div>
+      <p class="hint" id="map-hint">Tip: labels are keyboard-focusable (Tab); focus updates the sidebar.</p>
+    </section>
+
+    <aside
+      id="detail-panel"
+      class="detail-panel"
+      aria-label="Entry details"
+      aria-live="polite"
+    >
+      <h2 class="detail-panel__title" id="detail-panel-title">Details</h2>
+      <div id="detail-empty" class="detail-empty">
+        <p>Hover a country label on the map to load details.</p>
+      </div>
+      <div id="detail-content" class="detail-content" hidden>
+        <p class="detail-iso-line"><span class="detail-dt">ISO</span> <span id="detail-iso"></span></p>
+        <dl class="detail-dl">
+          <dt>Name</dt><dd id="detail-word" lang="und"></dd>
+          <dt>Meaning group</dt><dd id="detail-group"></dd>
+        </dl>
+        <section class="detail-sources" aria-labelledby="src-heading">
+          <h3 id="src-heading">Sources</h3>
+          <ul id="detail-sources" class="source-list"></ul>
+        </section>
+      </div>
+    </aside>
+  </main>
+
+  <footer class="page-footer">
+    <p>
+      <strong>Base map:</strong>
+      <a href="https://commons.wikimedia.org/wiki/File:Simplified_Languages_of_Europe_map.svg">Simplified Languages of Europe map.svg</a>
+      (Wikimedia Commons; <a href="credits.html">attribution</a>). Tic-tac-toe labels and colours are this project.
+    </p>
+  </footer>
+
+  <script src="app.js" defer></script>
+</body>
+</html>

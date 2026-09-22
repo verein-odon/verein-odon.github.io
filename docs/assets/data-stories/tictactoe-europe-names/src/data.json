@@ -1,0 +1,738 @@
+[
+  {
+    "iso": "spa",
+    "lang": "Spanish",
+    "word": "tres en raya",
+    "translation": "three in a line",
+    "meaning_group": "three_in_row",
+    "color": "yellow",
+    "mapLabel": "three in a line",
+    "mapColor": "yellow",
+    "sources": [
+      "https://www.collinsdictionary.com/dictionary/spanish-english/tres-en-raya"
+    ],
+    "openUrl": "https://www.collinsdictionary.com/dictionary/spanish-english/tres-en-raya",
+    "sourceRaw": "https://www.collinsdictionary.com/dictionary/spanish-english/tres-en-raya"
+  },
+  {
+    "iso": "por",
+    "lang": "Portuguese",
+    "word": "jogo do galo",
+    "translation": "rooster game",
+    "meaning_group": "animal_folk",
+    "color": "red",
+    "mapLabel": "rooster game",
+    "mapColor": "red",
+    "sources": [
+      "https://en.wiktionary.org/wiki/jogo_do_galo"
+    ],
+    "openUrl": "https://en.wiktionary.org/wiki/jogo_do_galo",
+    "sourceRaw": "https://en.wiktionary.org/wiki/jogo_do_galo"
+  },
+  {
+    "iso": "cat",
+    "lang": "Catalan",
+    "word": "tres en ratlla",
+    "translation": "three in a line",
+    "meaning_group": "three_in_row",
+    "color": "yellow",
+    "mapLabel": "three in a line",
+    "mapColor": "yellow",
+    "sources": [
+      "https://glosbe.com/en/ca/tic-tac-toe"
+    ],
+    "openUrl": "https://glosbe.com/en/ca/tic-tac-toe",
+    "sourceRaw": "https://glosbe.com/en/ca/tic-tac-toe"
+  },
+  {
+    "iso": "glg",
+    "lang": "Galician",
+    "word": "tres en raia",
+    "translation": "three in a line",
+    "meaning_group": "three_in_row",
+    "color": "yellow",
+    "mapLabel": "three in a line",
+    "mapColor": "yellow",
+    "sources": [
+      "https://en.wiktionary.org/wiki/tic-tac-toe"
+    ],
+    "openUrl": "https://en.wiktionary.org/wiki/tic-tac-toe",
+    "sourceRaw": "https://en.wiktionary.org/wiki/tic-tac-toe"
+  },
+  {
+    "iso": "eus",
+    "lang": "Basque",
+    "word": "hiruko artzain-joko",
+    "translation": "shepherd game",
+    "meaning_group": "shepherd_game",
+    "color": "skyblue",
+    "mapLabel": "shepherd game",
+    "mapColor": "skyblue",
+    "sources": [
+      "https://eu.wikipedia.org/wiki/Hiruko_artzain-joko"
+    ],
+    "openUrl": "https://eu.wikipedia.org/wiki/Hiruko_artzain-joko",
+    "sourceRaw": "https://eu.wikipedia.org/wiki/Hiruko_artzain-joko"
+  },
+  {
+    "iso": "fra",
+    "lang": "French",
+    "word": "morpion",
+    "translation": "pubic louse",
+    "meaning_group": "crab_louse",
+    "color": "pink",
+    "mapLabel": "pubic louse",
+    "mapColor": "pink",
+    "sources": [
+      "https://www.cnrtl.fr/definition/morpion"
+    ],
+    "openUrl": "https://www.cnrtl.fr/definition/morpion",
+    "sourceRaw": "https://www.cnrtl.fr/definition/morpion"
+  },
+  {
+    "iso": "ita",
+    "lang": "Italian",
+    "word": "tris",
+    "translation": "thrice",
+    "meaning_group": "three_in_row",
+    "color": "orange",
+    "mapLabel": "thrice",
+    "mapColor": "orange",
+    "sources": [
+      "https://www.wordreference.com/enit/tic-tac-toe"
+    ],
+    "openUrl": "https://www.wordreference.com/enit/tic-tac-toe",
+    "sourceRaw": "https://www.wordreference.com/enit/tic-tac-toe"
+  },
+  {
+    "iso": "deu",
+    "lang": "German",
+    "word": "Drei gewinnt",
+    "translation": "three wins",
+    "meaning_group": "three_in_row",
+    "color": "lemonchiffon",
+    "mapLabel": "three wins",
+    "mapColor": "lemonchiffon",
+    "sources": [
+      "https://de.wikipedia.org/wiki/Tic-Tac-Toe"
+    ],
+    "openUrl": "https://de.wikipedia.org/wiki/Tic-Tac-Toe",
+    "sourceRaw": "https://de.wikipedia.org/wiki/Tic-Tac-Toe"
+  },
+  {
+    "iso": "nld",
+    "lang": "Dutch",
+    "word": "boter, kaas en eieren",
+    "translation": "Butter\nCheese\nEggs",
+    "meaning_group": "food_metaphor",
+    "color": "orange",
+    "mapLabel": "Butter\\nCheese\\nEggs",
+    "mapColor": "orange",
+    "sources": [
+      "https://en.wiktionary.org/wiki/boter%2C_kaas_en_eieren"
+    ],
+    "openUrl": "https://en.wiktionary.org/wiki/boter%2C_kaas_en_eieren",
+    "sourceRaw": "https://en.wiktionary.org/wiki/boter%2C_kaas_en_eieren"
+  },
+  {
+    "iso": "dan",
+    "lang": "Danish",
+    "word": "kryds og bolle",
+    "translation": "Cross &\nBun",
+    "meaning_group": "cross_zero",
+    "color": "skyblue",
+    "mapLabel": "Cross &\\nBun",
+    "mapColor": "skyblue",
+    "sources": [
+      "https://dictzone.com/danish-english-dictionary/kryds%20og%20bolle"
+    ],
+    "openUrl": "https://dictzone.com/danish-english-dictionary/kryds%20og%20bolle",
+    "sourceRaw": "https://dictzone.com/danish-english-dictionary/kryds%20og%20bolle"
+  },
+  {
+    "iso": "swe",
+    "lang": "Swedish",
+    "word": "luffarschack",
+    "translation": "drifter chess",
+    "meaning_group": "chess_metaphor",
+    "color": "green",
+    "mapLabel": "drifter chess",
+    "mapColor": "green",
+    "sources": [
+      "https://en.wiktionary.org/wiki/luffarschack"
+    ],
+    "openUrl": "https://en.wiktionary.org/wiki/luffarschack",
+    "sourceRaw": "https://en.wiktionary.org/wiki/luffarschack"
+  },
+  {
+    "iso": "nor",
+    "lang": "Norwegian",
+    "word": "bondesjakk",
+    "translation": "farmer's chess",
+    "meaning_group": "chess_metaphor",
+    "color": "blue",
+    "mapLabel": "farmer's chess",
+    "mapColor": "blue",
+    "sources": [
+      "https://glosbe.com/en/nb/tic-tac-toe"
+    ],
+    "openUrl": "https://glosbe.com/en/nb/tic-tac-toe",
+    "sourceRaw": "https://glosbe.com/en/nb/tic-tac-toe"
+  },
+  {
+    "iso": "isl",
+    "lang": "Icelandic",
+    "word": "mylla",
+    "translation": "Mill",
+    "meaning_group": "mill",
+    "color": "green",
+    "mapLabel": "Mill",
+    "mapColor": "green",
+    "sources": [
+      "https://en.wiktionary.org/wiki/mylla"
+    ],
+    "openUrl": "https://en.wiktionary.org/wiki/mylla",
+    "sourceRaw": "https://en.wiktionary.org/wiki/mylla"
+  },
+  {
+    "iso": "fin",
+    "lang": "Finnish",
+    "word": "ristinolla",
+    "translation": "cross-zero",
+    "meaning_group": "cross_zero",
+    "color": "khaki",
+    "mapLabel": "cross-zero",
+    "mapColor": "khaki",
+    "sources": [
+      "https://en.wiktionary.org/wiki/ristinolla"
+    ],
+    "openUrl": "https://en.wiktionary.org/wiki/ristinolla",
+    "sourceRaw": "https://en.wiktionary.org/wiki/ristinolla"
+  },
+  {
+    "iso": "pol",
+    "lang": "Polish",
+    "word": "kółko i krzyżyk",
+    "translation": "Circle &\nCross",
+    "meaning_group": "cross_zero",
+    "color": "lightgreen",
+    "mapLabel": "Circle &\\nCross",
+    "mapColor": "lightgreen",
+    "sources": [
+      "https://en.wiktionary.org/wiki/k%C3%B3%C5%82ko_i_krzy%C5%BCyk"
+    ],
+    "openUrl": "https://en.wiktionary.org/wiki/k%C3%B3%C5%82ko_i_krzy%C5%BCyk",
+    "sourceRaw": "https://en.wiktionary.org/wiki/k%C3%B3%C5%82ko_i_krzy%C5%BCyk"
+  },
+  {
+    "iso": "ces",
+    "lang": "Czech",
+    "word": "piškvorky",
+    "translation": "earwig",
+    "meaning_group": "earwig",
+    "color": "lightgreen",
+    "mapLabel": "earwig",
+    "mapColor": "lightgreen",
+    "sources": [
+      "http://www.piskvorky.cz/clanky/zajimavosti-ze-sveta-piskvorek-a-renju/vznik-slova-piskvorky/"
+    ],
+    "openUrl": "http://www.piskvorky.cz/clanky/zajimavosti-ze-sveta-piskvorek-a-renju/vznik-slova-piskvorky/",
+    "sourceRaw": "http://www.piskvorky.cz/clanky/zajimavosti-ze-sveta-piskvorek-a-renju/vznik-slova-piskvorky/"
+  },
+  {
+    "iso": "hun",
+    "lang": "Hungarian",
+    "word": "amőba",
+    "translation": "amoeba",
+    "meaning_group": "amoeba",
+    "color": "lightgreen",
+    "mapLabel": "amoeba",
+    "mapColor": "lightgreen",
+    "sources": [
+      "https://en.wiktionary.org/wiki/am%C5%91ba"
+    ],
+    "openUrl": "https://en.wiktionary.org/wiki/am%C5%91ba",
+    "sourceRaw": "https://en.wiktionary.org/wiki/am%C5%91ba"
+  },
+  {
+    "iso": "ron",
+    "lang": "Romanian",
+    "word": "X și 0",
+    "translation": "X & 0",
+    "meaning_group": "cross_zero",
+    "color": "palevioletred",
+    "mapLabel": "X & 0",
+    "mapColor": "palevioletred",
+    "sources": [
+      "https://m.dict.cc/english-romanian/?s=tic-tac-toe"
+    ],
+    "openUrl": "https://m.dict.cc/english-romanian/?s=tic-tac-toe",
+    "sourceRaw": "https://m.dict.cc/english-romanian/?s=tic-tac-toe"
+  },
+  {
+    "iso": "srp",
+    "lang": "Serbian",
+    "word": "икс-окс",
+    "translation": "X-O",
+    "meaning_group": "cross_zero",
+    "color": "lemonchiffon",
+    "mapLabel": "X-O",
+    "mapColor": "lemonchiffon",
+    "sources": [
+      "https://play.google.com/store/apps/details?hl=sr&id=com.pinkpointer.tictactoe"
+    ],
+    "openUrl": "https://play.google.com/store/apps/details?hl=sr&id=com.pinkpointer.tictactoe",
+    "sourceRaw": "https://play.google.com/store/apps/details?hl=sr&id=com.pinkpointer.tictactoe"
+  },
+  {
+    "iso": "hrv",
+    "lang": "Croatian",
+    "word": "križić kružić",
+    "translation": "cross & circle",
+    "meaning_group": "cross_zero",
+    "color": "lemonchiffon",
+    "mapLabel": "cross & circle",
+    "mapColor": "lemonchiffon",
+    "sources": [
+      "https://hr.wikipedia.org/wiki/Kri%C5%BEi%C4%87-kru%C5%BEi%C4%87"
+    ],
+    "openUrl": "https://hr.wikipedia.org/wiki/Kri%C5%BEi%C4%87-kru%C5%BEi%C4%87",
+    "sourceRaw": "https://hr.wikipedia.org/wiki/Kri%C5%BEi%C4%87-kru%C5%BEi%C4%87"
+  },
+  {
+    "iso": "slv",
+    "lang": "Slovene",
+    "word": "križci in krožci",
+    "translation": "crosses & circles",
+    "meaning_group": "cross_zero",
+    "color": "lightgreen",
+    "mapLabel": "crosses & circles",
+    "mapColor": "lightgreen",
+    "sources": [
+      "https://www.igre.org/igre/krizci-in-krozci/"
+    ],
+    "openUrl": "https://www.igre.org/igre/krizci-in-krozci/",
+    "sourceRaw": "https://www.igre.org/igre/krizci-in-krozci/"
+  },
+  {
+    "iso": "est",
+    "lang": "Estonian",
+    "word": "trips-traps-trull",
+    "translation": "trips-traps-trull",
+    "meaning_group": "rhyme_name",
+    "color": "khaki",
+    "mapLabel": "trips-traps-trull",
+    "mapColor": "khaki",
+    "sources": [
+      "https://glosbe.com/en/et/tic-tac-toe"
+    ],
+    "openUrl": "https://glosbe.com/en/et/tic-tac-toe",
+    "sourceRaw": "https://glosbe.com/en/et/tic-tac-toe"
+  },
+  {
+    "iso": "lav",
+    "lang": "Latvian",
+    "word": "desas",
+    "translation": "sausages",
+    "meaning_group": "animal_folk",
+    "color": "salmon",
+    "mapLabel": "sausages",
+    "mapColor": "salmon",
+    "sources": [
+      "https://visasiespejas.lv/en/event/noughts-and-crosses-nullites-un-krustini"
+    ],
+    "openUrl": "https://visasiespejas.lv/en/event/noughts-and-crosses-nullites-un-krustini",
+    "sourceRaw": "https://visasiespejas.lv/en/event/noughts-and-crosses-nullites-un-krustini"
+  },
+  {
+    "iso": "lit",
+    "lang": "Lithuanian",
+    "word": "kryžiukai ir nuliukai",
+    "translation": "crosses & zeroes",
+    "meaning_group": "cross_zero",
+    "color": "red",
+    "mapLabel": "crosses & zeroes",
+    "mapColor": "red",
+    "sources": [
+      "https://www.zaidimai.lt/dviems/kryziukai-ir-nuliukai-zaidimas-dviems-zaidejams-logine-pramoga/"
+    ],
+    "openUrl": "https://www.zaidimai.lt/dviems/kryziukai-ir-nuliukai-zaidimas-dviems-zaidejams-logine-pramoga/",
+    "sourceRaw": "https://www.zaidimai.lt/dviems/kryziukai-ir-nuliukai-zaidimas-dviems-zaidejams-logine-pramoga/"
+  },
+  {
+    "iso": "rus",
+    "lang": "Russian",
+    "word": "крестики-нолики",
+    "translation": "crosses & zeroes",
+    "meaning_group": "cross_zero",
+    "color": "dodgerblue",
+    "mapLabel": "crosses & zeroes",
+    "mapColor": "dodgerblue",
+    "sources": [
+      "https://en.openrussian.org/ru/%D0%BA%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%BA%D0%B8-%D0%BD%D0%BE%D0%BB%D0%B8%D0%BA%D0%B8"
+    ],
+    "openUrl": "https://en.openrussian.org/ru/%D0%BA%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%BA%D0%B8-%D0%BD%D0%BE%D0%BB%D0%B8%D0%BA%D0%B8",
+    "sourceRaw": "https://en.openrussian.org/ru/%D0%BA%D1%80%D0%B5%D1%81%D1%82%D0%B8%D0%BA%D0%B8-%D0%BD%D0%BE%D0%BB%D0%B8%D0%BA%D0%B8"
+  },
+  {
+    "iso": "ukr",
+    "lang": "Ukrainian",
+    "word": "хрестики-нулики",
+    "translation": "crosses & zeroes",
+    "meaning_group": "cross_zero",
+    "color": "turquoise",
+    "mapLabel": "crosses & zeroes",
+    "mapColor": "turquoise",
+    "sources": [
+      "https://dictionary.cambridge.org/dictionary/english/noughts-and-crosses"
+    ],
+    "openUrl": "https://dictionary.cambridge.org/dictionary/english/noughts-and-crosses",
+    "sourceRaw": "https://dictionary.cambridge.org/dictionary/english/noughts-and-crosses"
+  },
+  {
+    "iso": "tur",
+    "lang": "Turkish",
+    "word": "SOS",
+    "translation": "S-O-S",
+    "meaning_group": "letter_sos",
+    "color": "orange",
+    "mapLabel": "S-O-S",
+    "mapColor": "orange",
+    "sources": [
+      "https://tr.wikipedia.org/wiki/SOS_(oyun)"
+    ],
+    "openUrl": "https://tr.wikipedia.org/wiki/SOS_(oyun)",
+    "sourceRaw": "https://tr.wikipedia.org/wiki/SOS_(oyun)"
+  },
+  {
+    "iso": "bul",
+    "lang": "Bulgarian",
+    "word": "морски шах",
+    "translation": "sea chess",
+    "meaning_group": "chess_metaphor",
+    "color": "blue",
+    "mapLabel": "sea chess",
+    "mapColor": "blue",
+    "sources": [
+      "https://bg.wikipedia.org/wiki/%D0%9C%D0%BE%D1%80%D1%81%D0%BA%D0%B8_%D1%88%D0%B0%D1%85"
+    ],
+    "openUrl": "https://bg.wikipedia.org/wiki/%D0%9C%D0%BE%D1%80%D1%81%D0%BA%D0%B8_%D1%88%D0%B0%D1%85",
+    "sourceRaw": "https://bg.wikipedia.org/wiki/%D0%9C%D0%BE%D1%80%D1%81%D0%BA%D0%B8_%D1%88%D0%B0%D1%85"
+  },
+  {
+    "iso": "cym",
+    "lang": "Welsh",
+    "word": "gêm OXO",
+    "translation": "OXO",
+    "meaning_group": "cross_zero",
+    "color": "lightblue",
+    "mapLabel": "OXO",
+    "mapColor": "lightblue",
+    "sources": [
+      "https://glosbe.com/en/cy/noughts%20and%20crosses"
+    ],
+    "openUrl": "https://glosbe.com/en/cy/noughts%20and%20crosses",
+    "sourceRaw": "https://glosbe.com/en/cy/noughts%20and%20crosses"
+  },
+  {
+    "iso": "ell",
+    "lang": "Greek",
+    "word": "tríliza",
+    "translation": "Three in\na row",
+    "meaning_group": "three_in_row",
+    "color": "orange",
+    "mapLabel": "Three in\\na row",
+    "mapColor": "orange",
+    "sources": [
+      "https://en.wiktionary.org/wiki/%CF%84%CF%81%CE%AF%CE%BB%CE%B9%CE%B6%CE%B1"
+    ],
+    "openUrl": "https://en.wiktionary.org/wiki/%CF%84%CF%81%CE%AF%CE%BB%CE%B9%CE%B6%CE%B1",
+    "sourceRaw": "https://en.wiktionary.org/wiki/%CF%84%CF%81%CE%AF%CE%BB%CE%B9%CE%B6%CE%B1"
+  },
+  {
+    "iso": "eng",
+    "lang": "English",
+    "word": "noughts and crosses",
+    "translation": "noughts &\ncrosses",
+    "meaning_group": "cross_zero",
+    "color": "lightblue",
+    "mapLabel": "noughts &\\ncrosses",
+    "mapColor": "lightblue",
+    "sources": [
+      "https://dictionary.cambridge.org/dictionary/english/noughts-and-crosses"
+    ],
+    "openUrl": "https://dictionary.cambridge.org/dictionary/english/noughts-and-crosses",
+    "sourceRaw": "https://dictionary.cambridge.org/dictionary/english/noughts-and-crosses"
+  },
+  {
+    "iso": "gla",
+    "lang": "Scottish Gaelic",
+    "word": "caisteal geàrr",
+    "translation": "short\ncastle",
+    "meaning_group": "castle_metaphor",
+    "color": "red",
+    "mapLabel": "short\\ncastle",
+    "mapColor": "red",
+    "sources": [
+      "https://glosbe.com/en/gd/noughts%20and%20crosses"
+    ],
+    "openUrl": "https://glosbe.com/en/gd/noughts%20and%20crosses",
+    "sourceRaw": "https://glosbe.com/en/gd/noughts%20and%20crosses"
+  },
+  {
+    "iso": "occ",
+    "lang": "Occitan",
+    "word": "arrengats; rengueta",
+    "translation": "lining-up",
+    "meaning_group": "lining_up",
+    "color": "yellow",
+    "mapLabel": "lining-up",
+    "mapColor": "yellow",
+    "sources": [
+      "https://jogar-en-gascon.itch.io/arrengats"
+    ],
+    "openUrl": "https://jogar-en-gascon.itch.io/arrengats",
+    "sourceRaw": "https://jogar-en-gascon.itch.io/arrengats"
+  },
+  {
+    "iso": "gle",
+    "lang": "Irish",
+    "word": "an madra rua agus an ghé",
+    "translation": "fox\nand goose",
+    "meaning_group": "animal_folk",
+    "color": "salmon",
+    "mapLabel": "fox\\nand goose",
+    "mapColor": "salmon",
+    "sources": [
+      "https://www.focloir.ie/en/dictionary/ei/tic-tac-toe"
+    ],
+    "openUrl": "https://www.focloir.ie/en/dictionary/ei/tic-tac-toe",
+    "sourceRaw": "https://www.focloir.ie/en/dictionary/ei/tic-tac-toe"
+  },
+  {
+    "iso": "hiberno",
+    "lang": "Hiberno English",
+    "word": "Xs and Os",
+    "translation": "Xs & Os",
+    "meaning_group": "cross_zero",
+    "color": "salmon",
+    "mapLabel": "Xs & Os",
+    "mapColor": "salmon",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Tic-tac-toe"
+    ],
+    "openUrl": "https://en.wikipedia.org/wiki/Tic-tac-toe",
+    "sourceRaw": "https://en.wikipedia.org/wiki/Tic-tac-toe"
+  },
+  {
+    "iso": "gle-ni",
+    "lang": "English (Northern Ireland)",
+    "word": "exie-osies",
+    "translation": "exie-osies",
+    "meaning_group": "cross_zero",
+    "color": "salmon",
+    "mapLabel": "exie-osies",
+    "mapColor": "salmon",
+    "sources": [
+      "https://en.wiktionary.org/wiki/tic-tac-toe#English"
+    ],
+    "openUrl": "https://en.wiktionary.org/wiki/tic-tac-toe#English",
+    "sourceRaw": "https://en.wiktionary.org/wiki/tic-tac-toe#English"
+  },
+  {
+    "iso": "deu-kuk",
+    "lang": "German (alternate)",
+    "word": "Kreis und Kreuz",
+    "translation": "Circle &\nCross",
+    "meaning_group": "cross_zero",
+    "color": "lemonchiffon",
+    "mapLabel": "Circle &\nCross",
+    "mapColor": "lemonchiffon",
+    "sources": [
+      "https://de.wikipedia.org/wiki/Tic-Tac-Toe"
+    ],
+    "openUrl": "https://de.wikipedia.org/wiki/Tic-Tac-Toe",
+    "sourceRaw": "https://de.wikipedia.org/wiki/Tic-Tac-Toe"
+  },
+  {
+    "iso": "deu-kaes",
+    "lang": "German (regional)",
+    "word": "Käsekästchen",
+    "translation": "Cheese\nBoxes",
+    "meaning_group": "cheese_boxes",
+    "color": "lemonchiffon",
+    "mapLabel": "Cheese\nBoxes",
+    "mapColor": "lemonchiffon",
+    "sources": [
+      "https://spiele-teufel.com/Tic-Tac-Toe-Box-Kaesekaestchen"
+    ],
+    "openUrl": "https://spiele-teufel.com/Tic-Tac-Toe-Box-Kaesekaestchen",
+    "sourceRaw": "https://spiele-teufel.com/Tic-Tac-Toe-Box-Kaesekaestchen"
+  },
+  {
+    "iso": "deu-bay",
+    "lang": "Bavarian German",
+    "word": "Dodelschach",
+    "translation": "idiot's\nchess",
+    "meaning_group": "chess_metaphor",
+    "color": "lemonchiffon",
+    "mapLabel": "idiot's\nchess",
+    "mapColor": "lemonchiffon",
+    "sources": [
+      "https://www.diekleineludothek.at/dodelschach/"
+    ],
+    "openUrl": "https://www.diekleineludothek.at/dodelschach/",
+    "sourceRaw": "https://www.diekleineludothek.at/dodelschach/"
+  },
+  {
+    "iso": "sco-main",
+    "lang": "Scots (mainland)",
+    "word": "noughts and crosses",
+    "translation": "noughts &\ncrosses",
+    "meaning_group": "cross_zero",
+    "color": "lightblue",
+    "mapLabel": "noughts &\ncrosses",
+    "mapColor": "lightblue",
+    "sources": [
+      "https://dictionary.cambridge.org/dictionary/english/noughts-and-crosses"
+    ],
+    "openUrl": "https://dictionary.cambridge.org/dictionary/english/noughts-and-crosses",
+    "sourceRaw": "https://dictionary.cambridge.org/dictionary/english/noughts-and-crosses"
+  },
+  {
+    "iso": "sco-ork",
+    "lang": "Scots (Orkney)",
+    "word": "trip-trap-truisky",
+    "translation": "trip-trap\ntruisky",
+    "meaning_group": "rhyme_name",
+    "color": "green",
+    "mapLabel": "trip-trap\ntruisky",
+    "mapColor": "green",
+    "sources": [
+      "https://dsl.ac.uk/entry/snd/triptraptruisky"
+    ],
+    "openUrl": "https://dsl.ac.uk/entry/snd/triptraptruisky",
+    "sourceRaw": "https://dsl.ac.uk/entry/snd/triptraptruisky"
+  },
+  {
+    "iso": "swe-tpt",
+    "lang": "Swedish",
+    "word": "tripp trapp trull",
+    "translation": "trip-trap\ntrull",
+    "meaning_group": "rhyme_name",
+    "color": "green",
+    "mapLabel": "trip-trap\ntrull",
+    "mapColor": "green",
+    "sources": [
+      "https://en.wiktionary.org/wiki/luffarschack"
+    ],
+    "openUrl": "https://en.wiktionary.org/wiki/luffarschack",
+    "sourceRaw": "https://en.wiktionary.org/wiki/luffarschack"
+  },
+  {
+    "iso": "nor-tpt",
+    "lang": "Norwegian",
+    "word": "tripp-trapp-tresko",
+    "translation": "trip-trap\nclogs",
+    "meaning_group": "rhyme_name",
+    "color": "blue",
+    "mapLabel": "trip-trap\nclogs",
+    "mapColor": "blue",
+    "sources": [
+      "https://no.wikipedia.org/wiki/Tripp-trapp-tresko"
+    ],
+    "openUrl": "https://no.wikipedia.org/wiki/Tripp-trapp-tresko",
+    "sourceRaw": "https://no.wikipedia.org/wiki/Tripp-trapp-tresko"
+  },
+  {
+    "iso": "sco-wcm",
+    "lang": "Scots (Orkney)",
+    "word": "woggie catte mattie",
+    "translation": "woggie catte mattie",
+    "meaning_group": "rhyme_name",
+    "color": "green",
+    "mapLabel": "woggie catte mattie",
+    "mapColor": "green",
+    "sources": [
+      "https://www.dsl.ac.uk/entry/snd/woggie_catte_mattie"
+    ],
+    "openUrl": "https://www.dsl.ac.uk/entry/snd/woggie_catte_mattie",
+    "sourceRaw": "https://www.dsl.ac.uk/entry/snd/woggie_catte_mattie"
+  },
+  {
+    "iso": "sco-exy",
+    "lang": "Scots",
+    "word": "exy-oey",
+    "translation": "exy-oey",
+    "meaning_group": "cross_zero",
+    "color": "green",
+    "mapLabel": "exy-oey",
+    "mapColor": "green",
+    "sources": [
+      "https://dsl.ac.uk/entry/snd/x"
+    ],
+    "openUrl": "https://dsl.ac.uk/entry/snd/x",
+    "sourceRaw": "https://dsl.ac.uk/entry/snd/x"
+  },
+  {
+    "iso": "sco-bor",
+    "lang": "Scots (Borders)",
+    "word": "fickle H's",
+    "translation": "fickle H's",
+    "meaning_group": "cross_zero",
+    "color": "green",
+    "mapLabel": "fickle H's",
+    "mapColor": "green",
+    "sources": [
+      "https://www.dsl.ac.uk/entry/snd/fickle_adj1_v_n"
+    ],
+    "openUrl": "https://www.dsl.ac.uk/entry/snd/fickle_adj1_v_n",
+    "sourceRaw": "https://www.dsl.ac.uk/entry/snd/fickle_adj1_v_n"
+  },
+  {
+    "iso": "sco-fif",
+    "lang": "Scots (Fife)",
+    "word": "tree-tram-tro",
+    "translation": "tree-tram-tro",
+    "meaning_group": "rhyme_name",
+    "color": "green",
+    "mapLabel": "tree-tram-tro",
+    "mapColor": "green",
+    "sources": [
+      "https://www.dsl.ac.uk/entry/snd/treetramtro"
+    ],
+    "openUrl": "https://www.dsl.ac.uk/entry/snd/treetramtro",
+    "sourceRaw": "https://www.dsl.ac.uk/entry/snd/treetramtro"
+  },
+  {
+    "iso": "occ-gas",
+    "lang": "Occitan (Gascon)",
+    "word": "arrengats",
+    "translation": "lining-up",
+    "meaning_group": "lining_up",
+    "color": "yellow",
+    "mapLabel": "lining-up",
+    "mapColor": "yellow",
+    "sources": [
+      "https://jogar-en-gascon.itch.io/arrengats"
+    ],
+    "openUrl": "https://jogar-en-gascon.itch.io/arrengats",
+    "sourceRaw": "https://jogar-en-gascon.itch.io/arrengats"
+  },
+  {
+    "iso": "occ-ave",
+    "lang": "Occitan (Aveyron)",
+    "word": "rengueta",
+    "translation": "lining-up",
+    "meaning_group": "lining_up",
+    "color": "yellow",
+    "mapLabel": "lining-up",
+    "mapColor": "yellow",
+    "sources": [
+      "https://www.occitan-aveyron.fr/fr/diffusio/source/lescure-jaoul/lo-joc-maura_SRC20178",
+      "https://www.occitan-aveyron.fr/fr/diffusio/source/la-capelle-bleys/los-jocs_SRC24897"
+    ],
+    "openUrl": "https://www.occitan-aveyron.fr/fr/diffusio/source/lescure-jaoul/lo-joc-maura_SRC20178",
+    "sourceRaw": "https://www.occitan-aveyron.fr/fr/diffusio/source/lescure-jaoul/lo-joc-maura_SRC20178 ; https://www.occitan-aveyron.fr/fr/diffusio/source/la-capelle-bleys/los-jocs_SRC24897"
+  }
+]

@@ -100,7 +100,7 @@ external_links:
     url: "/assets/data-stories/tictactoe-europe-names/src/"
   - label: "Wikimedia Commons — Simplified Languages of Europe map.svg"
     url: "https://commons.wikimedia.org/wiki/File:Simplified_Languages_of_Europe_map.svg"
-featured: false
+featured: true
 license: "CC BY 4.0"
 license_url: "https://creativecommons.org/licenses/by/4.0/"
 ---

@@ -8,3 +8,6 @@ vendor/
 .DS_Store
 tmp/
 git.md
+scripts/.venv/
+*.code-workspace
+PRD/

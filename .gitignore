@@ -11,3 +11,4 @@ git.md
 scripts/.venv/
 *.code-workspace
 PRD/
+post-log.json

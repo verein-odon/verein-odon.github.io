@@ -1,0 +1,72 @@
+{% comment %}
+  Breadcrumb trail: Home › [parent] › current page.
+  The parent is resolved by `ref` within the page's language:
+    - data stories → the Data Stories gallery
+    - posts        → the news section on the home page
+    - pages        → optional front matter `parent: <ref>` (e.g. `parent: apis`)
+  Not rendered on the home pages or on pages without a title (e.g. 404).
+  Sits below the hero (if any); on `layout: page` the version / last-updated
+  meta (page-meta.html) shares the row, right-aligned.
+  Also emits a schema.org BreadcrumbList for search engines.
+{% endcomment %}
+{%- if page.layout != "home" and page.title -%}
+{%- assign bc_lang = page.lang | default: "en" -%}
+{%- assign bc_home = site.pages | where: "ref", "index" | where: "lang", bc_lang | first -%}
+{%- assign bc_home_url = bc_home.url | default: "/en/" -%}
+{%- if bc_lang == "de" -%}
+  {%- assign bc_home_label = "Startseite" -%}
+  {%- assign bc_aria_label = "Pfadnavigation" -%}
+{%- else -%}
+  {%- assign bc_home_label = "Home" -%}
+  {%- assign bc_aria_label = "Breadcrumb" -%}
+{%- endif -%}
+
+{%- assign bc_parent_title = nil -%}
+{%- assign bc_parent_url = nil -%}
+{%- if page.collection == "posts" -%}
+  {%- assign bc_parent_title = bc_home.list_title | default: "News" -%}
+  {%- assign bc_parent_url = bc_home_url | append: "#news" -%}
+{%- else -%}
+  {%- if page.collection == "data_stories" -%}
+    {%- assign bc_parent_ref = "data-stories" -%}
+  {%- else -%}
+    {%- assign bc_parent_ref = page.parent -%}
+  {%- endif -%}
+  {%- if bc_parent_ref -%}
+    {%- assign bc_parent = site.pages | where: "ref", bc_parent_ref | where: "lang", bc_lang | first -%}
+    {%- if bc_parent -%}
+      {%- assign bc_parent_title = bc_parent.title -%}
+      {%- assign bc_parent_url = bc_parent.url -%}
+    {%- endif -%}
+  {%- endif -%}
+{%- endif -%}
+<div class="page-trail">
+  <div class="container">
+    <nav class="breadcrumbs" aria-label="{{ bc_aria_label }}">
+      <ol>
+        <li><a href="{{ bc_home_url | relative_url }}">{{ bc_home_label }}</a></li>
+        {%- if bc_parent_url %}
+        <li><a href="{{ bc_parent_url | relative_url }}">{{ bc_parent_title | escape }}</a></li>
+        {%- endif %}
+        <li><span aria-current="page">{{ page.title | escape }}</span></li>
+      </ol>
+    </nav>
+    {%- if page.layout == "page" -%}
+      {%- include page-meta.html -%}
+    {%- endif %}
+  </div>
+</div>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": {{ bc_home_label | jsonify }}, "item": {{ bc_home_url | absolute_url | jsonify }} },
+    {%- if bc_parent_url %}
+    { "@type": "ListItem", "position": 2, "name": {{ bc_parent_title | jsonify }}, "item": {{ bc_parent_url | absolute_url | jsonify }} },
+    {%- endif %}
+    { "@type": "ListItem", "position": {% if bc_parent_url %}3{% else %}2{% endif %}, "name": {{ page.title | jsonify }}, "item": {{ page.url | absolute_url | jsonify }} }
+  ]
+}
+</script>
+{%- endif -%}

@@ -3,6 +3,7 @@ layout: page
 title: API & Data Documentation
 lang: en
 ref: api-documentation
+parent: apis
 permalink: /en/api-documentation/
 in_nav: false
 last_updated: "2026-03-27 18:00"

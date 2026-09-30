@@ -3,6 +3,7 @@ layout: page
 title: API Registration
 lang: en
 ref: api-registration
+parent: apis
 permalink: /en/api-registration/
 in_nav: false
 sitemap: false

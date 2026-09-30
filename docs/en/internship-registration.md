@@ -3,6 +3,7 @@ layout: page
 title: Internship Registration
 lang: en
 ref: internship-registration
+parent: internships
 permalink: /en/internship-registration/
 in_nav: false
 ---

@@ -64,7 +64,8 @@ permalink: /en/apis/
 - **Language switcher** (`_includes/language_switcher.html`) uses `page.ref` to find the counterpart page in the other language. A `ref` with no counterpart means the switcher has nothing to link to — keep `ref` values identical across EN/DE.
 - **Hero sections** are driven by `_data/heros.yaml`, keyed by `page.ref` then `page.lang`. A page whose `ref` has no entry renders without a hero.
 - `permalink` is omitted on `en/index.md` and `de/index.md` (they use `layout: home` and resolve to `/en/` and `/de/`). The root `index.md` is a meta-refresh redirect to `/en/`.
-- `last_updated: "YYYY-MM-DD HH:MM"` and `version:` are optional front matter fields; `_includes/page-meta.html` renders a meta bar on `layout: page` when either is present.
+- **Breadcrumbs** (`_includes/breadcrumbs.html`, rendered from `default.html` below the hero, if any) show `Home › [parent] › title` on every titled page except the home pages. The middle crumb is automatic for data stories (→ Data Stories gallery) and posts (→ home `#news` section); for pages, set optional `parent: <ref>` (e.g. `parent: apis` on `api-documentation.md`), resolved within the same language.
+- `last_updated: "YYYY-MM-DD HH:MM"` and `version:` are optional front matter fields; `_includes/page-meta.html` renders them on `layout: page` when either is present, right-aligned in the breadcrumb row (included from `breadcrumbs.html`, not from `page.html`).
 
 ## Page Structure Conventions
 

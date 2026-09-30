@@ -2153,6 +2153,80 @@ td {
   margin-bottom: 1.5rem;
 }
 
+/* ODON Projects email template (en/projects.md) */
+.proposal-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-bottom: 1.25rem;
+}
+
+/* Explicit colours throughout: in dark mode --code-bg stays near-white while
+   the inherited text colour turns light, which would make the block unreadable. */
+.proposal-email {
+  background: var(--color-white);
+  border: 1px solid var(--color-gray-200);
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+/* To / Subject header, styled like the site's blue callout */
+.proposal-email-header {
+  display: grid;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 1rem 1.5rem;
+  background: var(--color-blue-50);
+  border-left: 3px solid var(--color-blue-600);
+  border-bottom: 1px solid var(--color-gray-200);
+}
+
+.proposal-email-field {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  column-gap: 1rem;
+
+  dt {
+    width: 4.5rem;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--color-gray-500);
+  }
+
+  dd {
+    margin: 0;
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-gray-900);
+    user-select: all; /* one click selects the whole value for copying */
+  }
+}
+
+.proposal-template {
+  margin: 0;
+  background: var(--color-white);
+  color: var(--color-gray-900);
+  border: none;
+  border-radius: 0;
+  padding: 1.25rem 1.5rem;
+  font-size: 0.875rem;
+  line-height: 1.6;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+
+  code {
+    background: none;
+    border: none;
+    color: inherit;
+    font-size: inherit;
+    padding: 0;
+    white-space: inherit;
+  }
+}
+
 /* Google Form consent gate */
 .gform-gate {
   display: flex;

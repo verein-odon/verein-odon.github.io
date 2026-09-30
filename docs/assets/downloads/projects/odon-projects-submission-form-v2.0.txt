@@ -1,0 +1,27 @@
+---
+layout: null
+sitemap: false
+permalink: /assets/downloads/projects/odon-projects-submission-form-v2.0.md
+---
+{% comment %}
+  Rendered to odon-projects-submission-form-v2.0.md. The .txt source extension
+  keeps Jekyll from converting the Markdown to HTML; the fill-in sections come
+  from _includes/projects-proposal-template.md, which en/projects.md also uses.
+{% endcomment -%}
+# ODON Projects — Project Proposal (email template)
+
+Fill in the four sections below and send them by email:
+
+- **To:** info@odon.at
+- **Subject:** Project Proposal
+
+Paste the completed text into the email body, or attach this file.
+
+More about ODON Projects: <https://odon.at/en/projects/>
+
+---
+
+{% include projects-proposal-template.md %}
+---
+
+*Version 2.0 · Last updated: 2026-09-24*

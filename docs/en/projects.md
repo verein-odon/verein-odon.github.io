@@ -6,7 +6,7 @@ ref: projects
 permalink: /en/projects/
 in_nav: false
 description: "ODON Projects are real-world implementations in data engineering, data storytelling, and education. Submit your project idea and start a conversation with us."
-last_updated: "2026-06-07"
+last_updated: "2026-09-24"
 ---
 
 <section class="section bg-white">
@@ -44,12 +44,62 @@ Most projects are implemented under a service agreement. Some projects may be im
 
 ## Submit Your Idea
 
-Use the form below, or prefer email? Download the [submission form](/assets/downloads/projects/odon-projects-submission-form-v1.0.md) (Markdown — works well as context for AI tools) and send it to [info@odon.at](mailto:info@odon.at).
+Send us your idea by email, using the address, subject, and template shown below. The template asks four short questions: the project type, a description, a reply-to address (optional), and your consent.
 
-  </div>
+- **Write email** — opens your mail app with the template already filled in.
+- **Copy template** — copy the text and paste it into an email.
+- **Download (.md)** — the template as a Markdown file (works well as context for AI tools).
+
+</div>
+</div>
+</section>
+
+{% capture proposal_template %}{% include projects-proposal-template.md %}{% endcapture %}
+<section class="section bg-gray" style="border-top: 1px solid var(--color-gray-200);">
+  <div class="container">
+    <div class="content-section">
+      <div class="proposal-actions">
+        <a class="btn btn-primary" href="mailto:info@odon.at?subject=Project%20Proposal&amp;body={{ proposal_template | strip | url_encode | replace: '+', '%20' }}">Write email</a>
+        <button class="btn btn-secondary" type="button" id="proposal-copy">Copy template</button>
+        <a class="btn btn-secondary" href="/assets/downloads/projects/odon-projects-submission-form-v2.0.md" download>Download (.md)</a>
+      </div>
+      <div class="proposal-email">
+        <dl class="proposal-email-header">
+          <div class="proposal-email-field">
+            <dt>To</dt>
+            <dd>info@odon.at</dd>
+          </div>
+          <div class="proposal-email-field">
+            <dt>Subject</dt>
+            <dd>Project Proposal</dd>
+          </div>
+        </dl>
+        <pre class="proposal-template"><code id="proposal-template-text">{{ proposal_template | strip | escape }}</code></pre>
+      </div>
+    </div>
   </div>
 </section>
 
-<div style="padding-top: 1rem; border-top: 1px solid var(--color-gray-200);">
-  {% include google_form.html src="https://docs.google.com/forms/d/e/1FAIpQLScT47-kTnE3bEe6NtgWeAGWRjF8mK4geCs99Y93SbKhbjJfEA/viewform?embedded=true" height="1232px" %}
-</div>
+<script>
+  (function () {
+    var btn = document.getElementById('proposal-copy');
+    var code = document.getElementById('proposal-template-text');
+    if (!btn || !code) return;
+
+    function selectTemplate() {
+      var range = document.createRange();
+      range.selectNodeContents(code);
+      var sel = window.getSelection();
+      sel.removeAllRanges();
+      sel.addRange(range);
+    }
+
+    btn.addEventListener('click', function () {
+      if (!navigator.clipboard) { selectTemplate(); return; }
+      navigator.clipboard.writeText(code.textContent).then(function () {
+        btn.textContent = 'Copied ✓';
+        setTimeout(function () { btn.textContent = 'Copy template'; }, 1500);
+      }, selectTemplate);
+    });
+  })();
+</script>

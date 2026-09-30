@@ -12,12 +12,16 @@ layout: null
             <lastmod>{{ page.date | default: site.time | date_to_xmlschema }}</lastmod>
             {% comment %}
                 Multiingual Link Logic:
-                Finds the counterpart of this page in other languages
+                Finds the counterpart of this page in other languages.
+                Pages without a ref are skipped: where: "ref", nil would match
+                every other ref-less page (e.g. rendered downloads).
             {% endcomment %}
+            {% if page.ref %}
             {% assign translations = site.pages | where: "ref", page.ref %}
             {% for trans in translations %}
                 <xhtml:link rel="alternate" hreflang="{{ trans.lang }}" href="{{ trans.url | absolute_url }}" />
             {% endfor %}
+            {% endif %}
         </url>
         {% endif %}
     {% endfor %}

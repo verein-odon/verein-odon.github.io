@@ -5,7 +5,7 @@ lang: en
 ref: privacy
 permalink: /en/privacy/
 in_nav: false
-last_updated: "2026-08-03"
+last_updated: "2026-09-24"
 ---
 
 <section class="section bg-white">
@@ -69,7 +69,7 @@ When you send us an email or fill in our contact form, we process the data you p
 - **Legal basis:** Art. 6(1)(b) GDPR (pre-contractual steps or contract performance) where your enquiry concerns a service, membership, or similar relationship; Art. 6(1)(f) GDPR (legitimate interest in responding to enquiries) in all other cases.
 - **Retention:** for as long as needed to handle your request, and afterwards for up to **3 years** where retention is needed for accountability or to document the correspondence. You can ask us to delete your message earlier at any time.
 
-This also applies to project ideas submitted via our form at /en/projects/.
+This also applies to project ideas you send us by email (see /en/projects/).
 
 ### 3.3 Internship registration
 
@@ -212,7 +212,7 @@ Withdrawing consent stops Google Analytics from loading on your next page view. 
 
 ### 5.2 Embedded Google Forms
 
-The other cookies you may encounter come from embedded **Google Forms** on the contact, internship registration, and ODON Projects pages. We do not load these forms automatically: each form is shown behind a consent gate, and only when you choose to load it does your browser fetch resources from Google's servers, which may set cookies and process technical data under Google's own privacy policy. This processing is carried out by Google as an independent controller for its own purposes, in addition to the processing described in sections 3.2 and 3.3.
+The other cookies you may encounter come from embedded **Google Forms** on the contact and internship registration pages. We do not load these forms automatically: each form is shown behind a consent gate, and only when you choose to load it does your browser fetch resources from Google's servers, which may set cookies and process technical data under Google's own privacy policy. This processing is carried out by Google as an independent controller for its own purposes, in addition to the processing described in sections 3.2 and 3.3.
 
 <div style="margin: 1.5rem 0; padding: 1rem; background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: 0.5rem;">
   <p style="margin: 0 0 0.75rem; font-size: 0.9375rem; color: var(--color-gray-700);">If you previously chose to load a Google Form and want to be asked again on your next visit, you can reset that preference here.</p>

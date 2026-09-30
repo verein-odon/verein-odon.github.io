@@ -40,6 +40,8 @@ docs/                   Jekyll source root (working directory)
   assets/main.scss      Single compiled stylesheet (all custom CSS lives here)
   assets/data-stories/  Per-story covers, thumbnails, and self-contained src/ bundles
   assets/downloads/     Downloadable documents (ODMM, project submission form)
+                          projects/…-v2.0.txt renders …-v2.0.md from _includes/projects-proposal-template.md
+                          (.txt so Jekyll runs Liquid without converting Markdown); en/projects.md uses the same include
   _config.yml           Site config (title, url, banner, collections, defaults, GA4 ID)
   404.html              Custom error page
   sitemap.xml           Hand-written template (loops site.pages, emits hreflang alternates)

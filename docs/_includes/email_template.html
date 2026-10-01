@@ -2,20 +2,31 @@
   Email template block: To / Subject header, the template body, and
   "Write email" / "Copy template" / "Download (.md)" buttons.
   Parameters:
-    include.subject  — email subject (required)
-    include.template — file in _includes/ holding the Markdown template body (required;
-                       must not contain Liquid tags, it is also URL-encoded into the mailto body)
-    include.download — URL of the downloadable .md version (optional)
     include.to       — recipient (default: "info@odon.at")
-  Used by en/projects.md and en/api-registration.md.
+    include.subject  — email subject (optional; omit to let the sender choose)
+    include.template — file in _includes/ holding the Markdown template body (optional;
+                       must not contain Liquid tags, it is also URL-encoded into the mailto body).
+                       Without it, only the header and "Write email" are shown.
+    include.download — URL of the downloadable .md version (optional)
+  Used by en/projects.md, en/api-registration.md and en/contact.md (header only).
 {% endcomment %}
 {% assign et_to = include.to | default: "info@odon.at" %}
-{% capture et_body %}{% include {{ include.template }} %}{% endcapture %}
-{% assign et_body = et_body | strip %}
+{% assign et_body = "" %}
+{% if include.template %}
+  {% capture et_body %}{% include {{ include.template }} %}{% endcapture %}
+  {% assign et_body = et_body | strip %}
+{% endif %}
+{% assign et_query = "" %}
+{% if include.subject %}
+  {% capture et_query %}?subject={{ include.subject | url_encode | replace: '+', '%20' }}{% endcapture %}
+{% endif %}
+{% if et_body != "" %}
+  {% capture et_query %}{{ et_query }}{% if et_query == "" %}?{% else %}&amp;{% endif %}body={{ et_body | url_encode | replace: '+', '%20' }}{% endcapture %}
+{% endif %}
 <div class="email-template">
   <div class="email-template-actions">
-    <a class="btn btn-primary" href="mailto:{{ et_to }}?subject={{ include.subject | url_encode | replace: '+', '%20' }}&amp;body={{ et_body | url_encode | replace: '+', '%20' }}">Write email</a>
-    <button class="btn btn-secondary email-template-copy" type="button">Copy template</button>
+    <a class="btn btn-primary" href="mailto:{{ et_to }}{{ et_query }}">Write email</a>
+    {% if et_body != "" %}<button class="btn btn-secondary email-template-copy" type="button">Copy template</button>{% endif %}
     {% if include.download %}<a class="btn btn-secondary" href="{{ include.download }}" download>Download (.md)</a>{% endif %}
   </div>
   <div class="email-template-message">
@@ -24,14 +35,17 @@
         <dt>To</dt>
         <dd>{{ et_to }}</dd>
       </div>
+      {% if include.subject %}
       <div class="email-template-field">
         <dt>Subject</dt>
         <dd>{{ include.subject }}</dd>
       </div>
+      {% endif %}
     </dl>
-    <pre class="email-template-body"><code>{{ et_body | escape }}</code></pre>
+    {% if et_body != "" %}<pre class="email-template-body"><code>{{ et_body | escape }}</code></pre>{% endif %}
   </div>
 </div>
+{% if et_body != "" %}
 <script>
 (function () {
   var block = document.currentScript.previousElementSibling;
@@ -56,3 +70,4 @@
   });
 })();
 </script>
+{% endif %}

@@ -61,9 +61,9 @@ Our website is a static site hosted on **GitHub Pages**, a service of GitHub, In
 - **Recipient:** GitHub, Inc., acting as a processor under Art. 28 GDPR. GitHub's privacy practices are described in the [GitHub Privacy Statement](https://docs.github.com/site-policy/privacy-policies/github-general-privacy-statement).
 - **Transfers outside the EU:** GitHub, Inc. is based in the United States. Transfers are safeguarded by the **EU–US Data Privacy Framework** (GitHub is self-certified) and, as an additional safeguard, by the **Standard Contractual Clauses** contained in GitHub's Data Protection Agreement.
 
-### 3.2 Contacting us by email or contact form
+### 3.2 Contacting us by email
 
-When you send us an email or fill in our contact form, we process the data you provide (typically your name, email address, and the content of your message). Our contact form is implemented using **Google Forms**; submissions are stored in a **Google Sheet** on our Google Shared Drive, and a notification containing basic information about the submission is sent to our internal **Google Chat**. All of these services are provided to us by Google under our Google Workspace for Nonprofits agreement (see section 4).
+When you send us an email, we process the data you provide (typically your name, email address, and the content of your message). Emails are received and handled in **Gmail**, provided to us by Google under our Google Workspace for Nonprofits agreement (see section 4).
 
 - **Purpose:** to answer your enquiry and, where relevant, to follow up with you.
 - **Legal basis:** Art. 6(1)(b) GDPR (pre-contractual steps or contract performance) where your enquiry concerns a service, membership, or similar relationship; Art. 6(1)(f) GDPR (legitimate interest in responding to enquiries) in all other cases.
@@ -75,7 +75,7 @@ This also applies to project ideas you send us by email (see /en/projects/).
 
 When you register for an internship via the form at /en/internship-registration/, we process the data you provide in the form. This typically includes your name, email address, and information about your background, interests, and availability. Providing this data is necessary to evaluate your application; without it we cannot assess whether an internship is a fit.
 
-The internship registration form is also implemented using **Google Forms**, with responses stored in a **Google Sheet** on our Google Shared Drive and a notification sent to our internal **Google Chat** (see section 4).
+The internship registration form is implemented using **Google Forms**; responses are stored in a **Google Sheet** on our Google Shared Drive, and a notification containing basic information about the submission is sent to our internal **Google Chat**. All of these services are provided to us by Google under our Google Workspace for Nonprofits agreement (see section 4).
 
 - **Purpose:** to evaluate your application, communicate with you about it, and, if an internship is agreed, to prepare and carry out that internship.
 - **Legal basis:** Art. 6(1)(b) GDPR (steps taken at your request prior to entering into a contract) for the application itself; Art. 6(1)(a) GDPR (your consent) if you additionally agree that we may keep your application for future opportunities.
@@ -119,7 +119,7 @@ We maintain profiles on LinkedIn and GitHub. If you interact with these profiles
 
 Where LinkedIn and we jointly determine the purposes and means of processing page insights (for example on a LinkedIn Page), LinkedIn and ODON are **joint controllers** under Art. 26 GDPR. The primary responsibility for compliance and for providing information to data subjects lies with LinkedIn. To exercise your rights regarding data processed on the platform, please contact LinkedIn directly; we will forward any request we receive.
 
-We link to these profiles from our website but do not embed their widgets or scripts. Note, however, that our website is hosted on GitHub Pages (see section 3.1) and uses embedded Google Forms for contact and registration (see sections 3.2 and 3.3), which do cause technical data to be shared with GitHub and Google respectively when those pages or forms are loaded.
+We link to these profiles from our website but do not embed their widgets or scripts. Note, however, that our website is hosted on GitHub Pages (see section 3.1) and uses an embedded Google Form for internship registration (see section 3.3). These cause technical data to be shared with GitHub when you visit our pages, and with Google when you load the form.
 
 ### 3.8 Data Stories — contributor credits
 
@@ -212,7 +212,7 @@ Withdrawing consent stops Google Analytics from loading on your next page view. 
 
 ### 5.2 Embedded Google Forms
 
-The other cookies you may encounter come from embedded **Google Forms** on the contact and internship registration pages. We do not load these forms automatically: each form is shown behind a consent gate, and only when you choose to load it does your browser fetch resources from Google's servers, which may set cookies and process technical data under Google's own privacy policy. This processing is carried out by Google as an independent controller for its own purposes, in addition to the processing described in sections 3.2 and 3.3.
+The other cookies you may encounter come from the embedded **Google Form** on the internship registration page. We do not load this form automatically: it is shown behind a consent gate, and only when you choose to load it does your browser fetch resources from Google's servers, which may set cookies and process technical data under Google's own privacy policy. This processing is carried out by Google as an independent controller for its own purposes, in addition to the processing described in section 3.3.
 
 <div style="margin: 1.5rem 0; padding: 1rem; background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: 0.5rem;">
   <p style="margin: 0 0 0.75rem; font-size: 0.9375rem; color: var(--color-gray-700);">If you previously chose to load a Google Form and want to be asked again on your next visit, you can reset that preference here.</p>

@@ -1,0 +1,7 @@
+- **City or timezone** — helps us plan remote collaboration and check-ins during your internship.
+- **Working language(s)** — German, English, or any other language you're comfortable working in.
+- **Level of education** — High school / Matura, Bachelor's or Master's degree (in progress or completed), PhD / Doctorate, or other.
+- **Experience with data** — data analytics, data visualisation, data engineering / pipelines, programming (Python, R, SQL, …), machine learning / statistics. Tell us your self-assessed level for each, or that you're just starting out.
+- **Topic preferences** — data visualisation, data engineering, data advocacy & communication, open data & policy, research & analysis. Not sure? Ask us to advise you.
+- **Preferred length** — 4–6 weeks, 2–3 months, 4–6 months, or flexible.
+- **Preferred start** — Winter (Jan–Mar), Spring (Apr–Jun), Summer (Jul–Sep), Autumn (Oct–Dec), or flexible.

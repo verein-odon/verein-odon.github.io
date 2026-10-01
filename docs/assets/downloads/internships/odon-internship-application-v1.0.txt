@@ -1,0 +1,30 @@
+---
+layout: null
+sitemap: false
+permalink: /assets/downloads/internships/odon-internship-application-v1.0.md
+---
+{% comment %}
+  Rendered to odon-internship-application-v1.0.md. The .txt source extension
+  keeps Jekyll from converting the Markdown to HTML; the suggestions and the
+  fill-in sections come from _includes/, which en/internship-registration.md also uses.
+{% endcomment -%}
+# ODON Internships — Application (email template)
+
+Fill in the sections below and send them by email:
+
+- **To:** info@odon.at
+- **Subject:** Internship Application
+
+Paste the completed text into the email body, or attach this file. You're welcome to attach your CV as well.
+
+More about internships at ODON: <https://odon.at/en/internships/>
+
+## What to include
+
+{% include internship-application-suggestions.md %}
+---
+
+{% include internship-application-template.md %}
+---
+
+*Version 1.0 · Last updated: 2026-10-01*

@@ -73,9 +73,9 @@ This also applies to project ideas you send us by email (see /en/projects/).
 
 ### 3.3 Internship registration
 
-When you register for an internship via the form at /en/internship-registration/, we process the data you provide in the form. This typically includes your name, email address, and information about your background, interests, and availability. Providing this data is necessary to evaluate your application; without it we cannot assess whether an internship is a fit.
+When you apply for an internship by email (see /en/internship-registration/), we process the data you send us. This typically includes your name, email address, information about your background, interests, and availability, and any documents you attach, such as a CV. Providing this data is necessary to evaluate your application; without it we cannot assess whether an internship is a fit.
 
-The internship registration form is implemented using **Google Forms**; responses are stored in a **Google Sheet** on our Google Shared Drive, and a notification containing basic information about the submission is sent to our internal **Google Chat**. All of these services are provided to us by Google under our Google Workspace for Nonprofits agreement (see section 4).
+Applications reach us by email and are handled in **Gmail**, provided to us by Google under our Google Workspace for Nonprofits agreement (see section 4).
 
 - **Purpose:** to evaluate your application, communicate with you about it, and, if an internship is agreed, to prepare and carry out that internship.
 - **Legal basis:** Art. 6(1)(b) GDPR (steps taken at your request prior to entering into a contract) for the application itself; Art. 6(1)(a) GDPR (your consent) if you additionally agree that we may keep your application for future opportunities.
@@ -119,7 +119,7 @@ We maintain profiles on LinkedIn and GitHub. If you interact with these profiles
 
 Where LinkedIn and we jointly determine the purposes and means of processing page insights (for example on a LinkedIn Page), LinkedIn and ODON are **joint controllers** under Art. 26 GDPR. The primary responsibility for compliance and for providing information to data subjects lies with LinkedIn. To exercise your rights regarding data processed on the platform, please contact LinkedIn directly; we will forward any request we receive.
 
-We link to these profiles from our website but do not embed their widgets or scripts. Note, however, that our website is hosted on GitHub Pages (see section 3.1) and uses an embedded Google Form for internship registration (see section 3.3). These cause technical data to be shared with GitHub when you visit our pages, and with Google when you load the form.
+We link to these profiles from our website but do not embed their widgets or scripts. Note, however, that our website is hosted on GitHub Pages (see section 3.1), which causes technical data to be shared with GitHub when you visit our pages.
 
 ### 3.8 Data Stories — contributor credits
 
@@ -150,7 +150,7 @@ We use a small number of carefully selected service providers ("processors") to 
 | Processor | Purpose | Location |
 | --- | --- | --- |
 | **GitHub, Inc.** (GitHub Pages) | Hosting of the static odon.at website | United States |
-| **Google Ireland Limited / Google LLC** (Google Workspace for Nonprofits) | Email (Gmail), form handling (Google Forms), document and response storage (Google Sheets, Google Drive), internal notifications (Google Chat) | Ireland / United States |
+| **Google Ireland Limited / Google LLC** (Google Workspace for Nonprofits) | Email (Gmail), document storage (Google Sheets, Google Drive), internal notifications (Google Chat) | Ireland / United States |
 | **Google Ireland Limited / Google LLC** (Google Analytics 4) | Website analytics, **only with your consent** (see section 3.9) | Ireland / United States |
 | **Hetzner Online GmbH** | Hosting of the ODON API (api-eu-2.odon.at) | Germany (EU) |
 
@@ -169,7 +169,7 @@ You can request further information about these safeguards at info@odon.at.
 
 ## 5. Cookies and similar technologies
 
-A cookie is a small text file stored on your device by your browser. Our own website and its hosting infrastructure (GitHub Pages) do not set any cookies. The only cookies you may encounter on odon.at fall into the two categories below, and neither is set unless you actively agree.
+A cookie is a small text file stored on your device by your browser. Our own website and its hosting infrastructure (GitHub Pages) do not set any cookies. The only cookies you may encounter on odon.at are the analytics cookies described below, and they are not set unless you actively agree.
 
 ### 5.1 Analytics cookies (Google Analytics — consent required)
 
@@ -209,28 +209,6 @@ You can change or withdraw your choice at any time here:
 </script>
 
 Withdrawing consent stops Google Analytics from loading on your next page view. To also remove analytics cookies already stored, you can clear cookies for odon.at in your browser settings.
-
-### 5.2 Embedded Google Forms
-
-The other cookies you may encounter come from the embedded **Google Form** on the internship registration page. We do not load this form automatically: it is shown behind a consent gate, and only when you choose to load it does your browser fetch resources from Google's servers, which may set cookies and process technical data under Google's own privacy policy. This processing is carried out by Google as an independent controller for its own purposes, in addition to the processing described in section 3.3.
-
-<div style="margin: 1.5rem 0; padding: 1rem; background: var(--color-gray-50); border: 1px solid var(--color-gray-200); border-radius: 0.5rem;">
-  <p style="margin: 0 0 0.75rem; font-size: 0.9375rem; color: var(--color-gray-700);">If you previously chose to load a Google Form and want to be asked again on your next visit, you can reset that preference here.</p>
-  <button class="btn btn-secondary" id="reset-google-consent" type="button" style="font-size: 0.875rem; padding: 0.375rem 0.875rem;">Reset preference</button>
-  <p id="reset-google-confirm" hidden style="margin: 0.75rem 0 0; font-size: 0.875rem; color: var(--color-gray-600);">&#10003; Preference reset — the consent gate will reappear on your next visit to a form page.</p>
-</div>
-<script>
-(function () {
-  var btn = document.getElementById('reset-google-consent');
-  var msg = document.getElementById('reset-google-confirm');
-  if (!btn) return;
-  btn.addEventListener('click', function () {
-    localStorage.removeItem('odon_google_consent');
-    btn.hidden = true;
-    msg.hidden = false;
-  });
-})();
-</script>
 
 We do not use advertising cookies or social-media tracking pixels.
 

@@ -127,20 +127,8 @@ banner:
   url_label: "Learn more"
 ```
 
-## Embedded Forms
-
-Google Forms are embedded as full-page iframes:
-
-```html
-<iframe src="https://docs.google.com/forms/…/viewform?embedded=true"
-  style="width: 100%; height: 900px; border: none; display: block;"
-  marginheight="0" marginwidth="0">Loading…</iframe>
-```
-
-Use `{% include google_form.html src="…" height="900px" %}`. Remaining form: `en/internship-registration.md`.
-
 ## Email Templates
 
-Projects, API registration, and Contact use email instead of a Google Form. `{% include email_template.html subject="…" template="…" download="…" %}` renders the To / Subject header (default recipient `info@odon.at`), the template body, and "Write email" (mailto with the body pre-filled) / "Copy template" / "Download (.md)" buttons. All parameters are optional: without `template` only the header and "Write email" are shown, and without `subject` the Subject row is left out — `en/contact.md` uses this bare `{% include email_template.html %}`. Styles: `.email-template-*` in `assets/main.scss`.
+The site has no Google Forms; every submission page (Projects, API registration, Internship registration, Contact) uses email instead. `{% include email_template.html subject="…" template="…" download="…" %}` renders the To / Subject header (default recipient `info@odon.at`), the template body, and "Write email" (mailto with the body pre-filled) / "Copy template" / "Download (.md)" buttons. All parameters are optional: without `template` only the header and "Write email" are shown, and without `subject` the Subject row is left out — `en/contact.md` uses this bare `{% include email_template.html %}`. Styles: `.email-template-*` in `assets/main.scss`.
 
-Each template body lives in `_includes/` (`projects-proposal-template.md`, `api-token-request-template.md`) and must not contain Liquid tags. The downloadable `.md` is rendered from the same include by a `.txt` source with a `.md` permalink under `assets/downloads/` — `.txt` so Jekyll runs Liquid without converting the Markdown to HTML. Keep the template short (~1,000 characters): it is URL-encoded into the mailto link, and some mail clients truncate long ones.
+Each template body lives in `_includes/` (`projects-proposal-template.md`, `api-token-request-template.md`, `internship-application-template.md`) and must not contain Liquid tags. Answer options belong on the page, not in the template (e.g. `internship-application-suggestions.md`, rendered with `markdownify` and also included in the download), so the email stays short prompts. The downloadable `.md` is rendered from the same include by a `.txt` source with a `.md` permalink under `assets/downloads/` — `.txt` so Jekyll runs Liquid without converting the Markdown to HTML. Keep the template short (~1,000 characters): it is URL-encoded into the mailto link, and some mail clients truncate long ones.

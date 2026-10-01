@@ -2296,60 +2296,6 @@ td {
   }
 }
 
-/* Google Form consent gate */
-.gform-gate {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 280px;
-  width: 100%;
-  background: var(--color-gray-50);
-  border: 1px solid var(--color-gray-200);
-  border-radius: 0.75rem;
-  padding: 2.5rem 2rem;
-  text-align: center;
-}
-
-.gform-gate-inner {
-  max-width: 28rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.gform-gate-title {
-  font-size: 1.125rem;
-  font-weight: 600;
-  color: var(--color-gray-900);
-  margin: 0;
-}
-
-.gform-gate-text {
-  font-size: 0.9375rem;
-  color: var(--color-gray-600);
-  line-height: 1.6;
-  margin: 0;
-
-  a {
-    color: var(--color-blue-600);
-    text-decoration: underline;
-    &:hover { text-decoration: none; }
-  }
-}
-
-.gform-gate-alt {
-  font-size: 0.8125rem;
-  color: var(--color-gray-400);
-  margin: 0;
-
-  a {
-    color: var(--color-gray-400);
-    text-decoration: underline;
-    &:hover { color: var(--color-gray-600); text-decoration: none; }
-  }
-}
-
 /* Analytics preferences bar (consent banner).
    Class names deliberately avoid the tokens "cookie" / "consent" — cookie-notice
    filter lists (and Brave's default consent-notice blocking) hide .cookie-banner

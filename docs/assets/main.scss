@@ -1522,7 +1522,12 @@ a.btn-primary, a.btn-primary:hover {
   background: linear-gradient(135deg, var(--color-gray-900), #0f172a);
   color: var(--color-white);
   padding: 3rem 0;
-  margin-top: auto;
+  /* Trial: grow to absorb leftover space on short pages (body is a flex column,
+     min-height: 100vh), instead of `margin-top: auto` pushing the whole footer
+     down. Content below stays block-flow top-aligned, so it doesn't move —
+     the extra dark background simply extends further below it. No effect on
+     pages already taller than the viewport, since there's no free space to grow into. */
+  flex: 1 0 auto;
 }
 
 .footer-content {

@@ -54,52 +54,10 @@ Send us your idea by email, using the address, subject, and template shown below
 </div>
 </section>
 
-{% capture proposal_template %}{% include projects-proposal-template.md %}{% endcapture %}
 <section class="section bg-gray" style="border-top: 1px solid var(--color-gray-200);">
   <div class="container">
     <div class="content-section">
-      <div class="proposal-actions">
-        <a class="btn btn-primary" href="mailto:info@odon.at?subject=Project%20Proposal&amp;body={{ proposal_template | strip | url_encode | replace: '+', '%20' }}">Write email</a>
-        <button class="btn btn-secondary" type="button" id="proposal-copy">Copy template</button>
-        <a class="btn btn-secondary" href="/assets/downloads/projects/odon-projects-submission-form-v2.0.md" download>Download (.md)</a>
-      </div>
-      <div class="proposal-email">
-        <dl class="proposal-email-header">
-          <div class="proposal-email-field">
-            <dt>To</dt>
-            <dd>info@odon.at</dd>
-          </div>
-          <div class="proposal-email-field">
-            <dt>Subject</dt>
-            <dd>Project Proposal</dd>
-          </div>
-        </dl>
-        <pre class="proposal-template"><code id="proposal-template-text">{{ proposal_template | strip | escape }}</code></pre>
-      </div>
+      {% include email_template.html subject="Project Proposal" template="projects-proposal-template.md" download="/assets/downloads/projects/odon-projects-submission-form-v2.0.md" %}
     </div>
   </div>
 </section>
-
-<script>
-  (function () {
-    var btn = document.getElementById('proposal-copy');
-    var code = document.getElementById('proposal-template-text');
-    if (!btn || !code) return;
-
-    function selectTemplate() {
-      var range = document.createRange();
-      range.selectNodeContents(code);
-      var sel = window.getSelection();
-      sel.removeAllRanges();
-      sel.addRange(range);
-    }
-
-    btn.addEventListener('click', function () {
-      if (!navigator.clipboard) { selectTemplate(); return; }
-      navigator.clipboard.writeText(code.textContent).then(function () {
-        btn.textContent = 'Copied ✓';
-        setTimeout(function () { btn.textContent = 'Copy template'; }, 1500);
-      }, selectTemplate);
-    });
-  })();
-</script>

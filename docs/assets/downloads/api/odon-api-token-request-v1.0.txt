@@ -1,0 +1,30 @@
+---
+layout: null
+sitemap: false
+permalink: /assets/downloads/api/odon-api-token-request-v1.0.md
+---
+{% comment %}
+  Rendered to odon-api-token-request-v1.0.md. The .txt source extension
+  keeps Jekyll from converting the Markdown to HTML; the disclaimer and the
+  fill-in sections come from _includes/, which en/api-registration.md also uses.
+{% endcomment -%}
+# ODON API — Token Request (email template)
+
+Fill in the five sections below and send them by email:
+
+- **To:** info@odon.at
+- **Subject:** API Token Request
+
+Paste the completed text into the email body, or attach this file.
+
+More about the ODON API: <https://odon.at/en/apis/>
+
+## Disclaimer
+
+{% include api-disclaimer.md %}
+---
+
+{% include api-token-request-template.md %}
+---
+
+*Version 1.0 · Last updated: 2026-10-01*

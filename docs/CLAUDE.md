@@ -39,9 +39,7 @@ docs/                   Jekyll source root (working directory)
   _sass/                Sass partials (minima.scss + minima/ theme overrides)
   assets/main.scss      Single compiled stylesheet (all custom CSS lives here)
   assets/data-stories/  Per-story covers, thumbnails, and self-contained src/ bundles
-  assets/downloads/     Downloadable documents (ODMM, project submission form)
-                          projects/…-v2.0.txt renders …-v2.0.md from _includes/projects-proposal-template.md
-                          (.txt so Jekyll runs Liquid without converting Markdown); en/projects.md uses the same include
+  assets/downloads/     Downloadable documents (ODMM, email templates) — see "Email Templates" below
   _config.yml           Site config (title, url, banner, collections, defaults, GA4 ID)
   404.html              Custom error page
   sitemap.xml           Hand-written template (loops site.pages, emits hreflang alternates)
@@ -139,4 +137,10 @@ Google Forms are embedded as full-page iframes:
   marginheight="0" marginwidth="0">Loading…</iframe>
 ```
 
-Use `{% include google_form.html src="…" height="900px" %}`. For forms that are the sole content of a page (e.g. `api-registration.md`), use `height: calc(100vh - 6rem)` to fill the viewport.
+Use `{% include google_form.html src="…" height="900px" %}`. Remaining forms: `en/contact.md` and `en/internship-registration.md`.
+
+## Email Templates
+
+Projects and API registration use an email template instead of a Google Form. `{% include email_template.html subject="…" template="…" download="…" %}` renders the To / Subject header (default recipient `info@odon.at`), the template body, and "Write email" (mailto with the body pre-filled) / "Copy template" / "Download (.md)" buttons. Styles: `.email-template-*` in `assets/main.scss`.
+
+Each template body lives in `_includes/` (`projects-proposal-template.md`, `api-token-request-template.md`) and must not contain Liquid tags. The downloadable `.md` is rendered from the same include by a `.txt` source with a `.md` permalink under `assets/downloads/` — `.txt` so Jekyll runs Liquid without converting the Markdown to HTML. Keep the template short (~1,000 characters): it is URL-encoded into the mailto link, and some mail clients truncate long ones.

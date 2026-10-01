@@ -5,7 +5,7 @@ lang: en
 ref: privacy
 permalink: /en/privacy/
 in_nav: false
-last_updated: "2026-09-24"
+last_updated: "2026-10-01"
 ---
 
 <section class="section bg-white">
@@ -84,12 +84,12 @@ The internship registration form is also implemented using **Google Forms**, wit
 
 ### 3.4 API token registration
 
-When you register for an API token at /en/api-registration/, we process the data you submit during registration (typically your name, email address, organisation if provided, and a description of your intended use), together with technical logs of your API calls (including the token identifier, timestamps, endpoints accessed, and IP address).
+When you request an API token by email (see /en/api-registration/), we process the data you send us (typically your name, email address, expected request volume, and, if provided, a description of your project), together with technical logs of your API calls (including the token identifier, timestamps, endpoints accessed, and IP address).
 
 - **Purpose:** to provide you with API access, prevent abuse, ensure fair use within the association's means, and maintain the stability and security of the API.
 - **Legal basis:** Art. 6(1)(b) GDPR (to provide the API service you requested) for the registration data; Art. 6(1)(f) GDPR (legitimate interest in securing and operating the API) for technical logs.
 - **Retention:** registration data for as long as your token is active, plus **12 months** after revocation or inactivity. Technical logs for a maximum of **30 days**.
-- **Recipients:** our API infrastructure provider **Hetzner Online GmbH** (Industriestr. 25, 91710 Gunzenhausen, Germany) acts as a processor under Art. 28 GDPR. Our API is hosted in Hetzner data centres within the European Union, so the processing takes place inside the EU/EEA.
+- **Recipients:** our API infrastructure provider **Hetzner Online GmbH** (Industriestr. 25, 91710 Gunzenhausen, Germany) acts as a processor under Art. 28 GDPR. Our API is hosted in Hetzner data centres within the European Union, so the processing takes place inside the EU/EEA. Your token request itself reaches us by email and is handled in Gmail under our Google Workspace for Nonprofits agreement (see section 4).
 
 ### 3.5 Membership
 

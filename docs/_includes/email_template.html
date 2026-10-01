@@ -1,0 +1,58 @@
+{% comment %}
+  Email template block: To / Subject header, the template body, and
+  "Write email" / "Copy template" / "Download (.md)" buttons.
+  Parameters:
+    include.subject  — email subject (required)
+    include.template — file in _includes/ holding the Markdown template body (required;
+                       must not contain Liquid tags, it is also URL-encoded into the mailto body)
+    include.download — URL of the downloadable .md version (optional)
+    include.to       — recipient (default: "info@odon.at")
+  Used by en/projects.md and en/api-registration.md.
+{% endcomment %}
+{% assign et_to = include.to | default: "info@odon.at" %}
+{% capture et_body %}{% include {{ include.template }} %}{% endcapture %}
+{% assign et_body = et_body | strip %}
+<div class="email-template">
+  <div class="email-template-actions">
+    <a class="btn btn-primary" href="mailto:{{ et_to }}?subject={{ include.subject | url_encode | replace: '+', '%20' }}&amp;body={{ et_body | url_encode | replace: '+', '%20' }}">Write email</a>
+    <button class="btn btn-secondary email-template-copy" type="button">Copy template</button>
+    {% if include.download %}<a class="btn btn-secondary" href="{{ include.download }}" download>Download (.md)</a>{% endif %}
+  </div>
+  <div class="email-template-message">
+    <dl class="email-template-header">
+      <div class="email-template-field">
+        <dt>To</dt>
+        <dd>{{ et_to }}</dd>
+      </div>
+      <div class="email-template-field">
+        <dt>Subject</dt>
+        <dd>{{ include.subject }}</dd>
+      </div>
+    </dl>
+    <pre class="email-template-body"><code>{{ et_body | escape }}</code></pre>
+  </div>
+</div>
+<script>
+(function () {
+  var block = document.currentScript.previousElementSibling;
+  if (!block || !block.classList.contains('email-template')) return;
+  var btn = block.querySelector('.email-template-copy');
+  var code = block.querySelector('.email-template-body code');
+
+  function selectTemplate() {
+    var range = document.createRange();
+    range.selectNodeContents(code);
+    var sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  }
+
+  btn.addEventListener('click', function () {
+    if (!navigator.clipboard) { selectTemplate(); return; }
+    navigator.clipboard.writeText(code.textContent).then(function () {
+      btn.textContent = 'Copied ✓';
+      setTimeout(function () { btn.textContent = 'Copy template'; }, 1500);
+    }, selectTemplate);
+  });
+})();
+</script>

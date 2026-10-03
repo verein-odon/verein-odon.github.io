@@ -6,7 +6,7 @@ permalink: /assets/downloads/internships/odon-internship-application-v1.0.md
 {% comment %}
   Rendered to odon-internship-application-v1.0.md. The .txt source extension
   keeps Jekyll from converting the Markdown to HTML; the suggestions and the
-  fill-in sections come from _includes/, which en/internship-registration.md also uses.
+  fill-in sections come from _includes/, which en/internship-application.md also uses.
 {% endcomment -%}
 # ODON Internships — Application (email template)
 

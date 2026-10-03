@@ -5,7 +5,7 @@ lang: en
 ref: privacy
 permalink: /en/privacy/
 in_nav: false
-last_updated: "2026-10-01"
+last_updated: "2026-10-03"
 ---
 
 <section class="section bg-white">
@@ -71,9 +71,9 @@ When you send us an email, we process the data you provide (typically your name,
 
 This also applies to project ideas you send us by email (see /en/projects/).
 
-### 3.3 Internship registration
+### 3.3 Internship application
 
-When you apply for an internship by email (see /en/internship-registration/), we process the data you send us. This typically includes your name, email address, information about your background, interests, and availability, and any documents you attach, such as a CV. Providing this data is necessary to evaluate your application; without it we cannot assess whether an internship is a fit.
+When you apply for an internship by email (see /en/internship-application/), we process the data you send us. This typically includes your name, email address, information about your background, interests, and availability, and any documents you attach, such as a CV. Providing this data is necessary to evaluate your application; without it we cannot assess whether an internship is a fit.
 
 Applications reach us by email and are handled in **Gmail**, provided to us by Google under our Google Workspace for Nonprofits agreement (see section 4).
 

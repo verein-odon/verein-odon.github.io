@@ -16,10 +16,10 @@ last_updated: "2026-03-29 00:00"
         All our internships are remote-friendly and supervised by experienced developers. We work on real Open Data projects with societal impact across education, data storytelling, and transparency.
       </p>
       <p style="background: #eff6ff; border-left: 3px solid #2563eb; padding: 0.75rem 1rem; border-radius: 0.25rem; margin-top: 1rem;">
-        Interested in an internship at ODON? Register by email and we will get back to you to find the best fit for your skills and goals.
+        Interested in an internship at ODON? Apply by email and we will get back to you to find the best fit for your skills and goals.
       </p>
       <p>
-        <a href="/en/internship-registration/" class="btn btn-primary">Register for an Internship</a>
+        <a href="/en/internship-application/" class="btn btn-primary">Apply for an Internship</a>
       </p>
       <p>
         Selected intern projects are published in our <a href="/en/data-stories/">Data Stories</a> gallery — your work, credited and public.

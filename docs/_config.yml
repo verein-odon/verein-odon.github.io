@@ -77,6 +77,7 @@ google_analytics: G-5NQ5NGXKJB
 
 plugins:
   - jekyll-feed
+  - jekyll-redirect-from
 
 # Exclude from processing.
 # The following items will not be processed, by default.

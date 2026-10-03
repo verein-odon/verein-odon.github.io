@@ -1,20 +1,21 @@
 ---
 layout: page
-title: Internship Registration
+title: Internship Application
 lang: en
-ref: internship-registration
+ref: internship-application
 parent: internships
-permalink: /en/internship-registration/
+permalink: /en/internship-application/
+redirect_from: /en/internship-registration/
 in_nav: false
-last_updated: "2026-10-01"
+last_updated: "2026-10-03"
 ---
 
 <section class="section bg-white">
   <div class="container">
     <div class="content-section">
-      <h2>Register for an Internship</h2>
+      <h2>Apply for an Internship</h2>
       <p>
-        Send us an email to register your interest in an internship at ODON, using the address, subject, and template shown below. We will get back to you to discuss the best fit for your skills and goals. You're welcome to attach your CV.
+        Send us an email to apply for an internship at ODON, using the address, subject, and template shown below. We will get back to you to discuss the best fit for your skills and goals. You're welcome to attach your CV.
       </p>
       <h3>What to include</h3>
       <p>The template asks for the points below. These suggestions help you answer them — pick whatever fits, or describe it in your own words.</p>

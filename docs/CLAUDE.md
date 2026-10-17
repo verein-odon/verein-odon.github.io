@@ -110,7 +110,7 @@ The gallery at `en/data-stories/index.html` sorts `site.data_stories` by `date` 
 
 ## Analytics & Consent
 
-GA4 (`google_analytics` in `_config.yml`) loads only when `JEKYLL_ENV=production` **and** the visitor opts in via the banner in `_includes/google-analytics.html`, which implements Google Consent Mode v2. The choice is stored in `localStorage` under `odon_analytics_consent` and can be changed from the Privacy Policy page (section 5).
+GA4 (`google_analytics` in `_config.yml`) loads only when `JEKYLL_ENV=production` **and** the visitor opts in via the banner in `_includes/google-analytics.html`, which implements Google Consent Mode v2. The choice is stored in `localStorage` under `odon_analytics_consent` and can be changed from the Privacy Policy page (section 4).
 
 The banner deliberately uses `prefs-bar` / `prefs-btn` class names rather than `cookie-*`: cookie-notice filter lists (EasyList Cookie, Fanboy's Annoyances, and Brave — which blocks consent notices by default) cosmetically hide `cookie-*` elements, so visitors would never see the prompt and GA would never load. Do not rename these.
 

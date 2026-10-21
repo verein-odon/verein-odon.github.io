@@ -584,26 +584,66 @@ a.btn-primary, a.btn-primary:hover {
   color: rgba(255, 255, 255, 0.9);
 }
 
+/* Hero illustrations render at their intrinsic size: each SVG's width/height
+   attributes are set to 0.4x its viewBox, so every illustration shares the
+   same drawing scale (and stroke weight) as membership.svg */
 .hero-image {
-  width: 100%;
+  width: auto;
   max-width: 100%;
   height: auto;
   display: block;
 }
 
+/* Single-column (mobile) hero: the illustration would push the content
+   below the fold, so it is shown only from the two-column layout up */
+@media (max-width: 767.98px) {
+  .hero-visual {
+    display: none;
+  }
+}
+
 @media (min-width: 768px) {
   .hero-image-wrapper {
     max-width: none;
+    /* Height of the tallest illustration (membership.svg), so hero bands
+       keep the same height across pages */
+    min-height: 17rem;
+    align-items: center;
   }
-  .hero-image {
-    width: 100%;
-    max-width: 280px;
+}
+
+/* Home hero: more breathing room */
+.hero-title {
+  text-wrap: balance;
+}
+
+@media (min-width: 768px) {
+  .hero--index {
+    padding: 4rem 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero--index .hero-title {
+    font-size: 2.75rem;
   }
 }
 
 /* Section Styles */
 .section {
-  padding: 1.5rem 0 2rem 0;
+  padding: 3rem 0;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 4.5rem 0;
+  }
+}
+
+/* The breadcrumb row already separates the first section from the hero */
+.odon-page-content > .section:first-child,
+.odon-post-content > .section:first-child {
+  padding-top: 2.5rem;
 }
 
 .bg-white {
@@ -638,6 +678,31 @@ a.btn-primary, a.btn-primary:hover {
   }
 }
 
+/* Home page: align every section to the full container width (same as the
+   hero and the Data Stories grid) while keeping prose at a readable length */
+.home .content-section,
+#news .content-section {
+  max-width: none;
+}
+
+.home .content-section > p,
+.home .lead {
+  max-width: 48rem;
+}
+
+.home .people-carousel {
+  max-width: 64rem;
+}
+
+.content-section .lead-quote {
+  border-left: 3px solid var(--color-blue-600);
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  font-size: 1.25rem;
+  line-height: 1.7;
+  color: var(--color-gray-800);
+  margin-bottom: 0;
+}
+
 /* Cards Grid */
 .cards-grid {
   display: grid;
@@ -655,7 +720,7 @@ a.btn-primary, a.btn-primary:hover {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 1.5rem;
+  padding: 2rem 1.5rem;
   border-radius: 0.75rem;
   border: 1px solid var(--color-gray-200);
   background: #fff;
@@ -663,14 +728,28 @@ a.btn-primary, a.btn-primary:hover {
 }
 
 .card h3,
-.card .membership-subtitle,
 .card .card-text,
 .card .card-counter-block {
   align-self: stretch;
 }
 
+/* Beats `.content-section h3`, which adds a large top margin */
+.cards-grid .card h3 {
+  margin-top: 0;
+}
+
+/* Beats `.content-section p`, which otherwise inflates the pill */
+.card .membership-subtitle {
+  align-self: center;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  color: var(--color-blue-600);
+  margin-bottom: 1rem;
+}
+
 .card .btn {
   margin-top: auto;
+  min-width: 10rem;
 }
 
 .card-counter-block {
@@ -707,14 +786,15 @@ a.btn-primary, a.btn-primary:hover {
 }
 
 .card-icon {
-  width: 3.5rem;
-  height: 3.5rem;
-  //background: linear-gradient(135deg, var(--color-primary), var(--color-indigo));
-  border-radius: 0.5rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  padding: 1rem;
+  background: var(--color-blue-50);
+  border-radius: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 
 .card-icon svg {
@@ -740,19 +820,24 @@ a.btn-primary, a.btn-primary:hover {
   line-height: 1.75;
 }
 
-.card .card-text-list {
+/* `.content-section` prefix beats the generic `.content-section ul:not(:has(.bullet))` rules */
+.content-section .card .card-text-list {
   color: var(--color-gray-600);
-  margin: 0.5rem auto 1rem;
-  padding-left: 1.5rem;
-  list-style-position: outside;
+  margin: 0 auto 1.5rem;
+  padding-left: 0;
   align-self: center;
   width: max-content;
   max-width: 100%;
+  text-align: left;
 }
 
-.card .card-text-list li {
-  line-height: 1.1;
-  margin-bottom: 0.1rem;
+.content-section .card .card-text-list li {
+  line-height: 1.6;
+  margin-bottom: 0.35rem;
+}
+
+.content-section .card .card-text-list li::before {
+  top: 0.6rem;
 }
 
 /* People section (Association page) */
@@ -1684,9 +1769,11 @@ a.btn-primary, a.btn-primary:hover {
   text-decoration: none;
 }
 
+/* Left-aligned (not centered) so content shares its left edge with the
+   hero and breadcrumbs, which use the full container width */
 .content-section {
   max-width: 64rem;
-  margin: 0 auto;
+  margin: 0;
 }
 
 .content-section h2 {
@@ -2448,6 +2535,25 @@ td {
   height: 100%;
   object-fit: cover;
   display: block;
+  transition: transform 0.4s ease;
+}
+.ds-card:hover .ds-card-image img {
+  transform: scale(1.03);
+}
+@media (prefers-reduced-motion: reduce) {
+  .ds-card-image img { transition: none; }
+  .ds-card:hover .ds-card-image img { transform: none; }
+}
+
+/* Teaser section header (home page) */
+.ds-teaser-header {
+  margin-bottom: 2rem;
+}
+.ds-teaser-header h2 {
+  margin-bottom: 0.5rem;
+}
+.ds-teaser-header p {
+  margin-bottom: 0;
 }
 .ds-card-body {
   padding: 1.25rem;

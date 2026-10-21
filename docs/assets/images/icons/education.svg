@@ -6,7 +6,7 @@
       <stop offset="1" stop-color="#519fff"/>
     </linearGradient>
   </defs>
-  <g fill="none" stroke="url(#education-gradient)" stroke-width="0.9" stroke-linecap="round" stroke-linejoin="round">
+  <g fill="none" stroke="url(#education-gradient)" stroke-width="1.1" stroke-linecap="round" stroke-linejoin="round">
     <polygon points="8,2.5 1,6 8,9.5 15,6"/>
     <path d="M4 7.5 L4 11.5 Q8 13.5 12 11.5 L12 7.5"/>
     <line x1="15" y1="6" x2="15" y2="10"/>

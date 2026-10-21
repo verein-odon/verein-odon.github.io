@@ -35,7 +35,7 @@ last_updated: "2025-03-10 14:30"
                     <span class="card-counter-wrap"><span class="card-counter" data-target="1500" data-duration="6000">0</span><span class="card-counter-suffix">+</span></span>
                     <span class="card-counter-label">Number of datasets currently served</span>
                 </div>
-                <a href="/en/apis/" class="btn btn-primary">APIs</a>
+                <a href="/en/apis/" class="btn btn-secondary">Explore APIs <span class="arrow">→</span></a>
             </div>
             <div class="card">
                 <div class="card-icon">
@@ -49,7 +49,7 @@ last_updated: "2025-03-10 14:30"
                     <li>internships</li>
                     <li>hackathons</li>
                 </ul>
-                <a href="/en/education/" class="btn btn-primary">Education</a>
+                <a href="/en/education/" class="btn btn-secondary">Learn more <span class="arrow">→</span></a>
             </div>
             <div class="card">
                 <div class="card-icon">
@@ -59,7 +59,7 @@ last_updated: "2025-03-10 14:30"
                 <p class="membership-subtitle">For Organisations and Institutions</p>
                 <p class="card-text">From data engineering to storytelling, we help organisations turn raw data into insights and value.
                 </p>
-                <a href="/en/services/" class="btn btn-primary">Services</a>
+                <a href="/en/services/" class="btn btn-secondary">See services <span class="arrow">→</span></a>
             </div>
     </div>
     </div>
@@ -118,7 +118,7 @@ last_updated: "2025-03-10 14:30"
   <div class="container">
     <div class="content-section">
       <h2 class="section-title">Our Mission</h2>
-      <p class="lead">Open Data only matters when people can actually use it. ODON is the non-profit association that makes that possible — through free APIs, data engineering and storytelling services, and hands-on education.</p>
+      <p class="lead lead-quote">Open Data only matters when people can actually use it. ODON is the non-profit association that makes that possible — through free APIs, data engineering and storytelling services, and hands-on education.</p>
     </div>
   </div>
 </section>

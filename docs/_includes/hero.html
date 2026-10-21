@@ -13,7 +13,7 @@
 {% comment %} 2. Render only if data exists for this page/language {% endcomment %}
 {% if hero_data %}
 
-<section class="hero">
+<section class="hero hero--{{ current_ref }}">
   <div class="container">
     <div class="hero-grid">
 
@@ -46,8 +46,6 @@
             src="{{ hero_data.image_src | relative_url }}"
             alt="{{ hero_data.alt_text | escape }}"
             class="hero-image"
-            width="520"
-            height="228"
             fetchpriority="high"
           />
         </div>

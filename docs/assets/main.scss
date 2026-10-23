@@ -619,31 +619,35 @@ a.btn-primary, a.btn-primary:hover {
 
 @media (min-width: 768px) {
   .hero--index {
-    padding: 4rem 0;
+    padding: 2rem 0;
+  }
+  /* Home hero is sized by its text, not the shared illustration height */
+  .hero--index .hero-image-wrapper {
+    min-height: 0;
   }
 }
 
 @media (min-width: 1024px) {
   .hero--index .hero-title {
-    font-size: 2.75rem;
+    font-size: 2.125rem;
   }
 }
 
 /* Section Styles */
 .section {
-  padding: 3rem 0;
+  padding: 1.75rem 0;
 }
 
 @media (min-width: 768px) {
   .section {
-    padding: 4.5rem 0;
+    padding: 2.5rem 0;
   }
 }
 
 /* The breadcrumb row already separates the first section from the hero */
 .odon-page-content > .section:first-child,
 .odon-post-content > .section:first-child {
-  padding-top: 2.5rem;
+  padding-top: 1.75rem;
 }
 
 .bg-white {
@@ -655,14 +659,14 @@ a.btn-primary, a.btn-primary:hover {
 }
 
 .section-title {
-  font-size: 1.5rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.375rem;
+  margin-bottom: 1rem;
   color: var(--color-gray-900);
 }
 
 @media (min-width: 768px) {
   .section-title {
-    font-size: 1.875rem;
+    font-size: 1.5rem;
   }
 }
 
@@ -696,9 +700,9 @@ a.btn-primary, a.btn-primary:hover {
 
 .content-section .lead-quote {
   border-left: 3px solid var(--color-blue-600);
-  padding: 0.25rem 0 0.25rem 1.25rem;
-  font-size: 1.25rem;
-  line-height: 1.7;
+  padding: 0.125rem 0 0.125rem 1rem;
+  font-size: 1.0625rem;
+  line-height: 1.55;
   color: var(--color-gray-800);
   margin-bottom: 0;
 }
@@ -706,7 +710,7 @@ a.btn-primary, a.btn-primary:hover {
 /* Cards Grid */
 .cards-grid {
   display: grid;
-  gap: 2rem;
+  gap: 1.5rem;
 }
 
 @media (min-width: 768px) {
@@ -720,7 +724,7 @@ a.btn-primary, a.btn-primary:hover {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 2rem 1.5rem;
+  padding: 1.25rem 1.25rem;
   border-radius: 0.75rem;
   border: 1px solid var(--color-gray-200);
   background: #fff;
@@ -735,7 +739,9 @@ a.btn-primary, a.btn-primary:hover {
 
 /* Beats `.content-section h3`, which adds a large top margin */
 .cards-grid .card h3 {
+  font-size: 1.125rem;
   margin-top: 0;
+  margin-bottom: 0.5rem;
 }
 
 /* Beats `.content-section p`, which otherwise inflates the pill */
@@ -744,7 +750,7 @@ a.btn-primary, a.btn-primary:hover {
   font-size: 0.7rem;
   line-height: 1.5;
   color: var(--color-blue-600);
-  margin-bottom: 1rem;
+  margin-bottom: 0.75rem;
 }
 
 .card .btn {
@@ -756,13 +762,13 @@ a.btn-primary, a.btn-primary:hover {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 1rem;
-  margin-bottom: 0.25rem;
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
 }
 
 .card-counter-wrap {
   display: inline-block;
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 700;
   color: var(--color-blue-600);
   line-height: 1.2;
@@ -786,15 +792,15 @@ a.btn-primary, a.btn-primary:hover {
 }
 
 .card-icon {
-  width: 4.5rem;
-  height: 4.5rem;
-  padding: 1rem;
+  width: 3rem;
+  height: 3rem;
+  padding: 0.625rem;
   background: var(--color-blue-50);
   border-radius: 0.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.75rem;
 }
 
 .card-icon svg {
@@ -817,14 +823,16 @@ a.btn-primary, a.btn-primary:hover {
 
 .card-text {
   color: var(--color-gray-600);
-  line-height: 1.75;
+  font-size: 0.9375rem;
+  line-height: 1.55;
 }
 
 /* `.content-section` prefix beats the generic `.content-section ul:not(:has(.bullet))` rules */
 .content-section .card .card-text-list {
   color: var(--color-gray-600);
-  margin: 0 auto 1.5rem;
+  margin: 0 auto 1rem;
   padding-left: 0;
+  font-size: 0.9375rem;
   align-self: center;
   width: max-content;
   max-width: 100%;
@@ -1777,16 +1785,16 @@ a.btn-primary, a.btn-primary:hover {
 }
 
 .content-section h2 {
-  font-size: 1.875rem;
-  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+  margin-bottom: 0.75rem;
   color: var(--color-gray-900);
 }
 
 .content-section p {
   color: var(--color-gray-700);
-  line-height: 1.75;
+  line-height: 1.6;
   font-size: 1rem;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1rem;
 }
 
 .content-section ul {
@@ -2555,10 +2563,16 @@ td {
 
 /* Teaser section header (home page) */
 .ds-teaser-header {
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+}
+.home .ds-card-image {
+  aspect-ratio: 16 / 9;
+}
+.home .ds-card-body {
+  padding: 1rem 1.25rem 1.25rem;
 }
 .ds-teaser-header h2 {
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 .ds-teaser-header p {
   margin-bottom: 0;

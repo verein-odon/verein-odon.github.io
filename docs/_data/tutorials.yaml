@@ -1,0 +1,15 @@
+# _data/tutorials.yaml
+# Open tutorials hosted on GitHub (https://github.com/odon-at),
+# rendered by _includes/tutorials-grid.html
+- title: "Git & GitHub"
+  url: "https://github.com/odon-at/education-learning-git"
+  meta: "5 modules"
+  summary: "From your first commit to real pull requests — hands-on, using open data."
+- title: "Markdown"
+  url: "https://github.com/odon-at/education-learning-markdown"
+  meta: "5 modules"
+  summary: "From your first heading to telling universal syntax apart from GitHub's own flavor."
+- title: "AI Chat Tools"
+  url: "https://github.com/odon-at/education-learning-ai-chat-tools"
+  meta: "6 modules"
+  summary: "From your first prompt to rating real open datasets and telling a useful answer from a confident mistake."

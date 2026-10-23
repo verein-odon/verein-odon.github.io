@@ -21,6 +21,15 @@ last_updated: "2025-03-10 14:30"
 <section class="section bg-gray">
   <div class="container">
     <div class="content-section">
+      <h2 class="section-title">Our Mission</h2>
+      <p class="lead lead-quote">Open Data only matters when people can actually use it. ODON is the non-profit association that makes that possible — through free APIs, data engineering and storytelling services, and hands-on education.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section bg-white">
+  <div class="container">
+    <div class="content-section">
     <h2 class="section-title">Our Contribution</h2>
     <div class="cards-grid">
             <div class="card card-apis">
@@ -114,11 +123,14 @@ last_updated: "2025-03-10 14:30"
 })();
 </script>
 
-<section class="section bg-white">
+<section class="section bg-tint" id="online-learning">
   <div class="container">
-    <div class="content-section">
-      <h2 class="section-title">Our Mission</h2>
-      <p class="lead lead-quote">Open Data only matters when people can actually use it. ODON is the non-profit association that makes that possible — through free APIs, data engineering and storytelling services, and hands-on education.</p>
+    <div class="content-section learning-teaser">
+      <div>
+        <h2 class="section-title">Learn Together Online</h2>
+        <p>Take one of our free online courses — and if you prefer learning together with others, join our regular live sessions and shared chat channel.</p>
+      </div>
+      <a href="/en/education/#online-learning" class="btn btn-primary">Explore our courses <span class="arrow">→</span></a>
     </div>
   </div>
 </section>

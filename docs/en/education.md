@@ -42,7 +42,40 @@ last_updated: "2026-03-29 00:00"
   </div>
 </section>
 
-<section class="section bg-gray">
+<section class="section bg-gray" id="online-learning">
+  <div class="container">
+    <div class="content-section">
+      <h2>Online Learning Courses</h2>
+      <p>
+        Our courses are open and free for learners to use. Here are our currently available courses:
+      </p>
+      {% include tutorials-grid.html %}
+      <h3>Learn Together with Others</h3>
+      <p>
+        If you prefer learning together with others, you can join our live online learning alongside a course. It includes:
+      </p>
+      <ul>
+        <li>
+          <span class="bullet"></span>
+          <span><b>Regular live sessions</b><br>
+          Meet other learners online and work through the course together.</span>
+        </li>
+        <li>
+          <span class="bullet"></span>
+          <span><b>A shared chat channel</b><br>
+          A common chat environment that makes your learning experience more interactive.</span>
+        </li>
+      </ul>
+      <h4>How It Works</h4>
+      <p>
+        Send us an email with the subject <b>"Learn Together"</b> and tell us which course you are interested in. We will add you to the chat channel and keep you in the loop about the available dates for the live sessions.
+      </p>
+      {% include email_template.html subject="Learn Together" %}
+    </div>
+  </div>
+</section>
+
+<section class="section bg-white">
   <div class="container">
     <div class="content-section">
       <h2>Future Education Formats</h2>

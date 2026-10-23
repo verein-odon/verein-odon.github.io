@@ -107,6 +107,7 @@ The gallery at `en/data-stories/index.html` sorts `site.data_stories` by `date` 
 - **API table** (`en/api-documentation.md`) — rendered from `_data/apis.yaml`. Each entry has exactly three keys: `name`, `url`, `description`. The description cell shows `truncatewords: 20` with a "more" toggle whose `data-short`/`data-full` attributes are `| escape`d.
 - **Data stories teaser** — `{% include data-stories-teaser.html %}` on `en/index.md`; accepts `title`, `intro`, `bg_color`, `more_url`, `more_label`.
 - **People carousel** — `{% include people_carousel.html %}` on `en/index.md`; accepts `bg_color`, `title`, `intro`, `profile_label`. Driven by `_data/people.yaml`; shows at most the first three uncommented entries. Images resolve against `assets/images/people/`.
+- **Course cards** — `{% include tutorials-grid.html %}` on `en/education.md` (`#online-learning` section). Driven by `_data/tutorials.yaml` (`title`, `url`, `meta`, `summary`); each card links to a course repo under `github.com/odon-at`. The home page only has a short "Learn Together Online" teaser linking to that section — courses are not listed there. On the site, call them "courses" (not tutorials or workshops).
 
 ## Analytics & Consent
 
